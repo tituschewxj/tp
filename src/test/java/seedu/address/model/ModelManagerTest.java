@@ -29,6 +29,7 @@ public class ModelManagerTest {
         assertEquals(new UserPrefs(), modelManager.getUserPrefs());
         assertEquals(new GuiSettings(), modelManager.getGuiSettings());
         assertEquals(new AddressBook(), new AddressBook(modelManager.getAddressBook()));
+        assertEquals(new CourseName(), new CourseName(modelManager.getCourseName()));
     }
 
     @Test
@@ -79,6 +80,13 @@ public class ModelManagerTest {
         Path path = Paths.get("address/book/file/path");
         modelManager.setAddressBookFilePath(path);
         assertEquals(path, modelManager.getAddressBookFilePath());
+    }
+
+    @Test
+    public void setCourseNameFilePath_validPath_setsCourseNameFilePath() {
+        Path path = Paths.get("course/name/file/path");
+        modelManager.setCourseNameFilePath(path);
+        assertEquals(path, modelManager.getCourseNameFilePath());
     }
 
     @Test

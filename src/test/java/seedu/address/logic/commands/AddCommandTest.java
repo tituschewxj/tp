@@ -90,8 +90,7 @@ public class AddCommandTest {
         String expected = AddPersonCommand.class.getCanonicalName() + "{toAdd=" + ALICE + "}";
         assertEquals(expected, addCommand.toString());
     }
-    // TODO
-    // Abstract away the assertion errors below
+
     /**
      * A default model stub that have all the methods failing.
      */

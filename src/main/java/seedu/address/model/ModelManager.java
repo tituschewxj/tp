@@ -155,7 +155,7 @@ public class ModelManager implements Model {
     @Override
     public void setCourseNameFilePath(Path courseNameFilePath) {
         requireNonNull(courseNameFilePath);
-        userPrefs.setAddressBookFilePath(courseNameFilePath);
+        userPrefs.setCourseNameFilePath(courseNameFilePath);
     }
 
     @Override
