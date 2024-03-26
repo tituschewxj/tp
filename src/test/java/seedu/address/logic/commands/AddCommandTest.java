@@ -98,107 +98,117 @@ public class AddCommandTest {
     private class ModelStub implements Model {
         @Override
         public void setUserPrefs(ReadOnlyUserPrefs userPrefs) {
-            throw new AssertionError("This method should not be called.");
+            CustomAssertionError.throwDefault();
         }
 
         @Override
         public ReadOnlyUserPrefs getUserPrefs() {
-            throw new AssertionError("This method should not be called.");
+            CustomAssertionError.throwDefault();
+            return null;
         }
 
         @Override
         public GuiSettings getGuiSettings() {
-            throw new AssertionError("This method should not be called.");
+            CustomAssertionError.throwDefault();
+            return null;
         }
 
         @Override
         public void setGuiSettings(GuiSettings guiSettings) {
-            throw new AssertionError("This method should not be called.");
+            CustomAssertionError.throwDefault();
         }
 
         @Override
         public Path getAddressBookFilePath() {
-            throw new AssertionError("This method should not be called.");
+            CustomAssertionError.throwDefault();
+            return null;
         }
 
         @Override
         public void setAddressBookFilePath(Path addressBookFilePath) {
-            throw new AssertionError("This method should not be called.");
+            CustomAssertionError.throwDefault();
         }
 
         @Override
         public void addPerson(Person person) {
-            throw new AssertionError("This method should not be called.");
+            CustomAssertionError.throwDefault();
         }
 
         @Override
         public void setAddressBook(ReadOnlyAddressBook newData) {
-            throw new AssertionError("This method should not be called.");
+            CustomAssertionError.throwDefault();
         }
 
         @Override
         public ReadOnlyAddressBook getAddressBook() {
-            throw new AssertionError("This method should not be called.");
+            CustomAssertionError.throwDefault();
+            return null;
         }
 
         @Override
         public boolean hasPerson(Person person) {
-            throw new AssertionError("This method should not be called.");
+            CustomAssertionError.throwDefault();
+            return false;
         }
 
         @Override
         public void deletePerson(Person target) {
-            throw new AssertionError("This method should not be called.");
+            CustomAssertionError.throwDefault();
         }
 
         @Override
         public void setPerson(Person target, Person editedPerson) {
-            throw new AssertionError("This method should not be called.");
+            CustomAssertionError.throwDefault();
         }
 
         @Override
         public ObservableList<Person> getFilteredPersonList() {
-            throw new AssertionError("This method should not be called.");
+            CustomAssertionError.throwDefault();
+            return null;
         }
 
         @Override
         public void updateFilteredPersonList(Predicate<Person> predicate) {
-            throw new AssertionError("This method should not be called.");
+            CustomAssertionError.throwDefault();
         }
 
         @Override
         public void changeCode(String code) {
-            throw new AssertionError("This method should not be called.");
+            CustomAssertionError.throwDefault();
         }
 
         @Override
         public ReadOnlyStringProperty courseCodeProperty() {
-            throw new AssertionError("This method should not be called.");
+            CustomAssertionError.throwDefault();
+            return null;
         }
 
         @Override
         public Path getCourseNameFilePath() {
-            throw new AssertionError("This method should not be called.");
+            CustomAssertionError.throwDefault();
+            return null;
         }
 
         @Override
         public void setCourseNameFilePath(Path courseNameFilePath) {
-            throw new AssertionError("This method should not be called.");
+            CustomAssertionError.throwDefault();
         }
 
         @Override
         public void setCourseName(ReadOnlyCourseName course) {
-            throw new AssertionError("This method should not be called.");
+            CustomAssertionError.throwDefault();
         }
 
         @Override
         public CourseName getCourseName() {
-            throw new AssertionError("This method should not be called.");
+            CustomAssertionError.throwDefault();
+            return null;
         }
 
 
         public Optional<Person> getPersonByNusNet(NusNet nusNet) {
-            throw new AssertionError("This method should not be called.");
+            CustomAssertionError.throwDefault();
+            return Optional.empty();
         }
     }
 
