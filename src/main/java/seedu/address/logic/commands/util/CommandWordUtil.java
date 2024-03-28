@@ -44,4 +44,11 @@ public class CommandWordUtil {
                 .asList(ALL_COMMAND_WORDS)
                 .contains(strippedWord);
     }
+
+    /**
+     * Returns the list of all command words.
+     */
+    public static String[] getAllCommandWords() {
+        return ALL_COMMAND_WORDS;
+    }
 }

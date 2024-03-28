@@ -11,18 +11,7 @@ class AutoCompleteCommandTest {
     @Test
     void getAutoComplete() {
         // Initialize the command trie with some random commands
-        AutoCompleteCommand.initialize(
-                    "addstu",
-                    "delstu",
-                    "clear",
-                    "edit",
-                    "exit",
-                    "find",
-                    "help",
-                    "list",
-                    "mark",
-                    "unmark"
-        );
+        AutoCompleteCommand.initialize();
 
         AutoComplete autoComplete = new AutoCompleteCommand();
         // Test for a command that is not in the trie

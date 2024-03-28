@@ -1,5 +1,8 @@
 package seedu.address.logic.autocomplete;
 
+import static java.util.Objects.requireNonNull;
+import static seedu.address.logic.commands.util.CommandWordUtil.getAllCommandWords;
+
 import seedu.address.commons.util.Trie;
 
 /**
@@ -12,16 +15,15 @@ public class AutoCompleteCommand implements AutoComplete {
      * Initializes the command trie with the given commands. This method should be called once at
      * the start of the initialization of LogicManager.
      *
-     * @param commands the commands to initialize the trie with
      * @see seedu.address.logic.LogicManager
      */
-    public static void initialize(String... commands) {
-        commandTrie = new Trie(commands);
+    public static void initialize() {
+        commandTrie = new Trie(getAllCommandWords());
     }
 
     @Override
     public String getAutoComplete(String input) {
-        assert commandTrie != null;
+        requireNonNull(commandTrie);
         String fullCommand = commandTrie.findFirstWordWithPrefix(input);
 
         assert fullCommand != null;
