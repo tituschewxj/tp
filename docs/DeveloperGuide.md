@@ -113,7 +113,7 @@ How command execution works in `Logic` component:
 
 How autocomplete execution works in `Logic` component:
 
-1. When `Logic` is called upon to autocomplete an input string, it is passed to an `AddressBookParser` object which in turn creates a parser that matches the input and return the corresponding autocomplete object (e.g. `AutoCompleteCommand`).
+1. When `Logic` is called upon to autocomplete an input string, it is passed to an `AddressBookParser` object which in turn matches the input and return the corresponding autocomplete object (e.g. `AutoCompleteCommand`).
 1. This results in a `AutoComplete` object (more precisely, an object of one of its subclasses e.g., `AutoCompleteCommand`) which is executed by the `LogicManager`.
 1. The autocomplete object is solely responsible for generating the autocomplete suggestions based on the input string (e.g. the additional characters that can be appended to the input string).
 1. The result of the autocompletion is simply a string that autocompletes the input string. Autocomplete classes uses [Trie](#Trie) under the hood to efficiently generate the autocomplete suggestions.
