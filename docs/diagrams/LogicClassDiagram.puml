@@ -13,12 +13,15 @@ Class CommandResult
 Class "{abstract}\nCommand" as Command
 
 Class AutoCompleteXYZ
-Class "{abstract}\nAutoComplete" as AutoComplete
+Class "<<interface>>\nAutoComplete" as AutoComplete
 
 Class "<<interface>>\nLogic" as Logic
 Class LogicManager
 
 package "Commands Utility Classes" as CommandsUtil {
+}
+
+package "AutoComplete Utility Classes" as AutoCompleteUtil {
 }
 }
 
@@ -37,9 +40,10 @@ LogicManager -right->"1" ParserClasses
 ParserClasses ..> XYZCommand : <<create>>
 ParserClasses ..> AutoCompleteXYZ : <<create>>
 XYZCommand .down.> CommandsUtil
+AutoCompleteXYZ .down.> AutoCompleteUtil
 
 XYZCommand -up-|> Command
-AutoCompleteXYZ -up-|> AutoComplete
+AutoCompleteXYZ .up.|> AutoComplete
 LogicManager .left.> Command : <<call>>
 LogicManager .left.> AutoComplete : <<call>>
 
@@ -48,7 +52,6 @@ LogicManager --> Storage
 Storage --[hidden] Model
 Command .[hidden]up.> Storage
 Command .right.> Model
-AutoComplete .left.> Command
 note right of XYZCommand: XYZCommand = AddCommand, \nFindCommand, etc
 note right of AutoCompleteXYZ: AutoCompleteXYZ = AutoCompleteCommand, \nAutoCompleteNusNetId, etc
 
