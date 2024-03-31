@@ -68,4 +68,10 @@ public class ParameterSyntax {
             "Course code must follow the format \"XX1234Y\", Y is optional.",
             "CS2104"
     );
+
+    public static final Parameter PARAMETER_COURSE_CODE = new Parameter(
+            "COURSE_CODE",
+            "Course code must follow the format \"XX1234Y\", Y is optional.",
+            "CS2104"
+    );
 }
