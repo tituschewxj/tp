@@ -1,5 +1,7 @@
 package seedu.address.ui;
 
+import static seedu.address.MainApp.APP_NAME;
+
 import java.util.Optional;
 import java.util.logging.Logger;
 
@@ -13,6 +15,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import seedu.address.MainApp;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.commons.exceptions.DataLoadingException;
@@ -38,8 +41,6 @@ public class MainWindow extends UiPart<Stage> {
 
     private final Logger logger = LogsCenter.getLogger(getClass());
 
-
-
     private Stage primaryStage;
     private Logic logic;
     private PersonListPanel personListPanel;
@@ -61,9 +62,6 @@ public class MainWindow extends UiPart<Stage> {
     @FXML
     private StackPane statusbarPlaceholder;
 
-
-
-
     /**
      * Creates a {@code MainWindow} with the given {@code Stage} and {@code Logic}.
      */
@@ -77,9 +75,9 @@ public class MainWindow extends UiPart<Stage> {
 
         this.loadInitialCourseNameAndSetTitle();
 
-        model.courseCodeProperty().addListener((obs, oldVal, newVal) -> {
-            Platform.runLater(() -> setWindowTitle("Course:" + newVal));
-        });
+        model.courseCodeProperty().addListener((obs, oldVal, newVal) ->
+            Platform.runLater(() -> setWindowTitle(newVal))
+        );
 
         // Configure the UI
         setWindowDefaultSize(logic.getGuiSettings());
@@ -94,11 +92,18 @@ public class MainWindow extends UiPart<Stage> {
     }
 
     /**
-     * Sets the title of the application window.
-     * @param title The title to set for the window.
+     * Generates a title containing {@link MainApp#APP_NAME} from the {@code courseName}.
      */
-    private void setWindowTitle(String title) {
-        primaryStage.setTitle(title);
+    private String generateWindowTitle(String courseName) {
+        return APP_NAME + " | Course: " + courseName;
+    }
+
+    /**
+     * Sets the title of the application window.
+     * @param courseName The name of the course to set for the window.
+     */
+    private void setWindowTitle(String courseName) {
+        primaryStage.setTitle(generateWindowTitle(courseName));
     }
 
     private void setAccelerators() {
@@ -128,7 +133,7 @@ public class MainWindow extends UiPart<Stage> {
         }
 
         // Set the initial window title with the loaded course name.
-        setWindowTitle("Course: " + initialCourseNameData.getCourse().toString());
+        setWindowTitle(initialCourseNameData.getCourse().toString());
     }
 
     /**
