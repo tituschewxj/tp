@@ -53,7 +53,7 @@ public class ParameterSyntax {
 
     public static final Parameter PARAMETER_INDEX = new Parameter(
             "INDEX",
-            "must be a positive integer",
+            "Index must be a positive integer.",
             "1"
     );
 
@@ -63,5 +63,9 @@ public class ParameterSyntax {
             "1"
     );
 
-
+    public static final Parameter PARAMETER_COURSE_CODE = new Parameter(
+            "COURSE_CODE",
+            "Course code must follow the format \"XX1234Y\", Y is optional.",
+            "CS2104"
+    );
 }

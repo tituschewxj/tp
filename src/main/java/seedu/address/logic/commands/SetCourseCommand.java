@@ -1,6 +1,7 @@
 package seedu.address.logic.commands;
 
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
+import static seedu.address.logic.commands.util.ParameterSyntax.PARAMETER_COURSE_CODE;
 import static seedu.address.model.course.Course.isValidCode;
 
 import seedu.address.logic.commands.exceptions.CommandException;
@@ -18,14 +19,11 @@ import seedu.address.model.course.Course;
 public class SetCourseCommand extends Command {
     public static final String COMMAND_WORD = "setcrs";
 
-    public static final String MESSAGE_CONSTRAINTS =
-            "Course code should follow the format \"XX1234Y\", Y is optional.";
 
     public static final String MESSAGE_USAGE = CommandMessageUsageUtil.generateMessageUsage(
             COMMAND_WORD,
-            "Sets the course name. " + MESSAGE_CONSTRAINTS,
-            "COURSE_CODE",
-            COMMAND_WORD + " CS2104");
+            "Sets the course name. ",
+            PARAMETER_COURSE_CODE);
 
     public static final String MESSAGE_SUCCESS = "Successfully updated course name";
 
@@ -48,7 +46,7 @@ public class SetCourseCommand extends Command {
     @Override
     public CommandResult execute(Model model) throws CommandException {
         if (!isValidCode(course.toString())) {
-            throw new CommandException(MESSAGE_CONSTRAINTS);
+            throw new CommandException(PARAMETER_COURSE_CODE.getParameterConstraint());
         }
         model.changeCode(course.toString());
         return new CommandResult(MESSAGE_SUCCESS);

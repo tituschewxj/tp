@@ -8,7 +8,7 @@ import java.util.Optional;
  * in a more standardized way.
  */
 public class Parameter {
-    public final String parameterHint;
+    public final String parameterConstraint;
     private final String parameterName;
     private final String[] parameterExampleValues;
 
@@ -19,14 +19,14 @@ public class Parameter {
     private final int exampleRepetitions;
 
     /**
-     * Constructor for a {@code Parameter} that takes in the {@code parameterName}, {@code parameterHint}
+     * Constructor for a {@code Parameter} that takes in the {@code parameterName}, {@code parameterConstraint}
      * and valid {@code parameterExampleValues}, with at least one example value.
      */
-    public Parameter(String parameterName, String parameterHint, String... parameterExampleValues) {
+    public Parameter(String parameterName, String parameterConstraint, String... parameterExampleValues) {
         assert parameterName != null;
         this.parameterName = parameterName;
 
-        this.parameterHint = parameterHint;
+        this.parameterConstraint = parameterConstraint;
 
         assert parameterExampleValues != null;
         assert parameterExampleValues.length > 0;
@@ -42,7 +42,7 @@ public class Parameter {
      */
     Parameter(Parameter parameter, String detailWrapper, int exampleRepetitions) {
         this.parameterName = parameter.parameterName;
-        this.parameterHint = parameter.parameterHint;
+        this.parameterConstraint = parameter.parameterConstraint;
         this.parameterExampleValues = parameter.parameterExampleValues;
 
         assert detailWrapper.contains("%s") : "detailWrapper must contain `%s`";
@@ -58,11 +58,10 @@ public class Parameter {
     }
 
     /**
-     * Gets the parameter hint or an empty string if no hint is present.
+     * Gets the parameter constraint or an empty string if no constraint is present.
      */
-    public String getParameterHint() {
-        return Optional.ofNullable(parameterHint)
-                .map(hint -> "(" + hint + ")")
+    public String getParameterConstraint() {
+        return Optional.ofNullable(parameterConstraint)
                 .orElse("");
     }
 
@@ -70,7 +69,7 @@ public class Parameter {
      * Gets the details of the parameter, which are the parameter name and hint appended behind.
      */
     public String getParameterDetails() {
-        String details = getParameterName() + " " + getParameterHint();
+        String details = getParameterName();
         return details.trim();
     }
 
