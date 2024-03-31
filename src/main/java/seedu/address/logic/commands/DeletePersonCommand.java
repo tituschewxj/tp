@@ -22,7 +22,7 @@ public class DeletePersonCommand extends Command {
 
     public static final String MESSAGE_USAGE = generateMessageUsage(
             COMMAND_WORD,
-            "Deletes the student identified by NUSNET_ID.",
+            "Deletes the student identified by NUSNet ID.",
             PARAMETER_NUSNET
     );
 

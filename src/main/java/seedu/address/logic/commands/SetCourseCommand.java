@@ -9,6 +9,8 @@ import seedu.address.logic.commands.util.CommandMessageUsageUtil;
 import seedu.address.model.Model;
 import seedu.address.model.course.Course;
 
+
+
 /**
  * Represents a command to set the current course in the application.
  * This command updates the application's state to reflect the specified course.
