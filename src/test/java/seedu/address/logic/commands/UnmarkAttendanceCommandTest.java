@@ -79,7 +79,7 @@ public class UnmarkAttendanceCommandTest {
                 ALICE.getAddress(), aliceAttendanceUpdated, ALICE.getTags());
 
         CommandResult expectedCommandResult =
-                new CommandResult("Attendance is unmarked for student: Alice Pauline, e0000001, Week 6");
+                new CommandResult("Attendance is already unmarked for student: Alice Pauline, e0000001, Week 6");
 
         UnmarkAttendanceCommand command = new UnmarkAttendanceCommand(testValidNusNet, testValidWeekNo6);
 

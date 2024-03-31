@@ -8,8 +8,6 @@ import seedu.address.logic.commands.util.CommandMessageUsageUtil;
 import seedu.address.model.Model;
 import seedu.address.model.course.Course;
 
-
-
 /**
  * Represents a command to set the current course in the application.
  * This command updates the application's state to reflect the specified course.
@@ -20,13 +18,14 @@ import seedu.address.model.course.Course;
 public class SetCourseCommand extends Command {
     public static final String COMMAND_WORD = "setcrs";
 
-    public static final String MESSAGE_ARGUMENTS = "Course: %1$s";
-
     public static final String MESSAGE_CONSTRAINTS =
-            "Course code should follow the format \"XX1234Y\", Y is optional";
+            "Course code should follow the format \"XX1234Y\", Y is optional.";
 
-    public static final String MESSAGE_USAGE = CommandMessageUsageUtil.generateMessageUsage(COMMAND_WORD,
-            "Set Course name ", "course code", COMMAND_WORD + " CS2104");
+    public static final String MESSAGE_USAGE = CommandMessageUsageUtil.generateMessageUsage(
+            COMMAND_WORD,
+            "Sets the course name. " + MESSAGE_CONSTRAINTS,
+            "COURSE_CODE",
+            COMMAND_WORD + " CS2104");
 
     public static final String MESSAGE_SUCCESS = "Successfully updated course name";
 

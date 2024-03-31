@@ -18,7 +18,7 @@ import seedu.address.model.person.Person;
 import seedu.address.model.weeknumber.WeekNumber;
 
 /**
- * Marks attendance of an existing person in the address book.
+ * Marks attendance of an existing student in the contact book.
  */
 public class MarkAttendanceCommand extends Command {
 
@@ -26,9 +26,13 @@ public class MarkAttendanceCommand extends Command {
 
     public static final String MESSAGE_USAGE = generateMessageUsage(
             COMMAND_WORD,
-            "Marks the attendance of the person identified by their NusNet by adding the specified week to "
-                    + "their attendance set. ",
+            "Marks the attendance of the student identified by their NUSNet ID "
+                    + "by adding the specified week to their attendance set. ",
             PARAMETER_NUSNET, PARAMETER_WEEK);
+
+    public static final String MESSAGE_MARKED_ATTENDANCE_SUCCESS = "Marked attendance for student: ";
+    public static final String MESSAGE_MARK_EXISTING_ATTENDANCE_SUCCESS =
+            "Attendance is already marked for student: ";
 
     private final NusNet nusNet;
     private final WeekNumber weekNumber;
@@ -59,7 +63,7 @@ public class MarkAttendanceCommand extends Command {
 
         if (!updatedWeekAttendance.add(weekNumber)) {
             String formattedMessage = String.format("%1$s%2$s, %3$s, Week %4$s",
-                    Messages.MESSAGE_MARK_EXISTING_ATTENDANCE_SUCCESS,
+                    MESSAGE_MARK_EXISTING_ATTENDANCE_SUCCESS,
                     personToMark.getName(), personToMark.getNusNet(), weekNumber);
 
             return new CommandResult(formattedMessage);
@@ -70,7 +74,7 @@ public class MarkAttendanceCommand extends Command {
 
         model.setPerson(personToMark, updatedPerson);
 
-        String formattedMessage = String.format("%1$s%2$s, %3$s, Week %4$s", Messages.MESSAGE_MARKED_ATTENDANCE_SUCCESS,
+        String formattedMessage = String.format("%1$s%2$s, %3$s, Week %4$s", MESSAGE_MARKED_ATTENDANCE_SUCCESS,
                 updatedPerson.getName(), updatedPerson.getNusNet(), weekNumber);
 
         return new CommandResult(formattedMessage);

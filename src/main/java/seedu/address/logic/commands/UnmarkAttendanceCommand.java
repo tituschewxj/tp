@@ -17,7 +17,7 @@ import seedu.address.model.person.Person;
 import seedu.address.model.weeknumber.WeekNumber;
 
 /**
- *
+ * Unmarks attendance of an existing student in the contact book.
  */
 public class UnmarkAttendanceCommand extends Command {
 
@@ -25,10 +25,13 @@ public class UnmarkAttendanceCommand extends Command {
 
     public static final String MESSAGE_USAGE = generateMessageUsage(
             COMMAND_WORD,
-            "Unmarks the attendance of the person identified by their NusNet by removing the specified week to "
-                    + "their attendance set. ",
+            "Unmarks the attendance of the student identified by their NUSNet ID "
+                    + "by removing the specified week to their attendance set. ",
             PARAMETER_NUSNET, PARAMETER_WEEK);
 
+    public static final String MESSAGE_UNMARKED_ATTENDANCE_SUCCESS = "Unmarked attendance for student: ";
+    public static final String MESSAGE_UNMARK_NONEXISITING_ATTENDANCE_SUCCESS =
+            "Attendance is already unmarked for student: ";
     private final NusNet nusNet;
     private final WeekNumber weekNumber;
 
@@ -57,7 +60,7 @@ public class UnmarkAttendanceCommand extends Command {
 
         if (!updatedWeekAttendance.remove(weekNumber)) {
             String formattedMessage = String.format("%1$s%2$s, %3$s, Week %4$s",
-                    Messages.MESSAGE_UNMARK_NONEXISITING_ATTENDANCE_SUCCESS,
+                    MESSAGE_UNMARK_NONEXISITING_ATTENDANCE_SUCCESS,
                     personToUnmark.getName(), personToUnmark.getNusNet(), weekNumber);
 
             return new CommandResult(formattedMessage);
@@ -70,7 +73,7 @@ public class UnmarkAttendanceCommand extends Command {
         model.setPerson(personToUnmark, updatedPerson);
 
         String formattedMessage = String.format("%1$s%2$s, %3$s, Week %4$s",
-                Messages.MESSAGE_UNMARKED_ATTENDANCE_SUCCESS,
+                MESSAGE_UNMARKED_ATTENDANCE_SUCCESS,
                 updatedPerson.getName(), updatedPerson.getNusNet(), weekNumber);
 
         return new CommandResult(formattedMessage);

@@ -26,7 +26,7 @@ public class DeletePersonCommand extends Command {
             PARAMETER_NUSNET
     );
 
-    public static final String MESSAGE_DELETE_PERSON_SUCCESS = "Deleted Student: %1$s";
+    public static final String MESSAGE_DELETE_PERSON_SUCCESS = "Deleted student: %1$s";
 
     private final NusNet targetNusNet;
 

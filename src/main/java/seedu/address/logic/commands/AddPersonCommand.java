@@ -1,6 +1,7 @@
 package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
+import static seedu.address.logic.Messages.MESSAGE_DUPLICATE_PERSON;
 import static seedu.address.logic.commands.util.CommandMessageUsageUtil.generateMessageUsage;
 import static seedu.address.logic.commands.util.ParameterSyntax.PARAMETER_ADDRESS;
 import static seedu.address.logic.commands.util.ParameterSyntax.PARAMETER_EMAIL;
@@ -24,7 +25,7 @@ public class AddPersonCommand extends Command {
 
     public static final String MESSAGE_USAGE = generateMessageUsage(
             COMMAND_WORD,
-            "Adds a person to the address book. ",
+            "Adds a student into the contact book. ",
             PARAMETER_NAME,
             PARAMETER_NUSNET,
             PARAMETER_PHONE.asOptional(true),
@@ -33,10 +34,9 @@ public class AddPersonCommand extends Command {
             PARAMETER_TAG.asMultiple(2)
     );
 
-    public static final String MESSAGE_SUCCESS = "New person added: %1$s";
-    public static final String MESSAGE_DUPLICATE_PERSON = "This person already exists in the address book";
-    public static final String MESSAGE_DUPLICATE_NUSNET = "Another person with the same NUSNET already exists in the "
-            + "contact book";
+    public static final String MESSAGE_SUCCESS = "New student added: %1$s";
+    public static final String MESSAGE_DUPLICATE_NUSNET = "Another student with the same NUSNet ID "
+            + "already exists in the contact book";
 
     private final Person toAdd;
 
