@@ -43,7 +43,7 @@ Given below is a quick overview of main components and how they interact with ea
 The bulk of the app's work is done by the following four components:
 
 * [**`UI`**](#ui-component): The UI of the App.
-* [**`Logic`**](#logic-component): The command executor.
+* [**`Logic`**](#logic-component): The command and autocomplete executor.
 * [**`Model`**](#model-component): Holds the data of the App in memory.
 * [**`Storage`**](#storage-component): Reads data from, and writes data to, the hard disk.
 
@@ -90,7 +90,7 @@ The `UI` component,
 
 Here's a (partial) class diagram of the `Logic` component:
 
-<puml src="diagrams/LogicClassDiagram.puml" width="550"/>
+<puml src="diagrams/LogicClassDiagram.puml" width="800"/>
 
 The sequence diagram below illustrates the interactions within the `Logic` component, taking `execute("delstu 
 e1234567")` API 
@@ -103,7 +103,7 @@ call as an example.
 **Note:** The lifeline for `DeleteCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline continues till the end of diagram.
 </box>
 
-How the `Logic` component works:
+How command execution works in `Logic` component:
 
 1. When `Logic` is called upon to execute a command, it is passed to an `AddressBookParser` object which in turn creates a parser that matches the command (e.g., `DeleteCommandParser`) and uses it to parse the command.
 1. This results in a `Command` object (more precisely, an object of one of its subclasses e.g., `DeleteCommand`) which is executed by the `LogicManager`.
@@ -111,13 +111,21 @@ How the `Logic` component works:
    Note that although this is shown as a single step in the diagram above (for simplicity), in the code it can take several interactions (between the command object and the `Model`) to achieve.
 1. The result of the command execution is encapsulated as a `CommandResult` object which is returned back from `Logic`.
 
+How autocomplete execution works in `Logic` component:
+
+1. When `Logic` is called upon to autocomplete an input string, it is passed to an `AddressBookParser` object which in turn matches the input and return the corresponding autocomplete object (e.g. `AutoCompleteCommand`).
+1. This results in a `AutoComplete` object (more precisely, an object of one of its subclasses e.g., `AutoCompleteCommand`) which is executed by the `LogicManager`.
+1. The autocomplete object is solely responsible for generating the autocomplete suggestions based on the input string (e.g. the additional characters that can be appended to the input string).
+1. The result of the autocompletion is simply a string that autocompletes the input string. Autocomplete classes uses [Trie](#trie) under the hood to efficiently generate the autocomplete suggestions.
+
 Here are the other classes in `Logic` (omitted from the class diagram above) that are used for parsing a user command:
 
 <puml src="diagrams/ParserClasses.puml" width="600"/>
 
 How the parsing works:
 * When called upon to parse a user command, the `AddressBookParser` class creates an `XYZCommandParser` (`XYZ` is a placeholder for the specific command name e.g., `AddCommandParser`) which uses the other classes shown above to parse the user command and create a `XYZCommand` object (e.g., `AddCommand`) which the `AddressBookParser` returns back as a `Command` object.
-* All `XYZCommandParser` classes (e.g., `AddCommandParser`, `DeleteCommandParser`, ...) inherit from the `Parser` interface so that they can be treated similarly where possible e.g, during testing.
+  * All `XYZCommandParser` classes (e.g., `AddCommandParser`, `DeleteCommandParser`, ...) inherit from the `Parser` interface so that they can be treated similarly where possible e.g, during testing.
+* When called upon to parse an autocomplete input, the `AddressBookParser` class checks whether the input contains arguments. If it does not contain arguments, it creates an `AutoCompleteCommand` object which autocompletes Commands. Otherwise, it checks for the last argument in the user input and creates the matching `AutoComplete` object if it exists (e.g. `arbitrary_command arg_a/arbitrary_arg` lead to the AutoCompleteArgA object, if it exists). Otherwise, a default `AutoComplete` object that always return an empty string is returned.
 
 ### Model component
 **API** : [`Model.java`](https://github.com/AY2324S2-CS2103T-F13-1/tp/tree/master/src/main/java/seedu/address/model/Model.java)
@@ -155,6 +163,11 @@ The `Storage` component,
 ### Common classes
 
 Classes used by multiple components are in the `seedu.addressbook.commons` package.
+
+#### Trie
+
+The `Trie` class is a data structure that allows for efficient prefix matching of strings. It is used in the `AutoComplete` feature to suggest completions for user input.</br>
+We added the ability to search for the first word that matches a given prefix. This is useful for the autocomplete feature, where we want to suggest the first word that matches the prefix.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -393,6 +406,25 @@ Extensions
     * 3a1. AddressBook shows an error message.
 
       Use case resumes at step 2.
+
+**Use case: Autocompletion of command inputs**
+
+**MSS**
+
+1. User focuses on the command box.
+
+2. User presses the autocompletion hotkey.
+
+3. Autocompleted command is shown in the command box.
+   Use case ends.
+
+**Extensions**
+
+* 3a. No autocompletion is available for the current input.
+
+    * 3a1. No action is taken.
+
+    * Use case ends.
 
 *{More to be added}*
 
