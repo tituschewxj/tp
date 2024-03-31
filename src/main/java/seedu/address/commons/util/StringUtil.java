@@ -65,4 +65,15 @@ public class StringUtil {
             return false;
         }
     }
+
+    /**
+     * Returns true if the strings are equal after being trimmed.
+     */
+    public static boolean areStrippedStringsEqual(String a, String b) {
+        if (a == null || b == null) {
+            return a == null && b == null;
+        }
+
+        return a.strip().equals(b.strip());
+    }
 }

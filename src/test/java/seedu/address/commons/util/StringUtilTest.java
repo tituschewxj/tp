@@ -140,4 +140,18 @@ public class StringUtilTest {
         assertThrows(NullPointerException.class, () -> StringUtil.getDetails(null));
     }
 
+    @Test
+    void areStrippedStringsEqual_equalStrings() {
+        assertTrue(StringUtil.areStrippedStringsEqual("abc", "   abc   "));
+        assertTrue(StringUtil.areStrippedStringsEqual("   x y z   ", "x y z "));
+        assertTrue(StringUtil.areStrippedStringsEqual(null, null));
+        assertTrue(StringUtil.areStrippedStringsEqual("", "   "));
+    }
+
+    @Test
+    void areStrippedStringsEqual_unequalStrings() {
+        assertFalse(StringUtil.areStrippedStringsEqual("q w e", "qwe"));
+        assertFalse(StringUtil.areStrippedStringsEqual("   x   ", " X"));
+        assertFalse(StringUtil.areStrippedStringsEqual("", null));
+    }
 }
