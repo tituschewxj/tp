@@ -5,16 +5,23 @@ import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.input.Clipboard;
 import javafx.scene.input.ClipboardContent;
+import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.logic.commands.AddPersonCommand;
 import seedu.address.logic.commands.DeletePersonCommand;
 import seedu.address.logic.commands.EditPersonCommand;
+import seedu.address.logic.commands.ExitCommand;
 import seedu.address.logic.commands.FindPersonCommand;
 import seedu.address.logic.commands.HelpCommand;
+import seedu.address.logic.commands.ListPersonCommand;
+import seedu.address.logic.commands.MarkAttendanceCommand;
+import seedu.address.logic.commands.SetCourseCommand;
+import seedu.address.logic.commands.UnmarkAttendanceCommand;
 
 /**
  * Controller for a help page
@@ -32,6 +39,8 @@ public class HelpWindow extends UiPart<Stage> {
     private Label helpMessageLink;
     @FXML
     private VBox helpMessageContainer;
+    @FXML
+    private ScrollPane helpWindowScrollPane;
 
     /**
      * Creates a new HelpWindow.
@@ -41,6 +50,8 @@ public class HelpWindow extends UiPart<Stage> {
     public HelpWindow(Stage root) {
         super(FXML, root);
         helpMessageLink.setText(HELP_MESSAGE_LINK);
+        helpWindowScrollPane.setContent(helpMessageContainer);
+        helpWindowScrollPane.setPrefSize(Region.USE_COMPUTED_SIZE, Region.USE_PREF_SIZE);
 
         helpMessageContainer.getChildren().addAll(
                 new HelpWindowCommandCard(
@@ -56,12 +67,32 @@ public class HelpWindow extends UiPart<Stage> {
                         EditPersonCommand.MESSAGE_USAGE
                 ).getRoot(),
                 new HelpWindowCommandCard(
+                        ExitCommand.COMMAND_WORD,
+                        "-" // TODO: add ExitCommand.MESSAGE_USAGE
+                ).getRoot(),
+                new HelpWindowCommandCard(
                         FindPersonCommand.COMMAND_WORD,
                         FindPersonCommand.MESSAGE_USAGE
                 ).getRoot(),
                 new HelpWindowCommandCard(
                         HelpCommand.COMMAND_WORD,
                         HelpCommand.MESSAGE_USAGE
+                ).getRoot(),
+                new HelpWindowCommandCard(
+                        ListPersonCommand.COMMAND_WORD,
+                        "-" // TODO: add ListPersonCommand.MESSAGE_USAGE
+                ).getRoot(),
+                new HelpWindowCommandCard(
+                        MarkAttendanceCommand.COMMAND_WORD,
+                        MarkAttendanceCommand.MESSAGE_USAGE
+                ).getRoot(),
+                new HelpWindowCommandCard(
+                        SetCourseCommand.COMMAND_WORD,
+                        SetCourseCommand.MESSAGE_USAGE
+                ).getRoot(),
+                new HelpWindowCommandCard(
+                        UnmarkAttendanceCommand.COMMAND_WORD,
+                        UnmarkAttendanceCommand.MESSAGE_USAGE
                 ).getRoot()
         );
     }

@@ -9,7 +9,9 @@ import static seedu.address.ui.util.SyntaxHighlighter.BOLD_STYLE_CLASS;
 import static seedu.address.ui.util.SyntaxHighlighter.ERROR_STYLE_CLASS;
 import static seedu.address.ui.util.SyntaxHighlighter.SUCCESS_STYLE_CLASS;
 
-import org.junit.jupiter.api.BeforeEach;
+import java.util.List;
+
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import javafx.collections.ObservableList;
@@ -19,17 +21,23 @@ import javafx.scene.text.TextFlow;
 import seedu.address.logic.Messages;
 import seedu.address.logic.commands.MarkAttendanceCommand;
 
-class SyntaxHighlighterTest {
-    private TextFlow errorTextFlow;
-    private TextFlow successTextFlow;
-    private TextFlow genericTextFlow;
 
-    @BeforeEach
-    void setUp() {
-        SyntaxHighlighter s = new SyntaxHighlighter();
+class SyntaxHighlighterTest {
+    private static SyntaxHighlighter s;
+    private static TextFlow errorTextFlow;
+    private static TextFlow successTextFlow;
+    private static TextFlow genericTextFlow;
+    private static List<TextFlow> multilineTextFlows;
+
+    @BeforeAll
+    static void setUp() {
+        s = new SyntaxHighlighter();
         errorTextFlow = s.generateLine(Messages.MESSAGE_UNKNOWN_COMMAND);
         successTextFlow = s.generateLine(Messages.MESSAGE_MARKED_ATTENDANCE_SUCCESS);
         genericTextFlow = s.generateLine(MarkAttendanceCommand.MESSAGE_USAGE);
+        multilineTextFlows = s.generateLines(Messages.MESSAGE_MARKED_ATTENDANCE_SUCCESS + "\n"
+                + MarkAttendanceCommand.MESSAGE_USAGE
+        );
     }
 
     @Test
@@ -92,6 +100,25 @@ class SyntaxHighlighterTest {
                 Text text = (Text) node;
                 assertFalse(text.getStyleClass().contains(ERROR_STYLE_CLASS));
                 assertFalse(text.getStyleClass().contains(SUCCESS_STYLE_CLASS));
+            }
+        }
+    }
+
+    @Test
+    void generateLines() {
+        for (TextFlow textFlow : multilineTextFlows) {
+            if (textFlow.getChildren().size() == 1) {
+                continue;
+            }
+            for (Node node : textFlow.getChildren()) {
+                if (node instanceof Text) {
+                    Text text = (Text) node;
+                    String content = text.getText();
+                    assertEquals(
+                            content.endsWith(":") && (isUtilLabel(content) || isCommandWord(content)),
+                            text.getStyleClass().contains(BOLD_STYLE_CLASS)
+                    );
+                }
             }
         }
     }
