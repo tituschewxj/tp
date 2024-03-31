@@ -64,6 +64,9 @@ public class CommandBox extends UiPart<Region> {
         CommandHistory commandHistory = CommandHistory.getInstance();
         String previousCommand = commandHistory.getCommandHistory(direction);
         commandTextField.setText(previousCommand);
+
+        // Move cursor to end
+        commandTextField.end();
     }
 
     /**
