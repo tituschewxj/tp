@@ -2,7 +2,7 @@ package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.commands.util.CommandMessageUsageUtil.generateMessageUsage;
-import static seedu.address.logic.commands.util.ParameterSyntax.PARAMETER_NUSNET_NOPREFIX;
+import static seedu.address.logic.commands.util.ParameterSyntax.PARAMETER_NUSNET;
 
 import java.util.List;
 
@@ -23,7 +23,7 @@ public class DeletePersonCommand extends Command {
     public static final String MESSAGE_USAGE = generateMessageUsage(
             COMMAND_WORD,
             "Deletes the student identified by NUSNET_ID.",
-            PARAMETER_NUSNET_NOPREFIX
+            PARAMETER_NUSNET
     );
 
     public static final String MESSAGE_DELETE_PERSON_SUCCESS = "Deleted Student: %1$s";
