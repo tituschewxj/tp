@@ -51,7 +51,8 @@ The bulk of the app's work is done by the following four components:
 
 **How the architecture components interact with each other**
 
-The *Sequence Diagram* below shows how the components interact with each other for the scenario where the user issues the command `delstu e1234567`.
+The *Sequence Diagram* below shows how the components interact with each other for the scenario where the user 
+issues the command `delstu e1234567`.
 
 <puml src="diagrams/ArchitectureSequenceDiagram.puml" width="574" />
 
@@ -91,7 +92,9 @@ Here's a (partial) class diagram of the `Logic` component:
 
 <puml src="diagrams/LogicClassDiagram.puml" width="800"/>
 
-The sequence diagram below illustrates the interactions within the `Logic` component, taking `execute("delstu e1234567")` API call as an example.
+The sequence diagram below illustrates the interactions within the `Logic` component, taking `execute("delstu 
+e1234567")` API 
+call as an example.
 
 <puml src="diagrams/DeleteSequenceDiagram.puml" alt="Interactions Inside the Logic Component for the `delstu e1234567` Command" />
 
@@ -547,15 +550,8 @@ students.
 
 ## **Appendix: Design Decisions**
 
-1. Why does `edit` command use `INDEX` as identifier instead fo `NUSNet ID`?
+1. ** Why does `edit` command use `INDEX` as identifier instead fo `NUSNet ID`?
     1. For our users, using `edit nn/e0123456 nn/e1234567` is unintuitive.
     1. `INDEX` is visually easier to reference and requires less effort to type.
-    1. The alternative solution we considered was to disallow editing of `NUSNet ID`, but this would be a limitation on 
+    1. The alternative solution we considred was to disallow editing of NUSNet ID, but this would be a limitation on 
        the user's freedom, or would necessitate that the user deletes the student and re-enter all the details again.
-    <box type="info" seamless>
-
-    **Note:** `delstu` command uses `NUSNet ID` as identifier because it requires more intentional effort and
-    therefore ensures that the TA intends to perform this dangerous action.
-
-    </box>
-   
