@@ -555,3 +555,21 @@ students.
     1. `INDEX` is visually easier to reference and requires less effort to type.
     1. The alternative solution we considred was to disallow editing of NUSNet ID, but this would be a limitation on 
        the user's freedom, or would necessitate that the user deletes the student and re-enter all the details again.
+
+
+--------------------------------------------------------------------------------------------------------------------
+
+## **Appendix: Design Decisions**
+
+1. Why does `edit` command use `INDEX` as identifier instead fo `NUSNet ID`?
+    1. For our users, using `edit nn/e0123456 nn/e1234567` is unintuitive.
+    1. `INDEX` is visually easier to reference and requires less effort to type.
+    1. The alternative solution we considered was to disallow editing of `NUSNet ID`, but this would be a limitation on
+       the user's freedom, or would necessitate that the user deletes the student and re-enter all the details again.
+       <box type="info" seamless>
+
+   **Note:** `delstu` command uses `NUSNet ID` as identifier because it requires more intentional effort and
+   therefore ensures that the TA intends to perform this dangerous action.
+
+    </box>
+  
