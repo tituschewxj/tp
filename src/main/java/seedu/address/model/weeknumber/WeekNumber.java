@@ -4,7 +4,7 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
 /**
- * Represents a Week Number for attendance in the address book.
+ * Represents a Week Number for attendance in the contact book.
  * Guarantees: immutable; is valid as declared in {@link #isValidWeekNumber(String)}
  */
 public class WeekNumber {

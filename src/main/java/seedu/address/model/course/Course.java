@@ -3,7 +3,7 @@ package seedu.address.model.course;
 import static java.util.Objects.requireNonNull;
 
 /**
- * Represents a Course in the address book.
+ * Represents a Course in the contact book.
  * Holds details about a course, such as its code, which follows a specific format.
  * <p>
  * The course code is expected to adhere to the format defined by {@link #VALIDATION_REGEX},

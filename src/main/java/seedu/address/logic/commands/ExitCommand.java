@@ -17,7 +17,7 @@ public class ExitCommand extends Command {
             COMMAND_WORD
     );
 
-    public static final String MESSAGE_EXIT_ACKNOWLEDGEMENT = "Exiting Contact Book as requested ...";
+    public static final String MESSAGE_EXIT_ACKNOWLEDGEMENT = "Exiting TAPro as requested ...";
 
     @Override
     public CommandResult execute(Model model) {
