@@ -140,7 +140,10 @@ public class SyntaxHighlighter {
         return generateDefaultStyleText(" ");
     }
 
-    private boolean isKeyword(String text) {
+    /**
+     * Returns true if the text is a keyword that is highlighted.
+     */
+    public boolean isKeyword(String text) {
         return text.endsWith(":") && (isUtilLabel(text) || isCommandWord(text));
     }
 }

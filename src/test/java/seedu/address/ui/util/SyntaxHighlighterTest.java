@@ -3,8 +3,6 @@ package seedu.address.ui.util;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static seedu.address.logic.commands.util.CommandMessageUsageUtil.isUtilLabel;
-import static seedu.address.logic.commands.util.CommandWordUtil.isCommandWord;
 import static seedu.address.ui.util.SyntaxHighlighter.BOLD_STYLE_CLASS;
 import static seedu.address.ui.util.SyntaxHighlighter.ERROR_STYLE_CLASS;
 import static seedu.address.ui.util.SyntaxHighlighter.SUCCESS_STYLE_CLASS;
@@ -38,6 +36,19 @@ class SyntaxHighlighterTest {
         multilineTextFlows = s.generateLines(Messages.MESSAGE_MARKED_ATTENDANCE_SUCCESS + "\n"
                 + MarkAttendanceCommand.MESSAGE_USAGE
         );
+    }
+
+    private void assertTextWrapChildrenKeywordBolded(TextFlow textFlow) {
+        for (Node node : textFlow.getChildren()) {
+            if (node instanceof Text) {
+                Text text = (Text) node;
+                String content = text.getText();
+                assertEquals(
+                        s.isKeyword(content),
+                        text.getStyleClass().contains(BOLD_STYLE_CLASS)
+                );
+            }
+        }
     }
 
     @Test
@@ -81,16 +92,7 @@ class SyntaxHighlighterTest {
 
     @Test
     void generateLine_genericLine_keywordsBold() {
-        for (Node node : genericTextFlow.getChildren()) {
-            if (node instanceof Text) {
-                Text text = (Text) node;
-                String content = text.getText();
-                assertEquals(
-                        content.endsWith(":") && (isUtilLabel(content) || isCommandWord(content)),
-                        text.getStyleClass().contains(BOLD_STYLE_CLASS)
-                );
-            }
-        }
+        assertTextWrapChildrenKeywordBolded(genericTextFlow);
     }
 
     @Test
@@ -105,21 +107,13 @@ class SyntaxHighlighterTest {
     }
 
     @Test
-    void generateLines() {
+    void generateLines_genericLines_valid() {
         for (TextFlow textFlow : multilineTextFlows) {
+            // Ignore non-generic lines
             if (textFlow.getChildren().size() == 1) {
                 continue;
             }
-            for (Node node : textFlow.getChildren()) {
-                if (node instanceof Text) {
-                    Text text = (Text) node;
-                    String content = text.getText();
-                    assertEquals(
-                            content.endsWith(":") && (isUtilLabel(content) || isCommandWord(content)),
-                            text.getStyleClass().contains(BOLD_STYLE_CLASS)
-                    );
-                }
-            }
+            assertTextWrapChildrenKeywordBolded(textFlow);
         }
     }
 }
