@@ -2,12 +2,16 @@ package seedu.address.logic.parser;
 
 import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.Messages.MESSAGE_UNKNOWN_COMMAND;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_NUSNET;
 
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import seedu.address.commons.core.LogsCenter;
+import seedu.address.logic.autocomplete.AutoComplete;
+import seedu.address.logic.autocomplete.AutoCompleteCommand;
+import seedu.address.logic.autocomplete.AutoCompleteNusNetId;
 import seedu.address.logic.commands.AddPersonCommand;
 import seedu.address.logic.commands.ClearCommand;
 import seedu.address.logic.commands.Command;
@@ -31,7 +35,10 @@ public class AddressBookParser {
      * Used for initial separation of command word and args.
      */
     private static final Pattern BASIC_COMMAND_FORMAT = Pattern.compile("(?<commandWord>\\S+)(?<arguments>.*)");
+    private static final Pattern NUSNET_ID_FORMAT = Pattern.compile(PREFIX_NUSNET.getPrefix() + "(.*)");
     private static final Logger logger = LogsCenter.getLogger(AddressBookParser.class);
+    private static final String COMMAND_WORD_GROUP = "commandWord";
+    private static final String ARGUMENTS_GROUP = "arguments";
 
     /**
      * Parses user input into command for execution.
@@ -46,10 +53,11 @@ public class AddressBookParser {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, HelpCommand.MESSAGE_USAGE));
         }
 
-        final String commandWord = matcher.group("commandWord");
-        final String arguments = matcher.group("arguments");
+        final String commandWord = matcher.group(COMMAND_WORD_GROUP);
+        final String arguments = matcher.group(ARGUMENTS_GROUP);
 
-        // Note to developers: Change the log level in config.json to enable lower level (i.e., FINE, FINER and lower)
+        // Note to developers: Change the log level in config.json to enable lower level
+        // (i.e., FINE, FINER and lower)
         // log messages such as the one below.
         // Lower level log messages are used sparingly to minimize noise in the code.
         logger.fine("Command word: " + commandWord + "; Arguments: " + arguments);
@@ -76,6 +84,7 @@ public class AddressBookParser {
 
         case ExitCommand.COMMAND_WORD:
             return new ExitCommand();
+
         case HelpCommand.COMMAND_WORD:
             return new HelpCommand();
 
@@ -94,4 +103,27 @@ public class AddressBookParser {
         }
     }
 
+    /**
+     * Parses the full input text and returns the appropriate autocomplete object.
+     */
+    public AutoComplete parseAutoComplete(String userInput) {
+        final Matcher matcher = BASIC_COMMAND_FORMAT.matcher(userInput.trim());
+        if (!matcher.matches()) {
+            logger.finer("Unable to parse user input for autocomplete: " + userInput);
+            return input -> "";
+        }
+
+        final String arguments = matcher.group(ARGUMENTS_GROUP);
+
+        // no arguments, return autocomplete for command word
+        if (arguments.isEmpty()) {
+            return new AutoCompleteCommand();
+        }
+
+        if (NUSNET_ID_FORMAT.matcher(arguments).find()) {
+            return new AutoCompleteNusNetId();
+        }
+
+        return input -> "";
+    }
 }

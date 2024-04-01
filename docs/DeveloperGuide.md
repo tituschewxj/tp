@@ -43,7 +43,7 @@ Given below is a quick overview of main components and how they interact with ea
 The bulk of the app's work is done by the following four components:
 
 * [**`UI`**](#ui-component): The UI of the App.
-* [**`Logic`**](#logic-component): The command executor.
+* [**`Logic`**](#logic-component): The command and autocomplete executor.
 * [**`Model`**](#model-component): Holds the data of the App in memory.
 * [**`Storage`**](#storage-component): Reads data from, and writes data to, the hard disk.
 
@@ -51,7 +51,8 @@ The bulk of the app's work is done by the following four components:
 
 **How the architecture components interact with each other**
 
-The *Sequence Diagram* below shows how the components interact with each other for the scenario where the user issues the command `delete 1`.
+The *Sequence Diagram* below shows how the components interact with each other for the scenario where the user 
+issues the command `delstu e1234567`.
 
 <puml src="diagrams/ArchitectureSequenceDiagram.puml" width="574" />
 
@@ -89,18 +90,20 @@ The `UI` component,
 
 Here's a (partial) class diagram of the `Logic` component:
 
-<puml src="diagrams/LogicClassDiagram.puml" width="550"/>
+<puml src="diagrams/LogicClassDiagram.puml" width="800"/>
 
-The sequence diagram below illustrates the interactions within the `Logic` component, taking `execute("delete 1")` API call as an example.
+The sequence diagram below illustrates the interactions within the `Logic` component, taking `execute("delstu 
+e1234567")` API 
+call as an example.
 
-<puml src="diagrams/DeleteSequenceDiagram.puml" alt="Interactions Inside the Logic Component for the `delete 1` Command" />
+<puml src="diagrams/DeleteSequenceDiagram.puml" alt="Interactions Inside the Logic Component for the `delstu e1234567` Command" />
 
 <box type="info" seamless>
 
 **Note:** The lifeline for `DeleteCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline continues till the end of diagram.
 </box>
 
-How the `Logic` component works:
+How command execution works in `Logic` component:
 
 1. When `Logic` is called upon to execute a command, it is passed to an `AddressBookParser` object which in turn creates a parser that matches the command (e.g., `DeleteCommandParser`) and uses it to parse the command.
 1. This results in a `Command` object (more precisely, an object of one of its subclasses e.g., `DeleteCommand`) which is executed by the `LogicManager`.
@@ -108,13 +111,21 @@ How the `Logic` component works:
    Note that although this is shown as a single step in the diagram above (for simplicity), in the code it can take several interactions (between the command object and the `Model`) to achieve.
 1. The result of the command execution is encapsulated as a `CommandResult` object which is returned back from `Logic`.
 
+How autocomplete execution works in `Logic` component:
+
+1. When `Logic` is called upon to autocomplete an input string, it is passed to an `AddressBookParser` object which in turn matches the input and return the corresponding autocomplete object (e.g. `AutoCompleteCommand`).
+1. This results in a `AutoComplete` object (more precisely, an object of one of its subclasses e.g., `AutoCompleteCommand`) which is executed by the `LogicManager`.
+1. The autocomplete object is solely responsible for generating the autocomplete suggestions based on the input string (e.g. the additional characters that can be appended to the input string).
+1. The result of the autocompletion is simply a string that autocompletes the input string. Autocomplete classes uses [Trie](#trie) under the hood to efficiently generate the autocomplete suggestions.
+
 Here are the other classes in `Logic` (omitted from the class diagram above) that are used for parsing a user command:
 
 <puml src="diagrams/ParserClasses.puml" width="600"/>
 
 How the parsing works:
 * When called upon to parse a user command, the `AddressBookParser` class creates an `XYZCommandParser` (`XYZ` is a placeholder for the specific command name e.g., `AddCommandParser`) which uses the other classes shown above to parse the user command and create a `XYZCommand` object (e.g., `AddCommand`) which the `AddressBookParser` returns back as a `Command` object.
-* All `XYZCommandParser` classes (e.g., `AddCommandParser`, `DeleteCommandParser`, ...) inherit from the `Parser` interface so that they can be treated similarly where possible e.g, during testing.
+  * All `XYZCommandParser` classes (e.g., `AddCommandParser`, `DeleteCommandParser`, ...) inherit from the `Parser` interface so that they can be treated similarly where possible e.g, during testing.
+* When called upon to parse an autocomplete input, the `AddressBookParser` class checks whether the input contains arguments. If it does not contain arguments, it creates an `AutoCompleteCommand` object which autocompletes Commands. Otherwise, it checks for the last argument in the user input and creates the matching `AutoComplete` object if it exists (e.g. `arbitrary_command arg_a/arbitrary_arg` lead to the AutoCompleteArgA object, if it exists). Otherwise, a default `AutoComplete` object that always return an empty string is returned.
 
 ### Model component
 **API** : [`Model.java`](https://github.com/AY2324S2-CS2103T-F13-1/tp/tree/master/src/main/java/seedu/address/model/Model.java)
@@ -153,6 +164,11 @@ The `Storage` component,
 
 Classes used by multiple components are in the `seedu.addressbook.commons` package.
 
+#### Trie
+
+The `Trie` class is a data structure that allows for efficient prefix matching of strings. It is used in the `AutoComplete` feature to suggest completions for user input.</br>
+We added the ability to search for the first word that matches a given prefix. This is useful for the autocomplete feature, where we want to suggest the first word that matches the prefix.
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## **Implementation**
@@ -177,7 +193,13 @@ Step 1. The user launches the application for the first time. The `VersionedAddr
 
 <puml src="diagrams/UndoRedoState0.puml" alt="UndoRedoState0" />
 
-Step 2. The user executes `delete 5` command to delete the 5th person in the address book. The `delete` command calls `Model#commitAddressBook()`, causing the modified state of the address book after the `delete 5` command executes to be saved in the `addressBookStateList`, and the `currentStatePointer` is shifted to the newly inserted address book state.
+Step 2. The user executes `delstu e1234567` command to delete student with nusnet ID as e1234567 from the address book. 
+The `delstu` 
+command 
+calls 
+`Model#commitAddressBook()`, causing the modified state of the address book after the `delstu e1234567` command 
+executes to 
+be saved in the `addressBookStateList`, and the `currentStatePointer` is shifted to the newly inserted address book state.
 
 <puml src="diagrams/UndoRedoState1.puml" alt="UndoRedoState1" />
 
@@ -194,6 +216,9 @@ Step 3. The user executes `add n/David …​` to add a new person. The `add` co
 Step 4. The user now decides that adding the person was a mistake, and decides to undo that action by executing the `undo` command. The `undo` command will call `Model#undoAddressBook()`, which will shift the `currentStatePointer` once to the left, pointing it to the previous address book state, and restores the address book to that state.
 
 <puml src="diagrams/UndoRedoState3.puml" alt="UndoRedoState3" />
+
+Step 5. The user wants to set the course name. He enters the command `setcrs CS2103T`, causing the course name to appear on the main window's title.
+
 
 
 <box type="info" seamless>
@@ -247,7 +272,7 @@ The following activity diagram summarizes what happens when a user executes a ne
 
 * **Alternative 2:** Individual command knows how to undo/redo by
   itself.
-  * Pros: Will use less memory (e.g. for `delete`, just save the person being deleted).
+  * Pros: Will use less memory (e.g. for `delstu`, just save the person being deleted).
   * Cons: We must ensure that the implementation of each individual command are correct.
 
 _{more aspects and alternatives to be added}_
@@ -313,6 +338,14 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
    Use case ends.
 
+Extensions
+
+* 1a. No such student exists.
+
+  * 1a1. AddressBook shows an error message. 
+  
+  * Use case ends.
+
 **Use case: Add a student**
 
 **MSS**
@@ -341,7 +374,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **MSS**
 
-1. User requests to mark attendance for a student by providing the student's NUSNet ID; specifying the week is optional.
+1. User requests to mark attendance for a student by providing the student's NUSNet ID.
 
    Use case ends.
 
@@ -349,7 +382,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **MSS**
 
-1. User requests to un-mark attendance for a student by providing the student's NUSNet ID; specifying the week is optional.
+1. User requests to un-mark attendance for a student by providing the student's NUSNet ID.
 
    Use case ends.
 
@@ -373,6 +406,25 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     * 3a1. AddressBook shows an error message.
 
       Use case resumes at step 2.
+
+**Use case: Autocompletion of command inputs**
+
+**MSS**
+
+1. User focuses on the command box.
+
+2. User presses the autocompletion hotkey.
+
+3. Autocompleted command is shown in the command box.
+   Use case ends.
+
+**Extensions**
+
+* 3a. No autocompletion is available for the current input.
+
+    * 3a1. No action is taken.
+
+    * Use case ends.
 
 *{More to be added}*
 
@@ -425,36 +477,56 @@ testers are expected to do more *exploratory* testing.
 
 1. _{ more test cases …​ }_
 
-### Adding a person
-If TAPro does not have any student contacts, the following comamnds can be used to add some 
+### Adding a student
+If TAPro does not have any student contacts, the following commands can be used to add some 
 students.
 
-1. Adding a person
+1. Adding a student with NUSNet ID e0123456
+   
+   1. Prerequisites: No student with NUSNet ID e0123456 in the contact book.
+   
+   1. Test case: `addstu n/John Doe p/98765432 e/johndoe@example.com nn/e0123456 a/311, Clementi Ave 2, #02-25 t/friends t/owesMoney`
 
-   1. Prerequisites: No persons in the list.
+      Expected: Student with NUSNet ID `e0123456` is added to the contact book. Details of the added contact 
+      shown in the status message.
+      
+1. Adding a student with NUSNet ID e0123457
 
-   1. Command 1: `addstu n/John Doe p/98765432 e/johndoe@example.com nn/e0123456 a/311, Clementi Ave 2, #02-25 
-      t/friends t/owesMoney`
-   1. Command 2: `addstu n/Mary Jane p/91234911 e/janemary@example.com nn/e0123457 a/312, Clementi St 1, #03-25
-      t/friends t/owesTutorial2` 
+   1. Prerequisites: No student with NUSNet ID e0123457 in the contact book.
+      
+   1. Test case: `addstu n/Mary Jane p/91234911 e/janemary@example.com nn/e0123457 a/312, Clementi St 1, #03-25 t/friends t/owesTutorial2`
 
+      Expected: Student with NUSNet ID `e0123457` is added to the contact book. Details of the added contact 
+      shown in the status message.
 
-### Deleting a person
+### Deleting a student
 
 1. Deleting a student
 
-   1. Prerequisites: Contact book contains at least one student.
+   1. Prerequisites: Contact book contains at least one student with NUSNet ID e0123456.
 
    1. Test case: `delete e0123456`<br>
       Expected: Student with NUSNet ID `e0123456` is deleted from the contact book. Details of the deleted contact 
-      shown in the 
-      status 
-      message. 
-
+      shown in the status message.
+      
    1. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is not an NUSNet ID of a student 
       in TA Pro)<br>
 
 1. _{ more test cases …​ }_
+
+### Marking a student's attendance
+
+1. Marking attendance for a student
+
+   1. Prerequisites: Contact book contains at least one student with NUSNet ID e0123456.
+
+   1. Test case: `mark nn/e0123456 wk/1`<br>
+      Expected: Student with NUSNet ID `e0123456` is marked as 'present' from the contact book, depicted on that student's card.
+      Details of the marked contact shown in the status message.
+      
+   1. Other incorrect mark commands to try: `mark`, `mark x`, `mark nn/e0123456`, `mark wk/1`, `mark e0123456 1`,  `...` (where x is not an NUSNet ID of a student 
+      in TA Pro)<br>
+
 
 ### Saving data
 
@@ -463,3 +535,13 @@ students.
    1. _{explain how to simulate a missing/corrupted file, and the expected behavior}_
 
 1. _{ more test cases …​ }_
+
+### Setting the course
+
+1. Setting a course 
+    
+   1. Test case: `setcrs CS2103`<br>
+      Enter setcrs followed by a whitespace, followed by a course code in the format `XXYYYYZ`, where `X` and `Z` can be any letter
+      in upper or lower case, `YYYY` can be any 4 digit number and `Z` is optional.
+      Expected: The main window's title is set as the course code provided
+

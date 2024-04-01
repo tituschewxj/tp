@@ -6,6 +6,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NUSNET;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_WEEK;
 
 /**
  * Contains parameter syntax definitions and examples common to multiple commands.
@@ -54,5 +55,17 @@ public class ParameterSyntax {
             "INDEX",
             "must be a positive integer",
             "1"
+    );
+
+    public static final Parameter PARAMETER_WEEK = new DefinedParameter(
+            PREFIX_WEEK,
+            "WEEK",
+            "1"
+    );
+
+    public static final Parameter PARAMETER_NUSNET_NOPREFIX = new Parameter(
+            "NUSNET",
+            null,
+            "e0123456"
     );
 }

@@ -3,8 +3,9 @@ package seedu.address.ui;
 import static java.util.Objects.requireNonNull;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.TextArea;
 import javafx.scene.layout.Region;
+import javafx.scene.layout.VBox;
+import seedu.address.ui.util.SyntaxHighlighter;
 
 /**
  * A ui for the status bar that is displayed at the header of the application.
@@ -12,9 +13,10 @@ import javafx.scene.layout.Region;
 public class ResultDisplay extends UiPart<Region> {
 
     private static final String FXML = "ResultDisplay.fxml";
+    private static final SyntaxHighlighter resultSyntax = new SyntaxHighlighter("result-display");
 
     @FXML
-    private TextArea resultDisplay;
+    private VBox resultDisplay;
 
     public ResultDisplay() {
         super(FXML);
@@ -22,7 +24,9 @@ public class ResultDisplay extends UiPart<Region> {
 
     public void setFeedbackToUser(String feedbackToUser) {
         requireNonNull(feedbackToUser);
-        resultDisplay.setText(feedbackToUser);
-    }
 
+        resultDisplay.getChildren().setAll(
+                resultSyntax.generateLines(feedbackToUser)
+        );
+    }
 }

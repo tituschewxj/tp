@@ -1,6 +1,17 @@
-
+/* The error class should always override the default text-fill style */
 .error {
-    -fx-text-fill: #d06651 !important; /* The error class should always override the default text-fill style */
+    -fx-text-fill: #d06651 !important;
+    -fx-fill: #d06651 !important;
+}
+
+ /* The success class should always override the default text-fill style */
+.success {
+    -fx-text-fill: #8AB68D !important;
+    -fx-fill: #8AB68D !important;
+}
+
+.bold {
+    -fx-font-family: "Segoe UI Bold" !important;
 }
 
 .list-cell:empty {
@@ -9,13 +20,6 @@
 }
 
 .tag-selector {
-    -fx-border-width: 1;
-    -fx-border-color: white;
-    -fx-border-radius: 3;
-    -fx-background-radius: 3;
-}
-
-.weekNumber-selector {
     -fx-border-width: 1;
     -fx-border-color: white;
     -fx-border-radius: 3;
