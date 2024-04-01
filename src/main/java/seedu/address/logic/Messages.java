@@ -8,6 +8,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.commands.AddPersonCommand;
 import seedu.address.logic.commands.ClearCommand;
 import seedu.address.logic.commands.DeletePersonCommand;
@@ -23,11 +24,13 @@ import seedu.address.model.person.Person;
 
 /**
  * Container for user visible messages.
+ * <p>
+ * Messages that are not command-specific are listed here.
+ * <p>
+ * Messages that are command-specific should be in their respective classes.
  */
 public class Messages {
 
-    // These messages are not command-specific, so are listed here
-    // Messages that are command-specific should be in their respective classes
     public static final String MESSAGE_UNKNOWN_COMMAND = "Unknown command";
     public static final String MESSAGE_INVALID_COMMAND_FORMAT = "Invalid command format! \n%1$s";
     public static final String MESSAGE_INVALID_PERSON_DISPLAYED_INDEX = "The student index provided is invalid";
@@ -106,35 +109,32 @@ public class Messages {
     }
 
     /**
-     * Returns true if the message is a message representing the failure of a command.
+     * Returns true if the {@code message} is a message representing the failure of a command.
+     * Otherwise, false is returned.
+     *
+     * @param message The message to check.
+     * @see StringUtil#stripMessageFormatSpecifiers(String)
      */
     public static boolean isErrorMessage(String message) {
         requireNonNull(message);
         return Arrays
                 .stream(ERROR_MESSAGES)
-                .map(Messages::stripMessagePlaceholders)
+                .map(StringUtil::stripMessageFormatSpecifiers)
                 .anyMatch(message::contains);
     }
 
     /**
-     * Returns true if the message is a message representing the success of a command.
+     * Returns true if the {@code message} is a message representing the success of a command.
+     * Otherwise, false is returned.
+     *
+     * @param message The message to check.
+     * @see StringUtil#stripMessageFormatSpecifiers(String)
      */
     public static boolean isSuccessMessage(String message) {
         requireNonNull(message);
         return Arrays
                 .stream(SUCCESS_MESSAGES)
-                .map(Messages::stripMessagePlaceholders)
+                .map(StringUtil::stripMessageFormatSpecifiers)
                 .anyMatch(message::contains);
-    }
-
-    /**
-     * Strips whitespace and {@code %1$s} placeholders from the message.
-     */
-    private static String stripMessagePlaceholders(String message) {
-        if (message.contains("%1$s")) {
-            return String.format(message, "").trim();
-        } else {
-            return message.trim();
-        }
     }
 }

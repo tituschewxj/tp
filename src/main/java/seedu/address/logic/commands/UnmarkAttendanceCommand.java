@@ -17,7 +17,10 @@ import seedu.address.model.person.Person;
 import seedu.address.model.weeknumber.WeekNumber;
 
 /**
- * Unmarks attendance of an existing student in the contact book.
+ * Unmarks attendance of an existing student of a certain week in the contact book.
+ * <li>The week should be between 1 and 13.
+ * <li>The NUSNet ID should be valid.
+ * <li>Attendance can be unmarked again, without any error, but no change would occur.
  */
 public class UnmarkAttendanceCommand extends Command {
 
@@ -36,8 +39,10 @@ public class UnmarkAttendanceCommand extends Command {
     private final WeekNumber weekNumber;
 
     /**
-     * @param nusNet of the person to mark attendance for
-     * @param weekNumber the week number to mark attendance for
+     * Creates an {@link UnmarkAttendanceCommand}.
+     *
+     * @param nusNet of the person to mark attendance for.
+     * @param weekNumber the week number to mark attendance for.
      */
     public UnmarkAttendanceCommand(NusNet nusNet, WeekNumber weekNumber) {
         requireNonNull(nusNet);
