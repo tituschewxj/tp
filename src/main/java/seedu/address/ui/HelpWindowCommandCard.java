@@ -26,7 +26,7 @@ public class HelpWindowCommandCard extends UiPart<Region> {
      */
     public HelpWindowCommandCard(String commandWord, String messageUsage) {
         super(FXML);
-        this.commandWord.setText(commandWord);
+        this.commandWord.setText(commandWord.toUpperCase());
         this.messageUsage.getChildren().setAll(
                 helpCardSyntax.generateLines(messageUsage)
         );
