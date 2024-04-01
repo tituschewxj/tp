@@ -3,6 +3,10 @@
     -fx-background-color: derive(#1d1d1d, 20%);
 }
 
+#helpMessageLink {
+    -fx-padding: 5 10 5 10;
+}
+
 #copyButton {
     -fx-background-color: dimgray;
 }
@@ -17,4 +21,11 @@
 
 #helpMessageContainer {
     -fx-background-color: derive(#1d1d1d, 25%);
+}
+
+#helpWindowHeader {
+    -fx-text-fill: white;
+    -fx-font-family: "Segoe UI Black" !important;
+    -fx-font-size: 14pt;
+    -fx-padding: 15 15 10 15;
 }

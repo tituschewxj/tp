@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.geometry.Insets?>
 <?import java.net.URL?>
@@ -10,11 +11,8 @@
     <URL value="@HelpWindowCommandCard.css" />
   </stylesheets>
   <children>
-    <Label fx:id="commandWord" styleClass="cell_big_label" text="\$commandWord" >
-      <padding>
-        <Insets bottom="5.0"/>
-      </padding>
-    </Label>
+    <Separator fx:id="cardSeparator" />
+    <Label fx:id="commandWord" text="\$commandWord" />
     <VBox fx:id="messageUsage" spacing="5" styleClass="cell_small_label">
       <!-- TextFlow children are added dynamically for each line. -->
     </VBox>
