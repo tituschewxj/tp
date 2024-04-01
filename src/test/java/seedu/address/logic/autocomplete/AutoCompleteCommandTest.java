@@ -15,9 +15,9 @@ class AutoCompleteCommandTest {
 
         AutoComplete autoComplete = new AutoCompleteCommand();
         // Test for a command that is not in the trie
-        assertEquals("", autoComplete.getAutoComplete("xdddd"));
+        assertEquals("", autoComplete.getAutoComplete("xdddd").getNextResult());
 
         // Test for a command that is in the trie
-        assertEquals("it", autoComplete.getAutoComplete("ed"));
+        assertEquals("it", autoComplete.getAutoComplete("ed").getNextResult());
     }
 }

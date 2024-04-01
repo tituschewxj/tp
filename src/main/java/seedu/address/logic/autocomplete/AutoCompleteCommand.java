@@ -3,6 +3,9 @@ package seedu.address.logic.autocomplete;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.commands.util.CommandWordUtil.getAllCommandWords;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import seedu.address.commons.util.Trie;
 
 /**
@@ -22,16 +25,21 @@ public class AutoCompleteCommand implements AutoComplete {
     }
 
     @Override
-    public String getAutoComplete(String input) {
+    public AutoCompleteResult getAutoComplete(String input) {
         requireNonNull(commandTrie);
-        String fullCommand = commandTrie.findFirstWordWithPrefix(input);
+        List<String> fullCommands = commandTrie.findAllWordsWithPrefix(input);
 
-        assert fullCommand != null;
-        if (fullCommand.isEmpty()) {
-            return "";
+        assert fullCommands != null;
+        if (fullCommands.isEmpty()) {
+            return new AutoCompleteResult();
         }
 
-        // Strip the input from the full command
-        return fullCommand.substring(input.length());
+        // Strip the input from the full commands and sort the list
+        return new AutoCompleteResult(
+                fullCommands.stream()
+                        .map(c -> c.substring(input.length()))
+                        .sorted()
+                        .collect(Collectors.toList())
+        );
     }
 }

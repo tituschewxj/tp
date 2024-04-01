@@ -5,10 +5,10 @@ package seedu.address.logic.autocomplete;
  */
 public interface AutoComplete {
     /**
-     * Returns the autocomplete text based on the input.
+     * Returns the autocomplete result based on the input.
      *
      * @param input The input as entered by the user.
-     * @return the autocomplete text to be appended to the input.
+     * @return the autocomplete result to be appended to the input.
      */
-    String getAutoComplete(String input);
+    AutoCompleteResult getAutoComplete(String input);
 }
