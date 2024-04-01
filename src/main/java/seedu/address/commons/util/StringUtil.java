@@ -76,4 +76,20 @@ public class StringUtil {
 
         return a.strip().equals(b.strip());
     }
+
+    /**
+     * Strips whitespace and format specifiers from the {@code message}.
+     * <p>
+     * Format specifiers are assumed to be in the format of {@code %\\d*\\$?\\w}.
+     *
+     * @param text The text to strip.
+     * @return The message without the placeholders and whitespace.
+     */
+    public static String stripMessageFormatSpecifiers(String text) {
+        if (text.contains("%")) {
+            return text.replaceAll("%\\d*\\$?\\w", "").trim();
+        } else {
+            return text.trim();
+        }
+    }
 }

@@ -1,5 +1,6 @@
 package seedu.address.commons.util;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.testutil.Assert.assertThrows;
@@ -153,5 +154,33 @@ public class StringUtilTest {
         assertFalse(StringUtil.areStrippedStringsEqual("q w e", "qwe"));
         assertFalse(StringUtil.areStrippedStringsEqual("   x   ", " X"));
         assertFalse(StringUtil.areStrippedStringsEqual("", null));
+    }
+
+    @Test
+    void stripMessageFormatSpecifiers_blankText_specifierAbsent() {
+        assertEquals("", StringUtil.stripMessageFormatSpecifiers(""));
+        assertEquals("", StringUtil.stripMessageFormatSpecifiers("      "));
+        assertEquals("", StringUtil.stripMessageFormatSpecifiers("  \n "));
+    }
+
+    @Test
+    void stripMessageFormatSpecifiers_blankText_specifierPresent() {
+        assertEquals("", StringUtil.stripMessageFormatSpecifiers("%d %s %c %f"));
+        assertEquals("", StringUtil.stripMessageFormatSpecifiers("   %d  \n %1$d "));
+        assertEquals("", StringUtil.stripMessageFormatSpecifiers("%2$s \t %3$c  \n %1$o"));
+    }
+
+    @Test
+    void stripMessageFormatSpecifiers_nonBlankText_specifierAbsent() {
+        assertEquals("abc", StringUtil.stripMessageFormatSpecifiers("abc"));
+        assertEquals("def", StringUtil.stripMessageFormatSpecifiers("    def  "));
+        assertEquals("1 2 3", StringUtil.stripMessageFormatSpecifiers(" 1 2 3 \n"));
+    }
+
+    @Test
+    void stripMessageFormatSpecifiers_nonBlankText_specifierPresent() {
+        assertEquals("abc", StringUtil.stripMessageFormatSpecifiers("a%sb%dc"));
+        assertEquals("def", StringUtil.stripMessageFormatSpecifiers("   d%1$se%2$bf %f  "));
+        assertEquals("1 2 3", StringUtil.stripMessageFormatSpecifiers("%d\n1 2 3 %1$t \t "));
     }
 }
