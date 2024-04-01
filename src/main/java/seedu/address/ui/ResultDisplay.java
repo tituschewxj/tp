@@ -2,9 +2,6 @@ package seedu.address.ui;
 
 import static java.util.Objects.requireNonNull;
 
-import java.util.Arrays;
-import java.util.stream.Collectors;
-
 import javafx.fxml.FXML;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
@@ -28,11 +25,8 @@ public class ResultDisplay extends UiPart<Region> {
     public void setFeedbackToUser(String feedbackToUser) {
         requireNonNull(feedbackToUser);
 
-        resultDisplay.getChildren().setAll(Arrays
-                .stream(feedbackToUser.split("\\n"))
-                .map(String::strip)
-                .map(resultSyntax::generateLine)
-                .collect(Collectors.toList())
+        resultDisplay.getChildren().setAll(
+                resultSyntax.generateLines(feedbackToUser)
         );
     }
 }

@@ -136,6 +136,7 @@
     -fx-font-family: "Segoe UI";
     -fx-font-size: 13px;
     -fx-text-fill: #010504;
+    -fx-fill: white;
 }
 
 .stack-pane {
@@ -160,10 +161,6 @@
     -fx-fill: white;
     -fx-line-spacing: 0px;
     -fx-font-smoothing-type: lcd;
-}
-
-.result-display .bold {
-    -fx-font-family: "Segoe UI Bold" !important;
 }
 
 .result-display .label {
@@ -318,6 +315,11 @@
 
 .scroll-bar:horizontal .increment-arrow, .scroll-bar:horizontal .decrement-arrow {
     -fx-padding: 8 1 8 1;
+}
+
+.scroll-pane {
+    -fx-focus-color: transparent;
+    -fx-border-width: 0;
 }
 
 #cardPane {
