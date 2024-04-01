@@ -97,116 +97,116 @@ public class AddCommandTest {
     private class ModelStub implements Model {
         @Override
         public void setUserPrefs(ReadOnlyUserPrefs userPrefs) {
-            CustomAssertionError.throwDefault();
+            InappropriateMethodCallAssertionError.throwDefault();
         }
 
         @Override
         public ReadOnlyUserPrefs getUserPrefs() {
-            CustomAssertionError.throwDefault();
+            InappropriateMethodCallAssertionError.throwDefault();
             return null;
         }
 
         @Override
         public GuiSettings getGuiSettings() {
-            CustomAssertionError.throwDefault();
+            InappropriateMethodCallAssertionError.throwDefault();
             return null;
         }
 
         @Override
         public void setGuiSettings(GuiSettings guiSettings) {
-            CustomAssertionError.throwDefault();
+            InappropriateMethodCallAssertionError.throwDefault();
         }
 
         @Override
         public Path getAddressBookFilePath() {
-            CustomAssertionError.throwDefault();
+            InappropriateMethodCallAssertionError.throwDefault();
             return null;
         }
 
         @Override
         public void setAddressBookFilePath(Path addressBookFilePath) {
-            CustomAssertionError.throwDefault();
+            InappropriateMethodCallAssertionError.throwDefault();
         }
 
         @Override
         public void addPerson(Person person) {
-            CustomAssertionError.throwDefault();
+            InappropriateMethodCallAssertionError.throwDefault();
         }
 
         @Override
         public void setAddressBook(ReadOnlyAddressBook newData) {
-            CustomAssertionError.throwDefault();
+            InappropriateMethodCallAssertionError.throwDefault();
         }
 
         @Override
         public ReadOnlyAddressBook getAddressBook() {
-            CustomAssertionError.throwDefault();
+            InappropriateMethodCallAssertionError.throwDefault();
             return null;
         }
 
         @Override
         public boolean hasPerson(Person person) {
-            CustomAssertionError.throwDefault();
+            InappropriateMethodCallAssertionError.throwDefault();
             return false;
         }
 
         @Override
         public void deletePerson(Person target) {
-            CustomAssertionError.throwDefault();
+            InappropriateMethodCallAssertionError.throwDefault();
         }
 
         @Override
         public void setPerson(Person target, Person editedPerson) {
-            CustomAssertionError.throwDefault();
+            InappropriateMethodCallAssertionError.throwDefault();
         }
 
         @Override
         public ObservableList<Person> getFilteredPersonList() {
-            CustomAssertionError.throwDefault();
+            InappropriateMethodCallAssertionError.throwDefault();
             return null;
         }
 
         @Override
         public void updateFilteredPersonList(Predicate<Person> predicate) {
-            CustomAssertionError.throwDefault();
+            InappropriateMethodCallAssertionError.throwDefault();
         }
 
         @Override
         public void changeCode(String code) {
-            CustomAssertionError.throwDefault();
+            InappropriateMethodCallAssertionError.throwDefault();
         }
 
         @Override
         public ReadOnlyStringProperty courseCodeProperty() {
-            CustomAssertionError.throwDefault();
+            InappropriateMethodCallAssertionError.throwDefault();
             return null;
         }
 
         @Override
         public Path getCourseNameFilePath() {
-            CustomAssertionError.throwDefault();
+            InappropriateMethodCallAssertionError.throwDefault();
             return null;
         }
 
         @Override
         public void setCourseNameFilePath(Path courseNameFilePath) {
-            CustomAssertionError.throwDefault();
+            InappropriateMethodCallAssertionError.throwDefault();
         }
 
         @Override
         public void setCourseName(ReadOnlyCourseName course) {
-            CustomAssertionError.throwDefault();
+            InappropriateMethodCallAssertionError.throwDefault();
         }
 
         @Override
         public CourseName getCourseName() {
-            CustomAssertionError.throwDefault();
+            InappropriateMethodCallAssertionError.throwDefault();
             return null;
         }
 
 
         public Optional<Person> getPersonByNusNet(NusNet nusNet) {
-            CustomAssertionError.throwDefault();
+            InappropriateMethodCallAssertionError.throwDefault();
             return Optional.empty();
         }
     }
