@@ -35,6 +35,8 @@ public class AddPersonCommand extends Command {
 
     public static final String MESSAGE_SUCCESS = "New person added: %1$s";
     public static final String MESSAGE_DUPLICATE_PERSON = "This person already exists in the address book";
+    public static final String MESSAGE_DUPLICATE_NUSNET = "Another person with the same NUSNET already exists in the "
+            + "contact book";
 
     private final Person toAdd;
 
@@ -51,7 +53,14 @@ public class AddPersonCommand extends Command {
         requireNonNull(model);
 
         if (model.hasPerson(toAdd)) {
-            throw new CommandException(MESSAGE_DUPLICATE_PERSON);
+            // This should not fail because the person is already in the model
+            Person existing = model.getPersonByNusNet(toAdd.getNusNet()).orElseThrow();
+
+            if (existing.getName().equals(toAdd.getName())) {
+                throw new CommandException(MESSAGE_DUPLICATE_PERSON);
+            } else {
+                throw new CommandException(MESSAGE_DUPLICATE_NUSNET);
+            }
         }
 
         model.addPerson(toAdd);
