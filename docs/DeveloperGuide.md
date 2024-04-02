@@ -570,5 +570,4 @@ students.
 
    **Note:** `delstu` command uses `NUSNet ID` as identifier because it requires more intentional effort and
    therefore ensures that the TA intends to perform this dangerous action.
-
    </box>
