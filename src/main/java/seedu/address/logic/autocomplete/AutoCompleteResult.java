@@ -4,6 +4,10 @@ import java.util.List;
 
 /**
  * Stores the result of running the {@link AutoCompleteCommand}.
+ * <p>
+ * The result is an empty string if there is no result.
+ * <p>
+ * The result are the rest of the possible strings after the prefix if results exist.
  */
 public class AutoCompleteResult {
     final List<String> results;
@@ -16,7 +20,6 @@ public class AutoCompleteResult {
      */
     public AutoCompleteResult(List<String> results) {
         this.results = results;
-        System.out.println(results);
         currentIndex = 0;
     }
 

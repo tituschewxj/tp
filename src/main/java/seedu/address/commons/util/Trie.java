@@ -113,8 +113,6 @@ public class Trie {
             sb.append(c);
             current = current.getChild(c);
         }
-        System.out.println(prefix);
-        System.out.println(findAllWordsWithPrefix(prefix));
 
         return findFirstWordWithPrefixHelper(current, sb);
     }
