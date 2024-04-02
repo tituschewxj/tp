@@ -565,10 +565,11 @@ students.
     1. `INDEX` is visually easier to reference and requires less effort to type.
     1. The alternative solution we considered was to disallow editing of `NUSNet ID`, but this would be a limitation on
        the user's freedom, or would necessitate that the user deletes the student and re-enter all the details again.
-       <box type="info" seamless>
+    
+   <box type="info" seamless>
 
    **Note:** `delstu` command uses `NUSNet ID` as identifier because it requires more intentional effort and
    therefore ensures that the TA intends to perform this dangerous action.
 
-    </box>
+   </box>
   
