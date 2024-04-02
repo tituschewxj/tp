@@ -556,7 +556,6 @@ students.
     1. The alternative solution we considred was to disallow editing of NUSNet ID, but this would be a limitation on 
        the user's freedom, or would necessitate that the user deletes the student and re-enter all the details again.
 
-
 --------------------------------------------------------------------------------------------------------------------
 
 ## **Appendix: Design Decisions**
