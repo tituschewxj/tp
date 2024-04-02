@@ -68,7 +68,7 @@ public class LogicManagerTest {
 
     @Test
     public void execute_commandExecutionError_throwsCommandException() {
-        String deleteCommand = "delstu e9999999";
+        String deleteCommand = "delstu nn/e9999999";
         assertCommandException(deleteCommand, MESSAGE_MISSING_NUSNET);
     }
 

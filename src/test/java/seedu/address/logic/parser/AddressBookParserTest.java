@@ -62,7 +62,7 @@ public class AddressBookParserTest {
     @Test
     public void parseCommand_delete() throws Exception {
         DeletePersonCommand command = (DeletePersonCommand) parser.parseCommand(
-            DeletePersonCommand.COMMAND_WORD + " " + CommandTestUtil.VALID_NUSNET_AMY);
+            DeletePersonCommand.COMMAND_WORD + " " + PREFIX_NUSNET + CommandTestUtil.VALID_NUSNET_AMY);
         assertEquals(new DeletePersonCommand(new NusNet(CommandTestUtil.VALID_NUSNET_AMY)), command);
     }
 
