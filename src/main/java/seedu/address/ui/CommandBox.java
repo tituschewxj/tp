@@ -5,9 +5,11 @@ import static seedu.address.ui.util.SyntaxHighlighter.ERROR_STYLE_CLASS;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Region;
 import seedu.address.logic.autocomplete.AutoComplete;
+import seedu.address.logic.autocomplete.AutoCompleteResult;
 import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.parser.exceptions.ParseException;
@@ -22,6 +24,10 @@ public class CommandBox extends UiPart<Region> {
     private final CommandExecutor commandExecutor;
     private final AutoCompleteExecutor autoCompleteExecutor;
 
+    private String lastModifiedText = "";
+    private KeyCode previousKeyCodePressed;
+    private AutoCompleteResult autoCompleteResultCache;
+
     @FXML
     private TextField commandTextField;
 
@@ -34,7 +40,26 @@ public class CommandBox extends UiPart<Region> {
         this.autoCompleteExecutor = autoCompleteExecutor;
         // calls #setStyleToDefault() whenever there is a change to the text of the command box.
         commandTextField.textProperty().addListener((unused1, unused2, unused3) -> setStyleToDefault());
+        commandTextField.textProperty().addListener((observable, oldValue, newValue) ->
+                updateLastModifiedText(newValue)
+        );
         commandTextField.setOnKeyPressed(this::handleKeyPressEvent);
+    }
+
+    /**
+     * Updates {@link #lastModifiedText},
+     * only if it is not updated with the latest {@link #commandTextField},
+     * and clears the autoCompleteResultCache.
+     *
+     * @param newText The text to set {@link #lastModifiedText} to.
+     */
+    private void updateLastModifiedText(String newText) {
+        assert previousKeyCodePressed != null;
+
+        if (!previousKeyCodePressed.equals(KeyCode.TAB)) {
+            lastModifiedText = newText;
+            autoCompleteResultCache = null;
+        }
     }
 
     /**
@@ -58,7 +83,6 @@ public class CommandBox extends UiPart<Region> {
     /**
      * Handles the Up and Down arrow key pressed event.
      */
-    @FXML
     private void handleArrowKeyPressed(KeyEvent event) {
         String direction = event.getCode().toString();
         CommandHistory commandHistory = CommandHistory.getInstance();
@@ -77,6 +101,7 @@ public class CommandBox extends UiPart<Region> {
     }
 
     private void handleKeyPressEvent(KeyEvent e) {
+        previousKeyCodePressed = e.getCode();
         switch (e.getCode()) {
         case TAB:
             handleTabKeyPressEvent(e);
@@ -95,10 +120,11 @@ public class CommandBox extends UiPart<Region> {
         // Prevent the default Tab behavior
         e.consume();
 
-        String currentText = commandTextField.getText();
-        String autoCompleteText = autoCompleteExecutor.getAutoComplete(currentText);
+        if (autoCompleteResultCache == null) {
+            autoCompleteResultCache = autoCompleteExecutor.getAutoComplete(lastModifiedText);
+        }
 
-        commandTextField.setText(currentText + autoCompleteText);
+        commandTextField.setText(lastModifiedText + autoCompleteResultCache.getNextResult());
 
         // Request focus on the commandTextField
         commandTextField.requestFocus();
@@ -139,10 +165,10 @@ public class CommandBox extends UiPart<Region> {
     @FunctionalInterface
     public interface AutoCompleteExecutor {
         /**
-         * Returns the autocomplete text based on the input.
+         * Returns the autocomplete results based on the input.
          *
          * @see AutoComplete#getAutoComplete(String)
          */
-        String getAutoComplete(String input);
+        AutoCompleteResult getAutoComplete(String input);
     }
 }

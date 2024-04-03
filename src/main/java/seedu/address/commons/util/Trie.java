@@ -1,5 +1,8 @@
 package seedu.address.commons.util;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * A class that represents a Trie data structure.
  */
@@ -110,6 +113,7 @@ public class Trie {
             sb.append(c);
             current = current.getChild(c);
         }
+
         return findFirstWordWithPrefixHelper(current, sb);
     }
 
@@ -122,5 +126,46 @@ public class Trie {
             return findFirstWordWithPrefixHelper(current.getChild(c), sb);
         }
         return "";
+    }
+
+    /**
+     * Finds all words in the Trie that starts with the given prefix.
+     *
+     * @param prefix the prefix to be searched
+     * @return list of all words that starts with the given prefix. If no such words exist, return empty list.
+     * @see #findFirstWordWithPrefixHelper(TrieNode, StringBuilder)
+     * @see #findAllWordsWithPrefix(String)
+     */
+    public List<String> findAllWordsWithPrefix(String prefix) {
+        TrieNode current = root;
+        StringBuilder sb = new StringBuilder();
+        for (char c : prefix.toCharArray()) {
+            if (current.getChild(c) == null) {
+                return List.of();
+            }
+            sb.append(c);
+            current = current.getChild(c);
+        }
+        return allWordsWithPrefixHelper(current, sb);
+    }
+
+    /**
+     * Finds all words valid nodes of the {@code current} TrieNode recursively.
+     *
+     * @see #findAllWordsWithPrefix(String)
+     */
+    private List<String> allWordsWithPrefixHelper(TrieNode current, StringBuilder sb) {
+        List<String> allWords = new ArrayList<>();
+        if (current.isEndOfWord()) {
+            allWords.add(sb.toString());
+        }
+        for (char c : current.getChildren().keySet()) {
+            // Use new copy of sb
+            allWords.addAll(allWordsWithPrefixHelper(
+                    current.getChild(c),
+                    new StringBuilder(sb.toString() + c)
+            ));
+        }
+        return allWords;
     }
 }
