@@ -17,28 +17,7 @@ public class InappropriateMethodCallAssertionError extends AssertionError {
         super(INAPPROPRIATE_METHOD_CALL_MESSAGE);
     }
 
-    /**
-     * Constructs a InappropriateMethodCallAssertionError with a custom message.
-     * Allows specifying a detailed message that describes the context or reason
-     * why the error is being thrown.
-     *
-     * @param message The custom message to be associated with this error.
-     */
-    public InappropriateMethodCallAssertionError(String message) {
-        super(message);
-    }
 
-    /**
-     * Throws a InappropriateMethodCallAssertionError with the default message.
-     * This static method provides a convenient way to throw an assertion error indicating
-     * that a certain operation or method call is invalid and should not have occurred.
-     * The default message is used for this error.
-     *
-     * @throws InappropriateMethodCallAssertionError always, with the default error message.
-     */
-    public static void throwDefault() {
-        throw new InappropriateMethodCallAssertionError();
-    }
 }
 
 

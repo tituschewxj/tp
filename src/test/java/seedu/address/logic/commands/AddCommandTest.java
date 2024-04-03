@@ -97,117 +97,107 @@ public class AddCommandTest {
     private class ModelStub implements Model {
         @Override
         public void setUserPrefs(ReadOnlyUserPrefs userPrefs) {
-            InappropriateMethodCallAssertionError.throwDefault();
+            throw new InappropriateMethodCallAssertionError();
         }
 
         @Override
         public ReadOnlyUserPrefs getUserPrefs() {
-            InappropriateMethodCallAssertionError.throwDefault();
-            return null;
+            throw new InappropriateMethodCallAssertionError();
         }
 
         @Override
         public GuiSettings getGuiSettings() {
-            InappropriateMethodCallAssertionError.throwDefault();
-            return null;
+            throw new InappropriateMethodCallAssertionError();
         }
 
         @Override
         public void setGuiSettings(GuiSettings guiSettings) {
-            InappropriateMethodCallAssertionError.throwDefault();
+            throw new InappropriateMethodCallAssertionError();
         }
 
         @Override
         public Path getAddressBookFilePath() {
-            InappropriateMethodCallAssertionError.throwDefault();
-            return null;
+            throw new InappropriateMethodCallAssertionError();
         }
 
         @Override
         public void setAddressBookFilePath(Path addressBookFilePath) {
-            InappropriateMethodCallAssertionError.throwDefault();
+            throw new InappropriateMethodCallAssertionError();
         }
 
         @Override
         public void addPerson(Person person) {
-            InappropriateMethodCallAssertionError.throwDefault();
+            throw new InappropriateMethodCallAssertionError();
         }
 
         @Override
         public void setAddressBook(ReadOnlyAddressBook newData) {
-            InappropriateMethodCallAssertionError.throwDefault();
+            throw new InappropriateMethodCallAssertionError();
         }
 
         @Override
         public ReadOnlyAddressBook getAddressBook() {
-            InappropriateMethodCallAssertionError.throwDefault();
-            return null;
+            throw new InappropriateMethodCallAssertionError();
         }
 
         @Override
         public boolean hasPerson(Person person) {
-            InappropriateMethodCallAssertionError.throwDefault();
-            return false;
+            throw new InappropriateMethodCallAssertionError();
         }
 
         @Override
         public void deletePerson(Person target) {
-            InappropriateMethodCallAssertionError.throwDefault();
+            throw new InappropriateMethodCallAssertionError();
         }
 
         @Override
         public void setPerson(Person target, Person editedPerson) {
-            InappropriateMethodCallAssertionError.throwDefault();
+            throw new InappropriateMethodCallAssertionError();
         }
 
         @Override
         public ObservableList<Person> getFilteredPersonList() {
-            InappropriateMethodCallAssertionError.throwDefault();
-            return null;
+            throw new InappropriateMethodCallAssertionError();
         }
 
         @Override
         public void updateFilteredPersonList(Predicate<Person> predicate) {
-            InappropriateMethodCallAssertionError.throwDefault();
+            throw new InappropriateMethodCallAssertionError();
         }
 
         @Override
         public void changeCode(String code) {
-            InappropriateMethodCallAssertionError.throwDefault();
+            throw new InappropriateMethodCallAssertionError();
         }
 
         @Override
         public ReadOnlyStringProperty courseCodeProperty() {
-            InappropriateMethodCallAssertionError.throwDefault();
-            return null;
+            throw new InappropriateMethodCallAssertionError();
         }
 
         @Override
         public Path getCourseNameFilePath() {
-            InappropriateMethodCallAssertionError.throwDefault();
-            return null;
+            throw new InappropriateMethodCallAssertionError();
         }
 
         @Override
         public void setCourseNameFilePath(Path courseNameFilePath) {
-            InappropriateMethodCallAssertionError.throwDefault();
+            throw new InappropriateMethodCallAssertionError();
         }
 
         @Override
         public void setCourseName(ReadOnlyCourseName course) {
-            InappropriateMethodCallAssertionError.throwDefault();
+            throw new InappropriateMethodCallAssertionError();
         }
 
         @Override
         public CourseName getCourseName() {
-            InappropriateMethodCallAssertionError.throwDefault();
-            return null;
+            throw new InappropriateMethodCallAssertionError();
         }
 
 
         public Optional<Person> getPersonByNusNet(NusNet nusNet) {
-            InappropriateMethodCallAssertionError.throwDefault();
-            return Optional.empty();
+            throw new InappropriateMethodCallAssertionError();
         }
     }
 
