@@ -6,45 +6,67 @@
 
 # TAPro User Guide
 
-TAPro is a  **a Contact Book application** that is made for Computer Science Tutors for managing their students contact and performance details.
+TAPro is a **Contact Book application** that is made for Computer Science Tutors for managing their students contact and attendance details.
 
 TAPro is optimized for use via a **Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). 
 
-If you can type fast, TAPro can get your contact management tasks done faster than traditional GUI apps.
+If you can type fast, TAPro can get your contact management and attendance taking tasks done **faster** than traditional GUI apps.
 
 <!-- * Table of Contents -->
 <page-nav-print />
 
---------------------------------------------------------------------------------------------------------------------
+<markdown class="d-print-none">---</markdown>
+<div style="page-break-after: always;"></div>
 
 ## Quick start
 
-1. Ensure you have Java `11` or above installed in your Computer.
+1. Ensure you have Java 11 or above installed in your computer.
 
-1. Download the latest `tapro.jar` from [here](https://github.com/AY2324S2-CS2103T-F13-1/tp/releases).
+<box type="tip" seamless>
+
+**Installing Java:**
+
+If you do not have Java 11 or above installed, you can download the latest available version of Java from [here](https://www.oracle.com/sg/java/technologies/downloads/).
+The latest version is compatible with older versions.
+
+</box>
+
+2. Download the latest version of `TAPro.jar` from [here](https://github.com/AY2324S2-CS2103T-F13-1/tp/releases).
 
 1. Copy the file to the folder you want to use as the _home folder_ for your TAPro.
 
-1. Open a command terminal, `cd` into the folder you put the jar file in, and use the `java -jar tapro.jar` command to run the application.<br>
-   A GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
-   ![Ui](images/Ui.png)
+1. Open a command terminal, `cd` into the folder you downloaded the jar file in, and run the `java -jar TAPro.jar` command to launch the application.
 
-1. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
-   Some example commands you can try:
+<box type="info" seamless>
 
-   * `list` : Lists all contacts.
+A GUI similar to the below image should appear in a few seconds. Note how the app contains some sample data.
 
-   * `addstu nn/e0952224 n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01` : Adds a contact named `John Doe` to the Contact Book.
+![Ui](images/main_window_ui.png)
 
-   * `delstu NUSNET_ID` : Deletes the student with the specified NUSNET_ID from the contact book.
+</box>
 
-   * `clear` : Deletes all contacts.
+5. Type the command in the command box and press _Enter_ to execute it. e.g. typing **`help`** and pressing _Enter_ will open the help window.
 
-   * `exit` : Exits the app.
+<box type="info" seamless>
 
-1. Refer to the [Features](#features) below for details of each command.
+**Here are some example commands you can try:**
 
---------------------------------------------------------------------------------------------------------------------
+* `list` : Lists all contacts.
+
+* `addstu nn/e0952224 n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01` : Adds a student named `John Doe` to the contact book.
+
+* `delstu nn/NUSNET_ID` : Deletes the student with the specified NUSNET_ID from the contact book.
+
+* `clear` : Deletes all students, and their contact and attendance information.
+
+* `exit` : Exits the application.
+
+</box>
+
+6. Refer to the [Features](#features) below for details of each command.
+
+<markdown class="d-print-none">---</markdown>
+<div style="page-break-after: always;"></div>
 
 ## Features
 
@@ -70,14 +92,45 @@ If you can type fast, TAPro can get your contact management tasks done faster th
 * If you are using a PDF version of this document, be careful when copying and pasting commands that span multiple lines as space characters surrounding line-breaks may be omitted when copied over to the application.
 </box>
 
+<markdown class="d-print-none">---</markdown>
+<div style="page-break-after: always;"></div>
+
 ### Viewing help : `help`
 
-Shows a message explaining how to access the help page, and the command usages with examples.
-
-![help message](images/helpWindow.png)
+Entering the `help` command opens a help window that shows a message explaining how to access the help page, 
+as well as quick reference of each command with simple examples on how to use them.
 
 Format: `help`
 
+<box type="info" seamless>
+
+**A new window is opened:**
+
+A new window is opened, so that it does not clutter up your main window. A GUI similar to the below image should appear.
+
+[//]: # (TODO: update this image once the help window is finalized in v1.4)
+![help message](images/help_window_ui.png)
+
+</box>
+
+<box type="tip" seamless>
+
+**Resizing the help window:**
+
+* The help window is resizable, so you can **easily reposition and resize** it to fit anywhere on your screen, exactly where you want it to be.
+</box>
+
+<box type="success" seamless>
+
+**More about help's quick reference:**
+
+The quick reference is meant for **fast and reliable** lookup of commands and their usages, without needing an internet connection and opening a browser to get an overview of the commands.
+
+* It is not meant to contain detailed information about each command. To access detailed information about each command, you can refer to our user guide.
+</box>
+
+<markdown class="d-print-none">---</markdown>
+<div style="page-break-after: always;"></div>
 
 ### Name/Rename CS course : `setcrs`
 
@@ -88,6 +141,9 @@ Format: `setcrs COURSE_NAME`
 Duplicate course are not allowed.
 Courses are case-insensitive.
 Course code should follow the format "XX1234Y", Y is optional.
+
+<markdown class="d-print-none">---</markdown>
+<div style="page-break-after: always;"></div>
 
 ### Adding a student: `addstu`
 Adds a student to the address book.
@@ -108,6 +164,9 @@ Examples:
 * `addstu n/Betsy Crowe nn/e01234567 t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/criminal`
 * `addstu n/Betsy Crowe nn/e01234567`
 
+<markdown class="d-print-none">---</markdown>
+<div style="page-break-after: always;"></div>
+
 ### Listing all students : `list`
 
 Shows a list of all persons in the address book.
@@ -115,6 +174,9 @@ Shows a list of all persons in the address book.
 Format: `list`
 
 If there are additional arguments behind `list` we will simply ignore them.
+
+<markdown class="d-print-none">---</markdown>
+<div style="page-break-after: always;"></div>
 
 ### Editing a person : `edit`
 
@@ -132,6 +194,9 @@ Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [nn/NUSNET_ID] [t/T
 Examples:
 *  `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st person to be `91234567` and `johndoe@example.com` respectively.
 *  `edit 2 n/Betsy Crower t/` Edits the name of the 2nd person to be `Betsy Crower` and clears all existing tags.
+
+<markdown class="d-print-none">---</markdown>
+<div style="page-break-after: always;"></div>
 
 ### Locating students by name: `find`
 
@@ -151,6 +216,8 @@ Examples:
 * `find alex david` returns `Alex Yeoh`, `David Li`<br>
   ![result for 'find alex david'](images/findAlexDavidResult.png)
 
+<markdown class="d-print-none">---</markdown>
+<div style="page-break-after: always;"></div>
 
 ### Marking a student's attendance for a given week by their NUSNet: `mark`
 
@@ -161,6 +228,9 @@ Format: `mark nn/NUSNET_ID wk/WEEK_NUMBER`
 Example:
 * `mark nn/e1234567 wk/3`
 
+<markdown class="d-print-none">---</markdown>
+<div style="page-break-after: always;"></div>
+
 ### Unmarking a student's attendance for a given week by their NUSNet: `unmark`
 
 Unmarks a student's attendance for a particular week.
@@ -169,6 +239,9 @@ Format: `unmark nn/NUSNET_ID wk/WEEK_NUMBER`
 
 Example:
 * `unmark nn/e1234567 wk/3`
+
+<markdown class="d-print-none">---</markdown>
+<div style="page-break-after: always;"></div>
 
 ### Deleting a student: `delstu`
 
@@ -184,11 +257,16 @@ Examples:
 Pro Tip:
 * If you cannot remember your student's NUSNET_ID, you could use `find Betsy` or `list` followed by `delstu <Betsy's NUSNET_ID>` to find and delete the student.
 
+<markdown class="d-print-none">---</markdown>
+<div style="page-break-after: always;"></div>
+
 ### Clearing all entries : `clear`
 
 Clears all entries from the address book.
 
 Format: `clear`
+
+---
 
 ### Exiting the program : `exit`
 
@@ -196,9 +274,14 @@ Exits the program.
 
 Format: `exit`
 
+<markdown class="d-print-none">---</markdown>
+<div style="page-break-after: always;"></div>
+
 ### Saving the data
 
 TAPro's data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
+
+---
 
 ### Editing the data file
 
@@ -211,24 +294,29 @@ If your changes to the data file makes its format invalid, TAPro will discard al
 Furthermore, certain edits can cause the TAPro to behave in unexpected ways (e.g., if a value entered is outside the acceptable range). Therefore, edit the data file only if you are confident that you can update it correctly.
 </box>
 
+---
+
 ### Archiving data files `[coming in v2.0]`
 
 _Details coming soon ..._
 
---------------------------------------------------------------------------------------------------------------------
+<markdown class="d-print-none">---</markdown>
+<div style="page-break-after: always;"></div>
 
 ## FAQ
 
 **Q**: How do I transfer my data to another Computer?<br>
 **A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous TAPro home folder.
 
---------------------------------------------------------------------------------------------------------------------
+<markdown class="d-print-none">---</markdown>
+<div style="page-break-after: always;"></div>
 
 ## Known issues
 
 1. **When using multiple screens**, if you move the application to a secondary screen, and later switch to using only the primary screen, the GUI will open off-screen. The remedy is to delete the `preferences.json` file created by the application before running the application again.
 
---------------------------------------------------------------------------------------------------------------------
+<markdown class="d-print-none">---</markdown>
+<div style="page-break-after: always;"></div>
 
 ## Command summary
 
