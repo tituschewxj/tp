@@ -19,17 +19,17 @@ class ParameterTest {
 
     @Test
     void getParameterHint() {
-        assertEquals("(def)", parameter.getParameterHint());
+        assertEquals("def", parameter.getParameterConstraint());
     }
 
     @Test
     void getParameterDetails() {
-        assertEquals("abc (def)", parameter.getParameterDetails());
+        assertEquals("abc", parameter.getParameterDetails());
     }
 
     @Test
     void getFormattedParameterDetails() {
-        assertEquals("abc (def)", parameter.getParameterDetails());
+        assertEquals("abc", parameter.getParameterDetails());
     }
 
     @Test
@@ -49,26 +49,26 @@ class ParameterTest {
 
     @Test
     void asOptional_exampleNotPresent() {
-        assertEquals("[abc (def)]", parameter.asOptional(false).toString());
+        assertEquals("[abc]", parameter.asOptional(false).toString());
     }
 
     @Test
     void asOptional_examplePresent() {
-        assertEquals("[abc (def)] 123", parameter.asOptional(true).toString());
+        assertEquals("[abc] 123", parameter.asOptional(true).toString());
     }
 
     @Test
     void asMultiple_zeroExampleRepetitions() {
-        assertEquals("[abc (def)]...", parameter.asMultiple(0).toString());
+        assertEquals("[abc]...", parameter.asMultiple(0).toString());
     }
 
     @Test
     void asMultiple_oneExampleRepetitions() {
-        assertEquals("[abc (def)]... 123", parameter.asMultiple(1).toString());
+        assertEquals("[abc]... 123", parameter.asMultiple(1).toString());
     }
 
     @Test
     void asMultiple_twoExampleRepetitions() {
-        assertEquals("[abc (def)]... 123 456", parameter.asMultiple(2).toString());
+        assertEquals("[abc]... 123 456", parameter.asMultiple(2).toString());
     }
 }
