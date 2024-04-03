@@ -17,6 +17,7 @@ If you can type fast, TAPro can get your contact management and attendance takin
 
 <markdown class="d-print-none">---</markdown>
 <div style="page-break-after: always;"></div>
+<br>
 
 ## Quick start
 
@@ -55,7 +56,7 @@ A GUI similar to the below image should appear in a few seconds. Note how the ap
 
 * `addstu nn/e0952224 n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01` : Adds a student named `John Doe` to the contact book.
 
-* `delstu nn/NUSNET_ID` : Deletes the student with the specified NUSNET_ID from the contact book.
+* `delstu nn/NUSNET_ID` : Deletes the student with the specified `NUSNET_ID` from the contact book.
 
 * `clear` : Deletes all students, and their contact and attendance information.
 
@@ -63,37 +64,67 @@ A GUI similar to the below image should appear in a few seconds. Note how the ap
 
 </box>
 
-6. Refer to the [Features](#features) below for details of each command.
+6. Refer to the sections under [Features](#features) below for details of each command.
 
 <markdown class="d-print-none">---</markdown>
 <div style="page-break-after: always;"></div>
+<br>
 
 ## Features
 
 <box type="info" seamless>
 
-**Notes about the command format:**<br>
+**About the command format:**<br>
 
-* Words in `UPPER_CASE` are the parameters to be supplied by the user.<br>
-  e.g. in `add n/NAME`, `NAME` is a parameter which can be used as `add n/John Doe`.
+<box type="success" seamless>
 
-* Items in square brackets are optional.<br>
-  e.g `n/NAME [t/TAG]` can be used as `n/John Doe t/friend` or as `n/John Doe`.
+<span class="semi-bold">Words in `UPPER_CASE` are the parameters to be supplied by the user.</span>
 
-* Items with `…`​ after them can be used multiple times including zero times.<br>
-  e.g. `[t/TAG]…​` can be used as ` ` (i.e. 0 times), `t/friend`, `t/friend t/family` etc.
+<span class="semi-bold">#g#Example:##</span> In `add n/NAME`, `NAME` is a parameter which can be used as `add n/John Doe`.
+</box>
 
-* Parameters can be in any order.<br>
-  e.g. if the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
 
-* Extraneous parameters for commands that do not take in parameters (such as `help`, `list`, `exit` and `clear`) will be ignored.<br>
-  e.g. if the command specifies `help 123`, it will be interpreted as `help`.
+<box type="success" seamless>
 
-* If you are using a PDF version of this document, be careful when copying and pasting commands that span multiple lines as space characters surrounding line-breaks may be omitted when copied over to the application.
+<span class="semi-bold">Items in square brackets are optional.</span>
+
+<span class="semi-bold">#g#Example:##</span> `n/NAME [t/TAG]` can be used as `n/John Doe t/friend` or as `n/John Doe`.
+</box>
+
+<box type="success" seamless>
+
+<span class="semi-bold">Items with `…`​ after them can be used multiple times including zero times.</span>
+
+<span class="semi-bold">#g#Example:##</span> `[t/TAG]…​` can be used as ` ` (i.e. 0 times), `t/friend`, `t/friend t/family` etc.
+</box>
+
+
+<box type="success" seamless>
+
+<span class="semi-bold">Parameters can be in any order.</span>
+
+<span class="semi-bold">#g#Example:##</span> If the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
+</box>
+
+<box type="success" seamless>
+
+<span class="semi-bold">Extraneous parameters for commands that do not take in parameters (such as `help`, `list`, `exit` and `clear`) will be ignored.</span>
+
+<span class="semi-bold">#g#Example:##</span> If the command specifies `help 123`, it will be interpreted as `help`.
+</box>
+
+</box>
+
+<box type="warning" seamless>
+
+**If you are using a PDF version of this document:**
+
+Be careful when copying and pasting commands that span multiple lines as space characters surrounding line-breaks may be omitted when copied over to the application.
 </box>
 
 <markdown class="d-print-none">---</markdown>
 <div style="page-break-after: always;"></div>
+<br>
 
 ### Viewing help : `help`
 
@@ -130,7 +161,7 @@ The help window is resizable, so you can **easily reposition and resize** it to 
 
 </box>
 
-<box type="success" seamless>
+<box type="info" seamless>
 
 **More about help's quick reference:**
 
@@ -141,6 +172,7 @@ The quick reference is meant for **fast and reliable** lookup of commands and th
 
 <markdown class="d-print-none">---</markdown>
 <div style="page-break-after: always;"></div>
+<br>
 
 ### Name/Rename CS course : `setcrs`
 
@@ -154,6 +186,7 @@ Course code should follow the format "XX1234Y", Y is optional.
 
 <markdown class="d-print-none">---</markdown>
 <div style="page-break-after: always;"></div>
+<br>
 
 ### Adding a student: `addstu`
 Adds a student to the address book.
@@ -176,6 +209,7 @@ Examples:
 
 <markdown class="d-print-none">---</markdown>
 <div style="page-break-after: always;"></div>
+<br>
 
 ### Listing all students : `list`
 
@@ -187,6 +221,7 @@ If there are additional arguments behind `list` we will simply ignore them.
 
 <markdown class="d-print-none">---</markdown>
 <div style="page-break-after: always;"></div>
+<br>
 
 ### Editing a person : `edit`
 
@@ -207,27 +242,78 @@ Examples:
 
 <markdown class="d-print-none">---</markdown>
 <div style="page-break-after: always;"></div>
+<br>
 
 ### Locating students by name: `find`
 
-Finds persons whose names contain any of the given keywords.
+Finds students whose names contain any of the given keywords.
 
 Format: `find KEYWORD [MORE_KEYWORDS]`
 
-* The search is case-insensitive. e.g `hans` will match `Hans`
-* The order of the keywords does not matter. e.g. `Hans Bo` will match `Bo Hans`
-* Only the name is searched.
-* Only full words will be matched e.g. `Han` will not match `Hans`
-* Persons matching at least one keyword will be returned (i.e. `OR` search).
-  e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`
 
-Examples:
-* `find John` returns `john` and `John Doe`
-* `find alex david` returns `Alex Yeoh`, `David Li`<br>
-  ![result for 'find alex david'](images/findAlexDavidResult.png)
+<box type="info" seamless>
+
+**About the find command:**
+
+<box type="success" seamless>
+
+<span class="semi-bold">Only the name is searched.</span>
+
+<span class="semi-bold">#g#Example:##</span> `E01234567` will not match a student with NUSNet ID `E01234567`.
+</box>
+
+<box type="success" seamless>
+
+<span class="semi-bold">The name search is case-insensitive.</span>
+
+<span class="semi-bold">#g#Example:##</span> `hans` will match `Hans`
+</box>
+
+
+<box type="success" seamless>
+
+<span class="semi-bold">The order of the keywords does not matter.</span>
+
+<span class="semi-bold">#g#Example:##</span> `Hans Bo` will match `Bo Hans`
+</box>
+
+<box type="success" seamless>
+
+<span class="semi-bold">Only full words will be matched.</span>
+
+<span class="semi-bold">#g#Example:##</span> `Han` will not match `Hans`
+</box>
+
+<box type="success" seamless>
+
+<span class="semi-bold">Students' name matching at least one keyword will be returned (i.e. `OR` search).</span>
+
+<span class="semi-bold">#g#Example:##</span> `Hans Bo` will return `Hans Gruber`, `Bo Yang`
+</box>
+</box>
+
+<box type="success" seamless>
+
+**Examples of using the find command:**
+
+<box type="success" seamless>
+
+<span class="semi-bold">#g#Example:##</span> `find John` returns `john` and `John Doe`
+</box>
+
+
+<box type="success" seamless>
+
+<span class="semi-bold">#g#Example:##</span> `find alex david` returns `Alex Yeoh`, `David Li`, as seen in the image below.
+
+[//]: # (TODO: update this image)
+<img src="images/findAlexDavidResult.png" alt="result for 'find alex david" style="width:500px;"/>
+</box>
+</box>
 
 <markdown class="d-print-none">---</markdown>
 <div style="page-break-after: always;"></div>
+<br>
 
 ### Marking a student's attendance for a given week by their NUSNet: `mark`
 
@@ -239,7 +325,7 @@ Example:
 * `mark nn/e1234567 wk/3`
 
 <markdown class="d-print-none">---</markdown>
-<div style="page-break-after: always;"></div>
+<br>
 
 ### Unmarking a student's attendance for a given week by their NUSNet: `unmark`
 
@@ -252,6 +338,7 @@ Example:
 
 <markdown class="d-print-none">---</markdown>
 <div style="page-break-after: always;"></div>
+<br>
 
 ### Deleting a student: `delstu`
 
@@ -269,6 +356,7 @@ Pro Tip:
 
 <markdown class="d-print-none">---</markdown>
 <div style="page-break-after: always;"></div>
+<br>
 
 ### Clearing all entries : `clear`
 
@@ -276,7 +364,8 @@ Clears all entries from the address book.
 
 Format: `clear`
 
----
+<markdown class="d-print-none">---</markdown>
+<br>
 
 ### Exiting the program : `exit`
 
@@ -286,12 +375,14 @@ Format: `exit`
 
 <markdown class="d-print-none">---</markdown>
 <div style="page-break-after: always;"></div>
+<br>
 
 ### Saving the data
 
 TAPro's data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
 
----
+<markdown class="d-print-none">---</markdown>
+<br>
 
 ### Editing the data file
 
@@ -304,14 +395,9 @@ If your changes to the data file makes its format invalid, TAPro will discard al
 Furthermore, certain edits can cause the TAPro to behave in unexpected ways (e.g., if a value entered is outside the acceptable range). Therefore, edit the data file only if you are confident that you can update it correctly.
 </box>
 
----
-
-### Archiving data files `[coming in v2.0]`
-
-_Details coming soon ..._
-
 <markdown class="d-print-none">---</markdown>
 <div style="page-break-after: always;"></div>
+<br>
 
 ## FAQ
 
@@ -319,7 +405,7 @@ _Details coming soon ..._
 **A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous TAPro home folder.
 
 <markdown class="d-print-none">---</markdown>
-<div style="page-break-after: always;"></div>
+<br>
 
 ## Known issues
 
@@ -327,6 +413,7 @@ _Details coming soon ..._
 
 <markdown class="d-print-none">---</markdown>
 <div style="page-break-after: always;"></div>
+<br>
 
 ## Command summary
 
@@ -334,7 +421,7 @@ Action     | Format, Examples
 -----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 **Add Student**    | `addstu n/NAME p/PHONE_NUMBER e/EMAIL nn/NUSNET_ID a/ADDRESS [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com nn/e1234567 a/123, Clementi Rd, 1234665 t/friend t/colleague`
 **Clear**  | `clear`
-**Delete Student** | `delstu NUSNET_ID`<br> e.g., `delstu e0957499`
+**Delete Student** | `delstu nn/NUSNET_ID`<br> e.g., `delstu nn/e0957499`
 **Edit**   | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
 **Mark**   | `mark nn/NUSNET_ID wk/WEEK_NUMBER`<br> e.g., `mark nn/e1234567 wk/3`
 **Unmark**   | `unmark nn/NUSNET_ID wk/WEEK_NUMBER`<br> e.g., `unmark nn/e1234567 wk/3`
