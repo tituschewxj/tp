@@ -42,9 +42,10 @@ The latest version is compatible with older versions.
 
 A GUI similar to the below image should appear in a few seconds. Note how the app contains some sample data.
 
-![Ui](images/main_window_ui.png)
+<img src="images/main_window_ui.png" alt="Main Window UI on first launch" class="rounded-image"/>
 
 </box>
+<div style="page-break-after: always;"></div>
 
 5. Type the command in the command box and press <span class="badge bg-light text-dark">Enter</span> to execute it. e.g. typing **`help`** and pressing <span class="badge bg-light text-dark">Enter</span> will open the help window.
 
@@ -140,7 +141,7 @@ Format: `help`
 A new window is opened, so that it does not clutter up your main window. A GUI similar to the below image should appear.
 
 [//]: # (TODO: update this image once the help window is finalized in v1.4)
-![help message](images/help_window_ui.png)
+<img src="images/help_window_ui.png" alt="Help Window UI" class="rounded-image"/>
 
 </box>
 
@@ -307,7 +308,7 @@ Format: `find KEYWORD [MORE_KEYWORDS]`
 <span class="semi-bold">#g#Example:##</span> `find alex david` returns `Alex Yeoh`, `David Li`, as seen in the image below.
 
 [//]: # (TODO: update this image)
-<img src="images/findAlexDavidResult.png" alt="result for 'find alex david" style="width:500px;"/>
+<img src="images/findAlexDavidResult.png" alt="result for 'find alex david" style="width:500px;" class="rounded-image"/>
 </box>
 </box>
 
