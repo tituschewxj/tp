@@ -18,7 +18,7 @@ public class FindPersonCommand extends Command {
 
     public static final String MESSAGE_USAGE = generateMessageUsage(
             COMMAND_WORD,
-            "Finds all persons whose names contain any of "
+            "Finds all students whose names contain any of "
                     + "the specified keywords (case-insensitive) and displays them as a list with index numbers.",
             "KEYWORD [MORE_KEYWORDS]...",
             COMMAND_WORD + " alice bob charlie"

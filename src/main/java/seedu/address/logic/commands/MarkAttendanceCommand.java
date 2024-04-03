@@ -26,7 +26,7 @@ public class MarkAttendanceCommand extends Command {
 
     public static final String MESSAGE_USAGE = generateMessageUsage(
             COMMAND_WORD,
-            "Marks the attendance of the person identified by their NusNet by adding the specified week to "
+            "Marks the attendance of the student identified by their NusNet by adding the specified week to "
                     + "their attendance set. ",
             PARAMETER_NUSNET, PARAMETER_WEEK);
 

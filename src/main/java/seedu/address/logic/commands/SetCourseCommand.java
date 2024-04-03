@@ -26,7 +26,8 @@ public class SetCourseCommand extends Command {
             "Course code should follow the format \"XX1234Y\", Y is optional";
 
     public static final String MESSAGE_USAGE = CommandMessageUsageUtil.generateMessageUsage(COMMAND_WORD,
-            "Set Course name ", "course code", COMMAND_WORD + " CS2104");
+            "Sets the course using course code.", "KEYWORD",
+            COMMAND_WORD + " CS2104");
 
     public static final String MESSAGE_SUCCESS = "Successfully updated course name";
 
