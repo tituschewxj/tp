@@ -45,7 +45,7 @@ A GUI similar to the below image should appear in a few seconds. Note how the ap
 
 </box>
 
-5. Type the command in the command box and press _Enter_ to execute it. e.g. typing **`help`** and pressing _Enter_ will open the help window.
+5. Type the command in the command box and press <span class="badge bg-light text-dark">Enter</span> to execute it. e.g. typing **`help`** and pressing <span class="badge bg-light text-dark">Enter</span> will open the help window.
 
 <box type="info" seamless>
 
@@ -117,7 +117,17 @@ A new window is opened, so that it does not clutter up your main window. A GUI s
 
 **Resizing the help window:**
 
-* The help window is resizable, so you can **easily reposition and resize** it to fit anywhere on your screen, exactly where you want it to be.
+The help window is resizable, so you can **easily reposition and resize** it to fit anywhere on your screen, exactly where you want it to be.
+</box>
+
+<box type="tip" seamless>
+
+**Switching quickly between the help and main window:**
+
+* On Windows and most Linux distributions, you can use the keyboard shortcut: <span class="badge bg-light text-dark">Alt</span> +  <span class="badge bg-light text-dark">Tab</span>, to switch between windows quickly. 
+
+* On macOS, you can use the keyboard shortcut: <span class="badge bg-light text-dark">Cmd⌘</span> + <span class="badge bg-light text-dark">Tab</span>, to switch between windows quickly.
+
 </box>
 
 <box type="success" seamless>
