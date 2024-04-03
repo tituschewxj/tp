@@ -58,6 +58,20 @@ public class AddCommandTest {
 
         assertThrows(CommandException.class,
                 AddPersonCommand.MESSAGE_DUPLICATE_PERSON, () -> addCommand.execute(modelStub));
+
+        Person validPerson2 = new PersonBuilder()
+            .withNusNet("E1234567")
+            .withName("Some name")
+            .build();
+        Person validPerson3 = new PersonBuilder()
+            .withNusNet("E1234567")
+            .withName("Some other name")
+            .build();
+        ModelStub modelStub2 = new ModelStubWithPerson(validPerson2);
+        AddPersonCommand addCommand2 = new AddPersonCommand(validPerson3);
+
+        assertThrows(CommandException.class,
+                AddPersonCommand.MESSAGE_DUPLICATE_NUSNET, () -> addCommand2.execute(modelStub2));
     }
 
     @Test
@@ -217,6 +231,11 @@ public class AddCommandTest {
         public boolean hasPerson(Person person) {
             requireNonNull(person);
             return this.person.isSamePerson(person);
+        }
+
+        @Override
+        public Optional<Person> getPersonByNusNet(NusNet nusNet) {
+            return this.person.getNusNet().equals(nusNet) ? Optional.of(this.person) : Optional.empty();
         }
     }
 
