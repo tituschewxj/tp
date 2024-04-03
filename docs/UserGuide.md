@@ -25,6 +25,7 @@ If you can type fast, TAPro can get your contact management and attendance takin
 
 <box type="tip" seamless>
 
+<i class="fa-solid fa-download"></i>
 **Installing Java:**
 
 If you do not have Java 11 or above installed, you can download the latest available version of Java from [here](https://www.oracle.com/sg/java/technologies/downloads/).
@@ -136,17 +137,19 @@ Format: `help`
 
 <box type="info" seamless>
 
+<i class="fa-regular fa-window-restore"></i>
 **A new window is opened:**
 
 A new window is opened, so that it does not clutter up your main window. A GUI similar to the below image should appear.
 
 [//]: # (TODO: update this image once the help window is finalized in v1.4)
-<img src="images/help_window_ui.png" alt="Help Window UI" class="rounded-image"/>
+<img src="images/help_window_ui.png" alt="Help Window UI" class="rounded-image" width="800px"/>
 
 </box>
 
 <box type="tip" seamless>
 
+<i class="fa-solid fa-maximize"></i>
 **Resizing the help window:**
 
 The help window is resizable, so you can **easily reposition and resize** it to fit anywhere on your screen, exactly where you want it to be.
@@ -154,6 +157,7 @@ The help window is resizable, so you can **easily reposition and resize** it to 
 
 <box type="tip" seamless>
 
+<i class="fa-solid fa-window-restore"></i>
 **Switching quickly between the help and main window:**
 
 * On Windows and most Linux distributions, you can use the keyboard shortcut: <span class="badge bg-light text-dark">Alt</span> +  <span class="badge bg-light text-dark">Tab</span>, to switch between windows quickly. 
@@ -308,7 +312,7 @@ Format: `find KEYWORD [MORE_KEYWORDS]`
 <span class="semi-bold">#g#Example:##</span> `find alex david` returns `Alex Yeoh`, `David Li`, as seen in the image below.
 
 [//]: # (TODO: update this image)
-<img src="images/findAlexDavidResult.png" alt="result for 'find alex david" style="width:500px;" class="rounded-image"/>
+<img src="images/findAlexDavidResult.png" alt="result for 'find alex david" width="500px" class="rounded-image"/>
 </box>
 </box>
 
@@ -392,7 +396,9 @@ TAPro's data are saved automatically as a JSON file `[JAR file location]/data/ad
 <box type="warning" seamless>
 
 **Caution:**
+
 If your changes to the data file makes its format invalid, TAPro will discard all data and start with an empty data file at the next run.  Hence, it is recommended to take a backup of the file before editing it.<br>
+
 Furthermore, certain edits can cause the TAPro to behave in unexpected ways (e.g., if a value entered is outside the acceptable range). Therefore, edit the data file only if you are confident that you can update it correctly.
 </box>
 
@@ -402,15 +408,29 @@ Furthermore, certain edits can cause the TAPro to behave in unexpected ways (e.g
 
 ## FAQ
 
-**Q**: How do I transfer my data to another Computer?<br>
-**A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous TAPro home folder.
+<box type="info" icon=":fa-solid-question:" seamless>
+
+<i class="fa-regular fa-circle-question"></i>
+**Q:** How do I transfer my data to another computer?
+
+<i class="fa-regular fa-comment-dots"></i>
+**A:** Install the application in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous TAPro home folder.
+</box>
+
+
 
 <markdown class="d-print-none">---</markdown>
 <br>
 
 ## Known issues
 
-1. **When using multiple screens**, if you move the application to a secondary screen, and later switch to using only the primary screen, the GUI will open off-screen. The remedy is to delete the `preferences.json` file created by the application before running the application again.
+
+<box type="warning" theme="danger" seamless>
+
+**1. When using multiple screens**
+
+If you move the application to a secondary screen, and later switch to using only the primary screen, the GUI will open off-screen. The remedy is to delete the `preferences.json` file created by the application before running the application again.
+</box>
 
 <markdown class="d-print-none">---</markdown>
 <div style="page-break-after: always;"></div>
