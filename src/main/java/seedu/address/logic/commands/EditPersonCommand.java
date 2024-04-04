@@ -1,7 +1,6 @@
 package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
-import static seedu.address.logic.Messages.MESSAGE_DUPLICATE_PERSON;
 import static seedu.address.logic.commands.util.CommandMessageUsageUtil.generateMessageUsage;
 import static seedu.address.logic.commands.util.ParameterSyntax.PARAMETER_ADDRESS;
 import static seedu.address.logic.commands.util.ParameterSyntax.PARAMETER_EMAIL;
