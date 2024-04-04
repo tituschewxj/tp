@@ -13,6 +13,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.logic.commands.AddPersonCommand;
+import seedu.address.logic.commands.ClearCommand;
 import seedu.address.logic.commands.DeletePersonCommand;
 import seedu.address.logic.commands.EditPersonCommand;
 import seedu.address.logic.commands.ExitCommand;
@@ -57,6 +58,10 @@ public class HelpWindow extends UiPart<Stage> {
                 new HelpWindowCommandCard(
                         AddPersonCommand.COMMAND_WORD,
                         AddPersonCommand.MESSAGE_USAGE
+                ).getRoot(),
+                new HelpWindowCommandCard(
+                        ClearCommand.COMMAND_WORD,
+                        ClearCommand.MESSAGE_USAGE
                 ).getRoot(),
                 new HelpWindowCommandCard(
                         DeletePersonCommand.COMMAND_WORD,
