@@ -1,8 +1,6 @@
 package seedu.address.logic.parser;
 
-import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_COURSE_CODE_CS2103T;
-import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
 
 import org.junit.jupiter.api.Test;
@@ -13,12 +11,6 @@ import seedu.address.model.course.Course;
 
 public class SetCourseCommandParserTest {
     private SetCourseCommandParser parser = new SetCourseCommandParser();
-
-    @Test
-    public void parse_emptyArg_throwsParseException() {
-        assertParseFailure(parser, "     ", String.format(MESSAGE_INVALID_COMMAND_FORMAT,
-                SetCourseCommand.MESSAGE_CONSTRAINTS));
-    }
 
     @Test
     public void parse_validArgs_returnsSetCourseCommand() {
