@@ -31,13 +31,13 @@ public class AddPersonCommandParser implements Parser<AddPersonCommand> {
      */
     public AddPersonCommand parse(String args) throws ParseException {
         ArgumentMultimap argMultimap = ArgumentTokenizer.tokenize(
-              args,
-              PREFIX_NAME,
-              PREFIX_PHONE,
-              PREFIX_EMAIL,
-              PREFIX_NUSNET,
+                args,
+                PREFIX_NAME,
+                PREFIX_PHONE,
+                PREFIX_EMAIL,
+                PREFIX_NUSNET,
                 PREFIX_MAJOR,
-              PREFIX_TAG
+                PREFIX_TAG
         );
 
         if (!ArgumentMultimap.arePrefixesPresent(
@@ -49,10 +49,10 @@ public class AddPersonCommandParser implements Parser<AddPersonCommand> {
         }
 
         argMultimap.verifyNoDuplicatePrefixesFor(
-            PREFIX_NAME,
-            PREFIX_PHONE,
-            PREFIX_EMAIL,
-            PREFIX_NUSNET,
+                PREFIX_NAME,
+                PREFIX_PHONE,
+                PREFIX_EMAIL,
+                PREFIX_NUSNET,
                 PREFIX_MAJOR
         );
 

@@ -29,7 +29,7 @@ public class TypicalPersons {
 
     public static final Person ALICE = new PersonBuilder()
             .withName("Alice Pauline")
-            .withMajor("123, Jurong West Ave 6, #08-111")
+            .withMajor("Computer Science")
             .withEmail("alice@example.com")
             .withNusNet("e0000001")
             .withPhone("94351253")
@@ -38,7 +38,7 @@ public class TypicalPersons {
             .build();
     public static final Person BENSON = new PersonBuilder()
             .withName("Benson Meier")
-            .withMajor("311, Clementi Ave 2, #02-25")
+            .withMajor("Business Analytics")
             .withEmail("johnd@example.com")
             .withNusNet("e0000002")
             .withPhone("98765432")
@@ -50,14 +50,14 @@ public class TypicalPersons {
             .withPhone("95352563")
             .withEmail("heinz@example.com")
             .withNusNet("e0000003")
-            .withMajor("wall street")
+            .withMajor("Business Analytics")
             .withAttendance("1", "4")
             .build();
     public static final Person DANIEL = new PersonBuilder()
             .withName("Daniel Meier")
             .withPhone("87652533")
             .withEmail("cornelia@example.com")
-            .withMajor("10th street")
+            .withMajor("Computer Science")
             .withNusNet("e0000004")
             .withTags("friends")
             .build();
@@ -66,21 +66,21 @@ public class TypicalPersons {
             .withPhone("9482224")
             .withEmail("werner@example.com")
             .withNusNet("e0000005")
-            .withMajor("michegan ave")
+            .withMajor("Psychology")
             .build();
     public static final Person FIONA = new PersonBuilder()
             .withName("Fiona Kunz")
             .withPhone("9482427")
             .withEmail("lydia@example.com")
             .withNusNet("e0000006")
-            .withMajor("little tokyo")
+            .withMajor("Psychology")
             .build();
     public static final Person GEORGE = new PersonBuilder()
             .withName("George Best")
             .withPhone("9482442")
             .withEmail("anna@example.com")
             .withNusNet("e0000007")
-            .withMajor("4th street")
+            .withMajor("Psychology")
             .build();
 
     // Manually added
@@ -89,14 +89,14 @@ public class TypicalPersons {
             .withPhone("8482424")
             .withEmail("stefan@example.com")
             .withNusNet("e0000008")
-            .withMajor("little india")
+            .withMajor("Psychology")
             .build();
     public static final Person IDA = new PersonBuilder()
             .withName("Ida Mueller")
             .withPhone("8482131")
             .withEmail("hans@example.com")
             .withNusNet("e0000009")
-            .withMajor("chicago ave")
+            .withMajor("Psychology")
             .build();
 
     // Manually added - Person's details found in {@code CommandTestUtil}

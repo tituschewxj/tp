@@ -14,13 +14,13 @@ public class MajorTest {
     }
 
     @Test
-    public void constructor_invalidAddress_throwsIllegalArgumentException() {
-        String invalidAddress = "";
-        assertThrows(IllegalArgumentException.class, () -> new Major(invalidAddress));
+    public void constructor_invalidMajor_throwsIllegalArgumentException() {
+        String invalidMajor = "";
+        assertThrows(IllegalArgumentException.class, () -> new Major(invalidMajor));
     }
 
     @Test
-    public void isValidAddress() {
+    public void isValidMajor() {
         // null address
         assertThrows(NullPointerException.class, () -> Major.isValidMajor(null));
 
@@ -29,9 +29,9 @@ public class MajorTest {
         assertFalse(Major.isValidMajor(" ")); // spaces only
 
         // valid addresses
-        assertTrue(Major.isValidMajor("Blk 456, Den Road, #01-355"));
+        assertTrue(Major.isValidMajor("Computer Science"));
         assertTrue(Major.isValidMajor("-")); // one character
-        assertTrue(Major.isValidMajor("Leng Inc; 1234 Market St; San Francisco CA 2349879; USA")); // long address
+        assertTrue(Major.isValidMajor("Computer Science Computer Science Computer Science")); // long major
 
         // placeholder
         assertTrue(Major.isValidMajor(Major.PLACEHOLDER));
