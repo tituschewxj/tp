@@ -44,7 +44,7 @@ public class EditPersonCommand extends Command {
     public static final String MESSAGE_USAGE = generateMessageUsage(
             COMMAND_WORD,
             "Edits the details of the student identified "
-                    + "by the index number used in the currently displayed student list. "
+                    + "by the index number used in the displayed student list. "
                     + "Existing values will be overwritten by the input values.",
             PARAMETER_INDEX,
             PARAMETER_NAME.asOptional(false),
@@ -57,7 +57,6 @@ public class EditPersonCommand extends Command {
 
     public static final String MESSAGE_EDIT_PERSON_SUCCESS = "Edited student: %1$s";
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
-
     private final Index index;
     private final EditPersonDescriptor editPersonDescriptor;
 
