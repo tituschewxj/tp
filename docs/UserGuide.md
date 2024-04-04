@@ -6,78 +6,178 @@
 
 # TAPro User Guide
 
-TAPro is a  **a Contact Book application** that is made for Computer Science Tutors for managing their students contact and performance details.
+TAPro is a **Contact Book application** that is made for Computer Science Tutors for managing their students contact and attendance details.
 
 TAPro is optimized for use via a **Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). 
 
-If you can type fast, TAPro can get your contact management tasks done faster than traditional GUI apps.
+If you can type fast, TAPro can get your contact management and attendance taking tasks done **faster** than traditional GUI apps.
 
 <!-- * Table of Contents -->
 <page-nav-print />
 
---------------------------------------------------------------------------------------------------------------------
+<markdown class="d-print-none">---</markdown>
+<div style="page-break-after: always;"></div>
+<br>
 
 ## Quick start
 
-1. Ensure you have Java `11` or above installed in your Computer.
+1. Ensure you have Java 11 or above installed in your computer.
 
-1. Download the latest `tapro.jar` from [here](https://github.com/AY2324S2-CS2103T-F13-1/tp/releases).
+<box type="tip" seamless>
+
+<i class="fa-solid fa-download"></i>
+**Installing Java:**
+
+If you do not have Java 11 or above installed, you can download the latest available version of Java from [here](https://www.oracle.com/sg/java/technologies/downloads/).
+The latest version is compatible with older versions.
+
+</box>
+
+2. Download the latest version of `TAPro.jar` from [here](https://github.com/AY2324S2-CS2103T-F13-1/tp/releases).
 
 1. Copy the file to the folder you want to use as the _home folder_ for your TAPro.
 
-1. Open a command terminal, `cd` into the folder you put the jar file in, and use the `java -jar tapro.jar` command to run the application.<br>
-   A GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
-   ![Ui](images/Ui.png)
+1. Open a command terminal, `cd` into the folder you downloaded the jar file in, and run the `java -jar TAPro.jar` command to launch the application.
 
-1. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
-   Some example commands you can try:
+<box type="info" seamless>
 
-   * `list` : Lists all contacts.
+A GUI similar to the below image should appear in a few seconds. Note how the app contains some sample data.
 
-   * `addstu nn/e0952224 n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01` : Adds a contact named `John Doe` to the Contact Book.
+<img src="images/main_window_ui.png" alt="Main Window UI on first launch" class="rounded-image"/>
 
-   * `delstu NUSNET_ID` : Deletes the student with the specified NUSNET_ID from the contact book.
+</box>
+<div style="page-break-after: always;"></div>
 
-   * `clear` : Deletes all contacts.
+5. Type the command in the command box and press <span class="badge bg-light text-dark">Enter</span> to execute it. e.g. typing **`help`** and pressing <span class="badge bg-light text-dark">Enter</span> will open the help window.
 
-   * `exit` : Exits the app.
+<box type="info" seamless>
 
-1. Refer to the [Features](#features) below for details of each command.
+**Here are some example commands you can try:**
 
---------------------------------------------------------------------------------------------------------------------
+* `list` : Lists all contacts.
+
+* `addstu nn/e0952224 n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01` : Adds a student named `John Doe` to the contact book.
+
+* `delstu nn/NUSNET_ID` : Deletes the student with the specified `NUSNET_ID` from the contact book.
+
+* `clear` : Deletes all students, and their contact and attendance information.
+
+* `exit` : Exits the application.
+
+</box>
+
+6. Refer to the sections under [Features](#features) below for details of each command.
+
+<markdown class="d-print-none">---</markdown>
+<div style="page-break-after: always;"></div>
+<br>
 
 ## Features
 
 <box type="info" seamless>
 
-**Notes about the command format:**<br>
+**About the command format:**<br>
 
-* Words in `UPPER_CASE` are the parameters to be supplied by the user.<br>
-  e.g. in `add n/NAME`, `NAME` is a parameter which can be used as `add n/John Doe`.
+<box type="success" seamless>
 
-* Items in square brackets are optional.<br>
-  e.g `n/NAME [t/TAG]` can be used as `n/John Doe t/friend` or as `n/John Doe`.
+<span class="semi-bold">Words in `UPPER_CASE` are the parameters to be supplied by the user.</span>
 
-* Items with `…`​ after them can be used multiple times including zero times.<br>
-  e.g. `[t/TAG]…​` can be used as ` ` (i.e. 0 times), `t/friend`, `t/friend t/family` etc.
-
-* Parameters can be in any order.<br>
-  e.g. if the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
-
-* Extraneous parameters for commands that do not take in parameters (such as `help`, `list`, `exit` and `clear`) will be ignored.<br>
-  e.g. if the command specifies `help 123`, it will be interpreted as `help`.
-
-* If you are using a PDF version of this document, be careful when copying and pasting commands that span multiple lines as space characters surrounding line-breaks may be omitted when copied over to the application.
+<span class="semi-bold">#g#Example:##</span> In `add n/NAME`, `NAME` is a parameter which can be used as `add n/John Doe`.
 </box>
+
+
+<box type="success" seamless>
+
+<span class="semi-bold">Items in square brackets are optional.</span>
+
+<span class="semi-bold">#g#Example:##</span> `n/NAME [t/TAG]` can be used as `n/John Doe t/friend` or as `n/John Doe`.
+</box>
+
+<box type="success" seamless>
+
+<span class="semi-bold">Items with `…`​ after them can be used multiple times including zero times.</span>
+
+<span class="semi-bold">#g#Example:##</span> `[t/TAG]…​` can be used as ` ` (i.e. 0 times), `t/friend`, `t/friend t/family` etc.
+</box>
+
+
+<box type="success" seamless>
+
+<span class="semi-bold">Parameters can be in any order.</span>
+
+<span class="semi-bold">#g#Example:##</span> If the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
+</box>
+
+<box type="success" seamless>
+
+<span class="semi-bold">Extraneous parameters for commands that do not take in parameters (such as `help`, `list`, `exit` and `clear`) will be ignored.</span>
+
+<span class="semi-bold">#g#Example:##</span> If the command specifies `help 123`, it will be interpreted as `help`.
+</box>
+
+</box>
+
+<box type="warning" seamless>
+
+**If you are using a PDF version of this document:**
+
+Be careful when copying and pasting commands that span multiple lines as space characters surrounding line-breaks may be omitted when copied over to the application.
+</box>
+
+<markdown class="d-print-none">---</markdown>
+<div style="page-break-after: always;"></div>
+<br>
 
 ### Viewing help : `help`
 
-Shows a message explaining how to access the help page, and the command usages with examples.
-
-![help message](images/helpWindow.png)
+Entering the `help` command opens a help window that shows a message explaining how to access the help page, 
+as well as quick reference of each command with simple examples on how to use them.
 
 Format: `help`
 
+<box type="info" seamless>
+
+<i class="fa-regular fa-window-restore"></i>
+**A new window is opened:**
+
+A new window is opened, so that it does not clutter up your main window. A GUI similar to the below image should appear.
+
+[//]: # (TODO: update this image once the help window is finalized in v1.4)
+<img src="images/help_window_ui.png" alt="Help Window UI" class="rounded-image" width="800px"/>
+
+</box>
+
+<box type="tip" seamless>
+
+<i class="fa-solid fa-maximize"></i>
+**Resizing the help window:**
+
+The help window is resizable, so you can **easily reposition and resize** it to fit anywhere on your screen, exactly where you want it to be.
+</box>
+
+<box type="tip" seamless>
+
+<i class="fa-solid fa-window-restore"></i>
+**Switching quickly between the help and main window:**
+
+* On Windows and most Linux distributions, you can use the keyboard shortcut: <span class="badge bg-light text-dark">Alt</span> +  <span class="badge bg-light text-dark">Tab</span>, to switch between windows quickly. 
+
+* On macOS, you can use the keyboard shortcut: <span class="badge bg-light text-dark">Cmd⌘</span> + <span class="badge bg-light text-dark">Tab</span>, to switch between windows quickly.
+
+</box>
+
+<box type="info" seamless>
+
+**More about help's quick reference:**
+
+The quick reference is meant for **fast and reliable** lookup of commands and their usages, without needing an internet connection and opening a browser to get an overview of the commands.
+
+* It is not meant to contain detailed information about each command. To access detailed information about each command, you can refer to our user guide.
+</box>
+
+<markdown class="d-print-none">---</markdown>
+<div style="page-break-after: always;"></div>
+<br>
 
 ### Name/Rename CS course : `setcrs`
 
@@ -88,6 +188,10 @@ Format: `setcrs COURSE_NAME`
 Duplicate course are not allowed.
 Courses are case-insensitive.
 Course code should follow the format "XX1234Y", Y is optional.
+
+<markdown class="d-print-none">---</markdown>
+<div style="page-break-after: always;"></div>
+<br>
 
 ### Adding a student: `addstu`
 Adds a student to the address book.
@@ -108,6 +212,10 @@ Examples:
 * `addstu n/Betsy Crowe nn/e01234567 t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/criminal`
 * `addstu n/Betsy Crowe nn/e01234567`
 
+<markdown class="d-print-none">---</markdown>
+<div style="page-break-after: always;"></div>
+<br>
+
 ### Listing all students : `list`
 
 Shows a list of all persons in the address book.
@@ -115,6 +223,10 @@ Shows a list of all persons in the address book.
 Format: `list`
 
 If there are additional arguments behind `list` we will simply ignore them.
+
+<markdown class="d-print-none">---</markdown>
+<div style="page-break-after: always;"></div>
+<br>
 
 ### Editing a person : `edit`
 
@@ -133,24 +245,80 @@ Examples:
 *  `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st person to be `91234567` and `johndoe@example.com` respectively.
 *  `edit 2 n/Betsy Crower t/` Edits the name of the 2nd person to be `Betsy Crower` and clears all existing tags.
 
+<markdown class="d-print-none">---</markdown>
+<div style="page-break-after: always;"></div>
+<br>
+
 ### Locating students by name: `find`
 
-Finds persons whose names contain any of the given keywords.
+Finds students whose names contain any of the given keywords.
 
 Format: `find KEYWORD [MORE_KEYWORDS]`
 
-* The search is case-insensitive. e.g `hans` will match `Hans`
-* The order of the keywords does not matter. e.g. `Hans Bo` will match `Bo Hans`
-* Only the name is searched.
-* Only full words will be matched e.g. `Han` will not match `Hans`
-* Persons matching at least one keyword will be returned (i.e. `OR` search).
-  e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`
 
-Examples:
-* `find John` returns `john` and `John Doe`
-* `find alex david` returns `Alex Yeoh`, `David Li`<br>
-  ![result for 'find alex david'](images/findAlexDavidResult.png)
+<box type="info" seamless>
 
+**About the find command:**
+
+<box type="success" seamless>
+
+<span class="semi-bold">Only the name is searched.</span>
+
+<span class="semi-bold">#g#Example:##</span> `E01234567` will not match a student with NUSNet ID `E01234567`.
+</box>
+
+<box type="success" seamless>
+
+<span class="semi-bold">The name search is case-insensitive.</span>
+
+<span class="semi-bold">#g#Example:##</span> `hans` will match `Hans`
+</box>
+
+
+<box type="success" seamless>
+
+<span class="semi-bold">The order of the keywords does not matter.</span>
+
+<span class="semi-bold">#g#Example:##</span> `Hans Bo` will match `Bo Hans`
+</box>
+
+<box type="success" seamless>
+
+<span class="semi-bold">Only full words will be matched.</span>
+
+<span class="semi-bold">#g#Example:##</span> `Han` will not match `Hans`
+</box>
+
+<box type="success" seamless>
+
+<span class="semi-bold">Students' name matching at least one keyword will be returned (i.e. `OR` search).</span>
+
+<span class="semi-bold">#g#Example:##</span> `Hans Bo` will return `Hans Gruber`, `Bo Yang`
+</box>
+</box>
+
+<box type="success" seamless>
+
+**Examples of using the find command:**
+
+<box type="success" seamless>
+
+<span class="semi-bold">#g#Example:##</span> `find John` returns `john` and `John Doe`
+</box>
+
+
+<box type="success" seamless>
+
+<span class="semi-bold">#g#Example:##</span> `find alex david` returns `Alex Yeoh`, `David Li`, as seen in the image below.
+
+[//]: # (TODO: update this image)
+<img src="images/findAlexDavidResult.png" alt="result for 'find alex david" width="500px" class="rounded-image"/>
+</box>
+</box>
+
+<markdown class="d-print-none">---</markdown>
+<div style="page-break-after: always;"></div>
+<br>
 
 ### Marking a student's attendance for a given week by their NUSNet: `mark`
 
@@ -161,6 +329,9 @@ Format: `mark nn/NUSNET_ID wk/WEEK_NUMBER`
 Example:
 * `mark nn/e1234567 wk/3`
 
+<markdown class="d-print-none">---</markdown>
+<br>
+
 ### Unmarking a student's attendance for a given week by their NUSNet: `unmark`
 
 Unmarks a student's attendance for a particular week.
@@ -169,6 +340,10 @@ Format: `unmark nn/NUSNET_ID wk/WEEK_NUMBER`
 
 Example:
 * `unmark nn/e1234567 wk/3`
+
+<markdown class="d-print-none">---</markdown>
+<div style="page-break-after: always;"></div>
+<br>
 
 ### Deleting a student: `delstu`
 
@@ -184,11 +359,18 @@ Examples:
 Pro Tip:
 * If you cannot remember your student's NUSNET_ID, you could use `find Betsy` or `list` followed by `delstu <Betsy's NUSNET_ID>` to find and delete the student.
 
+<markdown class="d-print-none">---</markdown>
+<div style="page-break-after: always;"></div>
+<br>
+
 ### Clearing all entries : `clear`
 
 Clears all entries from the address book.
 
 Format: `clear`
+
+<markdown class="d-print-none">---</markdown>
+<br>
 
 ### Exiting the program : `exit`
 
@@ -196,9 +378,93 @@ Exits the program.
 
 Format: `exit`
 
+<markdown class="d-print-none">---</markdown>
+<div style="page-break-after: always;"></div>
+<br>
+
+### Autocomplete
+
+Autocompletes a word or a set of words, based on the current input.
+
+<box type="warning" seamless>
+
+**Autocomplete only works on the NUSNet ID:**
+
+This is because autocomplete only makes sense when you are trying to retrieve existing data to perform an operation.
+
+As the `mark`, `unmark`, and `delstu` commands uses NUSNet ID, for their operations, it makes sense to add autocomplete for NUSNet ID.
+
+On the other hand, as `addstu` and `edit` require new information, autocomplete is not that useful, and is therefore omitted.
+</box>
+
+<box type="success" seamless>
+
+<span class="semi-bold">#g#Example:##</span>
+
+We have three students with NUSNet IDs `e0123456`, `e1234567` and `e2345678`. 
+If we type `mark nn/` into the command input box and press <span class="badge bg-light text-dark">Tab</span>,
+we can see that the text in the command input box autocompletes to become `mark nn/e01234567`.
+
+Pressing <span class="badge bg-light text-dark">Tab</span> again, causes the text to update to `mark nn/e1234567`,
+followed by `mark nn/e2345678`.
+</box>
+
+<box type="info" seamless>
+
+**Using autocomplete to scroll through all possible autocomplete suggestions:**
+
+Autocomplete will scroll through all possible options, based on the existing data in your contact list.
+
+When reaching the end of the possible options list, pressing
+<span class="badge bg-light text-dark">Tab</span> will wrap 
+the possible options back to the start of that list again.
+</box>
+
+<box type="info" seamless>
+
+**Sorted autocomplete suggestions:**
+
+The autocomplete suggestions will be listed in alphabetical order, meaning if you have two possible options
+`abc` and `abd`, autocomplete will give `abc` before `abd`.
+</box>
+
+<markdown class="d-print-none">---</markdown>
+<div style="page-break-after: always;"></div>
+<br>
+
+### Retrieving command history
+
+TAPro saves successful commands input, so you can retrieve them later, using the 
+<span class="badge bg-light text-dark">Up</span> and
+<span class="badge bg-light text-dark">Down</span> keys.
+
+<box type="success" seamless>
+
+<span class="semi-bold">#g#Example:##</span>
+
+We have entered `mark nn/e0123456` as the previous command, and it was successful. Now the command input box is empty.
+
+Pressing <span class="badge bg-light text-dark">Up</span> will update the text in the command input box to
+the previous command `mark nn/e0123456`.
+</box>
+
+<box type="warning" seamless>
+
+**Only successful commands will be retrieved:**
+
+If you enter an invalid command, it will not appear when attempting to retrieve it.
+</box>
+
+<markdown class="d-print-none">---</markdown>
+<div style="page-break-after: always;"></div>
+<br>
+
 ### Saving the data
 
 TAPro's data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
+
+<markdown class="d-print-none">---</markdown>
+<br>
 
 ### Editing the data file
 
@@ -207,28 +473,45 @@ TAPro's data are saved automatically as a JSON file `[JAR file location]/data/ad
 <box type="warning" seamless>
 
 **Caution:**
+
 If your changes to the data file makes its format invalid, TAPro will discard all data and start with an empty data file at the next run.  Hence, it is recommended to take a backup of the file before editing it.<br>
+
 Furthermore, certain edits can cause the TAPro to behave in unexpected ways (e.g., if a value entered is outside the acceptable range). Therefore, edit the data file only if you are confident that you can update it correctly.
 </box>
 
-### Archiving data files `[coming in v2.0]`
-
-_Details coming soon ..._
-
---------------------------------------------------------------------------------------------------------------------
+<markdown class="d-print-none">---</markdown>
+<div style="page-break-after: always;"></div>
+<br>
 
 ## FAQ
 
-**Q**: How do I transfer my data to another Computer?<br>
-**A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous TAPro home folder.
+<box type="info" icon=":fa-solid-question:" seamless>
 
---------------------------------------------------------------------------------------------------------------------
+<i class="fa-regular fa-circle-question"></i>
+**Q:** How do I transfer my data to another computer?
+
+<i class="fa-regular fa-comment-dots"></i>
+**A:** Install the application in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous TAPro home folder.
+</box>
+
+
+
+<markdown class="d-print-none">---</markdown>
+<br>
 
 ## Known issues
 
-1. **When using multiple screens**, if you move the application to a secondary screen, and later switch to using only the primary screen, the GUI will open off-screen. The remedy is to delete the `preferences.json` file created by the application before running the application again.
 
---------------------------------------------------------------------------------------------------------------------
+<box type="warning" theme="danger" seamless>
+
+**1. When using multiple screens**
+
+If you move the application to a secondary screen, and later switch to using only the primary screen, the GUI will open off-screen. The remedy is to delete the `preferences.json` file created by the application before running the application again.
+</box>
+
+<markdown class="d-print-none">---</markdown>
+<div style="page-break-after: always;"></div>
+<br>
 
 ## Command summary
 
@@ -236,7 +519,7 @@ Action     | Format, Examples
 -----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 **Add Student**    | `addstu n/NAME p/PHONE_NUMBER e/EMAIL nn/NUSNET_ID a/ADDRESS [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com nn/e1234567 a/123, Clementi Rd, 1234665 t/friend t/colleague`
 **Clear**  | `clear`
-**Delete Student** | `delstu NUSNET_ID`<br> e.g., `delstu e0957499`
+**Delete Student** | `delstu nn/NUSNET_ID`<br> e.g., `delstu nn/e0957499`
 **Edit**   | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
 **Mark**   | `mark nn/NUSNET_ID wk/WEEK_NUMBER`<br> e.g., `mark nn/e1234567 wk/3`
 **Unmark**   | `unmark nn/NUSNET_ID wk/WEEK_NUMBER`<br> e.g., `unmark nn/e1234567 wk/3`
