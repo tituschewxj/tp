@@ -23,7 +23,7 @@ public class NusNet {
     public NusNet(String nusnet) {
         requireNonNull(nusnet);
         checkArgument(isValidNusNet(nusnet), MESSAGE_CONSTRAINTS);
-        value = nusnet;
+        value = nusnet.toUpperCase();
     }
 
     /**

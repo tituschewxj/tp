@@ -57,7 +57,7 @@ public class MarkAttendanceCommandTest {
                 ALICE.getAddress(), aliceAttendanceUpdated, ALICE.getTags());
 
         CommandResult expectedCommandResult =
-                new CommandResult("Marked attendance for student: Alice Pauline, e0000001, Week 6");
+                new CommandResult("Marked attendance for student: Alice Pauline, E0000001, Week 6");
 
         MarkAttendanceCommand command = new MarkAttendanceCommand(testValidNusNet, testValidWeekNo6);
 
@@ -71,7 +71,7 @@ public class MarkAttendanceCommandTest {
     public void execute_validNusNetDuplicateWeekNumber_markSuccess() {
         MarkAttendanceCommand command = new MarkAttendanceCommand(testValidNusNet, testValidWeekNo1);
         CommandResult expectedCommandResult =
-                new CommandResult("Attendance is already marked for student: Alice Pauline, e0000001, Week 1");
+                new CommandResult("Attendance is already marked for student: Alice Pauline, E0000001, Week 1");
         assertCommandSuccess(command, model, expectedCommandResult, expectedModel);
     }
 

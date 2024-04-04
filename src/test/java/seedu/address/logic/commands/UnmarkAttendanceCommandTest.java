@@ -79,7 +79,7 @@ public class UnmarkAttendanceCommandTest {
                 ALICE.getAddress(), aliceAttendanceUpdated, ALICE.getTags());
 
         CommandResult expectedCommandResult =
-                new CommandResult("Attendance is already unmarked for student: Alice Pauline, e0000001, Week 6");
+                new CommandResult("Attendance is already unmarked for student: Alice Pauline, E0000001, Week 6");
 
         UnmarkAttendanceCommand command = new UnmarkAttendanceCommand(testValidNusNet, testValidWeekNo6);
 
@@ -106,7 +106,7 @@ public class UnmarkAttendanceCommandTest {
         expectedModel2.setPerson(ALICE, aliceChanged);
 
         CommandResult expectedCommandResult =
-                new CommandResult("Unmarked attendance for student: Alice Pauline, e0000001, Week 1");
+                new CommandResult("Unmarked attendance for student: Alice Pauline, E0000001, Week 1");
         assertCommandSuccess(command, model, expectedCommandResult, expectedModel2);
     }
 
