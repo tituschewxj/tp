@@ -43,7 +43,7 @@ public class EditPersonCommand extends Command {
 
     public static final String MESSAGE_USAGE = generateMessageUsage(
             COMMAND_WORD,
-            "Edits the details of the person identified "
+            "Edits the details of the student identified "
                     + "by the index number used in the displayed student list. "
                     + "Existing values will be overwritten by the input values.",
             PARAMETER_INDEX,
