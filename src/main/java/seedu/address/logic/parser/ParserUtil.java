@@ -122,7 +122,7 @@ public class ParserUtil {
     public static Course parseCourse(String code) throws ParseException {
         requireNonNull(code);
         String trimmedCode = code.trim().toUpperCase();
-        if (!Tag.isValidTagName(trimmedCode)) {
+        if (!Course.isValidCode(trimmedCode)) {
             throw new ParseException(Course.MESSAGE_CONSTRAINTS);
         }
         return new Course(trimmedCode);
