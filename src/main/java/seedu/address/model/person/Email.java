@@ -36,13 +36,20 @@ public class Email {
 
     /**
      * Constructs an {@code Email}.
+     * <p>
+     * Email is stored as lowercase, as it is case-insensitive.
      *
      * @param email A valid email address.
      */
     public Email(String email) {
         requireNonNull(email);
         checkArgument(isValidEmail(email), MESSAGE_CONSTRAINTS);
-        value = email;
+
+        if (email.equals(PLACEHOLDER)) {
+            value = email;
+        } else {
+            value = email.toLowerCase();
+        }
     }
 
     /**
@@ -73,7 +80,7 @@ public class Email {
         }
 
         Email otherEmail = (Email) other;
-        return value.equals(otherEmail.value);
+        return value.equalsIgnoreCase(otherEmail.value);
     }
 
     @Override
