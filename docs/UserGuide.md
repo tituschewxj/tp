@@ -382,6 +382,83 @@ Format: `exit`
 <div style="page-break-after: always;"></div>
 <br>
 
+### Autocomplete
+
+Autocompletes a word or a set of words, based on the current input.
+
+<box type="warning" seamless>
+
+**Autocomplete only works on the NUSNet ID:**
+
+This is because autocomplete only makes sense when you are trying to retrieve existing data to perform an operation.
+
+As the `mark`, `unmark`, and `delstu` commands uses NUSNet ID, for their operations, it makes sense to add autocomplete for NUSNet ID.
+
+On the other hand, as `addstu` and `edit` require new information, autocomplete is not that useful, and is therefore omitted.
+</box>
+
+<box type="success" seamless>
+
+<span class="semi-bold">#g#Example:##</span>
+
+We have three students with NUSNet IDs `e0123456`, `e1234567` and `e2345678`. 
+If we type `mark nn/` into the command input box and press <span class="badge bg-light text-dark">Tab</span>,
+we can see that the text in the command input box autocompletes to become `mark nn/e01234567`.
+
+Pressing <span class="badge bg-light text-dark">Tab</span> again, causes the text to update to `mark nn/e1234567`,
+followed by `mark nn/e2345678`.
+</box>
+
+<box type="info" seamless>
+
+**Using autocomplete to scroll through all possible autocomplete suggestions:**
+
+Autocomplete will scroll through all possible options, based on the existing data in your contact list.
+
+When reaching the end of the possible options list, pressing
+<span class="badge bg-light text-dark">Tab</span> will wrap 
+the possible options back to the start of that list again.
+</box>
+
+<box type="info" seamless>
+
+**Sorted autocomplete suggestions:**
+
+The autocomplete suggestions will be listed in alphabetical order, meaning if you have two possible options
+`abc` and `abd`, autocomplete will give `abc` before `abd`.
+</box>
+
+<markdown class="d-print-none">---</markdown>
+<div style="page-break-after: always;"></div>
+<br>
+
+### Retrieving command history
+
+TAPro saves successful commands input, so you can retrieve them later, using the 
+<span class="badge bg-light text-dark">Up</span> and
+<span class="badge bg-light text-dark">Down</span> keys.
+
+<box type="success" seamless>
+
+<span class="semi-bold">#g#Example:##</span>
+
+We have entered `mark nn/e0123456` as the previous command, and it was successful. Now the command input box is empty.
+
+Pressing <span class="badge bg-light text-dark">Up</span> will update the text in the command input box to
+the previous command `mark nn/e0123456`.
+</box>
+
+<box type="warning" seamless>
+
+**Only successful commands will be retrieved:**
+
+If you enter an invalid command, it will not appear when attempting to retrieve it.
+</box>
+
+<markdown class="d-print-none">---</markdown>
+<div style="page-break-after: always;"></div>
+<br>
+
 ### Saving the data
 
 TAPro's data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
