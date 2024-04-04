@@ -18,7 +18,7 @@ import seedu.address.model.person.Person;
 import seedu.address.model.weeknumber.WeekNumber;
 
 /**
- * Marks attendance of an existing student in the contact book.
+ * Marks attendance of an existing person in the address book.
  */
 public class MarkAttendanceCommand extends Command {
 

@@ -11,7 +11,6 @@ import seedu.address.model.course.Course;
 
 public class SetCourseCommandParserTest {
     private SetCourseCommandParser parser = new SetCourseCommandParser();
-
     @Test
     public void parse_validArgs_returnsSetCourseCommand() {
 
