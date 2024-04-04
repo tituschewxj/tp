@@ -160,7 +160,7 @@ public class EditPersonCommand extends Command {
             setPhone(toCopy.phone);
             setEmail(toCopy.email);
             setNusNet(toCopy.nusNet);
-            setAddress(toCopy.major);
+            setMajor(toCopy.major);
             setAttendance(toCopy.attendance);
             setTags(toCopy.tags);
         }
@@ -204,7 +204,7 @@ public class EditPersonCommand extends Command {
             return Optional.ofNullable(nusNet);
         }
 
-        public void setAddress(Major major) {
+        public void setMajor(Major major) {
             this.major = major;
         }
 
