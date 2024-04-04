@@ -21,9 +21,10 @@ import seedu.address.model.course.Course;
 public class SetCourseCommand extends Command {
     public static final String COMMAND_WORD = "setcrs";
 
-    public static final String MESSAGE_USAGE = CommandMessageUsageUtil.generateMessageUsage(COMMAND_WORD,
-            "Sets the course using course code.", "KEYWORD",
-            COMMAND_WORD + " CS2104");
+    public static final String MESSAGE_USAGE = CommandMessageUsageUtil.generateMessageUsage(
+            COMMAND_WORD,
+            "Sets the course name. ",
+            PARAMETER_COURSE_CODE);
 
     public static final String MESSAGE_SUCCESS = "Successfully updated course name";
 
