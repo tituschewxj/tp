@@ -60,7 +60,7 @@ public class EditPersonCommandParser implements Parser<EditPersonCommand> {
             editPersonDescriptor.setEmail(ParserUtil.parseEmail(argMultimap.getValue(PREFIX_EMAIL).get()));
         }
         if (argMultimap.getValue(PREFIX_MAJOR).isPresent()) {
-            editPersonDescriptor.setMajor(ParserUtil.parseAddress(argMultimap.getValue(PREFIX_MAJOR).get()));
+            editPersonDescriptor.setMajor(ParserUtil.parseMajor(argMultimap.getValue(PREFIX_MAJOR).get()));
         }
         if (argMultimap.getValue(PREFIX_NUSNET).isPresent()) {
             editPersonDescriptor.setNusNet(ParserUtil.parseNusNet(argMultimap.getValue(PREFIX_NUSNET).get()));

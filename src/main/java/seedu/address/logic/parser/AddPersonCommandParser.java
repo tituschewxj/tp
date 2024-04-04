@@ -64,7 +64,7 @@ public class AddPersonCommandParser implements Parser<AddPersonCommand> {
              .orElseGet(() -> Email.PLACEHOLDER));
         NusNet nusNet = ParserUtil.parseNusNet(argMultimap.getValue(PREFIX_NUSNET)
               .get());
-        Major major = ParserUtil.parseAddress(argMultimap.getValue(PREFIX_MAJOR)
+        Major major = ParserUtil.parseMajor(argMultimap.getValue(PREFIX_MAJOR)
               .orElseGet(() -> Major.PLACEHOLDER));
         Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
 
