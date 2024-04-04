@@ -4,6 +4,7 @@ import java.nio.file.Path;
 
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
+import seedu.address.logic.autocomplete.AutoCompleteResult;
 import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.parser.exceptions.ParseException;
@@ -26,13 +27,12 @@ public interface Logic {
     CommandResult execute(String commandText) throws CommandException, ParseException;
 
     /**
-     * Returns the autocomplete text based on the input.
+     * Returns the autocomplete results based on the input.
      *
      * @param commandText The input as entered by the user.
-     * @return the autocomplete text to be appended to the input.
-     * @see seedu.address.logic.autocomplete.AutoComplete#getAutoComplete(String)
+     * @return the autocomplete results to be appended to the input.
      */
-    String autoComplete(String commandText);
+    AutoCompleteResult autoComplete(String commandText);
 
     /**
      * Returns the AddressBook.

@@ -68,7 +68,7 @@ public class LogicManagerTest {
 
     @Test
     public void execute_commandExecutionError_throwsCommandException() {
-        String deleteCommand = "delstu e9999999";
+        String deleteCommand = "delstu nn/e9999999";
         assertCommandException(deleteCommand, MESSAGE_MISSING_NUSNET);
     }
 
@@ -200,12 +200,12 @@ public class LogicManagerTest {
         String prefix = fullAddPersonCommand.substring(0, 2);
         String remaining = fullAddPersonCommand.substring(2);
 
-        assertEquals(remaining, logic.autoComplete(prefix));
+        assertEquals(remaining, logic.autoComplete(prefix).getNextResult());
 
         String fullListPersonCommand = ListPersonCommand.COMMAND_WORD;
         prefix = fullListPersonCommand.substring(0, 2);
         remaining = fullListPersonCommand.substring(2);
 
-        assertEquals(remaining, logic.autoComplete(prefix));
+        assertEquals(remaining, logic.autoComplete(prefix).getNextResult());
     }
 }

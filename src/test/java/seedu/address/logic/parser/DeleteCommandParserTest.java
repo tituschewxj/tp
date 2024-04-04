@@ -1,6 +1,7 @@
 package seedu.address.logic.parser;
 
 import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+import static seedu.address.logic.commands.CommandTestUtil.NUSNET_DESC_AMY;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
 
@@ -23,7 +24,7 @@ public class DeleteCommandParserTest {
 
     @Test
     public void parse_validArgs_returnsDeleteCommand() {
-        assertParseSuccess(parser, CommandTestUtil.VALID_NUSNET_AMY, new DeletePersonCommand(
+        assertParseSuccess(parser, NUSNET_DESC_AMY, new DeletePersonCommand(
                 new NusNet(CommandTestUtil.VALID_NUSNET_AMY)));
     }
 

@@ -20,6 +20,7 @@ import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.commons.exceptions.DataLoadingException;
 import seedu.address.logic.Logic;
+import seedu.address.logic.autocomplete.AutoCompleteResult;
 import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.parser.exceptions.ParseException;
@@ -263,7 +264,7 @@ public class MainWindow extends UiPart<Stage> {
     /**
      * Auto completes the command and returns the text to append to the input.
      */
-    private String autoComplete(String commandText) {
+    private AutoCompleteResult autoComplete(String commandText) {
         return logic.autoComplete(commandText);
     }
 }

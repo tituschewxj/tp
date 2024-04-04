@@ -71,7 +71,7 @@ public class MarkAttendanceCommandTest {
     public void execute_validNusNetDuplicateWeekNumber_markSuccess() {
         MarkAttendanceCommand command = new MarkAttendanceCommand(testValidNusNet, testValidWeekNo1);
         CommandResult expectedCommandResult =
-                new CommandResult("Re-marked Attendance for student: Alice Pauline, e0000001, Week 1");
+                new CommandResult("Attendance is already marked for student: Alice Pauline, e0000001, Week 1");
         assertCommandSuccess(command, model, expectedCommandResult, expectedModel);
     }
 

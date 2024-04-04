@@ -1,5 +1,11 @@
 package seedu.address.logic.autocomplete;
 
+import static java.util.Objects.requireNonNull;
+import static seedu.address.logic.commands.util.CommandWordUtil.getAllCommandWords;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
 import seedu.address.commons.util.Trie;
 
 /**
@@ -12,24 +18,28 @@ public class AutoCompleteCommand implements AutoComplete {
      * Initializes the command trie with the given commands. This method should be called once at
      * the start of the initialization of LogicManager.
      *
-     * @param commands the commands to initialize the trie with
      * @see seedu.address.logic.LogicManager
      */
-    public static void initialize(String... commands) {
-        commandTrie = new Trie(commands);
+    public static void initialize() {
+        commandTrie = new Trie(getAllCommandWords());
     }
 
     @Override
-    public String getAutoComplete(String input) {
-        assert commandTrie != null;
-        String fullCommand = commandTrie.findFirstWordWithPrefix(input);
+    public AutoCompleteResult getAutoComplete(String input) {
+        requireNonNull(commandTrie);
+        List<String> fullCommands = commandTrie.findAllWordsWithPrefix(input);
 
-        assert fullCommand != null;
-        if (fullCommand.isEmpty()) {
-            return "";
+        assert fullCommands != null;
+        if (fullCommands.isEmpty()) {
+            return new AutoCompleteResult();
         }
 
-        // Strip the input from the full command
-        return fullCommand.substring(input.length());
+        // Strip the input from the full commands and sort the list
+        return new AutoCompleteResult(
+                fullCommands.stream()
+                        .map(c -> c.substring(input.length()))
+                        .sorted()
+                        .collect(Collectors.toList())
+        );
     }
 }

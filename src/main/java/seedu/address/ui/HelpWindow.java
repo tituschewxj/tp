@@ -13,6 +13,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.logic.commands.AddPersonCommand;
+import seedu.address.logic.commands.ClearCommand;
 import seedu.address.logic.commands.DeletePersonCommand;
 import seedu.address.logic.commands.EditPersonCommand;
 import seedu.address.logic.commands.ExitCommand;
@@ -59,6 +60,10 @@ public class HelpWindow extends UiPart<Stage> {
                         AddPersonCommand.MESSAGE_USAGE
                 ).getRoot(),
                 new HelpWindowCommandCard(
+                        ClearCommand.COMMAND_WORD,
+                        ClearCommand.MESSAGE_USAGE
+                ).getRoot(),
+                new HelpWindowCommandCard(
                         DeletePersonCommand.COMMAND_WORD,
                         DeletePersonCommand.MESSAGE_USAGE
                 ).getRoot(),
@@ -67,32 +72,32 @@ public class HelpWindow extends UiPart<Stage> {
                         EditPersonCommand.MESSAGE_USAGE
                 ).getRoot(),
                 new HelpWindowCommandCard(
-                        ExitCommand.COMMAND_WORD,
-                        "-" // TODO: add ExitCommand.MESSAGE_USAGE
-                ).getRoot(),
-                new HelpWindowCommandCard(
                         FindPersonCommand.COMMAND_WORD,
                         FindPersonCommand.MESSAGE_USAGE
                 ).getRoot(),
                 new HelpWindowCommandCard(
-                        HelpCommand.COMMAND_WORD,
-                        HelpCommand.MESSAGE_USAGE
-                ).getRoot(),
-                new HelpWindowCommandCard(
                         ListPersonCommand.COMMAND_WORD,
-                        "-" // TODO: add ListPersonCommand.MESSAGE_USAGE
+                        ListPersonCommand.MESSAGE_USAGE
                 ).getRoot(),
                 new HelpWindowCommandCard(
                         MarkAttendanceCommand.COMMAND_WORD,
                         MarkAttendanceCommand.MESSAGE_USAGE
                 ).getRoot(),
                 new HelpWindowCommandCard(
+                        UnmarkAttendanceCommand.COMMAND_WORD,
+                        UnmarkAttendanceCommand.MESSAGE_USAGE
+                ).getRoot(),
+                new HelpWindowCommandCard(
                         SetCourseCommand.COMMAND_WORD,
                         SetCourseCommand.MESSAGE_USAGE
                 ).getRoot(),
                 new HelpWindowCommandCard(
-                        UnmarkAttendanceCommand.COMMAND_WORD,
-                        UnmarkAttendanceCommand.MESSAGE_USAGE
+                        ExitCommand.COMMAND_WORD,
+                        ExitCommand.MESSAGE_USAGE
+                ).getRoot(),
+                new HelpWindowCommandCard(
+                        HelpCommand.COMMAND_WORD,
+                        HelpCommand.MESSAGE_USAGE
                 ).getRoot()
         );
     }

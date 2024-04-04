@@ -108,4 +108,31 @@ class TrieTest {
         assertEquals("", trie.findFirstWordWithPrefix("a"));
         assertEquals("", trie.findFirstWordWithPrefix("ab"));
     }
+
+    @Test
+    void findAllWordsWithPrefix() {
+        Trie trie = new Trie(
+                "hello",
+                "world",
+                "hell",
+                "word",
+                "work",
+                "wording"
+        );
+
+        assertEquals(2, trie.findAllWordsWithPrefix("he").size());
+        assertEquals("hell", trie.findAllWordsWithPrefix("he").get(0));
+        assertEquals("hello", trie.findAllWordsWithPrefix("he").get(1));
+
+        assertEquals(4, trie.findAllWordsWithPrefix("w").size());
+        assertEquals("word", trie.findAllWordsWithPrefix("w").get(0));
+        assertEquals("wording", trie.findAllWordsWithPrefix("w").get(1));
+        assertEquals("work", trie.findAllWordsWithPrefix("w").get(2));
+        assertEquals("world", trie.findAllWordsWithPrefix("w").get(3));
+
+        assertEquals(1, trie.findAllWordsWithPrefix("hello").size());
+        assertEquals("hello", trie.findAllWordsWithPrefix("hello").get(0));
+
+        assertEquals(0, trie.findAllWordsWithPrefix("x").size());
+    }
 }

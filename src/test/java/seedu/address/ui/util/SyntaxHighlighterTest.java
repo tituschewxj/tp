@@ -31,9 +31,9 @@ class SyntaxHighlighterTest {
     static void setUp() {
         s = new SyntaxHighlighter();
         errorTextFlow = s.generateLine(Messages.MESSAGE_UNKNOWN_COMMAND);
-        successTextFlow = s.generateLine(Messages.MESSAGE_MARKED_ATTENDANCE_SUCCESS);
+        successTextFlow = s.generateLine(MarkAttendanceCommand.MESSAGE_MARKED_ATTENDANCE_SUCCESS);
         genericTextFlow = s.generateLine(MarkAttendanceCommand.MESSAGE_USAGE);
-        multilineTextFlows = s.generateLines(Messages.MESSAGE_MARKED_ATTENDANCE_SUCCESS + "\n"
+        multilineTextFlows = s.generateLines(MarkAttendanceCommand.MESSAGE_MARKED_ATTENDANCE_SUCCESS + "\n"
                 + MarkAttendanceCommand.MESSAGE_USAGE
         );
     }

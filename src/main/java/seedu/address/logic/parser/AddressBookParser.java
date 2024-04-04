@@ -12,6 +12,7 @@ import seedu.address.commons.core.LogsCenter;
 import seedu.address.logic.autocomplete.AutoComplete;
 import seedu.address.logic.autocomplete.AutoCompleteCommand;
 import seedu.address.logic.autocomplete.AutoCompleteNusNetId;
+import seedu.address.logic.autocomplete.AutoCompleteResult;
 import seedu.address.logic.commands.AddPersonCommand;
 import seedu.address.logic.commands.ClearCommand;
 import seedu.address.logic.commands.Command;
@@ -110,7 +111,7 @@ public class AddressBookParser {
         final Matcher matcher = BASIC_COMMAND_FORMAT.matcher(userInput.trim());
         if (!matcher.matches()) {
             logger.finer("Unable to parse user input for autocomplete: " + userInput);
-            return input -> "";
+            return input -> new AutoCompleteResult();
         }
 
         final String arguments = matcher.group(ARGUMENTS_GROUP);
@@ -124,6 +125,6 @@ public class AddressBookParser {
             return new AutoCompleteNusNetId();
         }
 
-        return input -> "";
+        return input -> new AutoCompleteResult();
     }
 }

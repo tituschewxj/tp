@@ -62,7 +62,7 @@ public class AddressBookParserTest {
     @Test
     public void parseCommand_delete() throws Exception {
         DeletePersonCommand command = (DeletePersonCommand) parser.parseCommand(
-            DeletePersonCommand.COMMAND_WORD + " " + CommandTestUtil.VALID_NUSNET_AMY);
+            DeletePersonCommand.COMMAND_WORD + " " + PREFIX_NUSNET + CommandTestUtil.VALID_NUSNET_AMY);
         assertEquals(new DeletePersonCommand(new NusNet(CommandTestUtil.VALID_NUSNET_AMY)), command);
     }
 
@@ -148,14 +148,14 @@ public class AddressBookParserTest {
     void parseAutoComplete() {
         // No input
         AutoComplete ac = parser.parseAutoComplete("");
-        assertEquals(ac.getAutoComplete("arbitrary_input"), "");
+        assertEquals(ac.getAutoComplete("arbitrary_input").getNextResult(), "");
 
         // Test for input that contains only command word and no arguments
         assert(parser.parseAutoComplete("arbitrary_command") instanceof AutoCompleteCommand);
 
         // Test for input that contains command word and arguments
         ac = parser.parseAutoComplete("arbitrary_command arbitrary_arguments");
-        assertEquals(ac.getAutoComplete("arbitrary_input"), "");
+        assertEquals(ac.getAutoComplete("arbitrary_input").getNextResult(), "");
 
         // Test for input that contains NUSNET ID
         ac = parser.parseAutoComplete("arbitrary_command nn/arbitrary_nusnet_id");
