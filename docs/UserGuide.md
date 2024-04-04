@@ -246,7 +246,7 @@ Examples:
 *  `edit 2 n/Betsy Crower t/` Edits the name of the 2nd person to be `Betsy Crower` and clears all existing tags.
 
 <box type="info" seamless>
-This command differs from most other commands that use the NUSNET_ID to identify a student. This command uses the index number shown in the displayed person list to identify the student to be edited.
+This command differs from most other commands that use the `NUSNET_ID` to identify a student. This command uses the index number shown in the displayed person list to identify the student to be edited.
 </box>
 
 <markdown class="d-print-none">---</markdown>
