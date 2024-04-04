@@ -63,11 +63,11 @@ public class AddCommandTest {
 
         Person validPerson2 = new PersonBuilder()
             .withNusNet("E1234567")
-            .withName("Some name")
+            .withName("Some Name")
             .build();
         Person validPerson3 = new PersonBuilder()
             .withNusNet("E1234567")
-            .withName("Some other name")
+            .withName("Some Other Name")
             .build();
         ModelStub modelStub2 = new ModelStubWithPerson(validPerson2);
         AddPersonCommand addCommand2 = new AddPersonCommand(validPerson3);
