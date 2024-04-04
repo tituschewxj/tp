@@ -38,10 +38,10 @@ public class ParameterSyntax {
             "e0123456"
     );
 
-    public static final Parameter PARAMETER_ADDRESS = new DefinedParameter(
+    public static final Parameter PARAMETER_MAJOR = new DefinedParameter(
             PREFIX_MAJOR,
-            "ADDRESS",
-            "311, Clementi Ave 2, #02-25"
+            "MAJOR",
+            "Computer Science"
     );
 
     public static final Parameter PARAMETER_TAG = new DefinedParameter(

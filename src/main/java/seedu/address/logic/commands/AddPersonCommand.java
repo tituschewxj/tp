@@ -3,8 +3,8 @@ package seedu.address.logic.commands;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.Messages.MESSAGE_DUPLICATE_PERSON;
 import static seedu.address.logic.commands.util.CommandMessageUsageUtil.generateMessageUsage;
-import static seedu.address.logic.commands.util.ParameterSyntax.PARAMETER_ADDRESS;
 import static seedu.address.logic.commands.util.ParameterSyntax.PARAMETER_EMAIL;
+import static seedu.address.logic.commands.util.ParameterSyntax.PARAMETER_MAJOR;
 import static seedu.address.logic.commands.util.ParameterSyntax.PARAMETER_NAME;
 import static seedu.address.logic.commands.util.ParameterSyntax.PARAMETER_NUSNET;
 import static seedu.address.logic.commands.util.ParameterSyntax.PARAMETER_PHONE;
@@ -30,7 +30,7 @@ public class AddPersonCommand extends Command {
             PARAMETER_NUSNET,
             PARAMETER_PHONE.asOptional(true),
             PARAMETER_EMAIL.asOptional(true),
-            PARAMETER_ADDRESS.asOptional(true),
+            PARAMETER_MAJOR.asOptional(true),
             PARAMETER_TAG.asMultiple(2)
     );
 
