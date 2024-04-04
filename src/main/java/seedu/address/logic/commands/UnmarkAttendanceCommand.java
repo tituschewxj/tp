@@ -72,7 +72,7 @@ public class UnmarkAttendanceCommand extends Command {
         }
 
         Person updatedPerson = new Person(personToUnmark.getName(), personToUnmark.getPhone(),
-                personToUnmark.getEmail(), personToUnmark.getNusNet(), personToUnmark.getAddress(),
+                personToUnmark.getEmail(), personToUnmark.getNusNet(), personToUnmark.getMajor(),
                 updatedWeekAttendance, personToUnmark.getTags());
 
         model.setPerson(personToUnmark, updatedPerson);

@@ -99,8 +99,8 @@ public class Messages {
                 .append(person.getEmail())
                 .append("; NUSNET: ")
                 .append(person.getNusNet())
-                .append("; Address: ")
-                .append(person.getAddress())
+                .append("; Major: ")
+                .append(person.getMajor())
                 .append("; Attendance: ");
         person.getAttendance().forEach(builder::append);
         builder.append("; Tags: ");

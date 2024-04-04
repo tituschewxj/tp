@@ -1,7 +1,7 @@
 package seedu.address.logic.commands.util;
 
-import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_MAJOR;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NUSNET;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
@@ -38,10 +38,10 @@ public class ParameterSyntax {
             "e0123456"
     );
 
-    public static final Parameter PARAMETER_ADDRESS = new DefinedParameter(
-            PREFIX_ADDRESS,
-            "ADDRESS",
-            "311, Clementi Ave 2, #02-25"
+    public static final Parameter PARAMETER_MAJOR = new DefinedParameter(
+            PREFIX_MAJOR,
+            "MAJOR",
+            "Computer Science"
     );
 
     public static final Parameter PARAMETER_TAG = new DefinedParameter(

@@ -10,8 +10,8 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import seedu.address.commons.exceptions.IllegalValueException;
-import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
+import seedu.address.model.person.Major;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.NusNet;
 import seedu.address.model.person.Person;
@@ -30,7 +30,7 @@ class JsonAdaptedPerson {
     private final String phone;
     private final String email;
     private final String nusNet;
-    private final String address;
+    private final String major;
     private final List<JsonAdaptedWeekNumber> attendance = new ArrayList<>();
     private final List<JsonAdaptedTag> tags = new ArrayList<>();
 
@@ -40,14 +40,14 @@ class JsonAdaptedPerson {
     @JsonCreator
     public JsonAdaptedPerson(@JsonProperty("name") String name, @JsonProperty("phone") String phone,
             @JsonProperty("email") String email, @JsonProperty("nusNet") String nusNet,
-            @JsonProperty("address") String address,
+            @JsonProperty("major") String major,
                              @JsonProperty("attendance") List<JsonAdaptedWeekNumber> attendance,
                              @JsonProperty("tags") List<JsonAdaptedTag> tags) {
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.nusNet = nusNet;
-        this.address = address;
+        this.major = major;
         if (attendance != null) {
             this.attendance.addAll(attendance);
         }
@@ -64,7 +64,7 @@ class JsonAdaptedPerson {
         phone = source.getPhone().value;
         email = source.getEmail().value;
         nusNet = source.getNusNet().value;
-        address = source.getAddress().value;
+        major = source.getMajor().value;
         attendance.addAll(source.getAttendance().stream()
                 .map(JsonAdaptedWeekNumber::new)
                 .collect(Collectors.toList()));
@@ -121,19 +121,19 @@ class JsonAdaptedPerson {
         }
         final NusNet modelNusNet = new NusNet(nusNet);
 
-        if (address == null) {
-            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Address.class.getSimpleName()));
+        if (major == null) {
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Major.class.getSimpleName()));
         }
-        if (!Address.isValidAddress(address)) {
-            throw new IllegalValueException(Address.MESSAGE_CONSTRAINTS);
+        if (!Major.isValidMajor(major)) {
+            throw new IllegalValueException(Major.MESSAGE_CONSTRAINTS);
         }
-        final Address modelAddress = new Address(address);
+        final Major modelMajor = new Major(major);
 
         final Set<WeekNumber> modelAttendance = new HashSet<>(personAttendance);
 
         final Set<Tag> modelTags = new HashSet<>(personTags);
 
-        return new Person(modelName, modelPhone, modelEmail, modelNusNet, modelAddress, modelAttendance, modelTags);
+        return new Person(modelName, modelPhone, modelEmail, modelNusNet, modelMajor, modelAttendance, modelTags);
     }
 
 }

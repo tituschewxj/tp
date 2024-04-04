@@ -18,7 +18,7 @@ import seedu.address.model.person.Person;
 import seedu.address.model.weeknumber.WeekNumber;
 
 /**
- * Marks attendance of an existing person in the address book.
+ * Marks attendance of an existing person in the contact book.
  */
 public class MarkAttendanceCommand extends Command {
 
@@ -70,7 +70,7 @@ public class MarkAttendanceCommand extends Command {
         }
 
         Person updatedPerson = new Person(personToMark.getName(), personToMark.getPhone(), personToMark.getEmail(),
-                personToMark.getNusNet(), personToMark.getAddress(), updatedWeekAttendance, personToMark.getTags());
+                personToMark.getNusNet(), personToMark.getMajor(), updatedWeekAttendance, personToMark.getTags());
 
         model.setPerson(personToMark, updatedPerson);
 

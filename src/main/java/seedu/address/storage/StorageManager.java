@@ -51,7 +51,7 @@ public class StorageManager implements Storage {
     }
 
 
-    // ================ AddressBook methods ==============================
+    // ================ TAPro methods ==============================
 
     @Override
     public Path getAddressBookFilePath() {
