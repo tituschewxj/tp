@@ -25,8 +25,8 @@ import seedu.address.commons.util.ToStringBuilder;
 import seedu.address.logic.Messages;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
-import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
+import seedu.address.model.person.Major;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.NusNet;
 import seedu.address.model.person.Person;
@@ -104,12 +104,12 @@ public class EditPersonCommand extends Command {
         Phone updatedPhone = editPersonDescriptor.getPhone().orElse(personToEdit.getPhone());
         Email updatedEmail = editPersonDescriptor.getEmail().orElse(personToEdit.getEmail());
         NusNet updatedNusNet = editPersonDescriptor.getNusNet().orElse(personToEdit.getNusNet());
-        Address updatedAddress = editPersonDescriptor.getAddress().orElse(personToEdit.getAddress());
+        Major updatedMajor = editPersonDescriptor.getMajor().orElse(personToEdit.getMajor());
         Set<WeekNumber> updatedAttendance = editPersonDescriptor.getAttendance().orElse(personToEdit.getAttendance());
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
 
         return new Person(updatedName, updatedPhone, updatedEmail, updatedNusNet,
-                updatedAddress, updatedAttendance, updatedTags);
+                updatedMajor, updatedAttendance, updatedTags);
     }
 
     @Override
@@ -145,7 +145,7 @@ public class EditPersonCommand extends Command {
         private Phone phone;
         private Email email;
         private NusNet nusNet;
-        private Address address;
+        private Major major;
         private Set<WeekNumber> attendance;
         private Set<Tag> tags;
 
@@ -160,7 +160,7 @@ public class EditPersonCommand extends Command {
             setPhone(toCopy.phone);
             setEmail(toCopy.email);
             setNusNet(toCopy.nusNet);
-            setAddress(toCopy.address);
+            setAddress(toCopy.major);
             setAttendance(toCopy.attendance);
             setTags(toCopy.tags);
         }
@@ -169,7 +169,7 @@ public class EditPersonCommand extends Command {
          * Returns true if at least one field is edited.
          */
         public boolean isAnyFieldEdited() {
-            return CollectionUtil.isAnyNonNull(name, phone, email, nusNet, address, tags);
+            return CollectionUtil.isAnyNonNull(name, phone, email, nusNet, major, tags);
         }
 
         public void setName(Name name) {
@@ -204,12 +204,12 @@ public class EditPersonCommand extends Command {
             return Optional.ofNullable(nusNet);
         }
 
-        public void setAddress(Address address) {
-            this.address = address;
+        public void setAddress(Major major) {
+            this.major = major;
         }
 
-        public Optional<Address> getAddress() {
-            return Optional.ofNullable(address);
+        public Optional<Major> getMajor() {
+            return Optional.ofNullable(major);
         }
 
         /**
@@ -261,7 +261,7 @@ public class EditPersonCommand extends Command {
             return Objects.equals(name, otherEditPersonDescriptor.name)
                     && Objects.equals(phone, otherEditPersonDescriptor.phone)
                     && Objects.equals(email, otherEditPersonDescriptor.email)
-                    && Objects.equals(address, otherEditPersonDescriptor.address)
+                    && Objects.equals(major, otherEditPersonDescriptor.major)
                     && Objects.equals(tags, otherEditPersonDescriptor.tags);
         }
 
@@ -272,7 +272,7 @@ public class EditPersonCommand extends Command {
                     .add("phone", phone)
                     .add("email", email)
                     .add("nusNet", nusNet)
-                    .add("address", address)
+                    .add("major", major)
                     .add("attendance", attendance)
                     .add("tags", tags)
                     .toString();

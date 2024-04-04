@@ -70,7 +70,7 @@ public class MarkAttendanceCommand extends Command {
         }
 
         Person updatedPerson = new Person(personToMark.getName(), personToMark.getPhone(), personToMark.getEmail(),
-                personToMark.getNusNet(), personToMark.getAddress(), updatedWeekAttendance, personToMark.getTags());
+                personToMark.getNusNet(), personToMark.getMajor(), updatedWeekAttendance, personToMark.getTags());
 
         model.setPerson(personToMark, updatedPerson);
 

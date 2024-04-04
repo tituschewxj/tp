@@ -76,7 +76,7 @@ public class UnmarkAttendanceCommandTest {
         aliceAttendanceUpdated.remove(testValidWeekNo6);
 
         Person aliceChanged = new Person(ALICE.getName(), ALICE.getPhone(), ALICE.getEmail(), ALICE.getNusNet(),
-                ALICE.getAddress(), aliceAttendanceUpdated, ALICE.getTags());
+                ALICE.getMajor(), aliceAttendanceUpdated, ALICE.getTags());
 
         CommandResult expectedCommandResult =
                 new CommandResult("Attendance is already unmarked for student: Alice Pauline, e0000001, Week 6");
@@ -101,7 +101,7 @@ public class UnmarkAttendanceCommandTest {
         aliceAttendanceUpdated.remove(testValidWeekNo1);
 
         Person aliceChanged = new Person(ALICE.getName(), ALICE.getPhone(), ALICE.getEmail(), ALICE.getNusNet(),
-                ALICE.getAddress(), aliceAttendanceUpdated, ALICE.getTags());
+                ALICE.getMajor(), aliceAttendanceUpdated, ALICE.getTags());
 
         expectedModel2.setPerson(ALICE, aliceChanged);
 

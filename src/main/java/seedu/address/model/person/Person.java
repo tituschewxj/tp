@@ -24,7 +24,7 @@ public class Person {
     private final NusNet nusNet;
 
     // Data fields
-    private final Address address;
+    private final Major major;
     private final Set<WeekNumber> attendance = new HashSet<>();
     private final Set<Tag> tags = new HashSet<>();
 
@@ -32,13 +32,13 @@ public class Person {
      * Every field must be present and not null.
      */
     public Person(Name name, Phone phone, Email email, NusNet nusNet,
-                  Address address, Set<Tag> tags) {
+                  Major major, Set<Tag> tags) {
         requireAllNonNull(name, nusNet, attendance, tags);
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.nusNet = nusNet;
-        this.address = address;
+        this.major = major;
         this.tags.addAll(tags);
     }
     /**
@@ -46,13 +46,13 @@ public class Person {
      * an existing attendance.
      */
     public Person(Name name, Phone phone, Email email, NusNet nusNet,
-                  Address address, Set<WeekNumber> attendance, Set<Tag> tags) {
+                  Major major, Set<WeekNumber> attendance, Set<Tag> tags) {
         requireAllNonNull(name, nusNet, attendance, tags);
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.nusNet = nusNet;
-        this.address = address;
+        this.major = major;
         this.attendance.addAll(attendance);
         this.tags.addAll(tags);
     }
@@ -73,8 +73,8 @@ public class Person {
         return nusNet;
     }
 
-    public Address getAddress() {
-        return address;
+    public Major getMajor() {
+        return major;
     }
 
     /**
@@ -131,7 +131,7 @@ public class Person {
                 && phone.equals(otherPerson.phone)
                 && email.equals(otherPerson.email)
                 && nusNet.equals(otherPerson.nusNet)
-                && address.equals(otherPerson.address)
+                && major.equals(otherPerson.major)
                 && attendance.equals(otherPerson.attendance)
                 && tags.equals(otherPerson.tags);
     }
@@ -139,7 +139,7 @@ public class Person {
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, nusNet, address, attendance, tags);
+        return Objects.hash(name, phone, email, nusNet, major, attendance, tags);
     }
 
     @Override
@@ -149,7 +149,7 @@ public class Person {
                 .add("phone", phone)
                 .add("email", email)
                 .add("nusNet", nusNet)
-                .add("address", address)
+                .add("major", major)
                 .add("attendance", attendance)
                 .add("tags", tags)
                 .toString();

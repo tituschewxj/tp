@@ -54,7 +54,7 @@ public class MarkAttendanceCommandTest {
         HashSet<WeekNumber> aliceAttendanceUpdated = new HashSet<>(ALICE.getAttendance());
         aliceAttendanceUpdated.add(testValidWeekNo6);
         Person aliceChanged = new Person(ALICE.getName(), ALICE.getPhone(), ALICE.getEmail(), ALICE.getNusNet(),
-                ALICE.getAddress(), aliceAttendanceUpdated, ALICE.getTags());
+                ALICE.getMajor(), aliceAttendanceUpdated, ALICE.getTags());
 
         CommandResult expectedCommandResult =
                 new CommandResult("Marked attendance for student: Alice Pauline, e0000001, Week 6");

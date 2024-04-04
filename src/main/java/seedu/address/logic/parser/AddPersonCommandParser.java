@@ -1,8 +1,8 @@
 package seedu.address.logic.parser;
 
 import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_MAJOR;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NUSNET;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
@@ -12,8 +12,8 @@ import java.util.Set;
 
 import seedu.address.logic.commands.AddPersonCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
+import seedu.address.model.person.Major;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.NusNet;
 import seedu.address.model.person.Person;
@@ -36,7 +36,7 @@ public class AddPersonCommandParser implements Parser<AddPersonCommand> {
               PREFIX_PHONE,
               PREFIX_EMAIL,
               PREFIX_NUSNET,
-              PREFIX_ADDRESS,
+                PREFIX_MAJOR,
               PREFIX_TAG
         );
 
@@ -53,7 +53,7 @@ public class AddPersonCommandParser implements Parser<AddPersonCommand> {
             PREFIX_PHONE,
             PREFIX_EMAIL,
             PREFIX_NUSNET,
-            PREFIX_ADDRESS
+                PREFIX_MAJOR
         );
 
         Name name = ParserUtil.parseName(argMultimap.getValue(PREFIX_NAME)
@@ -64,11 +64,11 @@ public class AddPersonCommandParser implements Parser<AddPersonCommand> {
              .orElseGet(() -> Email.PLACEHOLDER));
         NusNet nusNet = ParserUtil.parseNusNet(argMultimap.getValue(PREFIX_NUSNET)
               .get());
-        Address address = ParserUtil.parseAddress(argMultimap.getValue(PREFIX_ADDRESS)
-              .orElseGet(() -> Address.PLACEHOLDER));
+        Major major = ParserUtil.parseAddress(argMultimap.getValue(PREFIX_MAJOR)
+              .orElseGet(() -> Major.PLACEHOLDER));
         Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
 
-        Person person = new Person(name, phone, email, nusNet, address, tagList);
+        Person person = new Person(name, phone, email, nusNet, major, tagList);
 
         return new AddPersonCommand(person);
     }

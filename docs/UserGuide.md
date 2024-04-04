@@ -194,7 +194,7 @@ Course code should follow the format "XX1234Y", Y is optional.
 <br>
 
 ### Adding a student: `addstu`
-Adds a student to the address book.
+Adds a student to the major book.
 
 Format: `addstu n/NAME p/PHONE_NUMBER e/EMAIL nn/NUSNET_ID a/ADDRESS [t/TAG]…​`
 
@@ -218,7 +218,7 @@ Examples:
 
 ### Listing all students : `list`
 
-Shows a list of all persons in the address book.
+Shows a list of all persons in the major book.
 
 Format: `list`
 
@@ -230,7 +230,7 @@ If there are additional arguments behind `list` we will simply ignore them.
 
 ### Editing a person : `edit`
 
-Edits an existing person in the address book.
+Edits an existing person in the major book.
 
 Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [nn/NUSNET_ID] [t/TAG]…​`
 
@@ -242,7 +242,7 @@ Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [nn/NUSNET_ID] [t/T
     specifying any tags after it.
 
 Examples:
-*  `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st person to be `91234567` and `johndoe@example.com` respectively.
+*  `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email major of the 1st person to be `91234567` and `johndoe@example.com` respectively.
 *  `edit 2 n/Betsy Crower t/` Edits the name of the 2nd person to be `Betsy Crower` and clears all existing tags.
 
 <box type="info" seamless>
@@ -369,7 +369,7 @@ Pro Tip:
 
 ### Clearing all entries : `clear`
 
-Clears all entries from the address book.
+Clears all entries from the major book.
 
 Format: `clear`
 
