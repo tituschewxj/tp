@@ -25,7 +25,7 @@ public class SetCourseCommandParser implements Parser<SetCourseCommand> {
             course = ParserUtil.parseCourse(args);
         } catch (IllegalValueException ive) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT,
-                    SetCourseCommand.MESSAGE_CONSTRAINTS), ive);
+                    SetCourseCommand.MESSAGE_USAGE), ive);
         }
 
         return new SetCourseCommand(course);

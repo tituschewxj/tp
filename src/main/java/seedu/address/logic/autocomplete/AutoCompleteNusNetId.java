@@ -3,8 +3,10 @@ package seedu.address.logic.autocomplete;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NUSNET;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 import seedu.address.commons.util.Trie;
 
@@ -36,7 +38,7 @@ public class AutoCompleteNusNetId implements AutoComplete {
     }
 
     @Override
-    public String getAutoComplete(String input) {
+    public AutoCompleteResult getAutoComplete(String input) {
         assert nusNetIdTrie != null;
 
         Matcher m = NUSNET_ID_FORMAT.matcher(input);
@@ -44,14 +46,19 @@ public class AutoCompleteNusNetId implements AutoComplete {
         assert isNusNetId;
 
         String partialNusNetId = m.group(1);
-        String fullNusNetId = nusNetIdTrie.findFirstWordWithPrefix(partialNusNetId.toUpperCase());
+        List<String> fullNusNetIds = nusNetIdTrie.findAllWordsWithPrefix(partialNusNetId.toUpperCase());
 
-        assert fullNusNetId != null;
-        if (fullNusNetId.isEmpty()) {
-            return "";
+        assert fullNusNetIds != null;
+        if (fullNusNetIds.isEmpty()) {
+            return new AutoCompleteResult();
         }
 
-        // Strip the input from the full command
-        return fullNusNetId.substring(partialNusNetId.length());
+        // Strip the input from the full commands and sort the list
+        return new AutoCompleteResult(
+                fullNusNetIds.stream()
+                    .map(c -> c.substring(partialNusNetId.length()))
+                    .sorted()
+                    .collect(Collectors.toList())
+        );
     }
 }

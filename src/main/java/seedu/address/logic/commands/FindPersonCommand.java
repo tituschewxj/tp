@@ -22,7 +22,6 @@ public class FindPersonCommand extends Command {
                     + "the specified keywords (case-insensitive) and displays them as a list with index numbers.",
             "KEYWORD [MORE_KEYWORDS]...",
             COMMAND_WORD + " alice bob charlie"
-
     );
 
     private final NameContainsKeywordsPredicate predicate;

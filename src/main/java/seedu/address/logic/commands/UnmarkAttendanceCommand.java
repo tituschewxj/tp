@@ -17,7 +17,10 @@ import seedu.address.model.person.Person;
 import seedu.address.model.weeknumber.WeekNumber;
 
 /**
- *
+ * Unmarks attendance of an existing student of a certain week in the contact book.
+ * <li>The week should be between 1 and 13.
+ * <li>The NUSNet ID should be valid.
+ * <li>Attendance can be unmarked again, without any error, but no change would occur.
  */
 public class UnmarkAttendanceCommand extends Command {
 
@@ -25,16 +28,21 @@ public class UnmarkAttendanceCommand extends Command {
 
     public static final String MESSAGE_USAGE = generateMessageUsage(
             COMMAND_WORD,
-            "Unmarks the attendance of the student identified by their NusNet by removing the"
-                    + "specified week to their attendance set. ",
+            "Unmarks the attendance of the student identified by their NUSNet ID "
+                    + "by removing the specified week to their attendance set. ",
             PARAMETER_NUSNET, PARAMETER_WEEK);
 
+    public static final String MESSAGE_UNMARKED_ATTENDANCE_SUCCESS = "Unmarked attendance for student: ";
+    public static final String MESSAGE_UNMARK_NONEXISITING_ATTENDANCE_SUCCESS =
+            "Attendance is already unmarked for student: ";
     private final NusNet nusNet;
     private final WeekNumber weekNumber;
 
     /**
-     * @param nusNet of the person to mark attendance for
-     * @param weekNumber the week number to mark attendance for
+     * Creates an {@link UnmarkAttendanceCommand}.
+     *
+     * @param nusNet of the person to mark attendance for.
+     * @param weekNumber the week number to mark attendance for.
      */
     public UnmarkAttendanceCommand(NusNet nusNet, WeekNumber weekNumber) {
         requireNonNull(nusNet);
@@ -57,7 +65,7 @@ public class UnmarkAttendanceCommand extends Command {
 
         if (!updatedWeekAttendance.remove(weekNumber)) {
             String formattedMessage = String.format("%1$s%2$s, %3$s, Week %4$s",
-                    Messages.MESSAGE_UNMARK_NONEXISITING_ATTENDANCE_SUCCESS,
+                    MESSAGE_UNMARK_NONEXISITING_ATTENDANCE_SUCCESS,
                     personToUnmark.getName(), personToUnmark.getNusNet(), weekNumber);
 
             return new CommandResult(formattedMessage);
@@ -70,7 +78,7 @@ public class UnmarkAttendanceCommand extends Command {
         model.setPerson(personToUnmark, updatedPerson);
 
         String formattedMessage = String.format("%1$s%2$s, %3$s, Week %4$s",
-                Messages.MESSAGE_UNMARKED_ATTENDANCE_SUCCESS,
+                MESSAGE_UNMARKED_ATTENDANCE_SUCCESS,
                 updatedPerson.getName(), updatedPerson.getNusNet(), weekNumber);
 
         return new CommandResult(formattedMessage);

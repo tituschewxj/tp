@@ -8,28 +8,40 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import seedu.address.commons.util.StringUtil;
+import seedu.address.logic.commands.AddPersonCommand;
+import seedu.address.logic.commands.ClearCommand;
+import seedu.address.logic.commands.DeletePersonCommand;
+import seedu.address.logic.commands.EditPersonCommand;
+import seedu.address.logic.commands.ExitCommand;
+import seedu.address.logic.commands.HelpCommand;
+import seedu.address.logic.commands.ListPersonCommand;
+import seedu.address.logic.commands.MarkAttendanceCommand;
+import seedu.address.logic.commands.SetCourseCommand;
+import seedu.address.logic.commands.UnmarkAttendanceCommand;
 import seedu.address.logic.parser.Prefix;
 import seedu.address.model.person.Person;
 
 /**
  * Container for user visible messages.
+ * <p>
+ * Messages that are not command-specific are listed here.
+ * <p>
+ * Messages that are command-specific should be in their respective classes.
  */
 public class Messages {
 
     public static final String MESSAGE_UNKNOWN_COMMAND = "Unknown command";
     public static final String MESSAGE_INVALID_COMMAND_FORMAT = "Invalid command format! \n%1$s";
-    public static final String MESSAGE_INVALID_PERSON_DISPLAYED_INDEX = "The person index provided is invalid";
-    public static final String MESSAGE_MISSING_NUSNET = "No such student with the NUSNET_ID found in contacts!";
-    public static final String MESSAGE_PERSONS_LISTED_OVERVIEW = "%1$d persons listed!";
+    public static final String MESSAGE_INVALID_PERSON_DISPLAYED_INDEX = "The student index provided is invalid";
+    public static final String MESSAGE_MISSING_NUSNET = "No such student with the NUSNet ID found in contacts!";
+    public static final String MESSAGE_PERSONS_LISTED_OVERVIEW = "%1$d students listed!";
     public static final String MESSAGE_DUPLICATE_FIELDS =
-                "Multiple values specified for the following single-valued field(s): ";
-    public static final String MESSAGE_MARKED_ATTENDANCE_SUCCESS = "Marked attendance for student: ";
-    public static final String MESSAGE_MARK_EXISTING_ATTENDANCE_SUCCESS =
-            "Re-marked Attendance for student: ";
-    public static final String MESSAGE_UNMARKED_ATTENDANCE_SUCCESS = "Unmarked attendance for student: ";
-    public static final String MESSAGE_UNMARK_NONEXISITING_ATTENDANCE_SUCCESS =
-            "Attendance is unmarked for student: ";
+            "Multiple values specified for the following single-valued field(s): ";
+    public static final String MESSAGE_DUPLICATE_PERSON =
+            "This student already exists in the contact book";
 
+    /** Error messages are shown when a command cannot be executed. */
     private static final String[] ERROR_MESSAGES = {
         MESSAGE_UNKNOWN_COMMAND,
         MESSAGE_INVALID_COMMAND_FORMAT,
@@ -38,12 +50,26 @@ public class Messages {
         MESSAGE_DUPLICATE_FIELDS,
     };
 
-    private static final String[] SUCCESS_MESSAGES = {
+    /** Neutral messages are shown when a command executes successfully, but no change occurs. */
+    private static final String[] NEUTRAL_MESSAGES = {
         MESSAGE_PERSONS_LISTED_OVERVIEW,
-        MESSAGE_MARKED_ATTENDANCE_SUCCESS,
-        MESSAGE_MARK_EXISTING_ATTENDANCE_SUCCESS,
-        MESSAGE_UNMARKED_ATTENDANCE_SUCCESS,
-        MESSAGE_UNMARK_NONEXISITING_ATTENDANCE_SUCCESS,
+        EditPersonCommand.MESSAGE_NOT_EDITED,
+        ExitCommand.MESSAGE_EXIT_ACKNOWLEDGEMENT,
+        HelpCommand.SHOWING_HELP_MESSAGE,
+        ListPersonCommand.MESSAGE_SUCCESS,
+        MarkAttendanceCommand.MESSAGE_MARK_EXISTING_ATTENDANCE_SUCCESS,
+        UnmarkAttendanceCommand.MESSAGE_UNMARK_NONEXISITING_ATTENDANCE_SUCCESS
+    };
+
+    /** Success messages are shown when a command executes successfully and does a modification. */
+    private static final String[] SUCCESS_MESSAGES = {
+        AddPersonCommand.MESSAGE_SUCCESS,
+        ClearCommand.MESSAGE_SUCCESS,
+        DeletePersonCommand.MESSAGE_DELETE_PERSON_SUCCESS,
+        EditPersonCommand.MESSAGE_EDIT_PERSON_SUCCESS,
+        MarkAttendanceCommand.MESSAGE_MARKED_ATTENDANCE_SUCCESS,
+        SetCourseCommand.MESSAGE_SUCCESS,
+        UnmarkAttendanceCommand.MESSAGE_UNMARKED_ATTENDANCE_SUCCESS,
     };
 
     /**
@@ -83,35 +109,32 @@ public class Messages {
     }
 
     /**
-     * Returns true if the message is a message representing the failure of a command.
+     * Returns true if the {@code message} is a message representing the failure of a command.
+     * Otherwise, false is returned.
+     *
+     * @param message The message to check.
+     * @see StringUtil#stripMessageFormatSpecifiers(String)
      */
     public static boolean isErrorMessage(String message) {
         requireNonNull(message);
         return Arrays
                 .stream(ERROR_MESSAGES)
-                .map(Messages::stripMessagePlaceholders)
+                .map(StringUtil::stripMessageFormatSpecifiers)
                 .anyMatch(message::contains);
     }
 
     /**
-     * Returns true if the message is a message representing the success of a command.
+     * Returns true if the {@code message} is a message representing the success of a command.
+     * Otherwise, false is returned.
+     *
+     * @param message The message to check.
+     * @see StringUtil#stripMessageFormatSpecifiers(String)
      */
     public static boolean isSuccessMessage(String message) {
         requireNonNull(message);
         return Arrays
                 .stream(SUCCESS_MESSAGES)
-                .map(Messages::stripMessagePlaceholders)
+                .map(StringUtil::stripMessageFormatSpecifiers)
                 .anyMatch(message::contains);
-    }
-
-    /**
-     * Strips whitespace and {@code %1$s} placeholders from the message.
-     */
-    private static String stripMessagePlaceholders(String message) {
-        if (message.contains("%1$s")) {
-            return String.format(message, "").trim();
-        } else {
-            return message.trim();
-        }
     }
 }

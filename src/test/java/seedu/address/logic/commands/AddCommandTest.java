@@ -4,6 +4,7 @@ import static java.util.Objects.requireNonNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static seedu.address.logic.Messages.MESSAGE_DUPLICATE_PERSON;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalPersons.ALICE;
 
@@ -20,6 +21,7 @@ import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.logic.Messages;
 import seedu.address.logic.commands.exceptions.CommandException;
+import seedu.address.logic.commands.exceptions.InappropriateMethodCallAssertionError;
 import seedu.address.model.AddressBook;
 import seedu.address.model.CourseName;
 import seedu.address.model.Model;
@@ -57,7 +59,21 @@ public class AddCommandTest {
         ModelStub modelStub = new ModelStubWithPerson(validPerson);
 
         assertThrows(CommandException.class,
-                AddPersonCommand.MESSAGE_DUPLICATE_PERSON, () -> addCommand.execute(modelStub));
+                MESSAGE_DUPLICATE_PERSON, () -> addCommand.execute(modelStub));
+
+        Person validPerson2 = new PersonBuilder()
+            .withNusNet("E1234567")
+            .withName("Some name")
+            .build();
+        Person validPerson3 = new PersonBuilder()
+            .withNusNet("E1234567")
+            .withName("Some other name")
+            .build();
+        ModelStub modelStub2 = new ModelStubWithPerson(validPerson2);
+        AddPersonCommand addCommand2 = new AddPersonCommand(validPerson3);
+
+        assertThrows(CommandException.class,
+                AddPersonCommand.MESSAGE_DUPLICATE_NUSNET, () -> addCommand2.execute(modelStub2));
     }
 
     @Test
@@ -90,115 +106,114 @@ public class AddCommandTest {
         String expected = AddPersonCommand.class.getCanonicalName() + "{toAdd=" + ALICE + "}";
         assertEquals(expected, addCommand.toString());
     }
-    // TODO
-    // Abstract away the assertion errors below
+
     /**
      * A default model stub that have all the methods failing.
      */
     private class ModelStub implements Model {
         @Override
         public void setUserPrefs(ReadOnlyUserPrefs userPrefs) {
-            throw new AssertionError("This method should not be called.");
+            throw new InappropriateMethodCallAssertionError();
         }
 
         @Override
         public ReadOnlyUserPrefs getUserPrefs() {
-            throw new AssertionError("This method should not be called.");
+            throw new InappropriateMethodCallAssertionError();
         }
 
         @Override
         public GuiSettings getGuiSettings() {
-            throw new AssertionError("This method should not be called.");
+            throw new InappropriateMethodCallAssertionError();
         }
 
         @Override
         public void setGuiSettings(GuiSettings guiSettings) {
-            throw new AssertionError("This method should not be called.");
+            throw new InappropriateMethodCallAssertionError();
         }
 
         @Override
         public Path getAddressBookFilePath() {
-            throw new AssertionError("This method should not be called.");
+            throw new InappropriateMethodCallAssertionError();
         }
 
         @Override
         public void setAddressBookFilePath(Path addressBookFilePath) {
-            throw new AssertionError("This method should not be called.");
+            throw new InappropriateMethodCallAssertionError();
         }
 
         @Override
         public void addPerson(Person person) {
-            throw new AssertionError("This method should not be called.");
+            throw new InappropriateMethodCallAssertionError();
         }
 
         @Override
         public void setAddressBook(ReadOnlyAddressBook newData) {
-            throw new AssertionError("This method should not be called.");
+            throw new InappropriateMethodCallAssertionError();
         }
 
         @Override
         public ReadOnlyAddressBook getAddressBook() {
-            throw new AssertionError("This method should not be called.");
+            throw new InappropriateMethodCallAssertionError();
         }
 
         @Override
         public boolean hasPerson(Person person) {
-            throw new AssertionError("This method should not be called.");
+            throw new InappropriateMethodCallAssertionError();
         }
 
         @Override
         public void deletePerson(Person target) {
-            throw new AssertionError("This method should not be called.");
+            throw new InappropriateMethodCallAssertionError();
         }
 
         @Override
         public void setPerson(Person target, Person editedPerson) {
-            throw new AssertionError("This method should not be called.");
+            throw new InappropriateMethodCallAssertionError();
         }
 
         @Override
         public ObservableList<Person> getFilteredPersonList() {
-            throw new AssertionError("This method should not be called.");
+            throw new InappropriateMethodCallAssertionError();
         }
 
         @Override
         public void updateFilteredPersonList(Predicate<Person> predicate) {
-            throw new AssertionError("This method should not be called.");
+            throw new InappropriateMethodCallAssertionError();
         }
 
         @Override
         public void changeCode(String code) {
-            throw new AssertionError("This method should not be called.");
+            throw new InappropriateMethodCallAssertionError();
         }
 
         @Override
         public ReadOnlyStringProperty courseCodeProperty() {
-            throw new AssertionError("This method should not be called.");
+            throw new InappropriateMethodCallAssertionError();
         }
 
         @Override
         public Path getCourseNameFilePath() {
-            throw new AssertionError("This method should not be called.");
+            throw new InappropriateMethodCallAssertionError();
         }
 
         @Override
         public void setCourseNameFilePath(Path courseNameFilePath) {
-            throw new AssertionError("This method should not be called.");
+            throw new InappropriateMethodCallAssertionError();
         }
 
         @Override
         public void setCourseName(ReadOnlyCourseName course) {
-            throw new AssertionError("This method should not be called.");
+            throw new InappropriateMethodCallAssertionError();
         }
 
         @Override
         public CourseName getCourseName() {
-            throw new AssertionError("This method should not be called.");
+            throw new InappropriateMethodCallAssertionError();
         }
 
 
         public Optional<Person> getPersonByNusNet(NusNet nusNet) {
-            throw new AssertionError("This method should not be called.");
+            throw new InappropriateMethodCallAssertionError();
         }
     }
 
@@ -217,6 +232,11 @@ public class AddCommandTest {
         public boolean hasPerson(Person person) {
             requireNonNull(person);
             return this.person.isSamePerson(person);
+        }
+
+        @Override
+        public Optional<Person> getPersonByNusNet(NusNet nusNet) {
+            return this.person.getNusNet().equals(nusNet) ? Optional.of(this.person) : Optional.empty();
         }
     }
 

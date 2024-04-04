@@ -200,12 +200,12 @@ public class LogicManagerTest {
         String prefix = fullAddPersonCommand.substring(0, 2);
         String remaining = fullAddPersonCommand.substring(2);
 
-        assertEquals(remaining, logic.autoComplete(prefix));
+        assertEquals(remaining, logic.autoComplete(prefix).getNextResult());
 
         String fullListPersonCommand = ListPersonCommand.COMMAND_WORD;
         prefix = fullListPersonCommand.substring(0, 2);
         remaining = fullListPersonCommand.substring(2);
 
-        assertEquals(remaining, logic.autoComplete(prefix));
+        assertEquals(remaining, logic.autoComplete(prefix).getNextResult());
     }
 }
