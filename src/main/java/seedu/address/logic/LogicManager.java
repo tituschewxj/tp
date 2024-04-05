@@ -10,8 +10,13 @@ import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.logic.autocomplete.AutoComplete;
 import seedu.address.logic.autocomplete.AutoCompleteCommand;
+import seedu.address.logic.autocomplete.AutoCompleteEmail;
+import seedu.address.logic.autocomplete.AutoCompleteMajor;
+import seedu.address.logic.autocomplete.AutoCompleteName;
 import seedu.address.logic.autocomplete.AutoCompleteNusNetId;
+import seedu.address.logic.autocomplete.AutoCompletePhone;
 import seedu.address.logic.autocomplete.AutoCompleteResult;
+import seedu.address.logic.autocomplete.AutoCompleteTag;
 import seedu.address.logic.commands.AddPersonCommand;
 import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.CommandResult;
@@ -64,12 +69,51 @@ public class LogicManager implements Logic {
             || command instanceof DeletePersonCommand
             || command instanceof EditPersonCommand) {
 
+            // TODO: code quality issues
             AutoCompleteNusNetId.update(
                 getAddressBook()
                     .getPersonList()
                     .stream()
                     .map(person -> person.getNusNet().value)
                     .toArray(String[]::new));
+
+            AutoCompleteMajor.update(
+                    getAddressBook()
+                            .getPersonList()
+                            .stream()
+                            .map(person -> person.getMajor().value)
+                            .toArray(String[]::new));
+
+            AutoCompleteTag.update(
+                    getAddressBook()
+                            .getPersonList()
+                            .stream()
+                            .flatMap(person -> person
+                                    .getTags()
+                                    .stream()
+                                    .map(tag -> tag.tagName))
+                            .toArray(String[]::new));
+
+            AutoCompleteEmail.update(
+                    getAddressBook()
+                            .getPersonList()
+                            .stream()
+                            .map(person -> person.getEmail().value)
+                            .toArray(String[]::new));
+
+            AutoCompleteName.update(
+                    getAddressBook()
+                            .getPersonList()
+                            .stream()
+                            .map(person -> person.getName().toString())
+                            .toArray(String[]::new));
+
+            AutoCompletePhone.update(
+                    getAddressBook()
+                            .getPersonList()
+                            .stream()
+                            .map(person -> person.getPhone().value)
+                            .toArray(String[]::new));
         }
 
         try {
@@ -98,6 +142,7 @@ public class LogicManager implements Logic {
         // Initialize the autocomplete for the commands
         AutoCompleteCommand.initialize();
 
+        // TODO: code quality issues
         // Initialize the autocomplete for the NUSNET IDs
         AutoCompleteNusNetId.initialize(
             getAddressBook()
@@ -105,6 +150,46 @@ public class LogicManager implements Logic {
                 .stream()
                 .map(person -> person.getNusNet().value)
                 .toArray(String[]::new));
+
+        // Initialize the autocomplete for the Major
+        AutoCompleteMajor.initialize(
+                getAddressBook()
+                        .getPersonList()
+                        .stream()
+                        .map(person -> person.getMajor().value)
+                        .toArray(String[]::new));
+
+        // Initialize the autocomplete for the Tag
+        AutoCompleteTag.initialize(
+                getAddressBook()
+                        .getPersonList()
+                        .stream()
+                        .flatMap(person -> person
+                                .getTags()
+                                .stream()
+                                .map(tag -> tag.tagName))
+                        .toArray(String[]::new));
+
+        AutoCompletePhone.initialize(
+                getAddressBook()
+                        .getPersonList()
+                        .stream()
+                        .map(person -> person.getPhone().value)
+                        .toArray(String[]::new));
+
+        AutoCompleteEmail.initialize(
+                getAddressBook()
+                        .getPersonList()
+                        .stream()
+                        .map(person -> person.getEmail().value)
+                        .toArray(String[]::new));
+
+        AutoCompleteName.initialize(
+                getAddressBook()
+                        .getPersonList()
+                        .stream()
+                        .map(person -> person.getName().toString())
+                        .toArray(String[]::new));
     }
 
     @Override
