@@ -2,7 +2,12 @@ package seedu.address.logic.parser;
 
 import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.Messages.MESSAGE_UNKNOWN_COMMAND;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_MAJOR;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NUSNET;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
@@ -11,8 +16,13 @@ import java.util.regex.Pattern;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.logic.autocomplete.AutoComplete;
 import seedu.address.logic.autocomplete.AutoCompleteCommand;
+import seedu.address.logic.autocomplete.AutoCompleteEmail;
+import seedu.address.logic.autocomplete.AutoCompleteMajor;
+import seedu.address.logic.autocomplete.AutoCompleteName;
 import seedu.address.logic.autocomplete.AutoCompleteNusNetId;
+import seedu.address.logic.autocomplete.AutoCompletePhone;
 import seedu.address.logic.autocomplete.AutoCompleteResult;
+import seedu.address.logic.autocomplete.AutoCompleteTag;
 import seedu.address.logic.commands.AddPersonCommand;
 import seedu.address.logic.commands.ClearCommand;
 import seedu.address.logic.commands.Command;
@@ -36,7 +46,12 @@ public class AddressBookParser {
      * Used for initial separation of command word and args.
      */
     private static final Pattern BASIC_COMMAND_FORMAT = Pattern.compile("(?<commandWord>\\S+)(?<arguments>.*)");
-    private static final Pattern NUSNET_ID_FORMAT = Pattern.compile(PREFIX_NUSNET.getPrefix() + "(.*)");
+    private static final Pattern NUSNET_ID_FORMAT = Pattern.compile(" " + PREFIX_NUSNET + "(.*)");
+    private static final Pattern MAJOR_FORMAT = Pattern.compile(" " + PREFIX_MAJOR + "(.*)");
+    private static final Pattern TAG_FORMAT = Pattern.compile(" " + PREFIX_TAG + "(.*)");
+    private static final Pattern NAME_FORMAT = Pattern.compile(" " + PREFIX_NAME + "(.*)");
+    private static final Pattern PHONE_FORMAT = Pattern.compile(" " + PREFIX_PHONE + "(.*)");
+    private static final Pattern EMAIL_FORMAT = Pattern.compile(" " + PREFIX_EMAIL + "(.*)");
     private static final Logger logger = LogsCenter.getLogger(AddressBookParser.class);
     private static final String COMMAND_WORD_GROUP = "commandWord";
     private static final String ARGUMENTS_GROUP = "arguments";
@@ -121,8 +136,49 @@ public class AddressBookParser {
             return new AutoCompleteCommand();
         }
 
+        // TODO: code quality issues?
+        // Take the last prefix that appears for autocomplete
+        int lastIndex = -1;
+        if (MAJOR_FORMAT.matcher(arguments).find()) {
+            lastIndex = Math.max(lastIndex, userInput.indexOf(" " + PREFIX_MAJOR));
+        }
         if (NUSNET_ID_FORMAT.matcher(arguments).find()) {
+            lastIndex = Math.max(lastIndex, userInput.indexOf(" " + PREFIX_NUSNET));
+        }
+        if (TAG_FORMAT.matcher(arguments).find()) {
+            lastIndex = Math.max(lastIndex, userInput.indexOf(" " + PREFIX_TAG));
+        }
+        if (EMAIL_FORMAT.matcher(arguments).find()) {
+            lastIndex = Math.max(lastIndex, userInput.indexOf(" " + PREFIX_EMAIL));
+        }
+        if (NAME_FORMAT.matcher(arguments).find()) {
+            lastIndex = Math.max(lastIndex, userInput.indexOf(" " + PREFIX_NAME));
+        }
+        if (PHONE_FORMAT.matcher(arguments).find()) {
+            lastIndex = Math.max(lastIndex, userInput.indexOf(" " + PREFIX_PHONE));
+        }
+
+        // Check which prefix appears later
+        if (lastIndex == -1) {
+            return input -> new AutoCompleteResult();
+        }
+        if (userInput.substring(lastIndex).startsWith(" " + PREFIX_MAJOR)) {
+            return new AutoCompleteMajor();
+        }
+        if (userInput.substring(lastIndex).startsWith(" " + PREFIX_NUSNET)) {
             return new AutoCompleteNusNetId();
+        }
+        if (userInput.substring(lastIndex).startsWith(" " + PREFIX_TAG)) {
+            return new AutoCompleteTag();
+        }
+        if (userInput.substring(lastIndex).startsWith(" " + PREFIX_PHONE)) {
+            return new AutoCompletePhone();
+        }
+        if (userInput.substring(lastIndex).startsWith(" " + PREFIX_EMAIL)) {
+            return new AutoCompleteEmail();
+        }
+        if (userInput.substring(lastIndex).startsWith(" " + PREFIX_NAME)) {
+            return new AutoCompleteName();
         }
 
         return input -> new AutoCompleteResult();

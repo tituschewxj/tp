@@ -392,13 +392,11 @@ Autocompletes a word or a set of words, based on the current input.
 
 <box type="warning" seamless>
 
-**Autocomplete only works on the NUSNet ID:**
+**Autocomplete doesn't work on week number:**
 
-This is because autocomplete only makes sense when you are trying to retrieve existing data to perform an operation.
+This is because week number is short,
+and it is much faster just typing out the number.
 
-As the `mark`, `unmark`, and `delstu` commands uses NUSNet ID, for their operations, it makes sense to add autocomplete for NUSNet ID.
-
-On the other hand, as `addstu` and `edit` require new information, autocomplete is not that useful, and is therefore omitted.
 </box>
 
 <box type="success" seamless>

@@ -10,14 +10,14 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
 public class Name {
 
     public static final String MESSAGE_CONSTRAINTS =
-            "Names should only contain alphanumeric characters and spaces, and it should not be blank";
+            "Names should be in proper case, only contain alphabetical characters and valid spacing, "
+                    + "and should not be blank";
 
     /*
      * The first character of the address must not be a whitespace,
      * otherwise " " (a blank string) becomes a valid input.
      */
     public static final String VALIDATION_REGEX = "[A-Z][a-z]*(\\s[A-Z][a-z]*)*";
-
 
     public final String fullName;
 
@@ -57,7 +57,7 @@ public class Name {
         }
 
         Name otherName = (Name) other;
-        return fullName.toUpperCase().equals(otherName.fullName.toUpperCase());
+        return fullName.equalsIgnoreCase(otherName.fullName);
     }
 
     @Override

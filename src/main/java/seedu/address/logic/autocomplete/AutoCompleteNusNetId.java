@@ -10,6 +10,7 @@ import java.util.stream.Collectors;
 
 import seedu.address.commons.util.Trie;
 
+// TODO: code quality issues
 /**
  * AutoComplete for NUSNET ID
  */
