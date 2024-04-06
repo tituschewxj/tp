@@ -16,7 +16,7 @@ import seedu.address.storage.StorageManager;
 /**
  * Manages the updating of attribute data to its data generators.
  * <p>
- * Contains accessible data generators,
+ * Contains accessible attribute value generators,
  * that can be referenced to generate attribute value data.
  */
 public class AttributeValueGeneratorManager {

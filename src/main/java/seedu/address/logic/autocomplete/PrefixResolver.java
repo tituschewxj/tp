@@ -3,6 +3,7 @@ package seedu.address.logic.autocomplete;
 import java.util.List;
 
 import seedu.address.logic.attribute.AttributeTrie;
+import seedu.address.logic.attribute.AttributeValueGenerator;
 import seedu.address.logic.parser.Prefix;
 
 /**
@@ -18,7 +19,7 @@ public class PrefixResolver {
      * @param prefix The prefix identifier to resolve on.
      * @param attributeValuesGenerator The generator function to generate attribute values.
      */
-    public PrefixResolver(Prefix prefix, AttributeTrie.AttributeValuesGenerator attributeValuesGenerator) {
+    public PrefixResolver(Prefix prefix, AttributeValueGenerator attributeValuesGenerator) {
         assert prefix != null;
         this.prefix = prefix;
 

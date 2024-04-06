@@ -18,12 +18,12 @@ public class AttributeTrie {
     private Optional<Trie> trieCache;
 
     /** The generator function to generate new values when needed */
-    private final AttributeValuesGenerator valuesGenerator;
+    private final AttributeValueGenerator valuesGenerator;
 
     /**
      * Creates a new attribute trie of an attribute.
      */
-    public AttributeTrie(AttributeValuesGenerator valuesGenerator) {
+    public AttributeTrie(AttributeValueGenerator valuesGenerator) {
         this.trieCache = Optional.empty();
         this.valuesGenerator = valuesGenerator;
     }
@@ -57,13 +57,5 @@ public class AttributeTrie {
      */
     public void clearCache() {
         trieCache = Optional.empty();
-    }
-
-    /**
-     * Generator functional interface for generating a list of attribute string.
-     */
-    @FunctionalInterface
-    public interface AttributeValuesGenerator {
-        List<String> generate();
     }
 }
