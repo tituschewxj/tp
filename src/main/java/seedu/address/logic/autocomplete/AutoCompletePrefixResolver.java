@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import seedu.address.logic.attribute.PrefixResolver;
 import seedu.address.logic.parser.Prefix;
 
 /**

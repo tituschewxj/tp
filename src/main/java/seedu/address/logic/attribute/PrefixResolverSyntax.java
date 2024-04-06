@@ -1,4 +1,4 @@
-package seedu.address.logic.autocomplete;
+package seedu.address.logic.attribute;
 
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_MAJOR;
@@ -6,8 +6,6 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NUSNET;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
-
-import seedu.address.logic.attribute.AttributeValueGeneratorManager;
 
 /**
  * Contains the prefix resolvers.

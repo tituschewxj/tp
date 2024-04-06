@@ -1,9 +1,7 @@
-package seedu.address.logic.autocomplete;
+package seedu.address.logic.attribute;
 
 import java.util.List;
 
-import seedu.address.logic.attribute.AttributeTrie;
-import seedu.address.logic.attribute.AttributeValueGenerator;
 import seedu.address.logic.parser.Prefix;
 
 /**

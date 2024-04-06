@@ -1,6 +1,6 @@
 package seedu.address.logic.attribute;
 
-import static seedu.address.logic.autocomplete.PrefixResolverSyntax.ALL_PREFIX_RESOLVERS;
+import static seedu.address.logic.attribute.PrefixResolverSyntax.ALL_PREFIX_RESOLVERS;
 
 import java.util.Arrays;
 import java.util.List;
@@ -8,7 +8,6 @@ import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 import seedu.address.commons.core.LogsCenter;
-import seedu.address.logic.autocomplete.PrefixResolver;
 import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.person.Person;
 import seedu.address.storage.StorageManager;

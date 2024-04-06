@@ -11,6 +11,7 @@ import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import seedu.address.logic.attribute.PrefixResolver;
 import seedu.address.logic.parser.Prefix;
 
 class AutoCompletePrefixResolverTest {

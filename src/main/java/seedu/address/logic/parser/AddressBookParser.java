@@ -2,7 +2,7 @@ package seedu.address.logic.parser;
 
 import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.Messages.MESSAGE_UNKNOWN_COMMAND;
-import static seedu.address.logic.autocomplete.PrefixResolverSyntax.ALL_PREFIX_RESOLVERS;
+import static seedu.address.logic.attribute.PrefixResolverSyntax.ALL_PREFIX_RESOLVERS;
 
 import java.util.logging.Logger;
 import java.util.regex.Matcher;

@@ -1,12 +1,12 @@
 package seedu.address.logic.attribute;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static seedu.address.logic.autocomplete.PrefixResolverSyntax.PREFIX_EMAIL_RESOLVER;
-import static seedu.address.logic.autocomplete.PrefixResolverSyntax.PREFIX_MAJOR_RESOLVER;
-import static seedu.address.logic.autocomplete.PrefixResolverSyntax.PREFIX_NAME_RESOLVER;
-import static seedu.address.logic.autocomplete.PrefixResolverSyntax.PREFIX_NUSNET_RESOLVER;
-import static seedu.address.logic.autocomplete.PrefixResolverSyntax.PREFIX_PHONE_RESOLVER;
-import static seedu.address.logic.autocomplete.PrefixResolverSyntax.PREFIX_TAG_RESOLVER;
+import static seedu.address.logic.attribute.PrefixResolverSyntax.PREFIX_EMAIL_RESOLVER;
+import static seedu.address.logic.attribute.PrefixResolverSyntax.PREFIX_MAJOR_RESOLVER;
+import static seedu.address.logic.attribute.PrefixResolverSyntax.PREFIX_NAME_RESOLVER;
+import static seedu.address.logic.attribute.PrefixResolverSyntax.PREFIX_NUSNET_RESOLVER;
+import static seedu.address.logic.attribute.PrefixResolverSyntax.PREFIX_PHONE_RESOLVER;
+import static seedu.address.logic.attribute.PrefixResolverSyntax.PREFIX_TAG_RESOLVER;
 import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
 
 import java.util.List;
