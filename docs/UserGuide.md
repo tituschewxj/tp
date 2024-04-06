@@ -208,7 +208,7 @@ Format: `addstu n/NAME p/PHONE_NUMBER e/EMAIL nn/NUSNET_ID a/ADDRESS [t/TAG]â€¦â
 </box>
 
 Examples:
-* `addstu n/John Doe nn/e1234567 [p/98765432] [e/johnd@example.com] [a/John street, block 123, #01-01]`
+* `addstu n/John Doe nn/e1234567 p/98765432 e/johnd@example.com a/John street, block 123, #01-01`
 * `addstu n/Betsy Crowe nn/e01234567 t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/criminal`
 * `addstu n/Betsy Crowe nn/e01234567`
 
