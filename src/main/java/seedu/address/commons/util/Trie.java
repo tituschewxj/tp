@@ -20,7 +20,7 @@ public class Trie {
         }
     }
 
-    //@@author <a href="https://github.com/eugenp/tutorials">eugenp</a>
+    //@@author eugenp-reused
     //Reused from https://www.baeldung.com/trie-java with minor modifications
     /**
      * Insert a word into the Trie.
@@ -39,7 +39,7 @@ public class Trie {
     }
     //@@author
 
-    //@@author <a href="https://github.com/eugenp/tutorials">eugenp</a>
+    //@@author eugenp-reused
     //Reused from https://www.baeldung.com/trie-java with minor modifications
     /**
      * Delete a word from the Trie.
@@ -51,7 +51,7 @@ public class Trie {
     }
     //@@author
 
-    //@@author <a href="https://github.com/eugenp/tutorials">eugenp</a>
+    //@@author eugenp-reused
     //Reused from https://www.baeldung.com/trie-java with minor modifications
     private boolean delete(TrieNode current, String word, int index) {
         if (index == word.length()) {
@@ -78,7 +78,7 @@ public class Trie {
     }
     //@@author
 
-    //@@author <a href="https://github.com/eugenp/tutorials">eugenp</a>
+    //@@author eugenp-reused
     //Reused from https://www.baeldung.com/trie-java with minor modifications
     /**
      * Search for a word in the Trie.
