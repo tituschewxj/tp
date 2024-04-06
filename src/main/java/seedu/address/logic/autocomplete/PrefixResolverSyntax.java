@@ -7,34 +7,34 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_NUSNET;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 
-import seedu.address.logic.attribute.AttributeValueGenerator;
+import seedu.address.logic.attribute.AttributeValueGeneratorManager;
 
 /**
  * Contains the prefix resolvers.
  */
 public class PrefixResolverSyntax {
     public static final PrefixResolver PREFIX_MAJOR_RESOLVER = new PrefixResolver(
-            PREFIX_MAJOR, AttributeValueGenerator::getMajorAttributeValues
+            PREFIX_MAJOR, AttributeValueGeneratorManager::getMajorAttributeValues
     );
 
     public static final PrefixResolver PREFIX_NUSNET_RESOLVER = new PrefixResolver(
-            PREFIX_NUSNET, AttributeValueGenerator::getNusNetIdAttributeValues
+            PREFIX_NUSNET, AttributeValueGeneratorManager::getNusNetIdAttributeValues
     );
 
     public static final PrefixResolver PREFIX_EMAIL_RESOLVER = new PrefixResolver(
-            PREFIX_EMAIL, AttributeValueGenerator::getEmailAttributeValues
+            PREFIX_EMAIL, AttributeValueGeneratorManager::getEmailAttributeValues
     );
 
     public static final PrefixResolver PREFIX_NAME_RESOLVER = new PrefixResolver(
-            PREFIX_NAME, AttributeValueGenerator::getNameAttributeValues
+            PREFIX_NAME, AttributeValueGeneratorManager::getNameAttributeValues
     );
 
     public static final PrefixResolver PREFIX_PHONE_RESOLVER = new PrefixResolver(
-            PREFIX_PHONE, AttributeValueGenerator::getPhoneAttributeValues
+            PREFIX_PHONE, AttributeValueGeneratorManager::getPhoneAttributeValues
     );
 
     public static final PrefixResolver PREFIX_TAG_RESOLVER = new PrefixResolver(
-            PREFIX_TAG, AttributeValueGenerator::generateTagAttributeValues
+            PREFIX_TAG, AttributeValueGeneratorManager::generateTagAttributeValues
     );
 
     public static final PrefixResolver[] ALL_PREFIX_RESOLVERS = new PrefixResolver[]{

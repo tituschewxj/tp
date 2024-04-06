@@ -14,11 +14,11 @@ import java.util.List;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-class AttributeValueGeneratorTest {
+class AttributeValueGeneratorManagerTest {
 
     @BeforeAll
     static void setUp() {
-        AttributeValueGenerator.updateAddressBook(getTypicalAddressBook());
+        AttributeValueGeneratorManager.updateAddressBook(getTypicalAddressBook());
     }
 
 

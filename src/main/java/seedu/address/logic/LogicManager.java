@@ -8,7 +8,7 @@ import java.util.logging.Logger;
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
-import seedu.address.logic.attribute.AttributeValueGenerator;
+import seedu.address.logic.attribute.AttributeValueGeneratorManager;
 import seedu.address.logic.autocomplete.AutoComplete;
 import seedu.address.logic.autocomplete.AutoCompleteCommand;
 import seedu.address.logic.autocomplete.AutoCompleteResult;
@@ -63,7 +63,7 @@ public class LogicManager implements Logic {
             || command instanceof DeletePersonCommand
             || command instanceof EditPersonCommand
             || command instanceof ClearCommand) {
-            AttributeValueGenerator.updateAddressBook(getAddressBook());
+            AttributeValueGeneratorManager.updateAddressBook(getAddressBook());
         }
 
         try {
@@ -93,7 +93,7 @@ public class LogicManager implements Logic {
         AutoCompleteCommand.initialize();
 
         // Initialize the attributes value generation for prefix autocompletion.
-        AttributeValueGenerator.updateAddressBook(getAddressBook());
+        AttributeValueGeneratorManager.updateAddressBook(getAddressBook());
     }
 
     @Override

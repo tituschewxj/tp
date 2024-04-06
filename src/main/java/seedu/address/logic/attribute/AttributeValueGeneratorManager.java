@@ -19,7 +19,7 @@ import seedu.address.storage.StorageManager;
  * Contains accessible data generators,
  * that can be referenced to generate attribute value data.
  */
-public class AttributeValueGenerator {
+public class AttributeValueGeneratorManager {
 
     /** The latest address book instance, with the most updated data. */
     private static ReadOnlyAddressBook latestAddressBook;
