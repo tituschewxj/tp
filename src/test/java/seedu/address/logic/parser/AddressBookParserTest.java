@@ -18,7 +18,7 @@ import org.junit.jupiter.api.Test;
 
 import seedu.address.logic.autocomplete.AutoComplete;
 import seedu.address.logic.autocomplete.AutoCompleteCommand;
-import seedu.address.logic.autocomplete.AutoCompleteNusNetId;
+import seedu.address.logic.autocomplete.AutoCompletePrefixResolver;
 import seedu.address.logic.commands.AddPersonCommand;
 import seedu.address.logic.commands.ClearCommand;
 import seedu.address.logic.commands.CommandTestUtil;
@@ -159,6 +159,6 @@ public class AddressBookParserTest {
 
         // Test for input that contains NUSNET ID
         ac = parser.parseAutoComplete("arbitrary_command nn/arbitrary_nusnet_id");
-        assert (ac instanceof AutoCompleteNusNetId);
+        assert (ac instanceof AutoCompletePrefixResolver);
     }
 }
