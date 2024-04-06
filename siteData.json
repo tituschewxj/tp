@@ -40,7 +40,7 @@
       "src": "DeveloperGuide.md",
       "title": "Developer Guide",
       "headings": {
-        "ab-3-developer-guide": "AB-3 Developer Guide",
+        "tapro-developer-guide": "TAPro Developer Guide",
         "acknowledgements": "Acknowledgements",
         "setting-up-getting-started": "Setting up, getting started",
         "design": "Design",
@@ -66,7 +66,8 @@
         "deleting-a-student": "Deleting a student",
         "marking-a-student-s-attendance": "Marking a student's attendance",
         "saving-data": "Saving data",
-        "setting-the-course": "Setting the course"
+        "setting-the-course": "Setting the course",
+        "appendix-design-decisions": "Appendix: Design Decisions"
       },
       "headingKeywords": {}
     },
@@ -125,9 +126,10 @@
         "deleting-a-student-delstu": "Deleting a student: delstu",
         "clearing-all-entries-clear": "Clearing all entries : clear",
         "exiting-the-program-exit": "Exiting the program : exit",
+        "autocomplete": "Autocomplete",
+        "retrieving-command-history": "Retrieving command history",
         "saving-the-data": "Saving the data",
         "editing-the-data-file": "Editing the data file",
-        "archiving-data-files-coming-in-v2-0": "Archiving data files [coming in v2.0]",
         "faq": "FAQ",
         "known-issues": "Known issues",
         "command-summary": "Command summary"
@@ -138,7 +140,7 @@
       "src": "index.md",
       "title": "",
       "headings": {
-        "addressbook-level-3": "AddressBook Level-3"
+        "tapro": "TAPro"
       },
       "headingKeywords": {}
     },
@@ -187,59 +189,6 @@
       "title": "Xiaoyun's Project Portfolio Page",
       "headings": {
         "project-addressbook-level-3": "Project: AddressBook Level 3"
-      },
-      "headingKeywords": {}
-    },
-    {
-      "src": "tutorials/AddRemark.md",
-      "title": "Tutorial: Adding a command",
-      "headings": {
-        "tutorial-adding-a-command": "Tutorial: Adding a command",
-        "create-a-new-remark-command": "Create a new remark command",
-        "hook-remarkcommand-into-the-application": "Hook RemarkCommand into the application",
-        "run-the-application": "Run the application",
-        "change-remarkcommand-to-throw-an-exception": "Change RemarkCommand to throw an exception",
-        "enhancing-remarkcommand": "Enhancing RemarkCommand",
-        "make-the-command-accept-parameters": "Make the command accept parameters",
-        "parse-user-input": "Parse user input",
-        "add-remark-to-the-model": "Add Remark to the model",
-        "add-a-new-remark-class": "Add a new Remark class",
-        "make-use-of-remark": "Make use of Remark",
-        "add-a-placeholder-element-for-remark-to-the-ui": "Add a placeholder element for remark to the UI",
-        "modify-person-to-support-a-remark-field": "Modify Person to support a Remark field",
-        "modify-person": "Modify Person",
-        "update-other-usages-of-person": "Update other usages of Person",
-        "updating-storage": "Updating Storage",
-        "finalizing-the-ui": "Finalizing the UI",
-        "putting-everything-together": "Putting everything together",
-        "update-remarkcommand-and-remarkcommandparser": "Update RemarkCommand and RemarkCommandParser",
-        "writing-tests": "Writing tests",
-        "automatically-generating-tests": "Automatically generating tests",
-        "conclusion": "Conclusion"
-      },
-      "headingKeywords": {}
-    },
-    {
-      "src": "tutorials/RemovingFields.md",
-      "title": "Tutorial: Removing Fields",
-      "headings": {
-        "tutorial-removing-fields": "Tutorial: Removing Fields",
-        "safely-deleting-address": "Safely deleting Address",
-        "assisted-refactoring": "Assisted refactoring",
-        "manual-refactoring": "Manual refactoring",
-        "tidying-up": "Tidying up"
-      },
-      "headingKeywords": {}
-    },
-    {
-      "src": "tutorials/TracingCode.md",
-      "title": "Tutorial: Tracing code",
-      "headings": {
-        "tutorial-tracing-code": "Tutorial: Tracing code",
-        "before-we-start": "Before we start",
-        "setting-a-breakpoint": "Setting a breakpoint",
-        "tracing-the-execution-path": "Tracing the execution path",
-        "conclusion": "Conclusion"
       },
       "headingKeywords": {}
     }
