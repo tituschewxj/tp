@@ -208,7 +208,7 @@ Format: `addstu n/NAME p/PHONE_NUMBER e/EMAIL nn/NUSNET_ID m/MAJOR [t/TAG]…​
 
 Examples:
 * `addstu n/John Doe nn/e1234567 p/98765432 e/johnd@example.com m/Computer Science`
-* `addstu n/Betsy Crowe nn/e01234567 t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/criminal`
+* `addstu n/Betsy Crowe nn/e01234567 t/friend e/betsycrowe@example.com m/Mathematics p/1234567 t/club`
 * `addstu n/Betsy Crowe nn/e01234567`
 
 <markdown class="d-print-none">---</markdown>
