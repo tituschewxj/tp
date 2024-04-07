@@ -261,7 +261,7 @@ Format: `find KEYWORD [MORE_KEYWORDS]…​`
 
 <box type="info" seamless>
 
-**Parameters of find command:**
+**Parameters of `find` command:**
 
 - `KEYWORD` is the first keyword to search for. This is a compulsory parameter.
 - `[MORE_KEYWORDS]` are additional, optional keywords to search for. You can have any number of additional keywords.
