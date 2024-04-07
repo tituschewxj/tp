@@ -82,7 +82,11 @@ public class UnmarkAttendanceCommand extends Command {
                 updatedPerson.getName(), updatedPerson.getNusNet(), weekNumber);
 
         return new CommandResult(formattedMessage);
+    }
 
+    @Override
+    public boolean isModification() {
+        return true;
     }
 
     @Override
