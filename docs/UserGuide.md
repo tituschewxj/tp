@@ -195,7 +195,7 @@ Course code should follow the format "XX1234Y", Y is optional.
 ### Adding a student: `addstu`
 Adds a student to the contact book.
 
-Format: `addstu n/NAME p/PHONE_NUMBER e/EMAIL nn/NUSNET_ID m/MAJOR [t/TAG]…​`
+Format: `addstu n/NAME nn/NUSNET [p/PHONE] [e/EMAIL] [m/MAJOR] [t/TAG]…​`
 
 * Add a student with the given details.
 * The name and nusnet id must be provided. And nusnet id must be unique.
