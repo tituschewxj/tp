@@ -24,7 +24,7 @@ class AutoCompletePrefixResolverTest {
     @BeforeEach
     void setUp() {
         listA = new ArrayList<>();
-        listA.addAll(Arrays.asList("abc", "def", "hijk", "lmnop", "qrs", "tuv", "wxyz"));
+        listA.addAll(Arrays.asList("abc", "defg", "hijk", "lmnop", "qrs", "tuv", "wxyz"));
         prefixResolverA = new PrefixResolver(new Prefix("abc/"), () -> listA);
 
         listB = new ArrayList<>();
@@ -80,7 +80,7 @@ class AutoCompletePrefixResolverTest {
         // Blank value after prefix
         AutoCompleteResult result = autoCompletePrefixResolver.getAutoComplete("abc/");
         assertEquals("abc", result.getNextResult());
-        assertEquals("def", result.getNextResult());
+        assertEquals("defg", result.getNextResult());
         assertEquals("hijk", result.getNextResult());
 
         // New data generated
@@ -102,7 +102,7 @@ class AutoCompletePrefixResolverTest {
         // Multiple prefixes present
         AutoCompleteResult result = autoCompletePrefixResolver.getAutoComplete("abc abc/qrs xyz/xxx abc/");
         assertEquals("abc", result.getNextResult());
-        assertEquals("def", result.getNextResult());
+        assertEquals("defg", result.getNextResult());
         assertEquals("hijk", result.getNextResult());
 
         // Trie matching
