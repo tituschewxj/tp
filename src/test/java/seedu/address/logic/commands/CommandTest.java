@@ -1,5 +1,6 @@
 package seedu.address.logic.commands;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.testutil.TypicalPersons.ALICE;
 
@@ -44,11 +45,11 @@ class CommandTest {
         Command findCommand = new FindPersonCommand(
               new NameContainsKeywordsPredicate(new ArrayList<>())
         );
-        assertTrue(!findCommand.isModification());
+        assertFalse(findCommand.isModification());
 
         // EP: ListPersonCommand
         Command listCommand = new ListPersonCommand();
-        assertTrue(!listCommand.isModification());
+        assertFalse(listCommand.isModification());
 
         // EP: MarkAttendanceCommand
         Command markAttendanceCommand = new MarkAttendanceCommand(
@@ -66,11 +67,11 @@ class CommandTest {
 
         // EP: HelpCommand
         Command helpCommand = new HelpCommand();
-        assertTrue(!helpCommand.isModification());
+        assertFalse(helpCommand.isModification());
 
         // EP: ExitCommand
         Command exitCommand = new ExitCommand();
-        assertTrue(!exitCommand.isModification());
+        assertFalse(exitCommand.isModification());
 
         // EP: SetCourseCommand
         Command setCourseCommand = new SetCourseCommand(genericCourse);
