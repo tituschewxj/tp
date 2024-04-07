@@ -257,8 +257,16 @@ This command differs from most other commands that use the `NUSNET_ID` to identi
 
 Finds students whose names contain any of the given keywords.
 
-Format: `find KEYWORD [MORE_KEYWORDS]`
+Format: `find KEYWORD [MORE_KEYWORDS]…​`
 
+<box type="info" seamless>
+
+**Parameters of find command:**
+
+- `KEYWORD` is the first keyword to search for. This is a compulsory parameter.
+- `[MORE_KEYWORDS]` are additional, optional keywords to search for. You can have any number of additional keywords.
+
+</box>
 
 <box type="info" seamless>
 
