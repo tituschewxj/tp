@@ -43,7 +43,7 @@ The latest version is compatible with older versions.
 
 A GUI similar to the below image should appear in a few seconds. Note how the app contains some sample data.
 
-<img width="1470" alt="Screenshot 2024-04-06 at 10 30 53 PM" src="https://github.com/AY2324S2-CS2103T-F13-1/tp/assets/60879977/7752d686-20ff-4112-bb3c-a3441c22577d">
+<img alt="Main Window UI on first launch" src="images/main_window_ui.png" class="rounded-image" />
 
 </box>
 <div style="page-break-after: always;"></div>
@@ -142,7 +142,6 @@ Format: `help`
 
 A new window is opened, so that it does not clutter up your main window. A GUI similar to the below image should appear.
 
-[//]: # (TODO: update this image once the help window is finalized in v1.4)
 <img src="images/help_window_ui.png" alt="Help Window UI" class="rounded-image" width="800px"/>
 
 </box>
@@ -315,7 +314,6 @@ Format: `find KEYWORD [MORE_KEYWORDS]`
 
 <span class="semi-bold">#g#Example:##</span> `find alex david` returns `Alex Yeoh`, `David Li`, as seen in the image below.
 
-[//]: # (TODO: update this image)
 <img src="images/findAlexDavidResult.png" alt="result for 'find alex david" width="500px" class="rounded-image"/>
 </box>
 </box>
