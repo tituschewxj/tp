@@ -43,7 +43,7 @@ The latest version is compatible with older versions.
 
 A GUI similar to the below image should appear in a few seconds. Note how the app contains some sample data.
 
-<img src="images/main_window_ui.png" alt="Main Window UI on first launch" class="rounded-image"/>
+<img width="1470" alt="Screenshot 2024-04-06 at 10 30 53 PM" src="https://github.com/AY2324S2-CS2103T-F13-1/tp/assets/60879977/7752d686-20ff-4112-bb3c-a3441c22577d">
 
 </box>
 <div style="page-break-after: always;"></div>
@@ -56,7 +56,7 @@ A GUI similar to the below image should appear in a few seconds. Note how the ap
 
 * `list` : Lists all contacts.
 
-* `addstu nn/e0952224 n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01` : Adds a student named `John Doe` to the contact book.
+* `addstu nn/e0952224 n/John Doe p/98765432 e/johnd@example.com m/Computer Science` : Adds a student named `John Doe` to the contact book.
 
 * `delstu nn/NUSNET_ID` : Deletes the student with the specified `NUSNET_ID` from the contact book.
 
@@ -208,7 +208,7 @@ Format: `addstu n/NAME p/PHONE_NUMBER e/EMAIL nn/NUSNET_ID a/ADDRESS [t/TAG]â€¦â
 </box>
 
 Examples:
-* `addstu n/John Doe nn/e1234567 p/98765432 e/johnd@example.com a/John street, block 123, #01-01`
+* `addstu n/John Doe nn/e1234567 p/98765432 e/johnd@example.com m/Computer Science`
 * `addstu n/Betsy Crowe nn/e01234567 t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/criminal`
 * `addstu n/Betsy Crowe nn/e01234567`
 
