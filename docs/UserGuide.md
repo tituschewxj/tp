@@ -353,15 +353,15 @@ Example:
 
 Deletes the specified student from the contact book.
 
-Format: `delstu NUSNET_ID`
+Format: `delstu nn/NUSNET_ID`
 
-* Deletes the student with the specified NUSNET_ID from the contact book. 
+* Deletes the student with the specified NUSNet ID from the contact book. 
 
 Examples:
-* `delstu e0957499` deletes the student with the NUSNET_ID of `e0957499` in the contact book.
+* `delstu nn/E0957499` deletes the student with the NUSNet ID of `E0957499` in the contact book.
 
 Pro Tip:
-* If you cannot remember your student's NUSNET_ID, you could use `find Betsy` or `list` followed by `delstu <Betsy's NUSNET_ID>` to find and delete the student.
+* If you cannot remember your student's NUSNet ID, you could use `find Betsy` or `list` followed by `delstu nn/<Betsy's NUSNET_ID>` to find and delete the student.
 
 <markdown class="d-print-none">---</markdown>
 <div style="page-break-after: always;"></div>
