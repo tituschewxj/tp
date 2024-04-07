@@ -264,13 +264,13 @@ Format: `find KEYWORD [MORE_KEYWORDS]…​`
 **Parameters of `find` command:**
 
 - `KEYWORD` is the first keyword to search for. This is a compulsory parameter.
-- `[MORE_KEYWORDS]` are additional, optional keywords to search for. You can have any number of additional keywords.
+- `[MORE_KEYWORDS]…​` are additional, optional keywords to search for. You can have any number of additional keywords.
 
 </box>
 
 <box type="info" seamless>
 
-**About the find command:**
+**About the `find` command:**
 
 <box type="success" seamless>
 
