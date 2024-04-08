@@ -180,9 +180,9 @@ The quick reference is meant for **fast and reliable** lookup of commands and th
 
 ### Name/Rename CS course : `setcrs`
 
-Names the course in question. 
+Sets the course code in question. 
 
-Format: `setcrs COURSE_NAME`
+Format: `setcrs COURSE_code`
 
 Duplicate course are not allowed.
 Courses are case-insensitive.
@@ -524,7 +524,7 @@ If you move the application to a secondary screen, and later switch to using onl
 | **Mark**           | `mark nn/NUSNET_ID wk/WEEK_NUMBER`<br> e.g., `mark nn/e1234567 wk/3`                                                                                                                   |
 | **Unmark**         | `unmark nn/NUSNET_ID wk/WEEK_NUMBER`<br> e.g., `unmark nn/e1234567 wk/3`                                                                                                               |
 | **Find**           | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`                                                                                                                             |
-| **Set Course**     | `setcrs COURSE_NAME`                                                                                                                                                                   |
+| **Set Course**     | `setcrs COURSE_CODE`                                                                                                                                                                   |
 | **List**           | `list`                                                                                                                                                                                 |
 | **Help**           | `help`                                                                                                                                                                                 |
 | **Exit**           | `exit`                                                                                                                                                                                 |
