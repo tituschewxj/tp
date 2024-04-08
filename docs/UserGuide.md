@@ -433,6 +433,7 @@ we see that the text in the command input box autocompletes to become `edit 1 n/
 The last parameter `TAG` is autocompleted.
 </box>
 </box>
+<div style="page-break-after: always;"></div>
 
 <box type="info" light>
 
