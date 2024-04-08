@@ -18,9 +18,9 @@ public abstract class Command {
     public abstract CommandResult execute(Model model) throws CommandException;
 
     /**
-     * Returns true if the command modifies the model in a way that should be saved to storage.
+     * Returns true if the command potentially modifies the model in a way that should be saved to storage.
      *
-     * @return boolean indicating if the command modifies the model.
+     * @return True if the command potentially modifies the model, otherwise false.
      */
     public boolean isModification() {
         return false;
