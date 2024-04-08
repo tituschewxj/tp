@@ -19,7 +19,7 @@ If you can type fast, TAPro can get your contact management and attendance takin
 <div style="page-break-after: always;"></div>
 <br>
 
-## Quick start
+## <i class="fa-solid fa-forward"></i> Quick start
 
 1. Ensure you have Java 11 or above installed in your computer.
 
@@ -72,7 +72,7 @@ A GUI similar to the below image should appear in a few seconds. Note how the ap
 <div style="page-break-after: always;"></div>
 <br>
 
-## Features
+## <i class="fa-solid fa-font-awesome"></i> Features
 
 <box type="info" seamless>
 
@@ -128,7 +128,7 @@ Be careful when copying and pasting commands that span multiple lines as space c
 <div style="page-break-after: always;"></div>
 <br>
 
-### Viewing help : `help`
+### <i class="fa-solid fa-circle-question"></i> Viewing help : `help`
 
 Entering the `help` command opens a help window that shows a message explaining how to access the help page, 
 as well as quick reference of each command with simple examples on how to use them.
@@ -178,7 +178,7 @@ The quick reference is meant for **fast and reliable** lookup of commands and th
 <div style="page-break-after: always;"></div>
 <br>
 
-### Name/Rename CS course : `setcrs`
+### <i class="fa-solid fa-chalkboard"></i> Name/Rename CS course : `setcrs`
 
 Names the course in question. 
 
@@ -192,7 +192,7 @@ Course code should follow the format "XX1234Y", Y is optional.
 <div style="page-break-after: always;"></div>
 <br>
 
-### Adding a student: `addstu`
+### <i class="fa-solid fa-user-plus"></i> Adding a student: `addstu`
 Adds a student to the contact book.
 
 Format: `addstu n/NAME nn/NUSNET [p/PHONE] [e/EMAIL] [m/MAJOR] [t/TAG]…​`
@@ -215,7 +215,7 @@ Examples:
 <div style="page-break-after: always;"></div>
 <br>
 
-### Listing all students : `list`
+### <i class="fa-solid fa-list-ul"></i> Listing all students : `list`
 
 Shows a list of all persons in the contact book.
 
@@ -227,7 +227,7 @@ If there are additional arguments behind `list` we will simply ignore them.
 <div style="page-break-after: always;"></div>
 <br>
 
-### Editing a person : `edit`
+### <i class="fa-solid fa-user-pen"></i> Editing a student : `edit`
 
 Edits an existing person in the contact book.
 
@@ -252,7 +252,7 @@ This command differs from most other commands that use the `NUSNET_ID` to identi
 <div style="page-break-after: always;"></div>
 <br>
 
-### Locating students by name: `find`
+### <i class="fa-solid fa-magnifying-glass"></i> Locating students by name: `find`
 
 Finds students whose names contain any of the given keywords.
 
@@ -322,7 +322,7 @@ Format: `find KEYWORD [MORE_KEYWORDS]`
 <div style="page-break-after: always;"></div>
 <br>
 
-### Marking a student's attendance for a given week by their NUSNet: `mark`
+### <i class="fa-solid fa-square-check"></i> Marking a student's attendance for a given week by their NUSNet: `mark`
 
 Marks a student's attendance for a particular week.
 
@@ -334,7 +334,7 @@ Example:
 <markdown class="d-print-none">---</markdown>
 <br>
 
-### Unmarking a student's attendance for a given week by their NUSNet: `unmark`
+### <i class="fa-solid fa-square-xmark"></i> Unmarking a student's attendance for a given week by their NUSNet: `unmark`
 
 Unmarks a student's attendance for a particular week.
 
@@ -347,7 +347,7 @@ Example:
 <div style="page-break-after: always;"></div>
 <br>
 
-### Deleting a student: `delstu`
+### <i class="fa-solid fa-trash"></i> Deleting a student: `delstu`
 
 Deletes the specified student from the contact book.
 
@@ -365,7 +365,7 @@ Pro Tip:
 <div style="page-break-after: always;"></div>
 <br>
 
-### Clearing all entries : `clear`
+### <i class="fa-solid fa-broom"></i> Clearing all entries : `clear`
 
 Clears all entries from the contact book.
 
@@ -374,7 +374,7 @@ Format: `clear`
 <markdown class="d-print-none">---</markdown>
 <br>
 
-### Exiting the program : `exit`
+### <i class="fa-solid fa-right-from-bracket"></i> Exiting the program : `exit`
 
 Exits the program.
 
@@ -384,7 +384,7 @@ Format: `exit`
 <div style="page-break-after: always;"></div>
 <br>
 
-### Autocomplete
+### <i class="fa-solid fa-wand-magic-sparkles"></i> Autocomplete
 
 Autocompletes a word or a set of words, based on the current input.
 
@@ -432,7 +432,7 @@ The autocomplete suggestions will be listed in alphabetical order, meaning if yo
 <div style="page-break-after: always;"></div>
 <br>
 
-### Retrieving command history
+### <i class="fa-solid fa-clock-rotate-left"></i> Retrieving command history
 
 TAPro saves successful commands input, so you can retrieve them later, using the 
 <span class="badge bg-light text-dark">Up</span> and
@@ -459,14 +459,14 @@ If you enter an invalid command, it will not appear when attempting to retrieve 
 <div style="page-break-after: always;"></div>
 <br>
 
-### Saving the data
+### <i class="fa-solid fa-floppy-disk"></i> Saving the data
 
 TAPro's data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
 
 <markdown class="d-print-none">---</markdown>
 <br>
 
-### Editing the data file
+### <i class="fa-solid fa-pen-to-square"></i> Editing the data file
 
 TAPro's data are saved automatically as a JSON file `[JAR file location]/data/addressbook.json`. Advanced users are welcome to update data directly by editing that data file.
 
@@ -483,7 +483,7 @@ Furthermore, certain edits can cause the TAPro to behave in unexpected ways (e.g
 <div style="page-break-after: always;"></div>
 <br>
 
-## FAQ
+## <i class="fa-solid fa-comments"></i> FAQ
 
 <box type="info" icon=":fa-solid-question:" seamless>
 
@@ -499,7 +499,7 @@ Furthermore, certain edits can cause the TAPro to behave in unexpected ways (e.g
 <markdown class="d-print-none">---</markdown>
 <br>
 
-## Known issues
+## <i class="fa-solid fa-triangle-exclamation"></i> Known issues
 
 
 <box type="warning" theme="danger" seamless>
@@ -513,7 +513,7 @@ If you move the application to a secondary screen, and later switch to using onl
 <div style="page-break-after: always;"></div>
 <br>
 
-## Command summary
+## <i class="fa-solid fa-table-list"></i> Command summary
 
 | Action             | Format, Examples                                                                                                                                                                       |
 |--------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
