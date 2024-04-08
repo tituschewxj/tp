@@ -200,6 +200,7 @@ Format: `addstu n/NAME nn/NUSNET [p/PHONE] [e/EMAIL] [m/MAJOR] [t/TAG]…​`
 * Add a student with the given details.
 * The name and nusnet id must be provided. And nusnet id must be unique.
 * All the remaining fields are optional. If not provided, a placeholder value will be used.
+* Name cannot be empty or spaces only, contain only alphabets and cannot have double spaces 
 
 <box type="tip" seamless>
 
