@@ -182,11 +182,18 @@ The quick reference is meant for **fast and reliable** lookup of commands and th
 
 Sets the course code in question. 
 
+Course is shown at the top of the window.
+
 Format: `setcrs COURSE_code`
 
-Duplicate course are not allowed.
+<img src="images/ug/setcrs_2101.png" alt="Setcrs 2101" class="rounded-image" width="800px"/>
+
+<img src="images/ug/setcrs_successful.png" alt="Setcrs 2101" class="rounded-image" width="800px"/>
+
 Courses are case-insensitive.
 Course code should follow the format "XX1234Y", Y is optional.
+
+<img src="images/ug/setcrs_error.png" alt="Setcrs Error" class="rounded-image" width="800px"/>
 
 <markdown class="d-print-none">---</markdown>
 <div style="page-break-after: always;"></div>
