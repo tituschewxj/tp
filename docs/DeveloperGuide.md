@@ -154,9 +154,7 @@ Here are the other classes in `Logic` (omitted from the class diagram above) tha
   * All `XYZCommandParser` classes (e.g., `AddCommandParser`, `DeleteCommandParser`, ...) inherit from the `Parser` interface so that they can be treated similarly where possible e.g, during testing.
 * When called upon to parse an autocomplete input, the `AddressBookParser` class checks whether the input contains arguments. If it does not contain arguments, it creates an `AutoCompleteCommand` object which autocompletes Commands. Otherwise, it checks for the last argument in the user input and creates the matching `AutoComplete` object if it exists (e.g. `arbitrary_command arg_a/arbitrary_arg` lead to the `AutoCompleteArgA` object, if it exists). Otherwise, a default `AutoComplete` object that always return an empty string is returned.
 
-<markdown class="d-print-none">---</markdown>
-<div style="page-break-after: always;"></div>
-<br>
+{{ newPage }}
 
 ### Model component
 **API** : [`Model.java`](https://github.com/AY2324S2-CS2103T-F13-1/tp/tree/master/src/main/java/seedu/address/model/Model.java)
@@ -245,11 +243,11 @@ Given below is an example usage scenario and how the undo/redo mechanism behaves
 
 <puml src="diagrams/UndoRedoState0.puml" alt="UndoRedoState0" /><br><br>
 
-**Step 2.** The user executes `delstu e1234567` command to delete student with nusnet ID as e1234567 from the contact book. 
+**Step 2.** The user executes `delstu nn/E1234567` command to delete student with NUSNet ID as E1234567 from the contact book. 
 The `delstu` 
 command 
 calls 
-`Model#commitAddressBook()`, causing the modified state of the contact book after the `delstu e1234567` command 
+`Model#commitAddressBook()`, causing the modified state of the contact book after the `delstu nn/E1234567` command 
 executes to 
 be saved in the `addressBookStateList`, and the `currentStatePointer` is shifted to the newly inserted contact book state.
 
@@ -344,10 +342,8 @@ _{Explain here how the data archiving feature will be implemented}_
 * [Logging guide](Logging.md)
 * [Configuration guide](Configuration.md)
 * [DevOps guide](DevOps.md)
-    
-<markdown class="d-print-none">---</markdown>
-<div style="page-break-after: always;"></div>
-<br>
+
+{{ newPage }}
 
 ## **Appendix: Requirements**
 
@@ -608,9 +604,7 @@ For all use cases below, the **System** is the `TAPro` and the **Actor** is the 
 **UI**: User Interface
 </box>
 
-<markdown class="d-print-none">---</markdown>
-<div style="page-break-after: always;"></div>
-<br>
+{{ newPage }}
 
 ## **Appendix: Instructions for manual testing**
 
@@ -701,7 +695,7 @@ students.
 
 1. **Marking attendance for a student**
 
-   1. Prerequisites: Contact book contains at least one student with NUSNet ID e0123456.
+   1. Prerequisites: Contact book contains at least one student with NUSNet ID E0123456.
 
    1. Test case: `mark nn/E0123456 wk/1`<br>
       Expected: Student with NUSNet ID `E0123456` is marked as 'present' from the contact book, depicted on that student's card.
