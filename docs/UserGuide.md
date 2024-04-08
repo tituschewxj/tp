@@ -58,6 +58,45 @@ action.
 
 Stumbled upon a hurdle or just curious? Swing by our **[FAQ](#faq)** where we tackle all your burning questions and offer 
 nuggets of wisdom for a smooth TAPro journey.
+<markdown class="d-print-none">---</markdown>
+<div style="page-break-after: always;"></div>
+<br>
+
+## <i class="fa-solid fa-forward"></i> Useful Notations and Glossary
+
+Diving into TAPro, you'll encounter some handy notations and terms. We've decoded them here to make your journey smoother and more enjoyable:
+
+### Symbols
+
+| Symbol                          | Meaning                                                        |
+|---------------------------------|----------------------------------------------------------------|
+| <box type="tip" seamless></box> | Tip                                                            |
+| <box type="warning" seamless></box> | Warning                                                        |
+| <box type="info" seamless></box> | Additional useful information                                  |
+| <box type="success" seamless></box> | Example                                                        |
+| <box type="danger" seamless></box> | Caution/ Danger                                                |
+| **`UPPER_CASE`**                | Represents parameters that need to be given by you!            |
+
+### Keywords and Phrases
+
+| Keywords                           | Meaning                                                                                  |
+|------------------------------------|------------------------------------------------------------------------------------------|
+| **Command Line Interface (CLI)**   | A text-based interface used for entering commands directly.                              |
+| **Graphical User Interface (GUI)** | The visual interface that enhances user interaction with graphical elements.             |
+| **Parameters**                     | Specific pieces of information required by commands to execute a function.               |
+| **Optional Parameters**            | Parameters that are not mandatory but can be included to provide additional information. |
+| **... (Ellipsis)**                 | Indicates that a parameter can be repeated or omitted entirely.                          |
+| **INDEX**                          | A numerical identifier for items within a list.                                          |
+| **NUSNET_ID**                      | A unique identification code assigned to each student.                                   |
+| **TAG**                            | A label or keyword that can be associated with a student for categorization.             |
+| **Autocomplete**                   | A feature that predicts and completes commands as you type.                              |
+| **Command History**                | A record of successfully executed commands that can be retrieved for reuse.              |
+
+This segment aims to make your TAPro experience as smooth as silk. With these notions and terms at your fingertips, you're well on your way to becoming a TAPro power user!
+
+<markdown class="d-print-none">---</markdown>
+<div style="page-break-after: always;"></div>
+<br>
 
 ## <i class="fa-solid fa-forward"></i> Quick start
 
