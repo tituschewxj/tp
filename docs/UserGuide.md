@@ -31,7 +31,8 @@ traditional GUI apps. 🚀
 Welcome to the cozy corner of the TAPro User Guide! 🌟 Whether you're embarking on your very first day as a TA or 
 you're practically a wizard with student info, we've put together this guide to make sure you get the most out of TAPro.
 
-🚀 **Ready to Roll?** Skip over to Quick Start for the no-fuss, easy-peasy steps to get TAPro ready for action.
+🚀 **Ready to Roll?** Skip over to **[Quick Start](#quick-start)** for the no-fuss, easy-peasy steps to download TAPro and get ready for 
+action.
 
 **New around here?** No worries, we've got you. Start with these sections to become a TAPro buddy in no time:
 
@@ -40,20 +41,22 @@ you're practically a wizard with student info, we've put together this guide to 
 
 **Already a TAPro champ?** Let's add some spice to your TA skills:
 
-- Add Student: Got a new face in class? Quickly add their details with addstu.
-- Clear: Need to wipe the slate clean? clear does just that.
-- Delete Student: Time to say goodbye? Remove a student from your list with delstu.
-- Edit: Update details as they evolve with edit.
-- Mark: Keep track of weekly attendance with mark.
-- Unmark: Oops, made a mistake? unmark reverses that mark.
-- Find: Looking for someone? find helps you search by keyword.
-- Set Course: Tailor TAPro to your current course with setcrs.
-- List: Bring up a complete list of your students with a simple list.
-- Learn about Command History and Autocomplete: Because we know you're all about efficiency.
+- **[Set Course](#name-rename-cs-course-setcrs)**: Tailor TAPro to your current course with setcrs.
+- **[Add Student](#adding-a-student-addstu)**: Got a new face in class? Quickly add their details with addstu.
+- **[Mark](#marking-a-student-s-attendance-for-a-given-week-by-their-nusnet-mark)**: Keep track of weekly attendance
+    with mark.
+- **[Unmark](#unmarking-a-student-s-attendance-for-a-given-week-by-their-nusnet-unmark)**: Oops, made a mistake? unmark
+  reverses that mark.
+- **[List](#listing-all-students-list)**: Bring up a complete list of your students with a simple list.
+- **[Edit](#editing-a-student-edit)**: Update details as they evolve with edit.
+- **[Find](#locating-students-by-name-find)**: Looking for someone? find helps you search by keyword.
+- **[Delete Student](#deleting-a-student-delstu)**: Time to say goodbye? Remove a student from your list with delstu.
+- **[Clear](#clearing-all-entries-clear)**: Need to wipe the slate clean? clear does just that.
+- Learn about **[Autocomplete](#autocomplete)** and **[Command History](#autocomplete)**: Because we know you're all about efficiency.
 
 **Need a quick TAPro refresher?** Our Command Summary is like the TAPro bible—short, sweet, and to the point.
 
-Stumbled upon a hurdle or just curious? Swing by our FAQ where we tackle all your burning questions and offer 
+Stumbled upon a hurdle or just curious? Swing by our **[FAQ](#faq)** where we tackle all your burning questions and offer 
 nuggets of wisdom for a smooth TAPro journey.
 
 ## <i class="fa-solid fa-forward"></i> Quick start
