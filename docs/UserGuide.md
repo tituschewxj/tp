@@ -256,12 +256,20 @@ This command differs from most other commands that use the `NUSNET_ID` to identi
 
 Finds students whose names contain any of the given keywords.
 
-Format: `find KEYWORD [MORE_KEYWORDS]`
-
+Format: `find KEYWORD [MORE_KEYWORDS]…​`
 
 <box type="info" seamless>
 
-**About the find command:**
+**Parameters of `find` command:**
+
+- `KEYWORD` is the first keyword to search for. This is a compulsory parameter.
+- `[MORE_KEYWORDS]…​` are additional, optional keywords to search for. You can have any number of additional keywords.
+
+</box>
+
+<box type="info" seamless>
+
+**About the `find` command:**
 
 <box type="success" seamless>
 
@@ -523,7 +531,7 @@ If you move the application to a secondary screen, and later switch to using onl
 | **Edit**           | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [m/MAJOR] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`                                                              |
 | **Mark**           | `mark nn/NUSNET_ID wk/WEEK_NUMBER`<br> e.g., `mark nn/e1234567 wk/3`                                                                                                                   |
 | **Unmark**         | `unmark nn/NUSNET_ID wk/WEEK_NUMBER`<br> e.g., `unmark nn/e1234567 wk/3`                                                                                                               |
-| **Find**           | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`                                                                                                                             |
+| **Find**           | `find KEYWORD [MORE_KEYWORDS]…​`<br> e.g., `find James Jake`                                                                                                                           |
 | **Set Course**     | `setcrs COURSE_NAME`                                                                                                                                                                   |
 | **List**           | `list`                                                                                                                                                                                 |
 | **Help**           | `help`                                                                                                                                                                                 |
