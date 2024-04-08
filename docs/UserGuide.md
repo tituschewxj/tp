@@ -3,9 +3,9 @@
   title: "User Guide"
   pageNav: 3
 ---
+{% import "_markbind/_macros.nj" as macros %}
 
 # TAPro User Guide
-
 TAPro is a **Contact Book application** that is made for Computer Science Tutors for managing their students contact and attendance details.
 
 TAPro is optimized for use via a **Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). 
@@ -43,12 +43,12 @@ The latest version is compatible with older versions.
 
 A GUI similar to the below image should appear in a few seconds. Note how the app contains some sample data.
 
-<img alt="Main Window UI on first launch" src="images/main_window_ui.png" class="rounded-image" />
+<img alt="Main Window UI on first launch" src="images/main_window_ui.png" class="rounded-image" width="738px"/>
 
 </box>
 <div style="page-break-after: always;"></div>
 
-5. Type the command in the command box and press <span class="badge bg-light text-dark">Enter</span> to execute it. e.g. typing **`help`** and pressing <span class="badge bg-light text-dark">Enter</span> will open the help window.
+5. Type the command in the command box and press {{ macros.keyFormat('Enter') }} to execute it. e.g. typing **`help`** and pressing {{ macros.keyFormat('Enter') }} will open the help window.
 
 <box type="info" seamless>
 
@@ -159,9 +159,9 @@ The help window is resizable, so you can **easily reposition and resize** it to 
 <i class="fa-solid fa-window-restore"></i>
 **Switching quickly between the help and main window:**
 
-* On Windows and most Linux distributions, you can use the keyboard shortcut: <span class="badge bg-light text-dark">Alt</span> +  <span class="badge bg-light text-dark">Tab</span>, to switch between windows quickly. 
+* On Windows and most Linux distributions, you can use the keyboard shortcut: {{ macros.keyFormat('Alt') }} + {{ macros.keyFormat('Tab') }}, to switch between windows quickly. 
 
-* On macOS, you can use the keyboard shortcut: <span class="badge bg-light text-dark">Cmd⌘</span> + <span class="badge bg-light text-dark">Tab</span>, to switch between windows quickly.
+* On macOS, you can use the keyboard shortcut: {{ macros.keyFormat('Cmd⌘') }} + {{ macros.keyFormat('Tab') }}, to switch between windows quickly.
 
 </box>
 
@@ -314,7 +314,7 @@ Format: `find KEYWORD [MORE_KEYWORDS]`
 
 <span class="semi-bold">#g#Example:##</span> `find alex david` returns `Alex Yeoh`, `David Li`, as seen in the image below.
 
-<img src="images/findAlexDavidResult.png" alt="result for 'find alex david" width="500px" class="rounded-image"/>
+<img src="images/findAlexDavidResult.png" alt="result for 'find alex david" width="406px" class="rounded-image"/>
 </box>
 </box>
 
@@ -386,46 +386,109 @@ Format: `exit`
 
 ### Autocomplete
 
-Autocompletes a word or a set of words, based on the current input.
+The autocomplete feature autocompletes a parameter or command, based on the current command box input and the current data in TAPro. This means that if an attribute value is not present, it will not be present in the autocompletion of that corresponding parameter.
 
-<box type="warning" seamless>
+{{ macros.definitionBox('Autocompletion', 'The autocomplete feature\'s suggested autocomplete result(s).') }}
 
-**Autocomplete doesn't work on week number:**
+We can autocomplete both command names and parameters after their prefixes by pressing {{ macros.keyFormat('Tab') }}, when an autocompletion is available.
 
-This is because week number is short,
-and it is much faster just typing out the number.
+<box type="important" light>
 
+**Autocompletes the first word as a command name:**
+
+The first word, will be autocompleted as a command name, instead of a parameter, if an autocompletion can be found for the current word that is in the command box input.
+
+<box type="warning" light>
+<span class="semi-bold">The command input box must not be empty</span> for autocomplete to work.
 </box>
 
-<box type="success" seamless>
+<box type="success" light>
 
 <span class="semi-bold">#g#Example:##</span>
 
-We have three students with NUSNet IDs `e0123456`, `e1234567` and `e2345678`. 
-If we type `mark nn/` into the command input box and press <span class="badge bg-light text-dark">Tab</span>,
-we can see that the text in the command input box autocompletes to become `mark nn/e01234567`.
+If we type `a` into the command input box and press {{ macros.keyFormat('Tab') }}, we see that the text in the command input box autocompletes to become `addstu`.
 
-Pressing <span class="badge bg-light text-dark">Tab</span> again, causes the text to update to `mark nn/e1234567`,
-followed by `mark nn/e2345678`.
+The last parameter `TAG` is autocompleted.
+</box>
 </box>
 
-<box type="info" seamless>
+<box type="important" light>
 
-**Using autocomplete to scroll through all possible autocomplete suggestions:**
+**Autocompletes the last parameter in the input:**
 
-Autocomplete will scroll through all possible options, based on the existing data in your contact list.
+Autocomplete works on the last parameter (if any) in the command box, which is the text directly after a recognized prefix. 
 
-When reaching the end of the possible options list, pressing
-<span class="badge bg-light text-dark">Tab</span> will wrap 
+<box type="warning" light>
+A parameter can only be autocompleted if it is not the first word, and has a recognized prefix.
+</box>
+
+<box type="success" light>
+
+<span class="semi-bold">#g#Example:##</span>
+
+We have some students in TAPro, such that the first tag alphabetically is `friends`.
+If we type `edit 1 n/John Doe t/` into the command input box and press {{ macros.keyFormat('Tab') }},
+we see that the text in the command input box autocompletes to become `edit 1 n/John Doe t/friends`.
+
+The last parameter `TAG` is autocompleted.
+</box>
+</box>
+
+<box type="info" light>
+
+**Autocomplete scrolls through all autocompletions:**
+
+Autocomplete will scroll through all possible suggestions, based on the existing data in your contact list.
+
+When reaching the end of the all possible suggestions, pressing {{ macros.keyFormat('Tab') }} will wrap 
 the possible options back to the start of that list again.
+
+<box type="success" light>
+
+<span class="semi-bold">#g#Example:##</span>
+
+We have three students with NUSNet IDs `E0123456`, `E1234567` and `E2345678`.
+If we type `mark nn/` into the command input box and press {{ macros.keyFormat('Tab') }},
+we can see that the text in the command input box autocompletes to become `mark nn/E0123456`.
+
+Every press of {{ macros.keyFormat('Tab') }}, causes the command input box text to update to the next autocompletion: 
+* from `mark nn/E0123456` to `mark nn/E1234567`,
+* then to `mark nn/E2345678`, 
+* and then back to `mark nn/E0123456`.
+</box>
 </box>
 
-<box type="info" seamless>
+<box type="warning" light>
 
-**Sorted autocomplete suggestions:**
+**Autocomplete does not work on week number.** This is because `WEEK` is at most two digits, so it is much faster just typing out the number.
+</box>
 
-The autocomplete suggestions will be listed in alphabetical order, meaning if you have two possible options
-`abc` and `abd`, autocomplete will give `abc` before `abd`.
+<box type="tip" light>
+
+**Sorted autocompletions:**
+
+The autocompletions will be listed in [ASCIIbetical order](https://en.wikipedia.org/wiki/ASCII#Character_order), which is when all uppercase letters come before lowercase letter, and digits and most punctuations come before letters.
+
+<box type="success" light>
+
+<span class="semi-bold">#g#Example:##</span>
+If we have only the following tags in our contact list: `abc`, `123` `BCD`, `234`, `bcd`, autocompleting a `TAG` will give autocompletions in this order: `123`, `234` `BCD`, `abc`, `bcd`.
+
+</box>
+</box>
+
+<box type="tip" light>
+
+**Quickly clear an attribute with autocomplete:**
+
+We can autocomplete the placeholder value, if it is present for that parameter in our contact list. When a placeholder value is inputted as the parameter, it means that attribute for that student will be reset, after entering the command.
+
+<box type="success" light>
+
+<span class="semi-bold">#g#Example:##</span>
+
+If the placeholder for the `MAJOR` parameter, `Major not provided`, is present in the contact list, then in the autocompletion for the `MAJOR` parameter, the value `Major not provided` is available.
+</box>
 </box>
 
 <markdown class="d-print-none">---</markdown>
@@ -434,9 +497,7 @@ The autocomplete suggestions will be listed in alphabetical order, meaning if yo
 
 ### Retrieving command history
 
-TAPro saves successful commands input, so you can retrieve them later, using the 
-<span class="badge bg-light text-dark">Up</span> and
-<span class="badge bg-light text-dark">Down</span> keys.
+TAPro saves successful commands input, so you can retrieve them later, using the {{ macros.keyFormat('Up') }} and {{ macros.keyFormat('Down') }} keys.
 
 <box type="success" seamless>
 
@@ -444,7 +505,7 @@ TAPro saves successful commands input, so you can retrieve them later, using the
 
 We have entered `mark nn/e0123456` as the previous command, and it was successful. Now the command input box is empty.
 
-Pressing <span class="badge bg-light text-dark">Up</span> will update the text in the command input box to
+Pressing {{ macros.keyFormat('Up') }} will update the text in the command input box to
 the previous command `mark nn/e0123456`.
 </box>
 
