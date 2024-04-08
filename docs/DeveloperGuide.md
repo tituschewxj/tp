@@ -3,6 +3,7 @@
   title: "Developer Guide"
   pageNav: 3
 ---
+{% import "_markbind/_macros.nj" as macros %}
 
 # TAPro Developer Guide
 
@@ -117,8 +118,7 @@ Here's a (partial) class diagram of the `Logic` component:
 
 <puml src="diagrams/LogicClassDiagram.puml" width="800"/>
 
-The sequence diagram below illustrates the interactions within the `Logic` component, taking `execute("delstu 
-e1234567")` API 
+The sequence diagram below illustrates the interactions within the `Logic` component, taking `execute("delstu nn/E1234567")` API 
 call as an example.
 
 <puml src="diagrams/DeleteSequenceDiagram.puml" alt="Interactions Inside the Logic Component for the `delstu e1234567` Command" />
@@ -374,16 +374,18 @@ _{Explain here how the data archiving feature will be implemented}_
 </box>
 
 
-[//]: # (&nbsp; is added to force the header row into one line)
-| Priority         | As a …                                             | I want to …                                                                 | So that I can…                                 |
-|------------------|----------------------------------------------------|-----------------------------------------------------------------------------|------------------------------------------------|
-| {{ threeStars }} | TA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | name/rename the CS course that I am tutoring this semester                  | keep track of the module I am teaching         |
-| {{ threeStars }} | TA                                                 | add a student to the CS course that I am tutoring that semester to my class | keep track of him or her                       |
-| {{ threeStars }} | TA                                                 | view all students from my class                                             | view details about all of them                 |
-| {{ threeStars }} | TA                                                 | mark attendance for a student in my class                                   | keep track of who's present                    |
-| {{ threeStars }} | TA                                                 | unmark attendance for a student in my class                                 | keep track of who is absent                    |
-| {{ threeStars }} | TA                                                 | delete a student                                                            | remove a student if he or she leaves the class |
-| {{ threeStars }} | TA                                                 | know all the commands of the contact book                                   | use it effectively                             |
+[//]: # (whitespace is added to force the header row into one line)
+{% set whitespace = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' %}
+
+| Priority         | As a …              | I want to …                                                                 | So that I can…                                 |
+|------------------|---------------------|-----------------------------------------------------------------------------|------------------------------------------------|
+| {{ threeStars }} | TA {{ whitespace }} | name/rename the CS course that I am tutoring this semester                  | keep track of the module I am teaching         |
+| {{ threeStars }} | TA                  | add a student to the CS course that I am tutoring that semester to my class | keep track of him or her                       |
+| {{ threeStars }} | TA                  | view all students from my class                                             | view details about all of them                 |
+| {{ threeStars }} | TA                  | mark attendance for a student in my class                                   | keep track of who's present                    |
+| {{ threeStars }} | TA                  | unmark attendance for a student in my class                                 | keep track of who is absent                    |
+| {{ threeStars }} | TA                  | delete a student                                                            | remove a student if he or she leaves the class |
+| {{ threeStars }} | TA                  | know all the commands of TAPro                                              | use it effectively                             |
 
 **TODO: Add more user stories that are applicable**
 
@@ -395,7 +397,7 @@ _{Explain here how the data archiving feature will be implemented}_
 
 <box type="info" light>
 
-For all use cases below, the **System** is the `TAPro` and the **Actor** is the `user`, unless specified otherwise.
+For all use cases below, the **System** is TAPro and the **Actor** is the user, unless specified otherwise.
 </box>
 <br>
 
@@ -559,56 +561,27 @@ For all use cases below, the **System** is the `TAPro` and the **Actor** is the 
 
 ### Glossary
 
-<box type="definition" light>
-
-**TAPro**: The name of our product
-</box>
-
-<box type="definition" light>
-
-**Mainstream OS**: Windows, Linux, Unix, MacOS
-</box>
-
-<box type="definition" light>
-
-**CS**: Computer Science
-</box>
-
-<box type="definition" light>
-
-**NUS**: National University of Singapore
-</box>
-
-<box type="definition" light>
-
-**TA**: Teaching Assistant
-</box>
-
-<box type="definition" light>
-
-**NUSNet ID**: A unique identifier for each student in NUS
-</box>
-
-<box type="definition" light>
-
-**API**: Application Programming Interface
-</box>
-
-<box type="definition" light>
-
-**CLI**: Command Line Interface
-</box>
-
-<box type="definition" light>
-
-**UI**: User Interface
-</box>
+{{ macros.definitionBox('TAPro', 'The name of our product') }}
+{{ macros.definitionBox('Mainstream OS', 'Windows, Linux, Unix, MacOS') }}
+{{ macros.definitionBox('CS', 'Computer Science') }}
+{{ macros.definitionBox('NUS', 'National University of Singapore') }}
+{{ macros.definitionBox('TA', 'Teaching Assistant') }}
+{{ macros.definitionBox('NUSNet ID', 'A unique identifier for each student in NUS') }}
+{{ macros.definitionBox('API', 'Application Programming Interface') }}
+{{ macros.definitionBox('CLI', 'Command Line Interface') }}
+{{ macros.definitionBox('UI', 'User Interface') }}
+{{ macros.definitionBox('GUI', 'Graphical User Interface') }}
 
 {{ newPage }}
 
 ## **Appendix: Instructions for manual testing**
 
-Given below are instructions to test the app manually.
+Given below are instructions to test the app manually. 
+
+<box type="info" light>
+
+**Prerequisites:** For all features to test below, TAPro is already downloaded, only single instance of TAPro is already opened, and Java 11 or above is installed, unless specified otherwise.
+</box>
 
 <box type="info" light>
 
@@ -623,18 +596,41 @@ testers are expected to do more *exploratory* testing.
 
 1. **Initial launch**
 
-   1. Download the jar file and copy into an empty folder
+<box type="info" light>
 
-   1. Double-click the jar file Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.
+<span class="semi-bold">1. Prerequisites:</span> TAPro is not downloaded, and an Internet connection is present.
+</box>
 
-1. **Saving window preferences**
+<box type="success" light>
 
-   1. Resize the window to an optimum size. Move the window to a different location. Close the window.
+2. Download the latest TAPro jar file from [here](https://github.com/AY2324S2-CS2103T-F13-1/tp/releases) and move it into an empty folder. 
 
-   1. Re-launch the app by double-clicking the jar file.<br>
-       Expected: The most recent window size and location is retained.
+3. Ensure that the jar file is still named as `TAPro.jar` after moving.
 
-1. _{ more test cases …​ }_
+4. Open a command terminal, and `cd` into that folder.
+
+5. Run `java -jar TAPro.jar`.
+
+Expected: TAPro launches and shows the GUI with a set of sample student contacts. The window size may not be optimal.
+</box>
+
+2. **Saving window preferences**
+
+<box type="info" light>
+
+<span class="semi-bold">1. Prerequisites:</span> No prerequisites.
+</box>
+
+<box type="success" light>
+
+2. Resize the window to an optimum size. Move the window to a different location. Close the window.
+
+3. Re-launch the app by double-clicking the jar file.<br>
+
+Expected: The most recent window size and location is retained.
+</box>
+
+3. _{ more test cases …​ }_
 
 <br>
 
@@ -643,22 +639,34 @@ If TAPro does not have any student contacts, the following commands can be used 
 students.
 
 1. **Adding a student with NUSNet ID E0123456**
-   
-   1. Prerequisites: No student with NUSNet ID E0123456 in the contact book.
-   
-   1. Test case: `addstu n/John Doe p/98765432 e/johndoe@example.com nn/E0123456 m/Computer Science, #02-25 t/friends t/owesMoney`
 
-      Expected: Student with NUSNet ID `E0123456` is added to the contact book. Details of the added contact 
-      shown in the status message.
+<box type="info" light>
+
+<span class="semi-bold">1. Prerequisites:</span> No student with NUSNet ID E0123456 in TAPro.
+</box>
+
+<box type="success" light>
+
+<span class="semi-bold">2. Test case: `addstu n/John Doe p/98765432 e/johndoe@example.com nn/E0123456 m/Computer Science, #02-25 t/friends t/owesMoney`</span>
+
+Expected: Student with NUSNet ID `E0123456` is added into TAPro. Details of the added student is
+shown in the status message.
+</box>
       
 1. **Adding a student with NUSNet ID E0123457**
 
-   1. Prerequisites: No student with NUSNet ID E0123457 in the contact book.
-      
-   1. Test case: `addstu n/Mary Jane p/91234911 e/janemary@example.com nn/E0123457 m/Computer Science t/friends t/owesTutorial2`
+<box type="info" light>
 
-      Expected: Student with NUSNet ID `E0123457` is added to the contact book. Details of the added contact 
-      shown in the status message.
+<span class="semi-bold">1. Prerequisites:</span> Prerequisites: No student with NUSNet ID E0123457 in TAPro.
+</box>
+
+<box type="success" light>
+
+<span class="semi-bold">2. Test case: `addstu n/Mary Jane p/91234911 e/janemary@example.com nn/E0123457 m/Biology t/friends t/owesTutorial2`</span>
+
+Expected: Student with NUSNet ID `E0123457` is added into TAPro. Details of the added student is
+shown in the status message.
+</box>
 
 <br>
 
@@ -672,16 +680,30 @@ students.
 
 1. **Deleting a student**
 
-   1. Prerequisites: Contact book contains at least one student with NUSNet ID e0123456.
+<box type="info" light>
 
-   1. Test case: `delstu nn/E0123456`<br>
-      Expected: Student with NUSNet ID `E0123456` is deleted from the contact book. Details of the deleted contact 
-      shown in the status message.
-      
-   1. Other incorrect delete commands to try: `delstu`, `delstu x`, `...` (where x is not an NUSNet ID of a student 
-      in TAPro)<br>
+<span class="semi-bold">1. Prerequisites:</span> TAPro contains at least one student with NUSNet ID E0123456, and no student with NUSNet ID E6543210.
+</box>
 
-1. _{ more test cases …​ }_
+<box type="success" light>
+
+<span class="semi-bold">2. Test case: `delstu nn/E0123456`</span>
+
+Expected: The student with NUSNet ID `E0123456` is deleted from TAPro. Details of the deleted student
+shown in the status message.
+</box>
+
+<box type="wrong" light>
+
+<span class="semi-bold">3. Other incorrect `delstu` commands to try:</span>
+
+<span class="semi-bold">#r#Examples:##</span>
+* `delstu`: Missing parameter and prefix.
+* `delstu nn/E6543210`: No student with this NUSNet ID.
+* `delstu E0123456`: Missing prefix for the NUSNet ID parameter.
+</box>
+
+2. _{ more test cases …​ }_
 
 <br>
 
@@ -695,14 +717,27 @@ students.
 
 1. **Marking attendance for a student**
 
-   1. Prerequisites: Contact book contains at least one student with NUSNet ID E0123456.
+<box type="info" light>
 
-   1. Test case: `mark nn/E0123456 wk/1`<br>
-      Expected: Student with NUSNet ID `E0123456` is marked as 'present' from the contact book, depicted on that student's card.
-      Details of the marked contact shown in the status message.
-      
-   1. Other incorrect mark commands to try: `mark`, `mark x`, `mark nn/E0123456`, `mark wk/1`, `mark E0123456 1`,  `...` (where x is not an NUSNet ID of a student 
-      in TAPro)<br>
+<span class="semi-bold">1. Prerequisites:</span> TAPro contains one student with NUSNet ID E0123456, and no student with NUSNet ID E6543210.
+</box>
+
+<box type="success" light>
+
+<span class="semi-bold">2. Test case: `mark nn/E0123456 wk/1`</span>
+
+Expected: Student with NUSNet ID `E0123456` is marked as present for week 1 in TAPro, depicted on that student's card in the panel.
+Details of the marked student is shown in the status message.
+</box>
+
+<box type="wrong" light>
+
+<span class="semi-bold">3. Examples of incorrect `mark` commands to try:</span>
+* `mark`: Missing NUSNet ID and week number parameters.
+* `mark nn/E6543210 wk/1`: No student with this NUSNet ID.
+* `mark wk/1`: Missing the NUSNet ID parameter.
+* `mark E0123456 1`: Missing prefix for the NUSNet ID and week number parameters.
+</box>
 
 <br>
 
@@ -714,12 +749,25 @@ students.
 
 ### Setting the course name
 
-1. **Setting a course name** 
-    
-   1. Test case: `setcrs CS2103`<br>
-      Enter setcrs followed by a whitespace, followed by a course code in the format `XXYYYYZ`, where `X` and `Z` can be any letter
-      in upper or lower case, `YYYY` can be any 4-digit number and `Z` is optional.
-      Expected: The main window's title is set as the course code provided
+1. **Setting a course name**
+
+<box type="info" light>
+
+<span class="semi-bold">1. Prerequisites:</span> No prerequisites.
+</box>
+
+<box type="success" light>
+
+<span class="semi-bold">2. Test case: `setcrs CS2103`</span>
+
+<box type="info" light>
+
+Enter `setcrs` followed by a whitespace, followed by a course code in the format `XXYYYYZ`, where `X` and `Z` can be any letter
+in upper or lower case, `YYYY` can be any 4-digit number and `Z` is optional.
+</box>
+
+Expected: TAPro's main window's title contains the course code `CS2103` provided.
+</box>
 
 <br>
 
@@ -760,7 +808,7 @@ students.
 
 ## **Appendix: Design Decisions**
 
-1. Why does `edit` command use `INDEX` as identifier instead of `NUSNET`?
+1. **Why does `edit` command use `INDEX` as identifier instead of `NUSNET`?**
     1. For our users, using `edit nn/E0123456 nn/E1234567` is unintuitive to edit the NUSNet ID of a student.
     1. `INDEX` is visually easier to reference and requires less effort to type.
     1. The alternative solution we considered was to disallow editing of `NUSNET`, but this would be a limitation on
