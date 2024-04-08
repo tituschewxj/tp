@@ -696,8 +696,6 @@ shown in the status message.
 <box type="wrong" light>
 
 <span class="semi-bold">3. Other incorrect `delstu` commands to try:</span>
-
-<span class="semi-bold">#r#Examples:##</span>
 * `delstu`: Missing parameter and prefix.
 * `delstu nn/E6543210`: No student with this NUSNet ID.
 * `delstu E0123456`: Missing prefix for the NUSNet ID parameter.
