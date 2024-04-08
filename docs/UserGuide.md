@@ -5,12 +5,19 @@
 ---
 
 # TAPro User Guide
+<p align="center">
+    <img src="images/TAProLogo.jpg" alt="TAPro Logo" class="rounded-image" width="500px"/>
+</p>
 
-TAPro is a **Contact Book application** that is made for Computer Science Tutors for managing their students contact and attendance details.
+TAPro is your go-to **Contact Book application**, created with love for **Computer Science Teaching Assistants (TAs)** like you. _We get it_ — juggling your students and keeping track of attendance can be a handful. That’s why TAPro is 
+here to make your life easier. With features designed preciesly for you, it's all about simplifying those 
+time-consuming tasks, letting you focus on what you do best: teaching and inspiring your students. Welcome to a 
+smoother, more personalized way of managing your TA duties!
 
 TAPro is optimized for use via a **Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). 
 
-If you can type fast, TAPro can get your contact management and attendance taking tasks done **faster** than traditional GUI apps.
+If you can type fast, TAPro can get your contact management and attendance taking tasks done **faster** than 
+traditional GUI apps. 🚀
 
 <!-- * Table of Contents -->
 <page-nav-print />
@@ -18,6 +25,36 @@ If you can type fast, TAPro can get your contact management and attendance takin
 <markdown class="d-print-none">---</markdown>
 <div style="page-break-after: always;"></div>
 <br>
+
+## <i class="fa-solid fa-forward"></i>  Navigating this User Guide
+
+Welcome to the cozy corner of the TAPro User Guide! 🌟 Whether you're embarking on your very first day as a TA or 
+you're practically a wizard with student info, we've put together this guide to make sure you get the most out of TAPro.
+
+🚀 **Ready to Roll?** Skip over to Quick Start for the no-fuss, easy-peasy steps to get TAPro ready for action.
+
+**New around here?** No worries, we've got you. Start with these sections to become a TAPro buddy in no time:
+
+- Navigating the GUI: Familiarize yourself with the command box and those handy contact cards. 
+- Features: Dive into the exciting world of features we've brewed up just for you.
+
+**Already a TAPro champ?** Let's add some spice to your TA skills:
+
+- Add Student: Got a new face in class? Quickly add their details with addstu.
+- Clear: Need to wipe the slate clean? clear does just that.
+- Delete Student: Time to say goodbye? Remove a student from your list with delstu.
+- Edit: Update details as they evolve with edit.
+- Mark: Keep track of weekly attendance with mark.
+- Unmark: Oops, made a mistake? unmark reverses that mark.
+- Find: Looking for someone? find helps you search by keyword.
+- Set Course: Tailor TAPro to your current course with setcrs.
+- List: Bring up a complete list of your students with a simple list.
+- Learn about Command History and Autocomplete: Because we know you're all about efficiency.
+
+**Need a quick TAPro refresher?** Our Command Summary is like the TAPro bible—short, sweet, and to the point.
+
+Stumbled upon a hurdle or just curious? Swing by our FAQ where we tackle all your burning questions and offer 
+nuggets of wisdom for a smooth TAPro journey.
 
 ## <i class="fa-solid fa-forward"></i> Quick start
 
