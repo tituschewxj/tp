@@ -16,15 +16,12 @@ smoother, more personalized way of managing your TA duties!
 
 TAPro is optimized for use via a **Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). 
 
-If you can type fast, TAPro can get your contact management and attendance taking tasks done **faster** than 
-traditional GUI apps. 🚀
+If you can type fast, TAPro can get your contact management and attendance taking tasks done **faster** 🚀 than traditional GUI apps. 
 
 <!-- * Table of Contents -->
 <page-nav-print />
 
-<markdown class="d-print-none">---</markdown>
-<div style="page-break-after: always;"></div>
-<br>
+{{ newPage }}
 
 ## <i class="fa-solid fa-forward"></i>  Navigating this User Guide
 
@@ -41,18 +38,15 @@ action.
 
 **Already a TAPro champ?** Let's add some spice to your TA skills:
 
-- **[Set Course](#name-rename-cs-course-setcrs)**: Tailor TAPro to your current course with setcrs.
-- **[Add Student](#adding-a-student-addstu)**: Got a new face in class? Quickly add their details with addstu.
-- **[Mark](#marking-a-student-s-attendance-for-a-given-week-by-their-nusnet-mark)**: Keep track of weekly attendance
-    with mark.
-- **[Unmark](#unmarking-a-student-s-attendance-for-a-given-week-by-their-nusnet-unmark)**: Oops, made a mistake? unmark
-  reverses that mark.
-- **[List](#listing-all-students-list)**: Bring up a complete list of your students with a simple list.
-- **[Edit](#editing-a-student-edit)**: Update details as they evolve with edit.
+- **[Set Course](#name-rename-cs-course-setcrs)**: Tailor TAPro to your current course with `setcrs`.
+- **[Add Student](#adding-a-student-addstu)**: Got a new face in class? Quickly add their details with `addstu`.
+- **[Mark](#marking-a-student-s-attendance-for-a-given-week-by-their-nusnet-mark)**: Keep track of weekly attendance with `mark`.
+- **[Unmark](#unmarking-a-student-s-attendance-for-a-given-week-by-their-nusnet-unmark)**: Oops, made a mistake? `unmark` reverses that mark.
+- **[List](#listing-all-students-list)**: Bring up a complete list of your students with `list`.
+- **[Edit](#editing-a-student-edit)**: Update details as they evolve with `edit`.
 - **[Find](#locating-students-by-name-find)**: Looking for someone? find helps you search by keyword.
-- **[Delete Student](#deleting-a-student-delstu)**: Time to say goodbye? Remove a student from your list with delstu.
-- **[Clear](#clearing-all-entries-clear)**: Need to wipe the slate clean? clear does just that.
-- Learn about **[Autocomplete](#autocomplete)** and **[Command History](#autocomplete)**: Because we know you're all about efficiency.
+- **[Delete Student](#deleting-a-student-delstu)**: Time to say goodbye? Remove a student from your list with `delstu`.
+- **[Clear](#clearing-all-entries-clear)**: Need to wipe the slate clean? `clear` does just that.
 
 **Need a quick TAPro refresher?** Our Command Summary is like the TAPro bible—short, sweet, and to the point.
 
@@ -66,29 +60,58 @@ Diving into TAPro, you'll encounter some handy notations and terms. We've decode
 
 ### Symbols
 
-| Symbol                          | Meaning                                                        |
-|---------------------------------|----------------------------------------------------------------|
-| <box type="tip" seamless></box> | Tip                                                            |
-| <box type="warning" seamless></box> | Warning                                                        |
-| <box type="info" seamless></box> | Additional useful information                                  |
-| <box type="success" seamless></box> | Example                                                        |
-| <box type="danger" seamless></box> | Caution/ Danger                                                |
-| **`UPPER_CASE`**                | Represents parameters that need to be given by you!            |
+| Symbol                                               | Meaning                                                |
+|------------------------------------------------------|--------------------------------------------------------|
+| <i class="fa-solid fa-lightbulb text-success"></i>   | Tip                                                    |
+| <i class="fa-solid fa-exclamation text-warning"></i> | Warning                                                |
+| <i class="fa-solid fa-flag text-danger"></i>         | Important                                              |
+| <i class="fa-solid fa-info text-info"></i>           | Additional useful information                          |
+| <i class="fa-solid fa-check text-success"></i>       | Valid Example                                          |
+| <i class="fa-solid fa-x text-danger"></i> | Invalid Example                                        |
+| <i class="fa-solid fa-exclamation text-danger"></i>  | Danger                                                 |
+| <i class="fa-solid fa-book text-primary"></i> | Definition |
+| <i class="fa-solid fa-question text-warning"></i> | Question |
+| **`UPPER_CASE`**                                     | Represents parameters that need to be given by you!    |
+| **... (Ellipsis)**                                   | Indicates that a parameter can be repeated or omitted entirely. |
+| **[Square Brackets]**                                | Denotes optional parameters.                           |
 
-### Keywords and Phrases
+### Keywords 
 
 | Keywords                           | Meaning                                                                                  |
 |------------------------------------|------------------------------------------------------------------------------------------|
-| **Command Line Interface (CLI)**   | A text-based interface used for entering commands directly.                              |
-| **Graphical User Interface (GUI)** | The visual interface that enhances user interaction with graphical elements.             |
+| **Command Line Interface**   | A text-based interface used for entering commands directly.                              |
+| **Graphical User Interface** | The visual interface that enhances user interaction with graphical elements.             |
 | **Parameters**                     | Specific pieces of information required by commands to execute a function.               |
-| **Optional Parameters**            | Parameters that are not mandatory but can be included to provide additional information. |
-| **... (Ellipsis)**                 | Indicates that a parameter can be repeated or omitted entirely.                          |
-| **INDEX**                          | A numerical identifier for items within a list.                                          |
-| **NUSNET_ID**                      | A unique identification code assigned to each student.                                   |
-| **TAG**                            | A label or keyword that can be associated with a student for categorization.             |
+| **Attribute** | A single detail of a student |
+| **INDEX**                          | A case-insensitive, unique identification code assigned to each student.                                       |
+| **NUSNET**                      | A unique identification code assigned to each student.                                   |
+| **TAG**                            | A one-word, case-insensitive, label that can be associated with a student for categorization.             |
 | **Autocomplete**                   | A feature that predicts and completes commands as you type.                              |
 | **Command History**                | A record of successfully executed commands that can be retrieved for reuse.              |
+
+### Abbreviations
+
+| Abbreviation | Meaning                                                                 |
+|-------------|-------------------------------------------------------------------------|
+| **ASCII** | American Standard Code for Information Interchange                      |
+| **GUI**     | Graphical User Interface                                                |
+| **CLI**     | Command Line Interface                                                  |
+| **TA**      | Teaching Assistant                                                     |
+| **CS**      | Computer Science                                                       |
+| **NUS**     | National University of Singapore |
+| **URL**     | Uniform Resource Locator                                                |
+| **JSON**    | JavaScript Object Notation                                              |
+
+### Recognised Prefixes for Attributes
+| Prefix | Attribute |
+|--------|-----------------------------|
+| **n/** | Name of the student         |
+| **nn/** | NUSNet of the student       |
+| **p/** | Phone number of the student |
+| **e/** | Email of the student        |
+| **m/** | Major of the student        |
+| **t/** | Tag of the student          |
+| **wk/** | Week number for attendance  |
 
 This segment aims to make your TAPro experience as smooth as silk. With these notions and terms at your fingertips, you're well on your way to becoming a TAPro power user!
 
