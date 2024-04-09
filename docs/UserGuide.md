@@ -94,9 +94,7 @@ Diving into TAPro, you'll encounter some handy notations and terms. We've decode
 
 This segment aims to make your TAPro experience as smooth as silk. With these notions and terms at your fingertips, you're well on your way to becoming a TAPro power user!
 
-<markdown class="d-print-none">---</markdown>
-<div style="page-break-after: always;"></div>
-<br>
+{{ newPage }}
 
 ## <i class="fa-solid fa-forward"></i> Quick start
 
