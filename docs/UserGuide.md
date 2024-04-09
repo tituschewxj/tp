@@ -58,9 +58,7 @@ action.
 
 Stumbled upon a hurdle or just curious? Swing by our **[FAQ](#faq)** where we tackle all your burning questions and offer 
 nuggets of wisdom for a smooth TAPro journey.
-<markdown class="d-print-none">---</markdown>
-<div style="page-break-after: always;"></div>
-<br>
+{{ newPage }}
 
 ## <i class="fa-solid fa-forward"></i> Useful Notations and Glossary
 
