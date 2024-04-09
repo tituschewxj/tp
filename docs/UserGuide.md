@@ -33,8 +33,8 @@ action.
 
 **New around here?** No worries, we've got you. Start with these sections to become a TAPro buddy in no time:
 
-- Navigating the GUI: Familiarize yourself with the command box and those handy contact cards. 
-- Features: Dive into the exciting world of features we've brewed up just for you.
+- [Navigating the GUI](#navigating-the-gui): Familiarize yourself with the command box and those handy contact cards. 
+- [Features](#features): Dive into the exciting world of features we've brewed up just for you.
 
 **Already a TAPro champ?** Let's add some spice to your TA skills:
 
@@ -116,6 +116,13 @@ Diving into TAPro, you'll encounter some handy notations and terms. We've decode
 This segment aims to make your TAPro experience as smooth as silk. With these notions and terms at your fingertips, you're well on your way to becoming a TAPro power user!
 
 {{ newPage }}
+
+## <i class="fa-solid fa-forward"></i> Navigating the GUI
+
+Welcome to the TAPro GUI! 🎉 Here's a quick tour to help you get comfortable with the interface:
+
+TODO: Add a screenshot of the GUI with annotations
+
 
 ## <i class="fa-solid fa-forward"></i> Quick start
 
@@ -225,6 +232,10 @@ Be careful when copying and pasting commands that span multiple lines as space c
 <markdown class="d-print-none">---</markdown>
 <div style="page-break-after: always;"></div>
 <br>
+
+
+
+
 
 ### <i class="fa-solid fa-circle-question"></i> Viewing help : `help`
 
