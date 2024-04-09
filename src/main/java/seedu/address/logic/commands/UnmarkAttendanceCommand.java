@@ -29,7 +29,7 @@ public class UnmarkAttendanceCommand extends Command {
     public static final String MESSAGE_USAGE = generateMessageUsage(
             COMMAND_WORD,
             "Unmarks the attendance of the student identified by their NUSNet ID "
-                    + "by removing the specified week to their attendance set. ",
+                    + "by removing the specified week from their attendance set. ",
             PARAMETER_NUSNET, PARAMETER_WEEK);
 
     public static final String MESSAGE_UNMARKED_ATTENDANCE_SUCCESS = "Unmarked attendance for student: ";
