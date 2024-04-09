@@ -450,16 +450,15 @@ TAPro saves successful commands input, so you can retrieve them later, using the
 
 <span class="semi-bold">#g#Example:##</span>
 
-We have entered `mark nn/e0123456` as the previous command, and it was successful. 
-
-Now the command input box is empty.
-
-Pressing <span class="badge bg-light text-dark"><i class="fa-regular fa-square-caret-up"></i> UP</span> will update the text in the command input box to
+1. `mark nn/e0123456` was the previous successful command.
+1. Now the command input box is empty. 
+1. Pressing <span class="badge bg-light text-dark"><i class="fa-regular fa-square-caret-up"></i> UP</span> will 
+   fill the text in the command input box to
 the previous command `mark nn/e0123456`!
-
-You can continue pressing <span class="badge bg-light text-dark"><i class="fa-regular fa-square-caret-up"></i> UP</span> to scroll through all the previous commands you have entered.
-
-Pressing <span class="badge bg-light text-dark"><i class="fa-regular fa-square-caret-down"></i> DOWN</span> will scroll back to the more recent commands you have entered.
+1. You can press <span class="badge bg-light text-dark"><i class="fa-regular fa-square-caret-up"></i> 
+   UP</span> continuously to scroll through all the previous commands you have entered. 
+1. Pressing <span class="badge bg-light text-dark"><i class="fa-regular fa-square-caret-down"></i> DOWN</span> will 
+   scroll back to the more recent commands you have entered.
 
 </box>
 
