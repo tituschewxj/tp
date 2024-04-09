@@ -440,27 +440,40 @@ The autocomplete suggestions will be listed in alphabetical order, meaning if yo
 <div style="page-break-after: always;"></div>
 <br>
 
-### <i class="fa-solid fa-clock-rotate-left"></i> Retrieving command history
+### <i class="fa-regular fa-circle-up"></i> Retrieving command history
 
 TAPro saves successful commands input, so you can retrieve them later, using the 
-<span class="badge bg-light text-dark">Up</span> and
-<span class="badge bg-light text-dark">Down</span> keys.
+<span class="badge bg-light text-dark"><i class="fa-regular fa-square-caret-up"></i> UP</span> and
+<span class="badge bg-light text-dark"><i class="fa-regular fa-square-caret-down"></i> DOWN</span> arrow keys.
 
 <box type="success" seamless>
 
 <span class="semi-bold">#g#Example:##</span>
 
-We have entered `mark nn/e0123456` as the previous command, and it was successful. Now the command input box is empty.
+We have entered `mark nn/e0123456` as the previous command, and it was successful. 
 
-Pressing <span class="badge bg-light text-dark">Up</span> will update the text in the command input box to
-the previous command `mark nn/e0123456`.
+Now the command input box is empty.
+
+Pressing <span class="badge bg-light text-dark"><i class="fa-regular fa-square-caret-up"></i> UP</span> will update the text in the command input box to
+the previous command `mark nn/e0123456`!
+
+You can continue pressing <span class="badge bg-light text-dark"><i class="fa-regular fa-square-caret-up"></i> UP</span> to scroll through all the previous commands you have entered.
+
+Pressing <span class="badge bg-light text-dark"><i class="fa-regular fa-square-caret-down"></i> DOWN</span> will scroll back to the more recent commands you have entered.
+
 </box>
 
 <box type="warning" seamless>
 
-**Only successful commands will be retrieved:**
+**Caution:**
+Only commands that has succeeded previously will be retrieved. If you enter an invalid command, it will not appear 
+when attempting to retrieve it.
+</box>
 
-If you enter an invalid command, it will not appear when attempting to retrieve it.
+<box type="warning" theme="danger" seamless>
+
+**Warning:**
+When retrieving commands, be aware that it will erase the current text in the command input box.
 </box>
 
 <markdown class="d-print-none">---</markdown>
