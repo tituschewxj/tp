@@ -493,22 +493,133 @@ Furthermore, certain edits can cause the TAPro to behave in unexpected ways (e.g
 
 ## <i class="fa-solid fa-comments"></i> FAQ
 
-<box type="info" icon=":fa-solid-question:" seamless>
+### Transfering Data to Another Computer
+**Q**: How do I transfer my data to another computer?
 
-<i class="fa-regular fa-circle-question"></i>
-**Q:** How do I transfer my data to another computer?
+**A**: Install the application in the target computer and replace the `data` folder with the `data` folder in 
+your current computer! Click `Yes` if are prompted to replace the existing `data` folder in your target computer.
 
-<i class="fa-regular fa-comment-dots"></i>
-**A:** Install the application in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous TAPro home folder.
+### Loading Data from Another Computer
+
+**Q**: How can I transfer my TAPro contacts to another Computer?<br>
+**A**: Install TAPro in your target computer and paste the empty `data` folder it creates 
+with the `data` folder from your otehr computer. Paste it in the same directory as your TAPro JAR file in your 
+target computer. 
+
+### Launching TAPro
+
+**Q**: How can I launch TAPro if clicking on the JAR file does not work?<br>
+**A**: There are two possible methods to launch TAPro.
+
+**Method 1**: Using the Command Line
+1. Open the command line in your operating system's terminal software.
+2. Navigate to the directory where the JAR file is located.
+3. Enter `java -jar TAPro.jar` and the TAPro Application should launch.
+
+**Method 2**: Using `.bat/.sh` Scripts
+1. Create a new text file and paste the following line into the file:
+   ```
+   java -jar [JAR file location]/TAPro.jar
+   ```
+2. Save the file as `TAPro.bat` (Windows) or `TAPro.sh` (macOS/Linux).
+3. Change the admin settings of the script to allow it to run as a program:
+    - Windows: Right-click on the script and select Properties. Under General, check the box that says `Allow this file to run as a program`.
+    - macOS/Linux: Open the Terminal and navigate to the directory where the script is located. Type `chmod +x [script name]` and press `Enter`.<br>Note: (`chmod +x` changes permissions of the script to allow it to be executed)
+4. Double-click on the script to launch TAPro.
+
+### Checking Java Version
+
+**Q**: How can I check my Java version?<br>
+**A**: Open a command line and type `java -version`. If you do not have Java installed, you can install Java 11 using the Oracle guide [here](https://www.oracle.com/java/technologies/downloads/#java11). Alternatively, you can install the OpenJDK version. For macOS users, you may wish to follow the instructions [here](https://nus-cs2103-ay2324s1.github.io/website/admin/programmingLanguages.html).
+
+### Using TAPro
+
+**Q**: What are the available commands in TAPro?<br>
+**A**: Please refer to the [Command Summary](#command-summary) for the list of available commands.
+
+**Q**: Do I need an internet connection to use TAPro?<br>
+**A**: All of TAPro's functionality can be used offline! No internet connection is required.
+
+**Q**: How do I save my data?<br>
+**A**: Data is saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
+
+**Q**: How can I remove a student's attendance for a particular week?<br>
+**A**: In TAPro, you can remove a student's attendance for a particular week using the `unmark` command! The syntax 
+for the `unmark` command is as follows:
+<br><br>The syntax for the `unmark` command is as follows:
+```
+unmark nn/NUSNET_ID wk/WEEK_NUMBER
+```
+
+**Q**: Can I add tags to a TAPro contact if I want to remember something additional, like a birthday?<br>
+**A**: Yes you can! In fact, you may use the `TAG` parameter of a contact to store any information you want. Simply 
+use `edit` with the `NUSNET` of the student and the information you wish to add to the contact, and you should be on your way!
+
+<box type="success" seamless>
+
+<span class="semi-bold">#g#Example:##</span> Using tag as a birthday for contacts
+```
+edit 1 t/12Dec
+edit 2 t/25Jan
+edit 3 t/1Mar
+```
+</box>
+</box>
+<box type="success" seamless>
+
+<span class="semi-bold">#g#Example:##</span> Using tag as a industry interest 
+```
+edit 1 t/EduTech
+edit 2 t/Finance
+edit 3 t/HealthTech
+```
+</box>
 </box>
 
+<box type="warning" seamless>
+
+**Caution:**
+
+Do note that as of the current version of TAPro, you can only add one tag to a contact. Adding a new tag will 
+replace the existing tag.
+
+Do also note that tags are alphanumeric and cannot contain spaces or special characters.
+
+</box>
+
+### Saving More Time
+**Q**: How can I save more time when using TAPro?<br>
+**A**: You can use the advanced features like **[autocomplete](#autocomplete)** and **[command history toggle](#retrieving-command-history)** in TAPro! 
+These 
+features are 
+designed to help you input commands faster and more efficiently.
+
+<box type="success" seamless>
+
+<span class="semi-bold">#g#Example:##</span> Unmarking a wrongly marked  student's attendance
+
+1. `mark nn/e0123456 wk/6`
+1. Press the <span class="badge bg-light text-dark"><i class="fa-regular fa-square-caret-up"></i> UP</span> key to 
+   retrieve the previous command.
+1. Hold the <span class="badge bg-light text-dark"><i class="fa-regular fa-square-caret-left"></i> LEFT</span> key to 
+move the cursor to the beginning of the command.
+1. Add a `un` in front of `mark` to change the command to `unmark nn/e0123456 wk/6`.
+1. Press `Enter`!
+
+</box>
+<box type="info" seamless>
+
+**Note:** 
+Future enhancement include clicking <span class="badge bg-light text-dark"><i class="fa-regular 
+fa-square-caret-right"></i> RIGHT</span> key to move the cursor to 
+the front of the command.
+</box>
 
 
 <markdown class="d-print-none">---</markdown>
 <br>
 
 ## <i class="fa-solid fa-triangle-exclamation"></i> Known issues
-
 
 <box type="warning" theme="danger" seamless>
 
