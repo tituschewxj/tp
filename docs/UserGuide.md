@@ -462,7 +462,7 @@ the previous command `mark nn/E0123456`!
 
 </box>
 
-<box type="warning" seamless>
+<box type="warning" light>
 
 **Caution:**
 Only commands that has succeeded previously will be retrieved. If you enter an invalid command, it will not appear 
