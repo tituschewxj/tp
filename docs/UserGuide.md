@@ -645,25 +645,46 @@ If the placeholder for the `MAJOR` parameter, `Major not provided`, is present i
 <div style="page-break-after: always;"></div>
 <br>
 
-### <i class="fa-solid fa-clock-rotate-left"></i> Retrieving command history
+### <i class="fa-regular fa-circle-up"></i> Retrieving command history
 
-TAPro saves successful commands input, so you can retrieve them later, using the {{ macros.keyFormat('Up') }} and {{ macros.keyFormat('Down') }} keys.
+TAPro saves successful commands input, so you can retrieve them later, using the 
+<span class="badge bg-light text-dark"><i class="fa-regular fa-square-caret-up"></i> UP</span> and
+<span class="badge bg-light text-dark"><i class="fa-regular fa-square-caret-down"></i> DOWN</span> arrow keys.
 
 <box type="success" light>
 
 <span class="semi-bold">#g#Example:##</span>
 
-We have entered `mark nn/E0123456` as the previous command, and it was successful. Now the command input box is empty.
-
-Pressing {{ macros.keyFormat('Up') }} will update the text in the command input box to
-the previous command `mark nn/E0123456`.
+1. `mark nn/E0123456` was the previous successful command.
+1. Now the command input box is empty. 
+1. Pressing <span class="badge bg-light text-dark"><i class="fa-regular fa-square-caret-up"></i> UP</span> will 
+   fill the text in the command input box to
+the previous command `mark nn/E0123456`!
+1. You can press <span class="badge bg-light text-dark"><i class="fa-regular fa-square-caret-up"></i> 
+   UP</span> continuously to scroll through all the previous commands you have entered. 
+1. Pressing <span class="badge bg-light text-dark"><i class="fa-regular fa-square-caret-down"></i> DOWN</span> will 
+   scroll back to the more recent commands you have entered.
 </box>
 
 <box type="warning" light>
 
-**Only successful commands will be retrieved:**
+**Caution:**
+Pressing <span class="badge bg-light text-dark"><i class="fa-regular fa-square-caret-down"></i> DOWN</span>without 
+having ever pressed <span class="badge bg-light text-dark"><i class="fa-regular fa-square-caret-up"></i> 
+UP</span>will not make any changes, because you are at your most recent command.
+</box>
 
-If you enter an invalid command, it will not appear when attempting to retrieve it.
+<box type="warning" light>
+
+**Caution:**
+Only commands that has succeeded previously will be retrieved. If you enter an invalid command, it will not appear 
+when attempting to retrieve it.
+</box>
+
+<box type="warning" theme="danger" light>
+
+**Warning:**
+When retrieving commands, be aware that it will erase the current text in the command input box.
 </box>
 
 <markdown class="d-print-none">---</markdown>
