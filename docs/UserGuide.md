@@ -82,7 +82,7 @@ Diving into TAPro, you'll encounter some handy notations and terms. We've decode
 | **Command Line Interface**   | A text-based interface used for entering commands directly.                              |
 | **Graphical User Interface** | The visual interface that enhances user interaction with graphical elements.             |
 | **Parameters**                     | Specific pieces of information required by commands to execute a function.               |
-| **Attribute** | A single detail of a student |
+| **Attribute** | A single detail of a student. |
 | **INDEX**                          | A case-insensitive, unique identification code assigned to each student.                                       |
 | **NUSNET**                      | A unique identification code assigned to each student.                                   |
 | **TAG**                            | A one-word, case-insensitive, label that can be associated with a student for categorization.             |
