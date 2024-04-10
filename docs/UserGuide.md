@@ -494,19 +494,25 @@ Furthermore, certain edits can cause the TAPro to behave in unexpected ways (e.g
 ## <i class="fa-solid fa-comments"></i> FAQ
 
 ### Transfering Data to Another Computer
+<box type="info" icon=":fa-solid-question:" seamless>
+
 **Q**: How do I transfer my data to another computer?
 
 **A**: Install the application in the target computer and replace the `data` folder with the `data` folder in 
 your current computer! Click `Yes` if are prompted to replace the existing `data` folder in your target computer.
+</box>
 
 ### Loading Data from Another Computer
+<box type="info" icon=":fa-solid-question:" seamless>
 
 **Q**: How can I transfer my TAPro contacts to another Computer?<br>
 **A**: Install TAPro in your target computer and paste the empty `data` folder it creates 
 with the `data` folder from your otehr computer. Paste it in the same directory as your TAPro JAR file in your 
 target computer. 
+</box>
 
 ### Launching TAPro
+<box type="info" icon=":fa-solid-question:" seamless>
 
 **Q**: How can I launch TAPro if clicking on the JAR file does not work?<br>
 **A**: There are two possible methods to launch TAPro.
@@ -526,22 +532,33 @@ target computer.
     - Windows: Right-click on the script and select Properties. Under General, check the box that says `Allow this file to run as a program`.
     - macOS/Linux: Open the Terminal and navigate to the directory where the script is located. Type `chmod +x [script name]` and press `Enter`.<br>Note: (`chmod +x` changes permissions of the script to allow it to be executed)
 4. Double-click on the script to launch TAPro.
+</box>
 
 ### Checking Java Version
+<box type="info" icon=":fa-solid-question:" seamless>
 
 **Q**: How can I check my Java version?<br>
 **A**: Open a command line and type `java -version`. If you do not have Java installed, you can install Java 11 using the Oracle guide [here](https://www.oracle.com/java/technologies/downloads/#java11). Alternatively, you can install the OpenJDK version. For macOS users, you may wish to follow the instructions [here](https://nus-cs2103-ay2324s1.github.io/website/admin/programmingLanguages.html).
+</box>
 
 ### Using TAPro
 
+<box type="info" icon=":fa-solid-question:" seamless>
+
 **Q**: What are the available commands in TAPro?<br>
 **A**: Please refer to the [Command Summary](#command-summary) for the list of available commands.
+</box>
+<box type="info" icon=":fa-solid-question:" seamless>
 
 **Q**: Do I need an internet connection to use TAPro?<br>
 **A**: All of TAPro's functionality can be used offline! No internet connection is required.
+</box>
+<box type="info" icon=":fa-solid-question:" seamless>
 
 **Q**: How do I save my data?<br>
 **A**: Data is saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
+</box>
+<box type="info" icon=":fa-solid-question:" seamless>
 
 **Q**: How can I remove a student's attendance for a particular week?<br>
 **A**: In TAPro, you can remove a student's attendance for a particular week using the `unmark` command! The syntax 
@@ -550,6 +567,8 @@ for the `unmark` command is as follows:
 ```
 unmark nn/NUSNET_ID wk/WEEK_NUMBER
 ```
+</box>
+<box type="info" icon=":fa-solid-question:" seamless>
 
 **Q**: Can I add tags to a TAPro contact if I want to remember something additional, like a birthday?<br>
 **A**: Yes you can! In fact, you may use the `TAG` parameter of a contact to store any information you want. Simply 
@@ -564,7 +583,6 @@ edit 2 t/25Jan
 edit 3 t/1Mar
 ```
 </box>
-</box>
 <box type="success" seamless>
 
 <span class="semi-bold">#g#Example:##</span> Using tag as a industry interest 
@@ -573,7 +591,6 @@ edit 1 t/EduTech
 edit 2 t/Finance
 edit 3 t/HealthTech
 ```
-</box>
 </box>
 
 <box type="warning" seamless>
@@ -586,8 +603,12 @@ replace the existing tag.
 Do also note that tags are alphanumeric and cannot contain spaces or special characters.
 
 </box>
+</box>
+
 
 ### Saving More Time
+<box type="info" icon=":fa-solid-question:" seamless>
+
 **Q**: How can I save more time when using TAPro?<br>
 **A**: You can use the advanced features like **[autocomplete](#autocomplete)** and **[command history toggle](#retrieving-command-history)** in TAPro! 
 These 
@@ -613,6 +634,7 @@ move the cursor to the beginning of the command.
 Future enhancement include clicking <span class="badge bg-light text-dark"><i class="fa-regular 
 fa-square-caret-right"></i> RIGHT</span> key to move the cursor to 
 the front of the command.
+</box>
 </box>
 
 
