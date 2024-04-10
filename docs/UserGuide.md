@@ -454,7 +454,7 @@ TAPro saves successful commands input, so you can retrieve them later, using the
 1. Now the command input box is empty. 
 1. Pressing <span class="badge bg-light text-dark"><i class="fa-regular fa-square-caret-up"></i> UP</span> will 
    fill the text in the command input box to
-the previous command `mark nn/e0123456`!
+the previous command `mark nn/E0123456`!
 1. You can press <span class="badge bg-light text-dark"><i class="fa-regular fa-square-caret-up"></i> 
    UP</span> continuously to scroll through all the previous commands you have entered. 
 1. Pressing <span class="badge bg-light text-dark"><i class="fa-regular fa-square-caret-down"></i> DOWN</span> will 
