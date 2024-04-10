@@ -271,7 +271,7 @@ The help window is resizable, so you can **easily reposition and resize** it to 
 
 * On Windows and most Linux distributions, you can use the keyboard shortcut: {{ macros.keyFormat('Alt') }} + {{ macros.keyFormat('Tab') }}, to switch between windows quickly. 
 
-* On macOS, you can use the keyboard shortcut: {{ macros.keyFormat('⌘Cmd') }} + {{ macros.keyFormat('Tab') }}, to switch between windows quickly.
+* On macOS, you can use the keyboard shortcut: {{ macros.keyFormat('⌘Cmd') }} + {{ macros.keyFormat('`') }}, to switch between windows quickly.
 
 </box>
 
