@@ -392,8 +392,11 @@ Format: `find KEYWORD [MORE_KEYWORDS]…​`
 
 **Parameters of `find` command:**
 
-- `KEYWORD` is the first keyword to search for. This is a compulsory parameter.
-- `[MORE_KEYWORDS]…​` are additional, optional keywords to search for. You can have any number of additional keywords.
+Both `KEYWORD` and `[MORE_KEYWORDS]…​` accept alphanumeric and special symbols as their supplied value, and are separated by spaces when supplied.
+
+* `KEYWORD` is the first keyword to search for. This is a compulsory parameter.
+
+* `[MORE_KEYWORDS]…​` are additional, optional keywords to search for. You can have any number of additional keywords.
 
 </box>
 
@@ -437,6 +440,13 @@ Format: `find KEYWORD [MORE_KEYWORDS]…​`
 <span class="semi-bold">#g#Example:##</span> `Hans Bo` will return `Hans Gruber`, `Bo Yang`
 </box>
 </box>
+
+<box type="warning" light>
+
+**Find does not give any error message when invalid parameters are supplied.**
+</box>
+
+<div style="page-break-after: always;"></div>
 
 <box type="success" light>
 
