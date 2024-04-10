@@ -16,4 +16,4 @@
 
 
 {# Keyboard key formatting #}
-{% macro keyFormat(name) %}<span class="badge bg-light text-dark border">{{ name }}</span>{% endmacro %}
+{% macro keyFormat(name, icon='') %}<span class="badge bg-light text-dark border">{% if icon %}{{ icon }} {% endif %}{{ name | upper }}</span>{% endmacro %}
