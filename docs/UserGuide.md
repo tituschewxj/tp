@@ -598,13 +598,11 @@ target computer.
    1. Create a new text file and paste the following code into the file and edit it according to the comments:
       ```sh
          java -jar <abosute_path_to_TAPro.jar> 
-         # Replace "<abosute_path_to_TAPro.jar>" with the path to TAPro on your system, in quotes.
       ```
-      Example on Windows: `java -jar "C:\Users\YOUR_USERNAME\Downloads\TAPro.jar"`
-
-      Example on Linux: `java -jar /home/YOUR_USERNAME/Downloads/TAPro.jar`
-
-        Example on macOS: `java -jar "/Users/YOUR_USERNAME/Downloads/TAPro.jar"`
+      Replace "<abosute_path_to_TAPro.jar>" with the path to TAPro on your system, in quotes.<br>
+      Example on Windows: `java -jar "C:\Users\YOUR_USERNAME\Downloads\TAPro.jar"`<br>
+      Example on Linux: `java -jar /home/YOUR_USERNAME/Downloads/TAPro.jar`<br>
+   Example on macOS: `java -jar "/Users/YOUR_USERNAME/Downloads/TAPro.jar"`<br>
 
 2. Save the file as `TAPro.bat` (Windows) or `TAPro.sh` (macOS/Linux).
 3. Change the admin settings of the script to allow it to run as a program:
