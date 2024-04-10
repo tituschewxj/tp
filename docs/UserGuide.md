@@ -129,7 +129,7 @@ TODO: Add a screenshot of the GUI with annotations
 
 1. Ensure you have Java 11 or above installed in your computer.
 
-<box type="tip" seamless>
+<box type="tip" light>
 
 <i class="fa-solid fa-download"></i>
 **Installing Java:**
@@ -145,7 +145,7 @@ The latest version is compatible with older versions.
 
 1. Open a command terminal, `cd` into the folder you downloaded the jar file in, and run the `java -jar TAPro.jar` command to launch the application.
 
-<box type="info" seamless>
+<box type="info" light>
 
 A GUI similar to the below image should appear in a few seconds. Note how the app contains some sample data.
 
@@ -156,13 +156,13 @@ A GUI similar to the below image should appear in a few seconds. Note how the ap
 
 5. Type the command in the command box and press {{ macros.keyFormat('Enter') }} to execute it. e.g. typing **`help`** and pressing {{ macros.keyFormat('Enter') }} will open the help window.
 
-<box type="info" seamless>
+<box type="info" light>
 
 **Here are some example commands you can try:**
 
 * `list` : Lists all contacts.
 
-* `addstu nn/e0952224 n/John Doe p/98765432 e/johnd@example.com m/Computer Science` : Adds a student named `John Doe` to the contact book.
+* `addstu nn/E0952224 n/John Doe p/98765432 e/johnd@example.com m/Computer Science` : Adds a student named `John Doe` to the contact book.
 
 * `delstu nn/NUSNET_ID` : Deletes the student with the specified `NUSNET_ID` from the contact book.
 
@@ -180,11 +180,11 @@ A GUI similar to the below image should appear in a few seconds. Note how the ap
 
 ## <i class="fa-solid fa-font-awesome"></i> Features
 
-<box type="info" seamless>
+<box type="info" light>
 
 **About the command format:**<br>
 
-<box type="success" seamless>
+<box type="success" light>
 
 <span class="semi-bold">Words in `UPPER_CASE` are the parameters to be supplied by the user.</span>
 
@@ -192,14 +192,14 @@ A GUI similar to the below image should appear in a few seconds. Note how the ap
 </box>
 
 
-<box type="success" seamless>
+<box type="success" light>
 
 <span class="semi-bold">Items in square brackets are optional.</span>
 
 <span class="semi-bold">#g#Example:##</span> `n/NAME [t/TAG]` can be used as `n/John Doe t/friend` or as `n/John Doe`.
 </box>
 
-<box type="success" seamless>
+<box type="success" light>
 
 <span class="semi-bold">Items with `…`​ after them can be used multiple times including zero times.</span>
 
@@ -207,14 +207,14 @@ A GUI similar to the below image should appear in a few seconds. Note how the ap
 </box>
 
 
-<box type="success" seamless>
+<box type="success" light>
 
 <span class="semi-bold">Parameters can be in any order.</span>
 
 <span class="semi-bold">#g#Example:##</span> If the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
 </box>
 
-<box type="success" seamless>
+<box type="success" light>
 
 <span class="semi-bold">Extraneous parameters for commands that do not take in parameters (such as `help`, `list`, `exit` and `clear`) will be ignored.</span>
 
@@ -223,7 +223,7 @@ A GUI similar to the below image should appear in a few seconds. Note how the ap
 
 </box>
 
-<box type="warning" seamless>
+<box type="warning" light>
 
 **If you are using a PDF version of this document:**
 
@@ -245,7 +245,7 @@ as well as quick reference of each command with simple examples on how to use th
 
 Format: `help`
 
-<box type="info" seamless>
+<box type="info" light>
 
 <i class="fa-regular fa-window-restore"></i>
 **A new window is opened:**
@@ -256,7 +256,7 @@ A new window is opened, so that it does not clutter up your main window. A GUI s
 
 </box>
 
-<box type="tip" seamless>
+<box type="tip" light>
 
 <i class="fa-solid fa-maximize"></i>
 **Resizing the help window:**
@@ -264,18 +264,18 @@ A new window is opened, so that it does not clutter up your main window. A GUI s
 The help window is resizable, so you can **easily reposition and resize** it to fit anywhere on your screen, exactly where you want it to be.
 </box>
 
-<box type="tip" seamless>
+<box type="tip" light>
 
 <i class="fa-solid fa-window-restore"></i>
 **Switching quickly between the help and main window:**
 
 * On Windows and most Linux distributions, you can use the keyboard shortcut: {{ macros.keyFormat('Alt') }} + {{ macros.keyFormat('Tab') }}, to switch between windows quickly. 
 
-* On macOS, you can use the keyboard shortcut: {{ macros.keyFormat('Cmd⌘') }} + {{ macros.keyFormat('Tab') }}, to switch between windows quickly.
+* On macOS, you can use the keyboard shortcut: {{ macros.keyFormat('⌘Cmd') }} + {{ macros.keyFormat('Tab') }}, to switch between windows quickly.
 
 </box>
 
-<box type="info" seamless>
+<box type="info" light>
 
 **More about help's quick reference:**
 
@@ -374,7 +374,7 @@ Examples:
 *  `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email contact of the 1st person to be `91234567` and `johndoe@example.com` respectively.
 *  `edit 2 n/Betsy Crower t/` Edits the name of the 2nd person to be `Betsy Crower` and clears all existing tags.
 
-<box type="info" seamless>
+<box type="info" light>
 This command differs from most other commands that use the `NUSNET_ID` to identify a student. This command uses the index number shown in the displayed person list to identify the student to be edited.
 </box>
 
@@ -388,7 +388,7 @@ Finds students whose names contain any of the given keywords.
 
 Format: `find KEYWORD [MORE_KEYWORDS]…​`
 
-<box type="info" seamless>
+<box type="info" light>
 
 **Parameters of `find` command:**
 
@@ -397,18 +397,18 @@ Format: `find KEYWORD [MORE_KEYWORDS]…​`
 
 </box>
 
-<box type="info" seamless>
+<box type="info" light>
 
 **About the `find` command:**
 
-<box type="success" seamless>
+<box type="success" light>
 
 <span class="semi-bold">Only the name is searched.</span>
 
 <span class="semi-bold">#g#Example:##</span> `E01234567` will not match a student with NUSNet ID `E01234567`.
 </box>
 
-<box type="success" seamless>
+<box type="success" light>
 
 <span class="semi-bold">The name search is case-insensitive.</span>
 
@@ -416,21 +416,21 @@ Format: `find KEYWORD [MORE_KEYWORDS]…​`
 </box>
 
 
-<box type="success" seamless>
+<box type="success" light>
 
 <span class="semi-bold">The order of the keywords does not matter.</span>
 
 <span class="semi-bold">#g#Example:##</span> `Hans Bo` will match `Bo Hans`
 </box>
 
-<box type="success" seamless>
+<box type="success" light>
 
 <span class="semi-bold">Only full words will be matched.</span>
 
 <span class="semi-bold">#g#Example:##</span> `Han` will not match `Hans`
 </box>
 
-<box type="success" seamless>
+<box type="success" light>
 
 <span class="semi-bold">Students' name matching at least one keyword will be returned (i.e. `OR` search).</span>
 
@@ -438,17 +438,17 @@ Format: `find KEYWORD [MORE_KEYWORDS]…​`
 </box>
 </box>
 
-<box type="success" seamless>
+<box type="success" light>
 
 **Examples of using the find command:**
 
-<box type="success" seamless>
+<box type="success" light>
 
 <span class="semi-bold">#g#Example:##</span> `find John` returns `john` and `John Doe`
 </box>
 
 
-<box type="success" seamless>
+<box type="success" light>
 
 <span class="semi-bold">#g#Example:##</span> `find alex david` returns `Alex Yeoh`, `David Li`, as seen in the image below.
 
@@ -467,7 +467,7 @@ Marks a student's attendance for a particular week.
 Format: `mark nn/NUSNET_ID wk/WEEK_NUMBER`
 
 Example:
-* `mark nn/e1234567 wk/3`
+* `mark nn/E1234567 wk/3`
 
 <markdown class="d-print-none">---</markdown>
 <br>
@@ -479,7 +479,7 @@ Unmarks a student's attendance for a particular week.
 Format: `unmark nn/NUSNET_ID wk/WEEK_NUMBER`
 
 Example:
-* `unmark nn/e1234567 wk/3`
+* `unmark nn/E1234567 wk/3`
 
 <markdown class="d-print-none">---</markdown>
 <div style="page-break-after: always;"></div>
@@ -544,6 +544,15 @@ The first word, will be autocompleted as a command name, instead of a parameter,
 
 <span class="semi-bold">#g#Example:##</span>
 
+We have three students with NUSNet IDs `e0123456`, `e1234567` and `e2345678`. 
+If we type `mark nn/` into the command input box and press <span class="badge bg-light text-dark">TAB</span>,
+we can see that the text in the command input box autocompletes to become `mark nn/E01234567`.
+
+Pressing <span class="badge bg-light text-dark">TAB</span> again, causes the text to update to `mark nn/E1234567`,
+followed by `mark nn/E2345678`.
+</box>
+
+<box type="info" light>
 If we type `a` into the command input box and press {{ macros.keyFormat('Tab') }}, we see that the text in the command input box autocompletes to become `addstu`.
 
 The last parameter `TAG` is autocompleted.
@@ -556,6 +565,8 @@ The last parameter `TAG` is autocompleted.
 
 Autocomplete works on the last parameter (if any) in the command box, which is the text directly after a recognized prefix. 
 
+When reaching the end of the possible options list, pressing
+<span class="badge bg-light text-dark">TAB</span> will wrap 
 <box type="warning" light>
 A parameter can only be autocompleted if it is not the first word, and has a recognized prefix.
 </box>
@@ -691,7 +702,7 @@ TAPro's data are saved in the hard disk automatically after any command that cha
 
 TAPro's data are saved automatically as a JSON file `[JAR file location]/data/addressbook.json`. Advanced users are welcome to update data directly by editing that data file.
 
-<box type="warning" seamless>
+<box type="warning" light>
 
 **Caution:**
 
@@ -706,24 +717,159 @@ Furthermore, certain edits can cause the TAPro to behave in unexpected ways (e.g
 
 ## <i class="fa-solid fa-comments"></i> FAQ
 
-<box type="info" icon=":fa-solid-question:" seamless>
+### Transfering Data to Another Computer
+<box type="info" icon=":fa-solid-question:" light>
 
-<i class="fa-regular fa-circle-question"></i>
-**Q:** How do I transfer my data to another computer?
+**Q**: How do I transfer my data to another computer?<br>
+**A**: Install the application in the target computer and replace the `data` folder with the `data` folder in 
+your current computer! Click `Yes` if are prompted to replace the existing `data` folder in your target computer.
+</box>
 
-<i class="fa-regular fa-comment-dots"></i>
-**A:** Install the application in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous TAPro home folder.
+### Loading Data from Another Computer
+<box type="info" icon=":fa-solid-question:" light>
+
+**Q**: How can I transfer my TAPro contacts to another computer?<br>
+**A**: Install TAPro in your target computer and paste the empty `data` folder it creates 
+with the `data` folder from your otehr computer. Paste it in the same directory as your TAPro JAR file in your 
+target computer. 
+</box>
+
+### Launching TAPro
+<box type="info" icon=":fa-solid-question:" light>
+
+**Q**: How can I launch TAPro if clicking on the JAR file does not work?<br>
+**A**: There are two possible methods to launch TAPro.
+
+**Method 1**: Using the Command Terminal 
+1. Open the command line in your operating system's terminal software.
+2. Navigate to the directory where the JAR file is located.
+3. Enter `java -jar TAPro.jar` and the TAPro Application should launch.
+
+**Method 2**: Using `.bat/.sh` Scripts
+   1. Create a new text file and paste the following code into the file and edit it according to the comments:
+      ```sh
+         java -jar <abosute_path_to_TAPro.jar> 
+      ```
+      Replace "<abosute_path_to_TAPro.jar>" with the path to TAPro on your system, in quotes.<br>
+      Example on Windows: `java -jar "C:\Users\YOUR_USERNAME\Downloads\TAPro.jar"`<br>
+      Example on Linux: `java -jar /home/YOUR_USERNAME/Downloads/TAPro.jar`<br>
+   Example on macOS: `java -jar "/Users/YOUR_USERNAME/Downloads/TAPro.jar"`<br>
+
+2. Save the file as `TAPro.bat` (Windows) or `TAPro.sh` (macOS/Linux).
+3. Change the admin settings of the script to allow it to run as a program:
+    - Windows: Right-click on the script and select Properties. Under General, check the box that says `Allow this file to run as a program`.
+    - macOS/Linux: Open the Terminal and navigate to the directory where the script is located. Type `chmod +x <script_file_name>` and press `Enter`.<br>Note: (`chmod +x` changes permissions of the script to allow it to be executed)
+4. Double-click on the script to launch TAPro.
+</box>
+
+### Checking Java Version
+<box type="info" icon=":fa-solid-question:" light>
+
+**Q**: How can I check my Java version?<br>
+**A**: Open a command line and type `java -version`. If you do not have Java installed, you can install Java 11 using the Oracle guide [here](https://www.oracle.com/java/technologies/downloads/#java11). Alternatively, you can install the OpenJDK version. For macOS users, you may wish to follow the instructions [here](https://nus-cs2103-ay2324s1.github.io/website/admin/programmingLanguages.html).
+</box>
+
+### Using TAPro
+
+<box type="info" icon=":fa-solid-question:" light>
+
+**Q**: What are the available commands in TAPro?<br>
+**A**: Please refer to the [Command Summary](#command-summary) for the list of available commands.
+</box>
+<box type="info" icon=":fa-solid-question:" light>
+
+**Q**: Do I need an internet connection to use TAPro?<br>
+**A**: All of TAPro's functionality can be used offline! No internet connection is required.
+</box>
+<box type="info" icon=":fa-solid-question:" light>
+
+**Q**: How do I save my data?<br>
+**A**: Data is saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
+</box>
+<box type="info" icon=":fa-solid-question:" light>
+
+**Q**: How can I remove a student's attendance for a particular week?<br>
+**A**: In TAPro, you can remove a student's attendance for a particular week using the `unmark` command! The syntax 
+for the `unmark` command is as follows:
+<br><br>The syntax for the `unmark` command is as follows:
+```
+unmark nn/NUSNET wk/WEEK
+```
+</box>
+<box type="info" icon=":fa-solid-question:" light>
+
+**Q**: Can I add tags to a TAPro contact if I want to remember something additional, like a birthday?<br>
+**A**: Yes you can! In fact, you may use the `TAG` parameter of a contact to store any information you want. Simply 
+use `edit` with the `NUSNET` of the student and the information you wish to add to the contact, and you should be on your way!
+
+<box type="success" light>
+
+<span class="semi-bold">#g#Example:##</span> Using tag as a birthday for contacts
+```
+edit 1 t/12Dec
+edit 2 t/25Jan
+edit 3 t/1Mar
+```
+</box>
+<box type="success" light>
+
+<span class="semi-bold">#g#Example:##</span> Using tag as a industry interest 
+```
+edit 1 t/EduTech
+edit 2 t/Finance
+edit 3 t/HealthTech
+```
+</box>
+
+<box type="warning" light>
+
+**Caution:**
+
+Do note that as of the current version of TAPro, you can only add one tag to a contact. Adding a new tag will 
+replace the existing tag.
+
+Do also note that tags are alphanumeric and cannot contain spaces or special characters.
+
+</box>
 </box>
 
 
+### Saving More Time
+<box type="info" icon=":fa-solid-question:" light>
 
-<markdown class="d-print-none">---</markdown>
-<br>
+**Q**: How can I save more time when using TAPro?<br>
+**A**: You can use the advanced features like **[autocomplete](#autocomplete)** and **[command history toggle](#retrieving-command-history)** in TAPro! 
+These 
+features are 
+designed to help you input commands faster and more efficiently.
+
+<box type="success" light>
+
+<span class="semi-bold">#g#Example:##</span> Unmarking a wrongly marked  student's attendance
+
+1. `mark nn/E0123456 wk/6`
+1. Press the <span class="badge bg-light text-dark"><i class="fa-regular fa-square-caret-up"></i> UP</span> key to 
+   retrieve the previous command.
+1. Hold the <span class="badge bg-light text-dark"><i class="fa-regular fa-square-caret-left"></i> LEFT</span> key to 
+move the cursor to the beginning of the command.
+1. Add a `un` in front of `mark` to change the command to `unmark nn/E0123456 wk/6`.
+1. Press `Enter`!
+
+</box>
+<box type="info" light>
+
+**Note:** 
+Future enhancement include clicking <span class="badge bg-light text-dark"><i class="fa-regular 
+fa-square-caret-right"></i> RIGHT</span> key to move the cursor to 
+the front of the command.
+</box>
+</box>
+
+{{ newPage }}
 
 ## <i class="fa-solid fa-triangle-exclamation"></i> Known issues
 
-
-<box type="warning" theme="danger" seamless>
+<box type="warning" theme="danger" light>
 
 **1. When using multiple screens**
 
@@ -738,12 +884,12 @@ If you move the application to a secondary screen, and later switch to using onl
 
 | Action             | Format, Examples                                                                                                                                                                          |
 |--------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Add Student**    | `addstu n/NAME p/PHONE_NUMBER e/EMAIL nn/NUSNET_ID m/MAJOR [t/TAG]…​` <br> e.g., `addstu n/James Ho p/22224444 e/jamesho@example.com nn/e1234567 m/Computer Science t/friend t/colleague` |
+| **Add Student**    | `addstu n/NAME p/PHONE_NUMBER e/EMAIL nn/NUSNET_ID m/MAJOR [t/TAG]…​` <br> e.g., `addstu n/James Ho p/22224444 e/jamesho@example.com nn/E1234567 m/Computer Science t/friend t/colleague` |
 | **Clear**          | `clear`                                                                                                                                                                                   |
-| **Delete Student** | `delstu nn/NUSNET_ID`<br> e.g., `delstu nn/e0957499`                                                                                                                                      |
+| **Delete Student** | `delstu nn/NUSNET_ID`<br> e.g., `delstu nn/E0957499`                                                                                                                                      |
 | **Edit**           | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [m/MAJOR] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`                                                                 |
-| **Mark**           | `mark nn/NUSNET_ID wk/WEEK_NUMBER`<br> e.g., `mark nn/e1234567 wk/3`                                                                                                                      |
-| **Unmark**         | `unmark nn/NUSNET_ID wk/WEEK_NUMBER`<br> e.g., `unmark nn/e1234567 wk/3`                                                                                                                  |
+| **Mark**           | `mark nn/NUSNET_ID wk/WEEK_NUMBER`<br> e.g., `mark nn/E1234567 wk/3`                                                                                                                      |
+| **Unmark**         | `unmark nn/NUSNET_ID wk/WEEK_NUMBER`<br> e.g., `unmark nn/E1234567 wk/3`                                                                                                                  |
 | **Find**           | `find KEYWORD [MORE_KEYWORDS]…​`<br> e.g., `find James Jake`                                                                                                                              |
 | **Set Course**     | `setcrs COURSE_NAME`                                                                                                                                                                      |
 | **List**           | `list`                                                                                                                                                                                    |
