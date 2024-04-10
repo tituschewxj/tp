@@ -496,8 +496,7 @@ Furthermore, certain edits can cause the TAPro to behave in unexpected ways (e.g
 ### Transfering Data to Another Computer
 <box type="info" icon=":fa-solid-question:" light>
 
-**Q**: How do I transfer my data to another computer?
-
+**Q**: How do I transfer my data to another computer?<br>
 **A**: Install the application in the target computer and replace the `data` folder with the `data` folder in 
 your current computer! Click `Yes` if are prompted to replace the existing `data` folder in your target computer.
 </box>
@@ -505,7 +504,7 @@ your current computer! Click `Yes` if are prompted to replace the existing `data
 ### Loading Data from Another Computer
 <box type="info" icon=":fa-solid-question:" light>
 
-**Q**: How can I transfer my TAPro contacts to another Computer?<br>
+**Q**: How can I transfer my TAPro contacts to another computer?<br>
 **A**: Install TAPro in your target computer and paste the empty `data` folder it creates 
 with the `data` folder from your otehr computer. Paste it in the same directory as your TAPro JAR file in your 
 target computer. 
@@ -517,7 +516,7 @@ target computer.
 **Q**: How can I launch TAPro if clicking on the JAR file does not work?<br>
 **A**: There are two possible methods to launch TAPro.
 
-**Method 1**: Using the Command Line
+**Method 1**: Using the Command Terminal 
 1. Open the command line in your operating system's terminal software.
 2. Navigate to the directory where the JAR file is located.
 3. Enter `java -jar TAPro.jar` and the TAPro Application should launch.
@@ -565,7 +564,7 @@ target computer.
 for the `unmark` command is as follows:
 <br><br>The syntax for the `unmark` command is as follows:
 ```
-unmark nn/NUSNET_ID wk/WEEK_NUMBER
+unmark nn/NUSNET wk/WEEK
 ```
 </box>
 <box type="info" icon=":fa-solid-question:" light>
@@ -637,9 +636,7 @@ the front of the command.
 </box>
 </box>
 
-
-<markdown class="d-print-none">---</markdown>
-<br>
+{{ newPage }}
 
 ## <i class="fa-solid fa-triangle-exclamation"></i> Known issues
 
