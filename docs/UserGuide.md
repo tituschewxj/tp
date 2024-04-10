@@ -602,7 +602,7 @@ target computer.
 2. Save the file as `TAPro.bat` (Windows) or `TAPro.sh` (macOS/Linux).
 3. Change the admin settings of the script to allow it to run as a program:
     - Windows: Right-click on the script and select Properties. Under General, check the box that says `Allow this file to run as a program`.
-    - macOS/Linux: Open the Terminal and navigate to the directory where the script is located. Type `chmod +x [script name]` and press `Enter`.<br>Note: (`chmod +x` changes permissions of the script to allow it to be executed)
+    - macOS/Linux: Open the Terminal and navigate to the directory where the script is located. Type `chmod +x <script_file_name>` and press `Enter`.<br>Note: (`chmod +x` changes permissions of the script to allow it to be executed)
 4. Double-click on the script to launch TAPro.
 </box>
 
