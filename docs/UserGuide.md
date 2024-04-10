@@ -876,9 +876,14 @@ the front of the command.
 If you move the application to a secondary screen, and later switch to using only the primary screen, the GUI will open off-screen. The remedy is to delete the `preferences.json` file created by the application before running the application again.
 </box>
 
-<markdown class="d-print-none">---</markdown>
-<div style="page-break-after: always;"></div>
-<br>
+<box type="warning" theme="danger" seamless>
+
+**2. If you have more than one copy of TAPro running**
+
+If you have more than one copy of TAPro running, the application may not function as expected. TAPro's data will desynchronise. The remedy is to close all instances of TAPro and run only one instance of TAPro.
+</box>
+
+{{ newPage }}
 
 ## <i class="fa-solid fa-table-list"></i> Command summary
 
