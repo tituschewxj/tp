@@ -469,7 +469,7 @@ Only commands that has succeeded previously will be retrieved. If you enter an i
 when attempting to retrieve it.
 </box>
 
-<box type="warning" theme="danger" seamless>
+<box type="warning" theme="danger" light>
 
 **Warning:**
 When retrieving commands, be aware that it will erase the current text in the command input box.
