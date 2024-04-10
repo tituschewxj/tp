@@ -56,7 +56,7 @@ A GUI similar to the below image should appear in a few seconds. Note how the ap
 
 * `list` : Lists all contacts.
 
-* `addstu nn/e0952224 n/John Doe p/98765432 e/johnd@example.com m/Computer Science` : Adds a student named `John Doe` to the contact book.
+* `addstu nn/E0952224 n/John Doe p/98765432 e/johnd@example.com m/Computer Science` : Adds a student named `John Doe` to the contact book.
 
 * `delstu nn/NUSNET_ID` : Deletes the student with the specified `NUSNET_ID` from the contact book.
 
@@ -207,9 +207,9 @@ Format: `addstu n/NAME nn/NUSNET [p/PHONE] [e/EMAIL] [m/MAJOR] [t/TAG]…​`
 </box>
 
 Examples:
-* `addstu n/John Doe nn/e1234567 p/98765432 e/johnd@example.com m/Computer Science`
-* `addstu n/Betsy Crowe nn/e01234567 t/friend e/betsycrowe@example.com m/Mathematics p/1234567 t/club`
-* `addstu n/Betsy Crowe nn/e01234567`
+* `addstu n/John Doe nn/E1234567 p/98765432 e/johnd@example.com m/Computer Science`
+* `addstu n/Betsy Crowe nn/E01234567 t/friend e/betsycrowe@example.com m/Mathematics p/1234567 t/club`
+* `addstu n/Betsy Crowe nn/E01234567`
 
 <markdown class="d-print-none">---</markdown>
 <div style="page-break-after: always;"></div>
@@ -337,7 +337,7 @@ Marks a student's attendance for a particular week.
 Format: `mark nn/NUSNET_ID wk/WEEK_NUMBER`
 
 Example:
-* `mark nn/e1234567 wk/3`
+* `mark nn/E1234567 wk/3`
 
 <markdown class="d-print-none">---</markdown>
 <br>
@@ -349,7 +349,7 @@ Unmarks a student's attendance for a particular week.
 Format: `unmark nn/NUSNET_ID wk/WEEK_NUMBER`
 
 Example:
-* `unmark nn/e1234567 wk/3`
+* `unmark nn/E1234567 wk/3`
 
 <markdown class="d-print-none">---</markdown>
 <div style="page-break-after: always;"></div>
@@ -416,10 +416,10 @@ The first word, will be autocompleted as a command name, instead of a parameter,
 
 We have three students with NUSNet IDs `e0123456`, `e1234567` and `e2345678`. 
 If we type `mark nn/` into the command input box and press <span class="badge bg-light text-dark">TAB</span>,
-we can see that the text in the command input box autocompletes to become `mark nn/e01234567`.
+we can see that the text in the command input box autocompletes to become `mark nn/E01234567`.
 
-Pressing <span class="badge bg-light text-dark">TAB</span> again, causes the text to update to `mark nn/e1234567`,
-followed by `mark nn/e2345678`.
+Pressing <span class="badge bg-light text-dark">TAB</span> again, causes the text to update to `mark nn/E1234567`,
+followed by `mark nn/E2345678`.
 </box>
 
 <box type="info" light>
@@ -523,10 +523,10 @@ TAPro saves successful commands input, so you can retrieve them later, using the
 
 <span class="semi-bold">#g#Example:##</span>
 
-We have entered `mark nn/e0123456` as the previous command, and it was successful. Now the command input box is empty.
+We have entered `mark nn/E0123456` as the previous command, and it was successful. Now the command input box is empty.
 
 Pressing {{ macros.keyFormat('Up') }} will update the text in the command input box to
-the previous command `mark nn/e0123456`.
+the previous command `mark nn/E0123456`.
 </box>
 
 <box type="warning" light>
@@ -691,12 +691,12 @@ designed to help you input commands faster and more efficiently.
 
 <span class="semi-bold">#g#Example:##</span> Unmarking a wrongly marked  student's attendance
 
-1. `mark nn/e0123456 wk/6`
+1. `mark nn/E0123456 wk/6`
 1. Press the <span class="badge bg-light text-dark"><i class="fa-regular fa-square-caret-up"></i> UP</span> key to 
    retrieve the previous command.
 1. Hold the <span class="badge bg-light text-dark"><i class="fa-regular fa-square-caret-left"></i> LEFT</span> key to 
 move the cursor to the beginning of the command.
-1. Add a `un` in front of `mark` to change the command to `unmark nn/e0123456 wk/6`.
+1. Add a `un` in front of `mark` to change the command to `unmark nn/E0123456 wk/6`.
 1. Press `Enter`!
 
 </box>
@@ -728,12 +728,12 @@ If you move the application to a secondary screen, and later switch to using onl
 
 | Action             | Format, Examples                                                                                                                                                                          |
 |--------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Add Student**    | `addstu n/NAME p/PHONE_NUMBER e/EMAIL nn/NUSNET_ID m/MAJOR [t/TAG]…​` <br> e.g., `addstu n/James Ho p/22224444 e/jamesho@example.com nn/e1234567 m/Computer Science t/friend t/colleague` |
+| **Add Student**    | `addstu n/NAME p/PHONE_NUMBER e/EMAIL nn/NUSNET_ID m/MAJOR [t/TAG]…​` <br> e.g., `addstu n/James Ho p/22224444 e/jamesho@example.com nn/E1234567 m/Computer Science t/friend t/colleague` |
 | **Clear**          | `clear`                                                                                                                                                                                   |
-| **Delete Student** | `delstu nn/NUSNET_ID`<br> e.g., `delstu nn/e0957499`                                                                                                                                      |
+| **Delete Student** | `delstu nn/NUSNET_ID`<br> e.g., `delstu nn/E0957499`                                                                                                                                      |
 | **Edit**           | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [m/MAJOR] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`                                                                 |
-| **Mark**           | `mark nn/NUSNET_ID wk/WEEK_NUMBER`<br> e.g., `mark nn/e1234567 wk/3`                                                                                                                      |
-| **Unmark**         | `unmark nn/NUSNET_ID wk/WEEK_NUMBER`<br> e.g., `unmark nn/e1234567 wk/3`                                                                                                                  |
+| **Mark**           | `mark nn/NUSNET_ID wk/WEEK_NUMBER`<br> e.g., `mark nn/E1234567 wk/3`                                                                                                                      |
+| **Unmark**         | `unmark nn/NUSNET_ID wk/WEEK_NUMBER`<br> e.g., `unmark nn/E1234567 wk/3`                                                                                                                  |
 | **Find**           | `find KEYWORD [MORE_KEYWORDS]…​`<br> e.g., `find James Jake`                                                                                                                              |
 | **Set Course**     | `setcrs COURSE_NAME`                                                                                                                                                                      |
 | **List**           | `list`                                                                                                                                                                                    |
