@@ -221,6 +221,11 @@ Format: `addstu n/NAME nn/NUSNET [p/PHONE] [e/EMAIL] [m/MAJOR] [t/TAG]…​`
 **Note:** Tags must be a single, non-space separated, alphanumeric word. For example `bestFriend4Ever`, `colleague`, `Club` are valid tags, but `best friend`, `best-friend` are not valid tags.
 </box>
 
+<box type="warning" light>
+
+**Note:** The application will not wrap the text in the various fields. By [international standards](https://en.wikipedia.org/wiki/E.164), telephone numbers should not exceed 15 digits. And long names and email addresses are extremely rare, which falls outside of normal use cases. Lastly, most students will have no more than 2 majors.
+</box>
+
 Examples:
 * `addstu n/John Doe nn/e1234567 p/98765432 e/johnd@example.com m/Computer Science`
 * `addstu n/Betsy Crowe nn/e01234567 t/friend e/betsycrowe@example.com m/Mathematics, Physics p/1234567 t/club`
