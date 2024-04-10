@@ -17,7 +17,7 @@ end box
 [-> LogicManager : execute("delstu nn/E1234567")
 activate LogicManager
 
-LogicManager -> AddressBookParser : parseCommand("delstu E1234567")
+LogicManager -> AddressBookParser : parseCommand("delstu nn/E1234567")
 activate AddressBookParser
 
 create DeleteCommandParser
