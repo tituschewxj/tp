@@ -3,21 +3,127 @@
   title: "User Guide"
   pageNav: 3
 ---
+{% import "_markbind/_macros.nj" as macros %}
 
 # TAPro User Guide
+<p align="center">
+    <img src="images/TAProLogo.jpg" alt="TAPro Logo" class="rounded-image" width="500px"/>
+</p>
 
-TAPro is a **Contact Book application** that is made for Computer Science Tutors for managing their students contact and attendance details.
+TAPro is your go-to **Contact Book application**, created with love for **Computer Science Teaching Assistants (TAs)** like you. _We get it_ — juggling your students and keeping track of attendance can be a handful. That’s why TAPro is 
+here to make your life easier. With features designed preciesly for you, it's all about simplifying those 
+time-consuming tasks, letting you focus on what you do best: teaching and inspiring your students. Welcome to a 
+smoother, more personalized way of managing your TA duties!
 
 TAPro is optimized for use via a **Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). 
 
-If you can type fast, TAPro can get your contact management and attendance taking tasks done **faster** than traditional GUI apps.
+If you can type fast, TAPro can get your contact management and attendance taking tasks done **faster** 🚀 than traditional GUI apps. 
 
 <!-- * Table of Contents -->
 <page-nav-print />
 
-<markdown class="d-print-none">---</markdown>
-<div style="page-break-after: always;"></div>
-<br>
+{{ newPage }}
+
+## <i class="fa-solid fa-forward"></i>  Navigating this User Guide
+
+Welcome to the cozy corner of the TAPro User Guide! 🌟 Whether you're embarking on your very first day as a TA or 
+you're practically a wizard with student info, we've put together this guide to make sure you get the most out of TAPro.
+
+🚀 **Ready to Roll?** Skip over to **[Quick Start](#quick-start)** for the no-fuss, easy-peasy steps to download TAPro and get ready for 
+action.
+
+**New around here?** No worries, we've got you. Start with these sections to become a TAPro buddy in no time:
+
+- [Navigating the GUI](#navigating-the-gui): Familiarize yourself with the command box and those handy contact cards. 
+- [Features](#features): Dive into the exciting world of features we've brewed up just for you.
+
+**Already a TAPro champ?** Let's add some spice to your TA skills:
+
+- **[Set Course](#name-rename-cs-course-setcrs)**: Tailor TAPro to your current course with `setcrs`.
+- **[Add Student](#adding-a-student-addstu)**: Got a new face in class? Quickly add their details with `addstu`.
+- **[Mark](#marking-a-student-s-attendance-for-a-given-week-by-their-nusnet-mark)**: Keep track of weekly attendance with `mark`.
+- **[Unmark](#unmarking-a-student-s-attendance-for-a-given-week-by-their-nusnet-unmark)**: Oops, made a mistake? `unmark` reverses that mark.
+- **[List](#listing-all-students-list)**: Bring up a complete list of your students with `list`.
+- **[Edit](#editing-a-student-edit)**: Update details as they evolve with `edit`.
+- **[Find](#locating-students-by-name-find)**: Looking for someone? find helps you search by keyword.
+- **[Delete Student](#deleting-a-student-delstu)**: Time to say goodbye? Remove a student from your list with `delstu`.
+- **[Clear](#clearing-all-entries-clear)**: Need to wipe the slate clean? `clear` does just that.
+
+**Need a quick TAPro refresher?** Our Command Summary is like the TAPro bible—short, sweet, and to the point.
+
+Stumbled upon a hurdle or just curious? Swing by our **[FAQ](#faq)** where we tackle all your burning questions and offer 
+nuggets of wisdom for a smooth TAPro journey.
+{{ newPage }}
+
+## <i class="fa-solid fa-forward"></i> Useful Notations and Glossary
+
+Diving into TAPro, you'll encounter some handy notations and terms. We've decoded them here to make your journey smoother and more enjoyable:
+
+### Symbols
+
+| Symbol                                               | Meaning                                                |
+|------------------------------------------------------|--------------------------------------------------------|
+| <i class="fa-solid fa-lightbulb text-success"></i>   | Tip                                                    |
+| <i class="fa-solid fa-exclamation text-warning"></i> | Warning                                                |
+| <i class="fa-solid fa-flag text-danger"></i>         | Important                                              |
+| <i class="fa-solid fa-info text-info"></i>           | Additional useful information                          |
+| <i class="fa-solid fa-check text-success"></i>       | Valid Example                                          |
+| <i class="fa-solid fa-x text-danger"></i> | Invalid Example                                        |
+| <i class="fa-solid fa-exclamation text-danger"></i>  | Danger                                                 |
+| <i class="fa-solid fa-book text-primary"></i> | Definition |
+| <i class="fa-solid fa-question text-info"></i> | Question |
+| **`UPPER_CASE`**                                     | Represents parameters that need to be given by you!    |
+| **... (Ellipsis)**                                   | Indicates that a parameter can be repeated or omitted entirely. |
+| **[Square Brackets]**                                | Denotes optional parameters.                           |
+
+### Keywords 
+
+| Keywords                           | Meaning                                                                                  |
+|------------------------------------|------------------------------------------------------------------------------------------|
+| **Command Line Interface**   | A text-based interface used for entering commands directly.                              |
+| **Graphical User Interface** | The visual interface that enhances user interaction with graphical elements.             |
+| **Parameters**                     | Specific pieces of information required by commands to execute a function.               |
+| **Attribute** | A single detail of a student. |
+| **INDEX**                          | A case-insensitive, unique identification code assigned to each student.                                       |
+| **NUSNET**                      | A unique identification code assigned to each student.                                   |
+| **TAG**                            | A one-word, case-insensitive, label that can be associated with a student for categorization.             |
+| **Autocomplete**                   | A feature that predicts and completes commands as you type.                              |
+| **Command History**                | A record of successfully executed commands that can be retrieved for reuse.              |
+
+### Abbreviations
+
+| Abbreviation | Meaning                                                                 |
+|-------------|-------------------------------------------------------------------------|
+| **ASCII** | American Standard Code for Information Interchange                      |
+| **GUI**     | Graphical User Interface                                                |
+| **CLI**     | Command Line Interface                                                  |
+| **TA**      | Teaching Assistant                                                     |
+| **CS**      | Computer Science                                                       |
+| **NUS**     | National University of Singapore |
+| **URL**     | Uniform Resource Locator                                                |
+| **JSON**    | JavaScript Object Notation                                              |
+
+### Recognised Prefixes for Attributes
+| Prefix | Attribute |
+|--------|-----------------------------|
+| **n/** | Name of the student         |
+| **nn/** | NUSNet ID of the student       |
+| **p/** | Phone number of the student |
+| **e/** | Email of the student        |
+| **m/** | Major of the student        |
+| **t/** | Tag of the student          |
+| **wk/** | Week number for attendance  |
+
+This segment aims to make your TAPro experience as smooth as silk. With these notions and terms at your fingertips, you're well on your way to becoming a TAPro power user!
+
+{{ newPage }}
+
+## <i class="fa-solid fa-forward"></i> Navigating the GUI
+
+Welcome to the TAPro GUI! 🎉 Here's a quick tour to help you get comfortable with the interface:
+
+TODO: Add a screenshot of the GUI with annotations
+
 
 ## <i class="fa-solid fa-forward"></i> Quick start
 
@@ -43,12 +149,12 @@ The latest version is compatible with older versions.
 
 A GUI similar to the below image should appear in a few seconds. Note how the app contains some sample data.
 
-<img alt="Main Window UI on first launch" src="images/main_window_ui.png" class="rounded-image" />
+<img alt="Main Window UI on first launch" src="images/main_window_ui.png" class="rounded-image" width="738px"/>
 
 </box>
 <div style="page-break-after: always;"></div>
 
-5. Type the command in the command box and press <span class="badge bg-light text-dark">Enter</span> to execute it. e.g. typing **`help`** and pressing <span class="badge bg-light text-dark">Enter</span> will open the help window.
+5. Type the command in the command box and press {{ macros.keyFormat('Enter') }} to execute it. e.g. typing **`help`** and pressing {{ macros.keyFormat('Enter') }} will open the help window.
 
 <box type="info" seamless>
 
@@ -128,6 +234,10 @@ Be careful when copying and pasting commands that span multiple lines as space c
 <div style="page-break-after: always;"></div>
 <br>
 
+
+
+
+
 ### <i class="fa-solid fa-circle-question"></i> Viewing help : `help`
 
 Entering the `help` command opens a help window that shows a message explaining how to access the help page, 
@@ -159,9 +269,9 @@ The help window is resizable, so you can **easily reposition and resize** it to 
 <i class="fa-solid fa-window-restore"></i>
 **Switching quickly between the help and main window:**
 
-* On Windows and most Linux distributions, you can use the keyboard shortcut: <span class="badge bg-light text-dark">Alt</span> +  <span class="badge bg-light text-dark">Tab</span>, to switch between windows quickly. 
+* On Windows and most Linux distributions, you can use the keyboard shortcut: {{ macros.keyFormat('Alt') }} + {{ macros.keyFormat('Tab') }}, to switch between windows quickly. 
 
-* On macOS, you can use the keyboard shortcut: <span class="badge bg-light text-dark">Cmd⌘</span> + <span class="badge bg-light text-dark">Tab</span>, to switch between windows quickly.
+* On macOS, you can use the keyboard shortcut: {{ macros.keyFormat('Cmd⌘') }} + {{ macros.keyFormat('Tab') }}, to switch between windows quickly.
 
 </box>
 
@@ -199,17 +309,37 @@ Format: `addstu n/NAME nn/NUSNET [p/PHONE] [e/EMAIL] [m/MAJOR] [t/TAG]…​`
 
 * Add a student with the given details.
 * The name and nusnet id must be provided. And nusnet id must be unique.
-* All the remaining fields are optional. If not provided, a placeholder value will be used.
+* All the remaining fields are optional. If values are not provided to optional fields, they will be set to a placeholder value under the hood (e.g., `Major not provided` for `MAJOR` field).
 
-<box type="tip" seamless>
+<box type="tip" light>
 
 **Tip:** A person can have any number of tags (including 0)
 </box>
 
+<box type="tip" light>
+
+**Tip:** If a student is undertaking a double degree programme, you can use a comma to separate the disciplines in the `MAJOR` field. (e.g., `m/Computer Science, Mathematics`)
+</box>
+
+<box type="info" light>
+
+**Note:** NUSNet provided will be converted to uppercase automatically upon running the command. (e.g., `e0123456` will be converted to `E0123456`)
+</box>
+
+<box type="info" light>
+
+**Note:** Tags must be a single, non-space separated, alphanumeric word. For example `bestFriend4Ever`, `colleague`, `Club` are valid tags, but `best friend`, `best-friend` are not valid tags.
+</box>
+
+<box type="warning" light>
+
+**Note:** The application will not wrap the text in the various fields. By [international standards](https://en.wikipedia.org/wiki/E.164), telephone numbers should not exceed 15 digits. And long names and email addresses are extremely rare, which falls outside of normal use cases. Lastly, most students will have no more than 2 majors.
+</box>
+
 Examples:
 * `addstu n/John Doe nn/e1234567 p/98765432 e/johnd@example.com m/Computer Science`
-* `addstu n/Betsy Crowe nn/e01234567 t/friend e/betsycrowe@example.com m/Mathematics p/1234567 t/club`
-* `addstu n/Betsy Crowe nn/e01234567`
+* `addstu n/Betsy Crowe nn/e0123456 t/friend e/betsycrowe@example.com m/Mathematics, Physics p/1234567 t/club`
+* `addstu n/Betsy Crowe nn/e0123456`
 
 <markdown class="d-print-none">---</markdown>
 <div style="page-break-after: always;"></div>
@@ -322,7 +452,7 @@ Format: `find KEYWORD [MORE_KEYWORDS]…​`
 
 <span class="semi-bold">#g#Example:##</span> `find alex david` returns `Alex Yeoh`, `David Li`, as seen in the image below.
 
-<img src="images/findAlexDavidResult.png" alt="result for 'find alex david" width="500px" class="rounded-image"/>
+<img src="images/findAlexDavidResult.png" alt="result for 'find alex david" width="406px" class="rounded-image"/>
 </box>
 </box>
 
@@ -394,46 +524,110 @@ Format: `exit`
 
 ### <i class="fa-solid fa-wand-magic-sparkles"></i> Autocomplete
 
-Autocompletes a word or a set of words, based on the current input.
+The autocomplete feature autocompletes a parameter or command, based on the current command box input and the current data in TAPro. This means that if an attribute value is not present, it will not be present in the autocompletion of that corresponding parameter.
 
-<box type="warning" seamless>
+{{ macros.definitionBox('Autocompletion', 'The autocomplete feature\'s suggested autocomplete result(s).') }}
 
-**Autocomplete doesn't work on week number:**
+We can autocomplete both command names and parameters after their prefixes by pressing {{ macros.keyFormat('Tab') }}, when an autocompletion is available.
 
-This is because week number is short,
-and it is much faster just typing out the number.
+<box type="important" light>
 
+**Autocompletes the first word as a command name:**
+
+The first word, will be autocompleted as a command name, instead of a parameter, if an autocompletion can be found for the current word that is in the command box input.
+
+<box type="warning" light>
+<span class="semi-bold">The command input box must not be empty</span> for autocomplete to work.
 </box>
 
-<box type="success" seamless>
+<box type="success" light>
 
 <span class="semi-bold">#g#Example:##</span>
 
-We have three students with NUSNet IDs `e0123456`, `e1234567` and `e2345678`. 
-If we type `mark nn/` into the command input box and press <span class="badge bg-light text-dark">Tab</span>,
-we can see that the text in the command input box autocompletes to become `mark nn/e01234567`.
+If we type `a` into the command input box and press {{ macros.keyFormat('Tab') }}, we see that the text in the command input box autocompletes to become `addstu`.
 
-Pressing <span class="badge bg-light text-dark">Tab</span> again, causes the text to update to `mark nn/e1234567`,
-followed by `mark nn/e2345678`.
+The last parameter `TAG` is autocompleted.
+</box>
 </box>
 
-<box type="info" seamless>
+<box type="important" light>
 
-**Using autocomplete to scroll through all possible autocomplete suggestions:**
+**Autocompletes the last parameter in the input:**
 
-Autocomplete will scroll through all possible options, based on the existing data in your contact list.
+Autocomplete works on the last parameter (if any) in the command box, which is the text directly after a recognized prefix. 
 
-When reaching the end of the possible options list, pressing
-<span class="badge bg-light text-dark">Tab</span> will wrap 
+<box type="warning" light>
+A parameter can only be autocompleted if it is not the first word, and has a recognized prefix.
+</box>
+
+<box type="success" light>
+
+<span class="semi-bold">#g#Example:##</span>
+
+We have some students in TAPro, such that the first tag alphabetically is `friends`.
+If we type `edit 1 n/John Doe t/` into the command input box and press {{ macros.keyFormat('Tab') }},
+we see that the text in the command input box autocompletes to become `edit 1 n/John Doe t/friends`.
+
+The last parameter `TAG` is autocompleted.
+</box>
+</box>
+<div style="page-break-after: always;"></div>
+
+<box type="info" light>
+
+**Autocomplete scrolls through all autocompletions:**
+
+Autocomplete will scroll through all possible suggestions, based on the existing data in your contact list.
+
+When reaching the end of the all possible suggestions, pressing {{ macros.keyFormat('Tab') }} will wrap 
 the possible options back to the start of that list again.
+
+<box type="success" light>
+
+<span class="semi-bold">#g#Example:##</span>
+
+We have three students with NUSNet IDs `E0123456`, `E1234567` and `E2345678`.
+If we type `mark nn/` into the command input box and press {{ macros.keyFormat('Tab') }},
+we can see that the text in the command input box autocompletes to become `mark nn/E0123456`.
+
+Every press of {{ macros.keyFormat('Tab') }}, causes the command input box text to update to the next autocompletion: 
+* from `mark nn/E0123456` to `mark nn/E1234567`,
+* then to `mark nn/E2345678`, 
+* and then back to `mark nn/E0123456`.
+</box>
 </box>
 
-<box type="info" seamless>
+<box type="warning" light>
 
-**Sorted autocomplete suggestions:**
+**Autocomplete does not work on week number.** This is because `WEEK` is at most two digits, so it is much faster just typing out the number.
+</box>
 
-The autocomplete suggestions will be listed in alphabetical order, meaning if you have two possible options
-`abc` and `abd`, autocomplete will give `abc` before `abd`.
+<box type="tip" light>
+
+**Sorted autocompletions:**
+
+The autocompletions will be listed in [ASCIIbetical order](https://en.wikipedia.org/wiki/ASCII#Character_order), which is when all uppercase letters come before lowercase letter, and digits and most punctuations come before letters.
+
+<box type="success" light>
+
+<span class="semi-bold">#g#Example:##</span>
+If we have only the following tags in our contact list: `abc`, `123` `BCD`, `234`, `bcd`, autocompleting a `TAG` will give autocompletions in this order: `123`, `234` `BCD`, `abc`, `bcd`.
+
+</box>
+</box>
+
+<box type="tip" light>
+
+**Quickly clear an attribute with autocomplete:**
+
+We can autocomplete the placeholder value, if it is present for that parameter in our contact list. When a placeholder value is inputted as the parameter, it means that attribute for that student will be reset, after entering the command.
+
+<box type="success" light>
+
+<span class="semi-bold">#g#Example:##</span>
+
+If the placeholder for the `MAJOR` parameter, `Major not provided`, is present in the contact list, then in the autocompletion for the `MAJOR` parameter, the value `Major not provided` is available.
+</box>
 </box>
 
 <markdown class="d-print-none">---</markdown>
@@ -445,8 +639,6 @@ The autocomplete suggestions will be listed in alphabetical order, meaning if yo
 TAPro saves successful commands input, so you can retrieve them later, using the 
 <span class="badge bg-light text-dark"><i class="fa-regular fa-square-caret-up"></i> UP</span> and
 <span class="badge bg-light text-dark"><i class="fa-regular fa-square-caret-down"></i> DOWN</span> arrow keys.
-{{ macros.keyFormat('<i class="fa-regular fa-square-caret-up"></i> Up') }} and
-{{ macros.keyFormat('<i class="fa-regular fa-square-caret-down"></i> Down') }} arrow keys.
 
 <box type="success" light>
 
@@ -461,7 +653,6 @@ the previous command `mark nn/E0123456`!
    UP</span> continuously to scroll through all the previous commands you have entered. 
 1. Pressing <span class="badge bg-light text-dark"><i class="fa-regular fa-square-caret-down"></i> DOWN</span> will 
    scroll back to the more recent commands you have entered.
-
 </box>
 
 <box type="warning" light>
@@ -537,16 +728,16 @@ If you move the application to a secondary screen, and later switch to using onl
 
 ## <i class="fa-solid fa-table-list"></i> Command summary
 
-| Action             | Format, Examples                                                                                                                                                                       |
-|--------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Add Student**    | `addstu n/NAME p/PHONE_NUMBER e/EMAIL nn/NUSNET_ID m/MAJOR [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com nn/e1234567 m/Computer Science t/friend t/colleague` |
-| **Clear**          | `clear`                                                                                                                                                                                |
-| **Delete Student** | `delstu nn/NUSNET_ID`<br> e.g., `delstu nn/e0957499`                                                                                                                                   |
-| **Edit**           | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [m/MAJOR] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`                                                              |
-| **Mark**           | `mark nn/NUSNET_ID wk/WEEK_NUMBER`<br> e.g., `mark nn/e1234567 wk/3`                                                                                                                   |
-| **Unmark**         | `unmark nn/NUSNET_ID wk/WEEK_NUMBER`<br> e.g., `unmark nn/e1234567 wk/3`                                                                                                               |
-| **Find**           | `find KEYWORD [MORE_KEYWORDS]…​`<br> e.g., `find James Jake`                                                                                                                           |
-| **Set Course**     | `setcrs COURSE_NAME`                                                                                                                                                                   |
-| **List**           | `list`                                                                                                                                                                                 |
-| **Help**           | `help`                                                                                                                                                                                 |
-| **Exit**           | `exit`                                                                                                                                                                                 |
+| Action             | Format, Examples                                                                                                                                                                          |
+|--------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Add Student**    | `addstu n/NAME p/PHONE_NUMBER e/EMAIL nn/NUSNET_ID m/MAJOR [t/TAG]…​` <br> e.g., `addstu n/James Ho p/22224444 e/jamesho@example.com nn/e1234567 m/Computer Science t/friend t/colleague` |
+| **Clear**          | `clear`                                                                                                                                                                                   |
+| **Delete Student** | `delstu nn/NUSNET_ID`<br> e.g., `delstu nn/e0957499`                                                                                                                                      |
+| **Edit**           | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [m/MAJOR] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`                                                                 |
+| **Mark**           | `mark nn/NUSNET_ID wk/WEEK_NUMBER`<br> e.g., `mark nn/e1234567 wk/3`                                                                                                                      |
+| **Unmark**         | `unmark nn/NUSNET_ID wk/WEEK_NUMBER`<br> e.g., `unmark nn/e1234567 wk/3`                                                                                                                  |
+| **Find**           | `find KEYWORD [MORE_KEYWORDS]…​`<br> e.g., `find James Jake`                                                                                                                              |
+| **Set Course**     | `setcrs COURSE_NAME`                                                                                                                                                                      |
+| **List**           | `list`                                                                                                                                                                                    |
+| **Help**           | `help`                                                                                                                                                                                    |
+| **Exit**           | `exit`                                                                                                                                                                                    |
