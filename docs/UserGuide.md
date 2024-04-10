@@ -6,18 +6,124 @@
 {% import "_markbind/_macros.nj" as macros %}
 
 # TAPro User Guide
-TAPro is a **Contact Book application** that is made for Computer Science Tutors for managing their students contact and attendance details.
+<p align="center">
+    <img src="images/TAProLogo.jpg" alt="TAPro Logo" class="rounded-image" width="500px"/>
+</p>
+
+TAPro is your go-to **Contact Book application**, created with love for **Computer Science Teaching Assistants (TAs)** like you. _We get it_ — juggling your students and keeping track of attendance can be a handful. That’s why TAPro is 
+here to make your life easier. With features designed preciesly for you, it's all about simplifying those 
+time-consuming tasks, letting you focus on what you do best: teaching and inspiring your students. Welcome to a 
+smoother, more personalized way of managing your TA duties!
 
 TAPro is optimized for use via a **Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). 
 
-If you can type fast, TAPro can get your contact management and attendance taking tasks done **faster** than traditional GUI apps.
+If you can type fast, TAPro can get your contact management and attendance taking tasks done **faster** 🚀 than traditional GUI apps. 
 
 <!-- * Table of Contents -->
 <page-nav-print />
 
-<markdown class="d-print-none">---</markdown>
-<div style="page-break-after: always;"></div>
-<br>
+{{ newPage }}
+
+## <i class="fa-solid fa-forward"></i>  Navigating this User Guide
+
+Welcome to the cozy corner of the TAPro User Guide! 🌟 Whether you're embarking on your very first day as a TA or 
+you're practically a wizard with student info, we've put together this guide to make sure you get the most out of TAPro.
+
+🚀 **Ready to Roll?** Skip over to **[Quick Start](#quick-start)** for the no-fuss, easy-peasy steps to download TAPro and get ready for 
+action.
+
+**New around here?** No worries, we've got you. Start with these sections to become a TAPro buddy in no time:
+
+- [Navigating the GUI](#navigating-the-gui): Familiarize yourself with the command box and those handy contact cards. 
+- [Features](#features): Dive into the exciting world of features we've brewed up just for you.
+
+**Already a TAPro champ?** Let's add some spice to your TA skills:
+
+- **[Set Course](#name-rename-cs-course-setcrs)**: Tailor TAPro to your current course with `setcrs`.
+- **[Add Student](#adding-a-student-addstu)**: Got a new face in class? Quickly add their details with `addstu`.
+- **[Mark](#marking-a-student-s-attendance-for-a-given-week-by-their-nusnet-mark)**: Keep track of weekly attendance with `mark`.
+- **[Unmark](#unmarking-a-student-s-attendance-for-a-given-week-by-their-nusnet-unmark)**: Oops, made a mistake? `unmark` reverses that mark.
+- **[List](#listing-all-students-list)**: Bring up a complete list of your students with `list`.
+- **[Edit](#editing-a-student-edit)**: Update details as they evolve with `edit`.
+- **[Find](#locating-students-by-name-find)**: Looking for someone? find helps you search by keyword.
+- **[Delete Student](#deleting-a-student-delstu)**: Time to say goodbye? Remove a student from your list with `delstu`.
+- **[Clear](#clearing-all-entries-clear)**: Need to wipe the slate clean? `clear` does just that.
+
+**Need a quick TAPro refresher?** Our Command Summary is like the TAPro bible—short, sweet, and to the point.
+
+Stumbled upon a hurdle or just curious? Swing by our **[FAQ](#faq)** where we tackle all your burning questions and offer 
+nuggets of wisdom for a smooth TAPro journey.
+{{ newPage }}
+
+## <i class="fa-solid fa-forward"></i> Useful Notations and Glossary
+
+Diving into TAPro, you'll encounter some handy notations and terms. We've decoded them here to make your journey smoother and more enjoyable:
+
+### Symbols
+
+| Symbol                                               | Meaning                                                |
+|------------------------------------------------------|--------------------------------------------------------|
+| <i class="fa-solid fa-lightbulb text-success"></i>   | Tip                                                    |
+| <i class="fa-solid fa-exclamation text-warning"></i> | Warning                                                |
+| <i class="fa-solid fa-flag text-danger"></i>         | Important                                              |
+| <i class="fa-solid fa-info text-info"></i>           | Additional useful information                          |
+| <i class="fa-solid fa-check text-success"></i>       | Valid Example                                          |
+| <i class="fa-solid fa-x text-danger"></i> | Invalid Example                                        |
+| <i class="fa-solid fa-exclamation text-danger"></i>  | Danger                                                 |
+| <i class="fa-solid fa-book text-primary"></i> | Definition |
+| <i class="fa-solid fa-question text-info"></i> | Question |
+| **`UPPER_CASE`**                                     | Represents parameters that need to be given by you!    |
+| **... (Ellipsis)**                                   | Indicates that a parameter can be repeated or omitted entirely. |
+| **[Square Brackets]**                                | Denotes optional parameters.                           |
+
+### Keywords 
+
+| Keywords                           | Meaning                                                                                  |
+|------------------------------------|------------------------------------------------------------------------------------------|
+| **Command Line Interface**   | A text-based interface used for entering commands directly.                              |
+| **Graphical User Interface** | The visual interface that enhances user interaction with graphical elements.             |
+| **Parameters**                     | Specific pieces of information required by commands to execute a function.               |
+| **Attribute** | A single detail of a student. |
+| **INDEX**                          | A case-insensitive, unique identification code assigned to each student.                                       |
+| **NUSNET**                      | A unique identification code assigned to each student.                                   |
+| **TAG**                            | A one-word, case-insensitive, label that can be associated with a student for categorization.             |
+| **Autocomplete**                   | A feature that predicts and completes commands as you type.                              |
+| **Command History**                | A record of successfully executed commands that can be retrieved for reuse.              |
+
+### Abbreviations
+
+| Abbreviation | Meaning                                                                 |
+|-------------|-------------------------------------------------------------------------|
+| **ASCII** | American Standard Code for Information Interchange                      |
+| **GUI**     | Graphical User Interface                                                |
+| **CLI**     | Command Line Interface                                                  |
+| **TA**      | Teaching Assistant                                                     |
+| **CS**      | Computer Science                                                       |
+| **NUS**     | National University of Singapore |
+| **URL**     | Uniform Resource Locator                                                |
+| **JSON**    | JavaScript Object Notation                                              |
+
+### Recognised Prefixes for Attributes
+| Prefix | Attribute |
+|--------|-----------------------------|
+| **n/** | Name of the student         |
+| **nn/** | NUSNet ID of the student       |
+| **p/** | Phone number of the student |
+| **e/** | Email of the student        |
+| **m/** | Major of the student        |
+| **t/** | Tag of the student          |
+| **wk/** | Week number for attendance  |
+
+This segment aims to make your TAPro experience as smooth as silk. With these notions and terms at your fingertips, you're well on your way to becoming a TAPro power user!
+
+{{ newPage }}
+
+## <i class="fa-solid fa-forward"></i> Navigating the GUI
+
+Welcome to the TAPro GUI! 🎉 Here's a quick tour to help you get comfortable with the interface:
+
+TODO: Add a screenshot of the GUI with annotations
+
 
 ## <i class="fa-solid fa-forward"></i> Quick start
 
@@ -127,6 +233,10 @@ Be careful when copying and pasting commands that span multiple lines as space c
 <markdown class="d-print-none">---</markdown>
 <div style="page-break-after: always;"></div>
 <br>
+
+
+
+
 
 ### <i class="fa-solid fa-circle-question"></i> Viewing help : `help`
 
