@@ -658,6 +658,14 @@ the previous command `mark nn/E0123456`!
 <box type="warning" light>
 
 **Caution:**
+Pressing <span class="badge bg-light text-dark"><i class="fa-regular fa-square-caret-down"></i> DOWN</span>without 
+having ever pressed <span class="badge bg-light text-dark"><i class="fa-regular fa-square-caret-up"></i> 
+UP</span>will not make any changes, because you are at your most recent command.
+</box>
+
+<box type="warning" light>
+
+**Caution:**
 Only commands that has succeeded previously will be retrieved. If you enter an invalid command, it will not appear 
 when attempting to retrieve it.
 </box>
