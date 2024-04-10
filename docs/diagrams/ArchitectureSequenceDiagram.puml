@@ -8,7 +8,7 @@ Participant ":Logic" as logic LOGIC_COLOR
 Participant ":Model" as model MODEL_COLOR
 Participant ":Storage" as storage STORAGE_COLOR
 
-user -[USER_COLOR]> ui : "delstu E1234567"
+user -[USER_COLOR]> ui : "delstu nn/E1234567"
 activate ui UI_COLOR
 
 ui -[UI_COLOR]> logic : execute("delstu nn/E1234567")
