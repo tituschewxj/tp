@@ -51,6 +51,6 @@ public class WeekNumber {
     }
     @Override
     public String toString() {
-        return "[" + value.toString() + "]";
+        return value.toString();
     }
 }
