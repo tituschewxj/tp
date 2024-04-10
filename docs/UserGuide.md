@@ -201,14 +201,19 @@ Format: `addstu n/NAME nn/NUSNET [p/PHONE] [e/EMAIL] [m/MAJOR] [t/TAG]…​`
 * The name and nusnet id must be provided. And nusnet id must be unique.
 * All the remaining fields are optional. If values are not provided to optional fields, they will be set to a placeholder value under the hood (e.g., `Major not provided` for `MAJOR` field).
 
-<box type="tip" seamless>
+<box type="tip" light>
 
 **Tip:** A person can have any number of tags (including 0)
 </box>
 
-<box type="tip" seamless>
+<box type="tip" light>
 
 **Tip:** If a student is undertaking a double degree programme, you can use a comma to separate the disciplines in the `MAJOR` field. (e.g., `m/Computer Science, Mathematics`)
+</box>
+
+<box type="info" light>
+
+**Note:** NUSNet provided will be converted to uppercase automatically upon running the command. (e.g., `e0123456` will be converted to `E0123456`)
 </box>
 
 Examples:
