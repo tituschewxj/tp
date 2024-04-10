@@ -70,7 +70,7 @@ Diving into TAPro, you'll encounter some handy notations and terms. We've decode
 | <i class="fa-solid fa-x text-danger"></i> | Invalid Example                                        |
 | <i class="fa-solid fa-exclamation text-danger"></i>  | Danger                                                 |
 | <i class="fa-solid fa-book text-primary"></i> | Definition |
-| <i class="fa-solid fa-question text-warning"></i> | Question |
+| <i class="fa-solid fa-question text-info"></i> | Question |
 | **`UPPER_CASE`**                                     | Represents parameters that need to be given by you!    |
 | **... (Ellipsis)**                                   | Indicates that a parameter can be repeated or omitted entirely. |
 | **[Square Brackets]**                                | Denotes optional parameters.                           |
