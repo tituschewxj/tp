@@ -445,6 +445,8 @@ The autocomplete suggestions will be listed in alphabetical order, meaning if yo
 TAPro saves successful commands input, so you can retrieve them later, using the 
 <span class="badge bg-light text-dark"><i class="fa-regular fa-square-caret-up"></i> UP</span> and
 <span class="badge bg-light text-dark"><i class="fa-regular fa-square-caret-down"></i> DOWN</span> arrow keys.
+{{ macros.keyFormat('<i class="fa-regular fa-square-caret-up"></i> Up') }} and
+{{ macros.keyFormat('<i class="fa-regular fa-square-caret-down"></i> Down') }} arrow keys.
 
 <box type="success" light>
 
