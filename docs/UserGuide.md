@@ -200,7 +200,7 @@ Format: `addstu n/NAME nn/NUSNET [p/PHONE] [e/EMAIL] [m/MAJOR] [t/TAG]…​`
 * Add a student with the given details.
 * The name and nusnet id must be provided. And nusnet id must be unique.
 * All the remaining fields are optional. If values are not provided to optional fields, they will be set to a placeholder value under the hood (e.g., `Major not provided` for `MAJOR` field).
-* If a person has double degrees, you may use commas to separate the degrees in the `MAJOR` field. (e.g., `m/Computer Science, Mathematics`).
+* If a student is undertaking a double degree programme, you can use a comma to separate the disciplines in the `MAJOR` field. (e.g., `m/Computer Science, Mathematics`).
 
 <box type="tip" seamless>
 
