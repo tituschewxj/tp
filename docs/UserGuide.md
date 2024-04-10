@@ -450,7 +450,7 @@ TAPro saves successful commands input, so you can retrieve them later, using the
 
 <span class="semi-bold">#g#Example:##</span>
 
-1. `mark nn/e0123456` was the previous successful command.
+1. `mark nn/E0123456` was the previous successful command.
 1. Now the command input box is empty. 
 1. Pressing <span class="badge bg-light text-dark"><i class="fa-regular fa-square-caret-up"></i> UP</span> will 
    fill the text in the command input box to
