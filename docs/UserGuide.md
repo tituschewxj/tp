@@ -23,7 +23,7 @@ If you can type fast, TAPro can get your contact management and attendance takin
 
 1. Ensure you have Java 11 or above installed in your computer.
 
-<box type="tip" seamless>
+<box type="tip" light>
 
 <i class="fa-solid fa-download"></i>
 **Installing Java:**
@@ -39,7 +39,7 @@ The latest version is compatible with older versions.
 
 1. Open a command terminal, `cd` into the folder you downloaded the jar file in, and run the `java -jar TAPro.jar` command to launch the application.
 
-<box type="info" seamless>
+<box type="info" light>
 
 A GUI similar to the below image should appear in a few seconds. Note how the app contains some sample data.
 
@@ -50,7 +50,7 @@ A GUI similar to the below image should appear in a few seconds. Note how the ap
 
 5. Type the command in the command box and press <span class="badge bg-light text-dark">Enter</span> to execute it. e.g. typing **`help`** and pressing <span class="badge bg-light text-dark">Enter</span> will open the help window.
 
-<box type="info" seamless>
+<box type="info" light>
 
 **Here are some example commands you can try:**
 
@@ -74,11 +74,11 @@ A GUI similar to the below image should appear in a few seconds. Note how the ap
 
 ## <i class="fa-solid fa-font-awesome"></i> Features
 
-<box type="info" seamless>
+<box type="info" light>
 
 **About the command format:**<br>
 
-<box type="success" seamless>
+<box type="success" light>
 
 <span class="semi-bold">Words in `UPPER_CASE` are the parameters to be supplied by the user.</span>
 
@@ -86,14 +86,14 @@ A GUI similar to the below image should appear in a few seconds. Note how the ap
 </box>
 
 
-<box type="success" seamless>
+<box type="success" light>
 
 <span class="semi-bold">Items in square brackets are optional.</span>
 
 <span class="semi-bold">#g#Example:##</span> `n/NAME [t/TAG]` can be used as `n/John Doe t/friend` or as `n/John Doe`.
 </box>
 
-<box type="success" seamless>
+<box type="success" light>
 
 <span class="semi-bold">Items with `…`​ after them can be used multiple times including zero times.</span>
 
@@ -101,14 +101,14 @@ A GUI similar to the below image should appear in a few seconds. Note how the ap
 </box>
 
 
-<box type="success" seamless>
+<box type="success" light>
 
 <span class="semi-bold">Parameters can be in any order.</span>
 
 <span class="semi-bold">#g#Example:##</span> If the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
 </box>
 
-<box type="success" seamless>
+<box type="success" light>
 
 <span class="semi-bold">Extraneous parameters for commands that do not take in parameters (such as `help`, `list`, `exit` and `clear`) will be ignored.</span>
 
@@ -117,7 +117,7 @@ A GUI similar to the below image should appear in a few seconds. Note how the ap
 
 </box>
 
-<box type="warning" seamless>
+<box type="warning" light>
 
 **If you are using a PDF version of this document:**
 
@@ -135,7 +135,7 @@ as well as quick reference of each command with simple examples on how to use th
 
 Format: `help`
 
-<box type="info" seamless>
+<box type="info" light>
 
 <i class="fa-regular fa-window-restore"></i>
 **A new window is opened:**
@@ -146,7 +146,7 @@ A new window is opened, so that it does not clutter up your main window. A GUI s
 
 </box>
 
-<box type="tip" seamless>
+<box type="tip" light>
 
 <i class="fa-solid fa-maximize"></i>
 **Resizing the help window:**
@@ -154,18 +154,18 @@ A new window is opened, so that it does not clutter up your main window. A GUI s
 The help window is resizable, so you can **easily reposition and resize** it to fit anywhere on your screen, exactly where you want it to be.
 </box>
 
-<box type="tip" seamless>
+<box type="tip" light>
 
 <i class="fa-solid fa-window-restore"></i>
 **Switching quickly between the help and main window:**
 
-* On Windows and most Linux distributions, you can use the keyboard shortcut: <span class="badge bg-light text-dark">Alt</span> +  <span class="badge bg-light text-dark">Tab</span>, to switch between windows quickly. 
+* On Windows and most Linux distributions, you can use the keyboard shortcut: <span class="badge bg-light text-dark">ALT</span> +  <span class="badge bg-light text-dark">TAB</span>, to switch between windows quickly. 
 
-* On macOS, you can use the keyboard shortcut: <span class="badge bg-light text-dark">Cmd⌘</span> + <span class="badge bg-light text-dark">Tab</span>, to switch between windows quickly.
+* On macOS, you can use the keyboard shortcut: <span class="badge bg-light text-dark">⌘CMD</span> + <span class="badge bg-light text-dark">TAB</span>, to switch between windows quickly.
 
 </box>
 
-<box type="info" seamless>
+<box type="info" light>
 
 **More about help's quick reference:**
 
@@ -201,7 +201,7 @@ Format: `addstu n/NAME nn/NUSNET [p/PHONE] [e/EMAIL] [m/MAJOR] [t/TAG]…​`
 * The name and nusnet id must be provided. And nusnet id must be unique.
 * All the remaining fields are optional. If not provided, a placeholder value will be used.
 
-<box type="tip" seamless>
+<box type="tip" light>
 
 **Tip:** A person can have any number of tags (including 0)
 </box>
@@ -244,7 +244,7 @@ Examples:
 *  `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email contact of the 1st person to be `91234567` and `johndoe@example.com` respectively.
 *  `edit 2 n/Betsy Crower t/` Edits the name of the 2nd person to be `Betsy Crower` and clears all existing tags.
 
-<box type="info" seamless>
+<box type="info" light>
 This command differs from most other commands that use the `NUSNET_ID` to identify a student. This command uses the index number shown in the displayed person list to identify the student to be edited.
 </box>
 
@@ -258,7 +258,7 @@ Finds students whose names contain any of the given keywords.
 
 Format: `find KEYWORD [MORE_KEYWORDS]…​`
 
-<box type="info" seamless>
+<box type="info" light>
 
 **Parameters of `find` command:**
 
@@ -267,18 +267,18 @@ Format: `find KEYWORD [MORE_KEYWORDS]…​`
 
 </box>
 
-<box type="info" seamless>
+<box type="info" light>
 
 **About the `find` command:**
 
-<box type="success" seamless>
+<box type="success" light>
 
 <span class="semi-bold">Only the name is searched.</span>
 
 <span class="semi-bold">#g#Example:##</span> `E01234567` will not match a student with NUSNet ID `E01234567`.
 </box>
 
-<box type="success" seamless>
+<box type="success" light>
 
 <span class="semi-bold">The name search is case-insensitive.</span>
 
@@ -286,21 +286,21 @@ Format: `find KEYWORD [MORE_KEYWORDS]…​`
 </box>
 
 
-<box type="success" seamless>
+<box type="success" light>
 
 <span class="semi-bold">The order of the keywords does not matter.</span>
 
 <span class="semi-bold">#g#Example:##</span> `Hans Bo` will match `Bo Hans`
 </box>
 
-<box type="success" seamless>
+<box type="success" light>
 
 <span class="semi-bold">Only full words will be matched.</span>
 
 <span class="semi-bold">#g#Example:##</span> `Han` will not match `Hans`
 </box>
 
-<box type="success" seamless>
+<box type="success" light>
 
 <span class="semi-bold">Students' name matching at least one keyword will be returned (i.e. `OR` search).</span>
 
@@ -308,17 +308,17 @@ Format: `find KEYWORD [MORE_KEYWORDS]…​`
 </box>
 </box>
 
-<box type="success" seamless>
+<box type="success" light>
 
 **Examples of using the find command:**
 
-<box type="success" seamless>
+<box type="success" light>
 
 <span class="semi-bold">#g#Example:##</span> `find John` returns `john` and `John Doe`
 </box>
 
 
-<box type="success" seamless>
+<box type="success" light>
 
 <span class="semi-bold">#g#Example:##</span> `find alex david` returns `Alex Yeoh`, `David Li`, as seen in the image below.
 
@@ -396,7 +396,7 @@ Format: `exit`
 
 Autocompletes a word or a set of words, based on the current input.
 
-<box type="warning" seamless>
+<box type="warning" light>
 
 **Autocomplete doesn't work on week number:**
 
@@ -405,30 +405,30 @@ and it is much faster just typing out the number.
 
 </box>
 
-<box type="success" seamless>
+<box type="success" light>
 
 <span class="semi-bold">#g#Example:##</span>
 
 We have three students with NUSNet IDs `e0123456`, `e1234567` and `e2345678`. 
-If we type `mark nn/` into the command input box and press <span class="badge bg-light text-dark">Tab</span>,
+If we type `mark nn/` into the command input box and press <span class="badge bg-light text-dark">TAB</span>,
 we can see that the text in the command input box autocompletes to become `mark nn/e01234567`.
 
-Pressing <span class="badge bg-light text-dark">Tab</span> again, causes the text to update to `mark nn/e1234567`,
+Pressing <span class="badge bg-light text-dark">TAB</span> again, causes the text to update to `mark nn/e1234567`,
 followed by `mark nn/e2345678`.
 </box>
 
-<box type="info" seamless>
+<box type="info" light>
 
 **Using autocomplete to scroll through all possible autocomplete suggestions:**
 
 Autocomplete will scroll through all possible options, based on the existing data in your contact list.
 
 When reaching the end of the possible options list, pressing
-<span class="badge bg-light text-dark">Tab</span> will wrap 
+<span class="badge bg-light text-dark">TAB</span> will wrap 
 the possible options back to the start of that list again.
 </box>
 
-<box type="info" seamless>
+<box type="info" light>
 
 **Sorted autocomplete suggestions:**
 
@@ -446,7 +446,7 @@ TAPro saves successful commands input, so you can retrieve them later, using the
 <span class="badge bg-light text-dark">Up</span> and
 <span class="badge bg-light text-dark">Down</span> keys.
 
-<box type="success" seamless>
+<box type="success" light>
 
 <span class="semi-bold">#g#Example:##</span>
 
@@ -456,7 +456,7 @@ Pressing <span class="badge bg-light text-dark">Up</span> will update the text i
 the previous command `mark nn/e0123456`.
 </box>
 
-<box type="warning" seamless>
+<box type="warning" light>
 
 **Only successful commands will be retrieved:**
 
@@ -478,7 +478,7 @@ TAPro's data are saved in the hard disk automatically after any command that cha
 
 TAPro's data are saved automatically as a JSON file `[JAR file location]/data/addressbook.json`. Advanced users are welcome to update data directly by editing that data file.
 
-<box type="warning" seamless>
+<box type="warning" light>
 
 **Caution:**
 
@@ -494,7 +494,7 @@ Furthermore, certain edits can cause the TAPro to behave in unexpected ways (e.g
 ## <i class="fa-solid fa-comments"></i> FAQ
 
 ### Transfering Data to Another Computer
-<box type="info" icon=":fa-solid-question:" seamless>
+<box type="info" icon=":fa-solid-question:" light>
 
 **Q**: How do I transfer my data to another computer?
 
@@ -503,7 +503,7 @@ your current computer! Click `Yes` if are prompted to replace the existing `data
 </box>
 
 ### Loading Data from Another Computer
-<box type="info" icon=":fa-solid-question:" seamless>
+<box type="info" icon=":fa-solid-question:" light>
 
 **Q**: How can I transfer my TAPro contacts to another Computer?<br>
 **A**: Install TAPro in your target computer and paste the empty `data` folder it creates 
@@ -512,7 +512,7 @@ target computer.
 </box>
 
 ### Launching TAPro
-<box type="info" icon=":fa-solid-question:" seamless>
+<box type="info" icon=":fa-solid-question:" light>
 
 **Q**: How can I launch TAPro if clicking on the JAR file does not work?<br>
 **A**: There are two possible methods to launch TAPro.
@@ -535,7 +535,7 @@ target computer.
 </box>
 
 ### Checking Java Version
-<box type="info" icon=":fa-solid-question:" seamless>
+<box type="info" icon=":fa-solid-question:" light>
 
 **Q**: How can I check my Java version?<br>
 **A**: Open a command line and type `java -version`. If you do not have Java installed, you can install Java 11 using the Oracle guide [here](https://www.oracle.com/java/technologies/downloads/#java11). Alternatively, you can install the OpenJDK version. For macOS users, you may wish to follow the instructions [here](https://nus-cs2103-ay2324s1.github.io/website/admin/programmingLanguages.html).
@@ -543,22 +543,22 @@ target computer.
 
 ### Using TAPro
 
-<box type="info" icon=":fa-solid-question:" seamless>
+<box type="info" icon=":fa-solid-question:" light>
 
 **Q**: What are the available commands in TAPro?<br>
 **A**: Please refer to the [Command Summary](#command-summary) for the list of available commands.
 </box>
-<box type="info" icon=":fa-solid-question:" seamless>
+<box type="info" icon=":fa-solid-question:" light>
 
 **Q**: Do I need an internet connection to use TAPro?<br>
 **A**: All of TAPro's functionality can be used offline! No internet connection is required.
 </box>
-<box type="info" icon=":fa-solid-question:" seamless>
+<box type="info" icon=":fa-solid-question:" light>
 
 **Q**: How do I save my data?<br>
 **A**: Data is saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
 </box>
-<box type="info" icon=":fa-solid-question:" seamless>
+<box type="info" icon=":fa-solid-question:" light>
 
 **Q**: How can I remove a student's attendance for a particular week?<br>
 **A**: In TAPro, you can remove a student's attendance for a particular week using the `unmark` command! The syntax 
@@ -568,13 +568,13 @@ for the `unmark` command is as follows:
 unmark nn/NUSNET_ID wk/WEEK_NUMBER
 ```
 </box>
-<box type="info" icon=":fa-solid-question:" seamless>
+<box type="info" icon=":fa-solid-question:" light>
 
 **Q**: Can I add tags to a TAPro contact if I want to remember something additional, like a birthday?<br>
 **A**: Yes you can! In fact, you may use the `TAG` parameter of a contact to store any information you want. Simply 
 use `edit` with the `NUSNET` of the student and the information you wish to add to the contact, and you should be on your way!
 
-<box type="success" seamless>
+<box type="success" light>
 
 <span class="semi-bold">#g#Example:##</span> Using tag as a birthday for contacts
 ```
@@ -583,7 +583,7 @@ edit 2 t/25Jan
 edit 3 t/1Mar
 ```
 </box>
-<box type="success" seamless>
+<box type="success" light>
 
 <span class="semi-bold">#g#Example:##</span> Using tag as a industry interest 
 ```
@@ -593,7 +593,7 @@ edit 3 t/HealthTech
 ```
 </box>
 
-<box type="warning" seamless>
+<box type="warning" light>
 
 **Caution:**
 
@@ -607,7 +607,7 @@ Do also note that tags are alphanumeric and cannot contain spaces or special cha
 
 
 ### Saving More Time
-<box type="info" icon=":fa-solid-question:" seamless>
+<box type="info" icon=":fa-solid-question:" light>
 
 **Q**: How can I save more time when using TAPro?<br>
 **A**: You can use the advanced features like **[autocomplete](#autocomplete)** and **[command history toggle](#retrieving-command-history)** in TAPro! 
@@ -615,7 +615,7 @@ These
 features are 
 designed to help you input commands faster and more efficiently.
 
-<box type="success" seamless>
+<box type="success" light>
 
 <span class="semi-bold">#g#Example:##</span> Unmarking a wrongly marked  student's attendance
 
@@ -628,7 +628,7 @@ move the cursor to the beginning of the command.
 1. Press `Enter`!
 
 </box>
-<box type="info" seamless>
+<box type="info" light>
 
 **Note:** 
 Future enhancement include clicking <span class="badge bg-light text-dark"><i class="fa-regular 
@@ -643,7 +643,7 @@ the front of the command.
 
 ## <i class="fa-solid fa-triangle-exclamation"></i> Known issues
 
-<box type="warning" theme="danger" seamless>
+<box type="warning" theme="danger" light>
 
 **1. When using multiple screens**
 
