@@ -106,7 +106,7 @@ Diving into TAPro, you'll encounter some handy notations and terms. We've decode
 | Prefix | Attribute |
 |--------|-----------------------------|
 | **n/** | Name of the student         |
-| **nn/** | NUSNet of the student       |
+| **nn/** | NUSNet ID of the student       |
 | **p/** | Phone number of the student |
 | **e/** | Email of the student        |
 | **m/** | Major of the student        |
