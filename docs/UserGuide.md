@@ -199,7 +199,8 @@ Format: `addstu n/NAME nn/NUSNET [p/PHONE] [e/EMAIL] [m/MAJOR] [t/TAG]…​`
 
 * Add a student with the given details.
 * The name and nusnet id must be provided. And nusnet id must be unique.
-* All the remaining fields are optional. If not provided, a placeholder value will be used.
+* All the remaining fields are optional. If values are not provided to optional fields, they will be set to a placeholder value under the hood (e.g., `Major not provided` for `MAJOR` field).
+* If a person has double degrees, you may use commas to separate the degrees in the `MAJOR` field. (e.g., `m/Computer Science, Mathematics`).
 
 <box type="tip" seamless>
 
@@ -208,7 +209,7 @@ Format: `addstu n/NAME nn/NUSNET [p/PHONE] [e/EMAIL] [m/MAJOR] [t/TAG]…​`
 
 Examples:
 * `addstu n/John Doe nn/e1234567 p/98765432 e/johnd@example.com m/Computer Science`
-* `addstu n/Betsy Crowe nn/e01234567 t/friend e/betsycrowe@example.com m/Mathematics p/1234567 t/club`
+* `addstu n/Betsy Crowe nn/e01234567 t/friend e/betsycrowe@example.com m/Mathematics, Physics p/1234567 t/club`
 * `addstu n/Betsy Crowe nn/e01234567`
 
 <markdown class="d-print-none">---</markdown>
