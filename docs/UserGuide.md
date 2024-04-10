@@ -199,17 +199,37 @@ Format: `addstu n/NAME nn/NUSNET [p/PHONE] [e/EMAIL] [m/MAJOR] [t/TAG]…​`
 
 * Add a student with the given details.
 * The name and nusnet id must be provided. And nusnet id must be unique.
-* All the remaining fields are optional. If not provided, a placeholder value will be used.
+* All the remaining fields are optional. If values are not provided to optional fields, they will be set to a placeholder value under the hood (e.g., `Major not provided` for `MAJOR` field).
 
 <box type="tip" light>
 
 **Tip:** A person can have any number of tags (including 0)
 </box>
 
+<box type="tip" light>
+
+**Tip:** If a student is undertaking a double degree programme, you can use a comma to separate the disciplines in the `MAJOR` field. (e.g., `m/Computer Science, Mathematics`)
+</box>
+
+<box type="info" light>
+
+**Note:** NUSNet provided will be converted to uppercase automatically upon running the command. (e.g., `e0123456` will be converted to `E0123456`)
+</box>
+
+<box type="info" light>
+
+**Note:** Tags must be a single, non-space separated, alphanumeric word. For example `bestFriend4Ever`, `colleague`, `Club` are valid tags, but `best friend`, `best-friend` are not valid tags.
+</box>
+
+<box type="warning" light>
+
+**Note:** The application will not wrap the text in the various fields. By [international standards](https://en.wikipedia.org/wiki/E.164), telephone numbers should not exceed 15 digits. And long names and email addresses are extremely rare, which falls outside of normal use cases. Lastly, most students will have no more than 2 majors.
+</box>
+
 Examples:
-* `addstu n/John Doe nn/E1234567 p/98765432 e/johnd@example.com m/Computer Science`
-* `addstu n/Betsy Crowe nn/E01234567 t/friend e/betsycrowe@example.com m/Mathematics p/1234567 t/club`
-* `addstu n/Betsy Crowe nn/E01234567`
+* `addstu n/John Doe nn/e1234567 p/98765432 e/johnd@example.com m/Computer Science`
+* `addstu n/Betsy Crowe nn/e0123456 t/friend e/betsycrowe@example.com m/Mathematics, Physics p/1234567 t/club`
+* `addstu n/Betsy Crowe nn/e0123456`
 
 <markdown class="d-print-none">---</markdown>
 <div style="page-break-after: always;"></div>
