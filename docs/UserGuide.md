@@ -446,7 +446,7 @@ TAPro saves successful commands input, so you can retrieve them later, using the
 <span class="badge bg-light text-dark"><i class="fa-regular fa-square-caret-up"></i> UP</span> and
 <span class="badge bg-light text-dark"><i class="fa-regular fa-square-caret-down"></i> DOWN</span> arrow keys.
 
-<box type="success" seamless>
+<box type="success" light>
 
 <span class="semi-bold">#g#Example:##</span>
 
