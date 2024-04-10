@@ -595,12 +595,17 @@ target computer.
 3. Enter `java -jar TAPro.jar` and the TAPro Application should launch.
 
 **Method 2**: Using `.bat/.sh` Scripts
-1. Create a new text file and paste the following line into the file:
-   ```
-   java -jar <absolute_path_to_TAPro.jar>
-   ```
-   Replace `<absolute_path_to_TAPro.jar>` with the path to TAPro on your system, in quotes
-   Example on Windows: `java -jar "C:\Users\YOUR_USERNAME\Downloads\TAPro.jar"`
+   1. Create a new text file and paste the following code into the file and edit it according to the comments:
+      ```sh
+         java -jar <abosute_path_to_TAPro.jar> 
+         # Replace "<abosute_path_to_TAPro.jar>" with the path to TAPro on your system, in quotes.
+      ```
+      Example on Windows: `java -jar "C:\Users\YOUR_USERNAME\Downloads\TAPro.jar"`
+
+      Example on Linux: `java -jar /home/YOUR_USERNAME/Downloads/TAPro.jar`
+
+        Example on macOS: `java -jar "/Users/YOUR_USERNAME/Downloads/TAPro.jar"`
+
 2. Save the file as `TAPro.bat` (Windows) or `TAPro.sh` (macOS/Linux).
 3. Change the admin settings of the script to allow it to run as a program:
     - Windows: Right-click on the script and select Properties. Under General, check the box that says `Allow this file to run as a program`.
