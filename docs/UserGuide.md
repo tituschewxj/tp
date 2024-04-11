@@ -290,12 +290,11 @@ The quick reference is meant for **fast and reliable** lookup of commands and th
 
 ### <i class="fa-solid fa-chalkboard"></i> Name/Rename CS course : `setcrs`
 
-Names the course in question. 
+Sets the course code in question. 
 
-Format: `setcrs COURSE_NAME`
+Format: `setcrs COURSE_CODE`
 
-Duplicate course are not allowed.
-Courses are case-insensitive.
+Course codes are case-insensitive.
 Course code should follow the format "XX1234Y", Y is optional.
 
 <markdown class="d-print-none">---</markdown>
@@ -309,6 +308,8 @@ Format: `addstu n/NAME nn/NUSNET [p/PHONE] [e/EMAIL] [m/MAJOR] [t/TAG]…​`
 
 * Add a student with the given details.
 * The name and nusnet id must be provided. And nusnet id must be unique.
+
+* Name cannot be empty or spaces only, contain only alphabets and cannot have double spaces. 
 * All the remaining fields are optional. If values are not provided to optional fields, they will be set to a placeholder value under the hood (e.g., `Major not provided` for `MAJOR` field).
 
 <box type="tip" light>
@@ -887,16 +888,20 @@ If you have more than one copy of TAPro running, the application may not functio
 
 ## <i class="fa-solid fa-table-list"></i> Command summary
 
-| Action             | Format, Examples                                                                                                                                                                          |
-|--------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Add Student**    | `addstu n/NAME p/PHONE_NUMBER e/EMAIL nn/NUSNET_ID m/MAJOR [t/TAG]…​` <br> e.g., `addstu n/James Ho p/22224444 e/jamesho@example.com nn/E1234567 m/Computer Science t/friend t/colleague` |
-| **Clear**          | `clear`                                                                                                                                                                                   |
-| **Delete Student** | `delstu nn/NUSNET_ID`<br> e.g., `delstu nn/E0957499`                                                                                                                                      |
-| **Edit**           | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [m/MAJOR] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`                                                                 |
-| **Mark**           | `mark nn/NUSNET_ID wk/WEEK_NUMBER`<br> e.g., `mark nn/E1234567 wk/3`                                                                                                                      |
-| **Unmark**         | `unmark nn/NUSNET_ID wk/WEEK_NUMBER`<br> e.g., `unmark nn/E1234567 wk/3`                                                                                                                  |
-| **Find**           | `find KEYWORD [MORE_KEYWORDS]…​`<br> e.g., `find James Jake`                                                                                                                              |
-| **Set Course**     | `setcrs COURSE_NAME`                                                                                                                                                                      |
-| **List**           | `list`                                                                                                                                                                                    |
-| **Help**           | `help`                                                                                                                                                                                    |
-| **Exit**           | `exit`                                                                                                                                                                                    |
+  
+## Command summary
+
+| Action             | Format, Examples                                                                                                                                                                       |
+|--------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Add Student**    | `addstu n/NAME p/PHONE_NUMBER e/EMAIL nn/NUSNET_ID m/MAJOR [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com nn/e1234567 m/Computer Science t/friend t/colleague` |
+| **Clear**          | `clear`                                                                                                                                                                                |
+| **Delete Student** | `delstu nn/NUSNET_ID`<br> e.g., `delstu nn/e0957499`                                                                                                                                   |
+| **Edit**           | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [m/MAJOR] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`                                                              |
+| **Mark**           | `mark nn/NUSNET_ID wk/WEEK_NUMBER`<br> e.g., `mark nn/e1234567 wk/3`                                                                                                                   |
+| **Unmark**         | `unmark nn/NUSNET_ID wk/WEEK_NUMBER`<br> e.g., `unmark nn/e1234567 wk/3`                                                                                                               |
+| **Find**           | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`                                                                                                                             |
+| **Set Course**     | `setcrs COURSE_CODE`                                                                                                                                                                   |
+| **List**           | `list`                                                                                                                                                                                 |
+| **Help**           | `help`                                                                                                                                                                                 |
+| **Exit**           | `exit`                                                                                                                                                                                 |
+
