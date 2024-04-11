@@ -296,9 +296,14 @@ Format: `setcrs COURSE_CODE`
 
 Course codes are case-insensitive.
 
+<box type="warning" light>
+
 Course code should follow the format "XX1234Y", Y is optional.
 
+When an invalid course code is entered, the follow error message appears:
+
 <img src="images/ug/setcrs_error.png" alt="Setcrs Error" class="rounded-image" width="800px"/>
+</box>
 
 <markdown class="d-print-none">---</markdown>
 <div style="page-break-after: always;"></div>
