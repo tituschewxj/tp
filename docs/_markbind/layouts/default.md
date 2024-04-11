@@ -9,7 +9,7 @@
     <li><a href="{{baseUrl}}/UserGuide.html" class="nav-link">User Guide</a></li>
     <li><a href="{{baseUrl}}/DeveloperGuide.html" class="nav-link">Developer Guide</a></li>
     <li><a href="{{baseUrl}}/AboutUs.html" class="nav-link">About Us</a></li>
-    <li><a href="https://github.com/se-edu/addressbook-level3" target="_blank" class="nav-link"><md>:fab-github:</md></a>
+    <li><a href="https://github.com/AY2324S2-CS2103T-F13-1/tp" target="_blank" class="nav-link"><md>:fab-github:</md></a>
     </li>
     <li slot="right">
       <form class="navbar-form">
@@ -41,6 +41,8 @@
   * [Appendix: Requirements]({{ baseUrl }}/DeveloperGuide.html#appendix-requirements)
   * [Appendix: Instructions for manual testing]({{ baseUrl }}/DeveloperGuide.html#appendix-instructions-for-manual-testing)
   * [Appendix: Design Decisions]({{ baseUrl }}/DeveloperGuide.html#appendix-design-decisions)
+  * [Appendix: Effort]({{ baseUrl }}/DeveloperGuide.html#appendix-effort)
+  * [Appendix: Planned Enhancements]({{ baseUrl }}/DeveloperGuide.html#appendix-planned-enhancements)
 * [About Us]({{ baseUrl }}/AboutUs.html)
       </site-nav>
     </div>
