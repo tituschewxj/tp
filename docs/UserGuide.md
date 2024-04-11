@@ -296,6 +296,8 @@ Format: `setcrs COURSE_CODE`
 
 Course codes are case-insensitive.
 
+Here is the output in the command results when the `setcrs` command is successful:
+
 <box type="warning" light>
 
 Course code should follow the format "XX1234Y", Y is optional.
