@@ -884,16 +884,16 @@ If you have more than one copy of TAPro running, the application may not functio
 
 ## <i class="fa-solid fa-table-list"></i> Command summary
 
-| Action             | Format, Examples                                                                                                                                                                       |
-|--------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Add Student**    | `addstu n/NAME p/PHONE_NUMBER e/EMAIL nn/NUSNET m/MAJOR [t/TAG]…​` <br> e.g., `addstu n/James Ho p/22224444 e/jamesho@example.com nn/E1234567 m/Computer Science t/friend t/colleague` |
-| **Clear**          | `clear`                                                                                                                                                                                |
-| **Delete Student** | `delstu nn/NUSNET`<br> e.g., `delstu nn/E0957499`                                                                                                                                      |
-| **Edit**           | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [m/MAJOR] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`                                                              |
-| **Mark**           | `mark nn/NUSNET wk/WEEK_NUMBER`<br> e.g., `mark nn/E1234567 wk/3`                                                                                                                      |
-| **Unmark**         | `unmark nn/NUSNET wk/WEEK_NUMBER`<br> e.g., `unmark nn/E1234567 wk/3`                                                                                                                  |
-| **Find**           | `find KEYWORD [MORE_KEYWORDS]…​`<br> e.g., `find James Jake`                                                                                                                           |
-| **Set Course**     | `setcrs COURSE_CODE`                                                                                                                                                                   |
-| **List**           | `list`                                                                                                                                                                                 |
-| **Help**           | `help`                                                                                                                                                                                 |
-| **Exit**           | `exit`                                                                                                                                                                                 |
+| Action             | Format, Examples                                                                                                                                                                     |
+|--------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Add Student**    | `addstu n/NAME nn/NUSNET [p/PHONE] [e/EMAIL] [m/MAJOR] [t/TAG]…` <br> e.g., `addstu n/James Ho p/22224444 e/jamesho@example.com nn/E1234567 m/Computer Science t/friend t/colleague` |
+| **Clear**          | `clear`                                                                                                                                                                              |
+| **Delete Student** | `delstu nn/NUSNET`<br> e.g., `delstu nn/E0957499`                                                                                                                                    |
+| **Edit**           | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [m/MAJOR] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`                                                            |
+| **Mark**           | `mark nn/NUSNET wk/WEEK_NUMBER`<br> e.g., `mark nn/E1234567 wk/3`                                                                                                                    |
+| **Unmark**         | `unmark nn/NUSNET wk/WEEK_NUMBER`<br> e.g., `unmark nn/E1234567 wk/3`                                                                                                                |
+| **Find**           | `find KEYWORD [MORE_KEYWORDS]…​`<br> e.g., `find James Jake`                                                                                                                         |
+| **Set Course**     | `setcrs COURSE_CODE`                                                                                                                                                                 |
+| **List**           | `list`                                                                                                                                                                               |
+| **Help**           | `help`                                                                                                                                                                               |
+| **Exit**           | `exit`                                                                                                                                                                               |
