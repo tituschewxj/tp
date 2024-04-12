@@ -591,7 +591,7 @@ For all use cases below, the **System** is TAPro and the **Actor** is the user, 
 
 <box no-icon type="success" light>
 
-**: Use case: Retrieve a more recent successful command input**
+**Use case: Retrieve a more recent successful command input**
 
 <span class="semi-bold">MSS</span>
 
