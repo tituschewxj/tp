@@ -599,7 +599,7 @@ For all use cases below, the **System** is TAPro and the **Actor** is the user, 
 
 2. User presses the retrieve next command hotkey (e.g. down arrow key).
 
-3. The more recent successful command input is shown in the command box.
+3. TAPro displays a more recent successful command input in the command box.
    Use case ends.
 
 <span class="semi-bold">Extensions</span>
