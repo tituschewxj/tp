@@ -864,7 +864,7 @@ Below are some non-exhaustive instances of our challenges, achievements and effo
 
 1. Implementing nodeJS to render documentation on our local machines.
 
-1. Using `captain githook` to verify locally if code changes made will pass the CI checks.
+1. Utilized [`captain-githook`](https://github.com/swellaby/captain-githook) `pre-commit` and `pre-push` checks locally to automatically verify if code changes made will pass continuous integration checks. It allows us to focus our time on working on the quality of our code, rather that dealing with formatting related issues.
 
 {{ newPage }}
 
