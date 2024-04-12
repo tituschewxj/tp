@@ -827,11 +827,17 @@ As a team, we have conquered many problems and fought uphill battles. We did awa
 
 Below are some non-exhaustive instances of our challenges, achievements and efforts overcoming them.
 
-1. Use of macros in documentation.
+1. Use of Nunjucks macros and variables in documentation.
    Macros were used for creating `newPage` breaks as well as when replacing key button presses like {{ macros.keyFormat
    ('Tab') }}, {{ macros.keyFormat('⌘Cmd') }} and
-   {{ macros.keyFormat('Alt') }}
-   for example.
+   {{ macros.keyFormat('Alt') }}. While macros are powerful tools for reusing code with parameters, variables in 
+   Nunjucks 
+   serve as placeholders that can dynamically insert content, such as implementing page breaks efficiently. 
+
+    This method abstracts the formatting into a 
+   single, manageable location, ensuring uniformity across our documentation. It streamlines the documentation process, making it easier for contributors to apply custom styling and formatting without getting bogged down by repetitive tasks. 
+    
+    For further information and a deeper understanding of how we utilize Nunjucks in our documentation, you can visit the Nunjucks official documentation for [Macros](https://mozilla.github.io/nunjucks/templating.html#macro) and [Variables](https://mozilla.github.io/nunjucks/templating.html#variables).
    
     <box type="success" light>
 
