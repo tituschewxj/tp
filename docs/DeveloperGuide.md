@@ -823,7 +823,40 @@ Expected: TAPro's main window's title contains the course code `CS2103` provided
 
 ## **Appendix: Effort**
 
-**TODO**
+As a team, we have conquered many problems and fought uphill battles. We did away a number of potential headaches with improved workflows and use of automation.
+
+Below are some non-exhaustive instances of our challenges, achievements and efforts overcoming them.
+
+1. Use of macros in documentation.
+   Macros were used for creating `newPage` breaks as well as when replacing key button presses like {{ macros.keyFormat
+   ('Tab') }}, {{ macros.keyFormat('⌘Cmd') }} and
+   {{ macros.keyFormat('Alt') }}
+   for example.
+   
+    <box type="success" light>
+
+    **#g#Examples:##**
+
+    <img alt="Macros Example 1" src="images/macros1.png" class="rounded-image"/>
+    <br></br>
+    <img alt="Macros Example 2" src="images/macros2.png" class="rounded-image"/>
+    <br></br>
+    <img alt="Macros Example 3" src="images/macros3.png" class="rounded-image"/>
+
+    </box>
+
+1. Refactoring the parameter syntax to improve AB3's original OOP.
+
+1. Implementing autocomplete and command history.
+   We thought hard about what are the potential shortcuts that would save our target user's time and we looked to 
+   the CLI for inspiration. Given that our product uses NUSNet ID as its unique identifier, it can be a hassle to 
+   type out a full command. Especially when it has already been previously used, or only require minor changes to 
+   the command. This resulted in the idea of clicking {{ macros.keyFormat
+   ('Tab') }} for autocomplete when allowed as well as up and down arrow keys to retrieve previous commands.
+
+1. Implementing nodejs to render documentation on our local machines.
+
+1. Using `captain githook` to verify locally if code changes made will pass the CI checks.
 
 {{ newPage }}
 
@@ -832,6 +865,7 @@ Expected: TAPro's main window's title contains the course code `CS2103` provided
 <box type="info" light>
 
 **Team size:** 5
+**Allowed Enhancements:** 10
 </box>
 
 
