@@ -862,7 +862,7 @@ Below are some non-exhaustive instances of our challenges, achievements and effo
    fa-square-caret-up"></i> UP</span> and <span class="badge bg-light text-dark"><i class="fa-regular 
    fa-square-caret-down"></i> DOWN</span> arrow keys to retrieve previous commands.
 
-1. Implementing nodeJS to render documentation on our local machines.
+1. Utilized [Node.js](https://nodejs.org/) and installed [MarkBind](https://markbind.org/) locally as a dev-dependency in `package.json`. It allows us to serve documentation on our local machines, and ensures that all developers are using the same version of MarkBind for consistency, so that no version related issues of MarkBind result in inconsistencies in our codebase.
 
 1. Utilized [`captain-githook`](https://github.com/swellaby/captain-githook) `pre-commit` and `pre-push` checks locally to automatically verify if code changes made will pass continuous integration checks. It allows us to focus our time on working on the quality of our code, rather that dealing with formatting related issues.
 
