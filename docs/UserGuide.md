@@ -61,57 +61,57 @@ Diving into TAPro, you'll encounter some handy notations and terms. We've decode
 
 ### Symbols
 
-| Symbol                                               | Meaning                                                |
-|------------------------------------------------------|--------------------------------------------------------|
-| <i class="fa-solid fa-lightbulb text-success"></i>   | Tip                                                    |
-| <i class="fa-solid fa-exclamation text-warning"></i> | Warning                                                |
-| <i class="fa-solid fa-flag text-danger"></i>         | Important                                              |
-| <i class="fa-solid fa-info text-info"></i>           | Additional useful information                          |
-| <i class="fa-solid fa-check text-success"></i>       | Valid Example                                          |
-| <i class="fa-solid fa-x text-danger"></i> | Invalid Example                                        |
-| <i class="fa-solid fa-exclamation text-danger"></i>  | Danger                                                 |
-| <i class="fa-solid fa-book text-primary"></i> | Definition |
-| <i class="fa-solid fa-question text-info"></i> | Question |
-| **`UPPER_CASE`**                                     | Represents parameters that need to be given by you!    |
+| Symbol                                               | Meaning                                                         |
+|------------------------------------------------------|-----------------------------------------------------------------|
+| <i class="fa-solid fa-lightbulb text-success"></i>   | Tip                                                             |
+| <i class="fa-solid fa-exclamation text-warning"></i> | Warning                                                         |
+| <i class="fa-solid fa-flag text-danger"></i>         | Important                                                       |
+| <i class="fa-solid fa-info text-info"></i>           | Additional useful information                                   |
+| <i class="fa-solid fa-check text-success"></i>       | Valid Example                                                   |
+| <i class="fa-solid fa-x text-danger"></i>            | Invalid Example                                                 |
+| <i class="fa-solid fa-exclamation text-danger"></i>  | Danger                                                          |
+| <i class="fa-solid fa-book text-primary"></i>        | Definition                                                      |
+| <i class="fa-solid fa-question text-info"></i>       | Question                                                        |
+| **`UPPER_CASE`**                                     | Represents parameters that need to be given by you!             |
 | **... (Ellipsis)**                                   | Indicates that a parameter can be repeated or omitted entirely. |
-| **[Square Brackets]**                                | Denotes optional parameters.                           |
+| **[Square Brackets]**                                | Denotes optional parameters.                                    |
 
 ### Keywords 
 
-| Keywords                           | Meaning                                                                                  |
-|------------------------------------|------------------------------------------------------------------------------------------|
-| **Command Line Interface**   | A text-based interface used for entering commands directly.                              |
-| **Graphical User Interface** | The visual interface that enhances user interaction with graphical elements.             |
-| **Parameters**                     | Specific pieces of information required by commands to execute a function.               |
-| **Attribute** | A single detail of a student. |
-| **INDEX**                          | A case-insensitive, unique identification code assigned to each student.                                       |
-| **NUSNET**                      | A unique identification code assigned to each student.                                   |
-| **TAG**                            | A one-word, case-insensitive, label that can be associated with a student for categorization.             |
-| **Autocomplete**                   | A feature that predicts and completes commands as you type.                              |
-| **Command History**                | A record of successfully executed commands that can be retrieved for reuse.              |
+| Keywords                     | Meaning                                                                                                                                                                                                                                                 |
+|------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Command Line Interface**   | A text-based interface used for entering commands directly.                                                                                                                                                                                             |
+| **Graphical User Interface** | The visual interface that enhances user interaction with graphical elements.                                                                                                                                                                            |
+| **Parameters**               | Specific pieces of information required by commands to execute a function.                                                                                                                                                                              |
+| **Attribute**                | A single detail of a student.                                                                                                                                                                                                                           |
+| **INDEX**                    | A case-insensitive, unique identification code assigned to each student.                                                                                                                                                                                |
+| **NUSNET**                   | A unique identification code assigned to each student.                                                                                                                                                                                                  |
+| **TAG**                      | A one-word, non-space separated, case-insensitive, alphanumeric label that can be associated with a student for categorization. For example `bestFriend4Ever`, `colleague`, `Club` are valid tags, but `best friend`, `best-friend` are not valid tags. |
+| **Autocomplete**             | A feature that predicts and completes commands as you type.                                                                                                                                                                                             |
+| **Command History**          | A record of successfully executed commands that can be retrieved for reuse.                                                                                                                                                                             |
 
 ### Abbreviations
 
-| Abbreviation | Meaning                                                                 |
-|-------------|-------------------------------------------------------------------------|
-| **ASCII** | American Standard Code for Information Interchange                      |
-| **GUI**     | Graphical User Interface                                                |
-| **CLI**     | Command Line Interface                                                  |
-| **TA**      | Teaching Assistant                                                     |
-| **CS**      | Computer Science                                                       |
-| **NUS**     | National University of Singapore |
-| **URL**     | Uniform Resource Locator                                                |
-| **JSON**    | JavaScript Object Notation                                              |
+| Abbreviation | Meaning                                            |
+|--------------|----------------------------------------------------|
+| **ASCII**    | American Standard Code for Information Interchange |
+| **GUI**      | Graphical User Interface                           |
+| **CLI**      | Command Line Interface                             |
+| **TA**       | Teaching Assistant                                 |
+| **CS**       | Computer Science                                   |
+| **NUS**      | National University of Singapore                   |
+| **URL**      | Uniform Resource Locator                           |
+| **JSON**     | JavaScript Object Notation                         |
 
 ### Recognised Prefixes for Attributes
-| Prefix | Attribute |
-|--------|-----------------------------|
-| **n/** | Name of the student         |
-| **nn/** | NUSNet ID of the student       |
-| **p/** | Phone number of the student |
-| **e/** | Email of the student        |
-| **m/** | Major of the student        |
-| **t/** | Tag of the student          |
+| Prefix  | Attribute                   |
+|---------|-----------------------------|
+| **n/**  | Name of the student         |
+| **nn/** | NUSNet ID of the student    |
+| **p/**  | Phone number of the student |
+| **e/**  | Email of the student        |
+| **m/**  | Major of the student        |
+| **t/**  | Tag of the student          |
 | **wk/** | Week number for attendance  |
 
 This segment aims to make your TAPro experience as smooth as silk. With these notions and terms at your fingertips, you're well on your way to becoming a TAPro power user!
@@ -164,7 +164,7 @@ A GUI similar to the below image should appear in a few seconds. Note how the ap
 
 * `addstu nn/E0952224 n/John Doe p/98765432 e/johnd@example.com m/Computer Science` : Adds a student named `John Doe` to the contact book.
 
-* `delstu nn/NUSNET_ID` : Deletes the student with the specified `NUSNET_ID` from the contact book.
+* `delstu nn/NUSNET` : Deletes the student with the specified `NUSNET` from the contact book.
 
 * `clear` : Deletes all students, and their contact and attendance information.
 
@@ -324,23 +324,13 @@ Format: `addstu n/NAME nn/NUSNET [p/PHONE] [e/EMAIL] [m/MAJOR] [t/TAG]…​`
 
 <box type="info" light>
 
-**Note:** NUSNet provided will be converted to uppercase automatically upon running the command. (e.g., `e0123456` will be converted to `E0123456`)
-</box>
-
-<box type="info" light>
-
-**Note:** Tags must be a single, non-space separated, alphanumeric word. For example `bestFriend4Ever`, `colleague`, `Club` are valid tags, but `best friend`, `best-friend` are not valid tags.
-</box>
-
-<box type="warning" light>
-
-**Note:** The application will not wrap the text in the various fields. By [international standards](https://en.wikipedia.org/wiki/E.164), telephone numbers should not exceed 15 digits. And long names and email addresses are extremely rare, which falls outside of normal use cases. Lastly, most students will have no more than 2 majors.
+**Note:** NUSNet ID is case-insensitive, and it will be converted to uppercase automatically upon running the command. (e.g., `e0123456` will be converted to `E0123456`)
 </box>
 
 Examples:
-* `addstu n/John Doe nn/e1234567 p/98765432 e/johnd@example.com m/Computer Science`
-* `addstu n/Betsy Crowe nn/e0123456 t/friend e/betsycrowe@example.com m/Mathematics, Physics p/1234567 t/club`
-* `addstu n/Betsy Crowe nn/e0123456`
+* `addstu n/John Doe nn/E1234567 p/98765432 e/johnd@example.com m/Computer Science`
+* `addstu n/Betsy Crowe nn/E0123456 t/friend e/betsycrowe@example.com m/Mathematics, Physics p/1234567 t/club`
+* `addstu n/Betsy Crowe nn/E0123456`
 
 <markdown class="d-print-none">---</markdown>
 <div style="page-break-after: always;"></div>
@@ -362,7 +352,7 @@ If there are additional arguments behind `list` we will simply ignore them.
 
 Edits an existing person in the contact book.
 
-Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [m/MAJOR] [nn/NUSNET_ID] [t/TAG]…​`
+Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [m/MAJOR] [nn/NUSNET] [t/TAG]…​`
 
 * Edits the person at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
 * At least one of the optional fields must be provided.
@@ -376,7 +366,7 @@ Examples:
 *  `edit 2 n/Betsy Crower t/` Edits the name of the 2nd person to be `Betsy Crower` and clears all existing tags.
 
 <box type="info" light>
-This command differs from most other commands that use the `NUSNET_ID` to identify a student. This command uses the index number shown in the displayed person list to identify the student to be edited.
+This command differs from most other commands that use the `NUSNET` to identify a student. This command uses the index number shown in the displayed person list to identify the student to be edited.
 </box>
 
 <markdown class="d-print-none">---</markdown>
@@ -465,7 +455,7 @@ Format: `find KEYWORD [MORE_KEYWORDS]…​`
 
 Marks a student's attendance for a particular week.
 
-Format: `mark nn/NUSNET_ID wk/WEEK_NUMBER`
+Format: `mark nn/NUSNET wk/WEEK_NUMBER`
 
 Example:
 * `mark nn/E1234567 wk/3`
@@ -477,7 +467,7 @@ Example:
 
 Unmarks a student's attendance for a particular week.
 
-Format: `unmark nn/NUSNET_ID wk/WEEK_NUMBER`
+Format: `unmark nn/NUSNET wk/WEEK_NUMBER`
 
 Example:
 * `unmark nn/E1234567 wk/3`
@@ -490,7 +480,7 @@ Example:
 
 Deletes the specified student from the contact book.
 
-Format: `delstu nn/NUSNET_ID`
+Format: `delstu nn/NUSNET`
 
 * Deletes the student with the specified NUSNet ID from the contact book. 
 
@@ -498,7 +488,7 @@ Examples:
 * `delstu nn/E0957499` deletes the student with the NUSNet ID of `E0957499` in the contact book.
 
 Pro Tip:
-* If you cannot remember your student's NUSNet ID, you could use `find Betsy` or `list` followed by `delstu nn/<Betsy's NUSNET_ID>` to find and delete the student.
+* If you cannot remember your student's NUSNet ID, you could use `find Betsy` or `list` followed by `delstu nn/<Betsy's NUSNET>` to find and delete the student.
 
 <markdown class="d-print-none">---</markdown>
 <div style="page-break-after: always;"></div>
@@ -834,6 +824,12 @@ Do also note that tags are alphanumeric and cannot contain spaces or special cha
 </box>
 </box>
 
+<box type="info" icon=":fa-solid-question:" light>
+
+**Q:** Long names, phone numbers, emails and majors are truncated in the UI. Why does TAPro not make these text wrap around?<br/>
+**A:**  By [international standards](https://en.wikipedia.org/wiki/E.164), telephone numbers should not exceed 15 digits. And typical names and email addresses are rarely too long, which falls outside of normal use cases. Lastly, most students will have no more than 2 majors. So under any normal use case, the fields will not contain texts long enough to be truncated. Having a single line of text for each field also ensures the UI remains clean and uncluttered.
+</box>
+
 
 ### Saving More Time
 <box type="info" icon=":fa-solid-question:" light>
@@ -877,7 +873,7 @@ the front of the command.
 If you move the application to a secondary screen, and later switch to using only the primary screen, the GUI will open off-screen. The remedy is to delete the `preferences.json` file created by the application before running the application again.
 </box>
 
-<box type="warning" theme="danger" seamless>
+<box type="warning" theme="danger" light>
 
 **2. If you have more than one copy of TAPro running**
 
@@ -888,20 +884,16 @@ If you have more than one copy of TAPro running, the application may not functio
 
 ## <i class="fa-solid fa-table-list"></i> Command summary
 
-  
-## Command summary
-
 | Action             | Format, Examples                                                                                                                                                                       |
 |--------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Add Student**    | `addstu n/NAME p/PHONE_NUMBER e/EMAIL nn/NUSNET_ID m/MAJOR [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com nn/e1234567 m/Computer Science t/friend t/colleague` |
+| **Add Student**    | `addstu n/NAME p/PHONE_NUMBER e/EMAIL nn/NUSNET m/MAJOR [t/TAG]…​` <br> e.g., `addstu n/James Ho p/22224444 e/jamesho@example.com nn/E1234567 m/Computer Science t/friend t/colleague` |
 | **Clear**          | `clear`                                                                                                                                                                                |
-| **Delete Student** | `delstu nn/NUSNET_ID`<br> e.g., `delstu nn/e0957499`                                                                                                                                   |
+| **Delete Student** | `delstu nn/NUSNET`<br> e.g., `delstu nn/E0957499`                                                                                                                                      |
 | **Edit**           | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [m/MAJOR] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`                                                              |
-| **Mark**           | `mark nn/NUSNET_ID wk/WEEK_NUMBER`<br> e.g., `mark nn/e1234567 wk/3`                                                                                                                   |
-| **Unmark**         | `unmark nn/NUSNET_ID wk/WEEK_NUMBER`<br> e.g., `unmark nn/e1234567 wk/3`                                                                                                               |
-| **Find**           | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`                                                                                                                             |
+| **Mark**           | `mark nn/NUSNET wk/WEEK_NUMBER`<br> e.g., `mark nn/E1234567 wk/3`                                                                                                                      |
+| **Unmark**         | `unmark nn/NUSNET wk/WEEK_NUMBER`<br> e.g., `unmark nn/E1234567 wk/3`                                                                                                                  |
+| **Find**           | `find KEYWORD [MORE_KEYWORDS]…​`<br> e.g., `find James Jake`                                                                                                                           |
 | **Set Course**     | `setcrs COURSE_CODE`                                                                                                                                                                   |
 | **List**           | `list`                                                                                                                                                                                 |
 | **Help**           | `help`                                                                                                                                                                                 |
 | **Exit**           | `exit`                                                                                                                                                                                 |
-
