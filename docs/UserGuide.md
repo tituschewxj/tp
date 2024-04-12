@@ -129,7 +129,7 @@ TODO: Add a screenshot of the GUI with annotations
 
 1. Ensure you have Java 11 or above installed in your computer.
 
-<box type="tip" light>
+<box type="info" light>
 
 <i class="fa-solid fa-download"></i>
 **Installing Java:**
@@ -256,6 +256,15 @@ A new window is opened, so that it does not clutter up your main window. A GUI s
 
 </box>
 
+<box type="info" light>
+
+**More about help's quick reference:**
+
+The quick reference is meant for **fast and reliable** lookup of commands and their usages, without needing an internet connection and opening a browser to get an overview of the commands.
+
+* It is not meant to contain detailed information about each command. To access detailed information about each command, you can refer to our user guide.
+</box>
+
 <box type="tip" light>
 
 <i class="fa-solid fa-maximize"></i>
@@ -273,15 +282,6 @@ The help window is resizable, so you can **easily reposition and resize** it to 
 
 * On macOS, you can use the keyboard shortcut: {{ macros.keyFormat('⌘Cmd') }} + {{ macros.keyFormat('`') }}, to switch between windows quickly.
 
-</box>
-
-<box type="info" light>
-
-**More about help's quick reference:**
-
-The quick reference is meant for **fast and reliable** lookup of commands and their usages, without needing an internet connection and opening a browser to get an overview of the commands.
-
-* It is not meant to contain detailed information about each command. To access detailed information about each command, you can refer to our user guide.
 </box>
 
 <markdown class="d-print-none">---</markdown>
@@ -312,19 +312,16 @@ Format: `addstu n/NAME nn/NUSNET [p/PHONE] [e/EMAIL] [m/MAJOR] [t/TAG]…​`
 * Name cannot be empty or spaces only, contain only alphabets and cannot have double spaces. 
 * All the remaining fields are optional. If values are not provided to optional fields, they will be set to a placeholder value under the hood (e.g., `Major not provided` for `MAJOR` field).
 
-<box type="tip" light>
-
+<box type="info" light>
 **Tip:** A person can have any number of tags (including 0)
 </box>
 
-<box type="tip" light>
-
-**Tip:** If a student is undertaking a double degree programme, you can use a comma to separate the disciplines in the `MAJOR` field. (e.g., `m/Computer Science, Mathematics`)
+<box type="info" light>
+**Note:** NUSNet ID is case-insensitive, and it will be converted to uppercase automatically upon running the command. (e.g., `e0123456` will be converted to `E0123456`)
 </box>
 
-<box type="info" light>
-
-**Note:** NUSNet ID is case-insensitive, and it will be converted to uppercase automatically upon running the command. (e.g., `e0123456` will be converted to `E0123456`)
+<box type="tip" light>
+**Tip:** If a student is undertaking a double degree programme, you can use a comma to separate the disciplines in the `MAJOR` field. (e.g., `m/Computer Science, Mathematics`)
 </box>
 
 Examples:
@@ -667,6 +664,13 @@ the previous command `mark nn/E0123456`!
    scroll back to the more recent commands you have entered.
 </box>
 
+
+<box type="warning" theme="danger" light>
+
+**Warning:**
+When retrieving commands, be aware that it will erase the current text in the command input box.
+</box>
+
 <box type="warning" light>
 
 **Caution:**
@@ -680,12 +684,6 @@ UP</span>will not make any changes, because you are at your most recent command.
 **Caution:**
 Only commands that has succeeded previously will be retrieved. If you enter an invalid command, it will not appear 
 when attempting to retrieve it.
-</box>
-
-<box type="warning" theme="danger" light>
-
-**Warning:**
-When retrieving commands, be aware that it will erase the current text in the command input box.
 </box>
 
 <markdown class="d-print-none">---</markdown>
