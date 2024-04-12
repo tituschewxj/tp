@@ -576,7 +576,7 @@ For all use cases below, the **System** is TAPro and the **Actor** is the user, 
 
 2. User presses the retrieve previous command hotkey (e.g. up arrow key).
 
-3. The previous successful command input is shown in the command box.
+3. TAPro displays the successful command input in the command box.
    Use case ends.
 
 <span class="semi-bold">Extensions</span>
