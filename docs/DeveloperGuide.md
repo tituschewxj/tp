@@ -407,7 +407,7 @@ For all use cases below, the **System** is TAPro and the **Actor** is the user, 
 
 <span class="semi-bold">MSS</span>
 
-1. User requests to add a student, providing the name and NUSNet ID as compulsory information, with the phone number being optional.
+1. User requests to add a student, providing the name and NUSNet ID as compulsory information, with the phone number, email, major and tags being optional.
 
    Use case ends.
 
@@ -415,7 +415,27 @@ For all use cases below, the **System** is TAPro and the **Actor** is the user, 
 
 <box no-icon type="success" light>
 
-**TODO: Use case: Edit a Student**
+**Use case: Editing a Student**
+
+<span class="semi-bold">MSS</span>
+
+1. User requests to edit an existing student, indicating the student the user wish to edit. The user provides the update details for the student and remaining details are unchanged.
+
+   Use case ends.
+
+<span class="semi-bold">Extensions</span>
+
+* 1a. No such student exists.
+
+    * 1a1. TAPro shows an error message.
+
+    * Use case ends.
+
+* 1b. User provides no details to update.
+
+    * 1b1. TAPro shows an error message.
+
+    * Use case ends.
 
 </box>
 
@@ -465,7 +485,13 @@ For all use cases below, the **System** is TAPro and the **Actor** is the user, 
 
 <box no-icon type="success" light>
 
-**TODO: Use case: Find a Student by Name**
+**Use case: Find a Student by Name**
+
+<span class="semi-bold">MSS</span>
+
+1. User requests to find all students by one or more keywords in the student's name.
+
+    Use case ends.
 
 </box>
 
@@ -495,7 +521,13 @@ For all use cases below, the **System** is TAPro and the **Actor** is the user, 
 
 <box no-icon type="success" light>
 
-**TODO: Use case: Clear All Data**
+**Use case: Clear All Data**
+
+<span class="semi-bold">MSS</span>
+
+1. User requests to purge all data from TAPro.
+
+   Use case ends.
 
 </box>
 
@@ -536,7 +568,47 @@ For all use cases below, the **System** is TAPro and the **Actor** is the user, 
 
 <box no-icon type="success" light>
 
-**TODO: Use case: Retrieve a previous successful command input**
+**: Use case: Retrieve a previous successful command input**
+
+<span class="semi-bold">MSS</span>
+
+1. User focuses on the command box.
+
+2. User presses the retrieve previous command hotkey (e.g. up arrow key).
+
+3. The previous successful command input is shown in the command box.
+   Use case ends.
+
+<span class="semi-bold">Extensions</span>
+
+* 3a. No previous successful command input is available.
+
+    * 3a1. No action is taken.
+
+    * Use case ends.
+
+</box>
+
+<box no-icon type="success" light>
+
+**: Use case: Retrieve a more recent successful command input**
+
+<span class="semi-bold">MSS</span>
+
+1. User focuses on the command box.
+
+2. User presses the retrieve next command hotkey (e.g. down arrow key).
+
+3. The more recent successful command input is shown in the command box.
+   Use case ends.
+
+<span class="semi-bold">Extensions</span>
+
+* 3a. No successful command input that is more recent is available.
+
+    * 3a1. No action is taken.
+
+    * Use case ends.
 
 </box>
 
