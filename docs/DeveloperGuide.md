@@ -409,8 +409,18 @@ For all use cases below, the **System** is TAPro and the **Actor** is the user, 
 
 1. User requests to add a student, providing the name and NUSNet ID as compulsory information, with the phone number, email, major and tags being optional.
 
+2. TAPro adds the student to the list of students.
+
    Use case ends.
 
+<span class="semi-bold">Extensions</span>
+
+* 2a. Format of the provided data is incorrect.
+
+    * 2a1. TAPro rejects the student addition and shows an error message.
+
+    * Use case ends.
+  
 </box>
 
 <box no-icon type="success" light>
@@ -421,19 +431,27 @@ For all use cases below, the **System** is TAPro and the **Actor** is the user, 
 
 1. User requests to edit an existing student, indicating the student the user wish to edit. The user provides the update details for the student and remaining details are unchanged.
 
+2. TAPro updates the student with the new details.
+
    Use case ends.
 
 <span class="semi-bold">Extensions</span>
 
-* 1a. No such student exists.
+* 2a. No such student exists.
 
-    * 1a1. TAPro shows an error message.
+    * 2a1. TAPro shows an error message.
 
     * Use case ends.
 
-* 1b. User provides no details to update.
+* 2b. User provides no details to update.
 
-    * 1b1. TAPro shows an error message.
+    * 2b1. TAPro shows an error message.
+
+    * Use case ends.
+
+* 2c. Format of the provided data is incorrect.
+
+    * 2c1. TAPro rejects the student update and shows an error message.
 
     * Use case ends.
 
@@ -447,13 +465,21 @@ For all use cases below, the **System** is TAPro and the **Actor** is the user, 
 
 1. User requests to delete a specific student based on NUSNet ID.
 
+2. TAPro deletes the student from the list of students.
+
    Use case ends.
 
 <span class="semi-bold">Extensions</span>
 
-* 1a. No such student exists.
+* 2a. No such student exists.
 
-    * 1a1. TAPro shows an error message.
+    * 2a1. TAPro shows an error message.
+
+    * Use case ends.
+
+* 2b. Format of the provided data is incorrect.
+
+    * 2b1. TAPro shows an error message.
 
     * Use case ends.
 
@@ -465,9 +491,19 @@ For all use cases below, the **System** is TAPro and the **Actor** is the user, 
 
 <span class="semi-bold">MSS</span>
 
-1. User requests to name or rename a CS course by specifying the course name and the new name if applicable.
+1. User requests to name or rename a CS course by specifying the course code.
+
+2. TAPro names or renames the CS course on the application window bar.
 
    Use case ends.
+
+<span class="semi-bold">Extensions</span>
+
+* 2b. Format of the provided course code is incorrect.
+
+    * 2b1. TAPro shows an error message.
+
+    * Use case ends.
 
 </box>
 
@@ -478,6 +514,8 @@ For all use cases below, the **System** is TAPro and the **Actor** is the user, 
 <span class="semi-bold">MSS</span>
 
 1. User requests to view a list of all students.
+
+2. TAPro displays a list of all students.
 
     Use case ends.
 
@@ -491,7 +529,17 @@ For all use cases below, the **System** is TAPro and the **Actor** is the user, 
 
 1. User requests to find all students by one or more keywords in the student's name.
 
+2. TAPro displays a list of students whose names contain the keyword(s).
+
     Use case ends.
+
+<span class="semi-bold">Extensions</span>
+
+* 2a. No student exists with the given keyword(s).
+
+    * 2a1. TAPro shows no students.
+
+    * Use case ends.
 
 </box>
 
@@ -501,9 +549,25 @@ For all use cases below, the **System** is TAPro and the **Actor** is the user, 
 
 <span class="semi-bold">MSS</span>
 
-1. User requests to mark attendance for a student by providing the student's NUSNet ID.
+1. User requests to mark attendance for a student by providing the student's NUSNet ID and week number to mark the attendance for.
+
+2. TAPro marks the attendance for the student for the specified week.
 
    Use case ends.
+
+<span class="semi-bold">Extensions</span>
+
+* 2a. No such student exists.
+
+    * 2a1. TAPro shows an error message.
+
+    * Use case ends.
+  
+* 2b. Week number is invalid.
+
+    * 2b1. TAPro shows an error message.
+
+    * Use case ends.    
 
 </box>
 
@@ -513,9 +577,25 @@ For all use cases below, the **System** is TAPro and the **Actor** is the user, 
 
 <span class="semi-bold">MSS</span>
 
-1. User requests to unmark attendance for a student by providing the student's NUSNet ID.
+1. User requests to unmark attendance for a student by providing the student's NUSNet ID and week number to unmark the attendance for.
+
+2. TAPro unmarks the attendance for the student for the specified week.
 
    Use case ends.
+
+<span class="semi-bold">Extensions</span>
+
+* 2a. No such student exists.
+
+    * 2a1. TAPro shows an error message.
+
+    * Use case ends.
+
+* 2b. Week number is invalid.
+
+    * 2b1. TAPro shows an error message.
+
+    * Use case ends.
 
 </box>
 
@@ -526,6 +606,8 @@ For all use cases below, the **System** is TAPro and the **Actor** is the user, 
 <span class="semi-bold">MSS</span>
 
 1. User requests to purge all data from TAPro.
+
+2. TAPro successfully clears all data.
 
    Use case ends.
 
@@ -606,7 +688,7 @@ For all use cases below, the **System** is TAPro and the **Actor** is the user, 
 
 * 3a. No successful command input that is more recent is available.
 
-    * 3a1. No action is taken.
+    * 3a1. The command box will be cleared
 
     * Use case ends.
 
