@@ -852,9 +852,11 @@ Below are some non-exhaustive instances of our challenges, achievements and effo
    the CLI for inspiration. Given that our product uses NUSNet ID as its unique identifier, it can be a hassle to 
    type out a full command. Especially when it has already been previously used, or only require minor changes to 
    the command. This resulted in the idea of clicking {{ macros.keyFormat
-   ('Tab') }} for autocomplete when allowed as well as up and down arrow keys to retrieve previous commands.
+   ('Tab') }} for autocomplete when allowed as well as <span class="badge bg-light text-dark"><i class="fa-regular 
+   fa-square-caret-up"></i> UP</span> and <span class="badge bg-light text-dark"><i class="fa-regular 
+   fa-square-caret-down"></i> DOWN</span> arrow keys to retrieve previous commands.
 
-1. Implementing nodejs to render documentation on our local machines.
+1. Implementing nodeJS to render documentation on our local machines.
 
 1. Using `captain githook` to verify locally if code changes made will pass the CI checks.
 
