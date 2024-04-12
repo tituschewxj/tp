@@ -271,7 +271,7 @@ The help window is resizable, so you can **easily reposition and resize** it to 
 
 * On Windows and most Linux distributions, you can use the keyboard shortcut: {{ macros.keyFormat('Alt') }} + {{ macros.keyFormat('Tab') }}, to switch between windows quickly. 
 
-* On macOS, you can use the keyboard shortcut: {{ macros.keyFormat('⌘Cmd') }} + {{ macros.keyFormat('Tab') }}, to switch between windows quickly.
+* On macOS, you can use the keyboard shortcut: {{ macros.keyFormat('⌘Cmd') }} + {{ macros.keyFormat('`') }}, to switch between windows quickly.
 
 </box>
 
@@ -290,12 +290,11 @@ The quick reference is meant for **fast and reliable** lookup of commands and th
 
 ### <i class="fa-solid fa-chalkboard"></i> Name/Rename CS course : `setcrs`
 
-Names the course in question. 
+Sets the course code in question. 
 
-Format: `setcrs COURSE_NAME`
+Format: `setcrs COURSE_CODE`
 
-Duplicate course are not allowed.
-Courses are case-insensitive.
+Course codes are case-insensitive.
 Course code should follow the format "XX1234Y", Y is optional.
 
 <markdown class="d-print-none">---</markdown>
@@ -309,6 +308,8 @@ Format: `addstu n/NAME nn/NUSNET [p/PHONE] [e/EMAIL] [m/MAJOR] [t/TAG]…​`
 
 * Add a student with the given details.
 * The name and nusnet id must be provided. And nusnet id must be unique.
+
+* Name cannot be empty or spaces only, contain only alphabets and cannot have double spaces. 
 * All the remaining fields are optional. If values are not provided to optional fields, they will be set to a placeholder value under the hood (e.g., `Major not provided` for `MAJOR` field).
 
 <box type="tip" light>
@@ -892,7 +893,7 @@ If you have more than one copy of TAPro running, the application may not functio
 | **Mark**           | `mark nn/NUSNET wk/WEEK_NUMBER`<br> e.g., `mark nn/E1234567 wk/3`                                                                                                                      |
 | **Unmark**         | `unmark nn/NUSNET wk/WEEK_NUMBER`<br> e.g., `unmark nn/E1234567 wk/3`                                                                                                                  |
 | **Find**           | `find KEYWORD [MORE_KEYWORDS]…​`<br> e.g., `find James Jake`                                                                                                                           |
-| **Set Course**     | `setcrs COURSE_NAME`                                                                                                                                                                   |
+| **Set Course**     | `setcrs COURSE_CODE`                                                                                                                                                                   |
 | **List**           | `list`                                                                                                                                                                                 |
 | **Help**           | `help`                                                                                                                                                                                 |
 | **Exit**           | `exit`                                                                                                                                                                                 |
