@@ -221,7 +221,13 @@ This section describes some noteworthy details on how certain features are imple
 
 ### Command History Retrieval
 
-**TODO**
+Let's consider the scenario where the user wants to retrieve the last command executed. The user can do this by 
+pressing the <span class="badge bg-light text-dark"><i class="fa-regular fa-square-caret-up"></i> UP</span> key on 
+the keyboard. 
+
+The <span class="badge bg-light text-dark"><i class="fa-regular fa-square-caret-up"></i> UP</span> key press event is captured by the `CommandBox` class, which then 
+retrieves the last command from the `CommandHistory` Singleton object.
+<puml src="diagrams/CommandHistorySequenceDiagram.puml" alt="Command History Sequence Diagram" />
 
 {{ newPage }}
 
