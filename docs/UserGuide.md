@@ -896,6 +896,13 @@ If you move the application to a secondary screen, and later switch to using onl
 If you have more than one copy of TAPro running, the application may not function as expected. TAPro's data will desynchronise. The remedy is to close all instances of TAPro and run only one instance of TAPro.
 </box>
 
+<box type="warning" theme="danger" light>
+
+**3. When data file is in an invalid format**
+
+If you [edit the data file](#editing-the-data-file) into an invalid format, upon the next launch of TAPro, no error message would be shown, and all data will be discarded. The remedy is to store a backup of your data file before modifying it, to prevent the loss of data.
+</box>
+
 {{ newPage }}
 
 ## <i class="fa-solid fa-table-list"></i> Command summary
