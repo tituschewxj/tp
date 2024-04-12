@@ -902,7 +902,55 @@ Expected: TAPro's main window's title contains the course code `CS2103` provided
 
 ## **Appendix: Effort**
 
-**TODO**
+As a team, we have conquered many problems and fought uphill battles. We did away a number of potential headaches with improved workflows and use of automation.
+
+Below are some non-exhaustive instances of our challenges, achievements and efforts overcoming them.
+
+1. Utilised Nunjucks macros and variables in documentation.
+   Macros were used for creating `newPage` breaks as well as when replacing key button presses like {{ macros.keyFormat
+   ('Tab') }}, {{ macros.keyFormat('⌘Cmd') }} and
+   {{ macros.keyFormat('Alt') }}. While macros are powerful tools for reusing code with parameters, variables in 
+   Nunjucks 
+   serve as placeholders that can dynamically insert content, such as implementing page breaks efficiently. 
+
+    This method abstracts the formatting into a 
+   single, manageable location, ensuring uniformity across our documentation. It streamlines the documentation process, making it easier for contributors to apply custom styling and formatting without getting bogged down by repetitive tasks. 
+    
+    For further information and a deeper understanding of how we utilize Nunjucks in our documentation, you can visit the Nunjucks official documentation for [Macros](https://mozilla.github.io/nunjucks/templating.html#macro) and [Variables](https://mozilla.github.io/nunjucks/templating.html#variables).
+   
+    <box type="success" light>
+
+    **#g#Examples:##**
+
+    <img alt="Macros Example 1" src="images/macros1.png" class="rounded-image"/>
+    <br></br>
+    <img alt="Macros Example 2" src="images/macros2.png" class="rounded-image"/>
+    <br></br>
+    <img alt="Macros Example 3" src="images/macros3.png" class="rounded-image"/>
+
+    </box>
+
+1. Refactored the parameter syntax to improve AB3's original OOP.
+
+1. Implemented autocomplete and command history.
+   We thought hard about what are the potential shortcuts that would save our target user's time and we looked to 
+   the CLI for inspiration. Given that our product uses NUSNet ID as its unique identifier, it can be a hassle to 
+   type out a full command. Especially when it has already been previously used, or only require minor changes to 
+   the command. This resulted in the idea of clicking {{ macros.keyFormat
+   ('Tab') }} for autocomplete when allowed as well as <span class="badge bg-light text-dark"><i class="fa-regular 
+   fa-square-caret-up"></i> UP</span> and <span class="badge bg-light text-dark"><i class="fa-regular 
+   fa-square-caret-down"></i> DOWN</span> arrow keys to retrieve previous commands.
+
+1. Utilised [Node.js](https://nodejs.org/) and installed [MarkBind](https://markbind.org/) locally as a 
+   dev-dependency in `package.json`. It allows us to serve documentation on our local machines, and ensures that all developers are using the same version of MarkBind for consistency, so that no version related issues of MarkBind result in inconsistencies in our codebase.
+
+1. Utilised [`captain-githook`](https://github.com/swellaby/captain-githook) `pre-commit` and `pre-push` checks 
+   locally to automatically verify if code changes made will pass continuous integration checks. It allows us to focus our time on working on the quality of our code, rather that dealing with formatting related issues.
+
+1. Utilised Trie data structure for optimizing the performance of TAPro, especially in terms of autocompletion 
+   functionality, recognizing the need for rapid and efficient search capabilities. Tries are exceptionally well-suited for autocomplete systems, as they allow for the quick retrieval of full words based on partial inputs, dramatically improving our application's responsiveness during user searches.
+
+1. Utilised caching to further enhance the performance and user experience of TAPro's autocompletion feature.
 
 {{ newPage }}
 
@@ -911,6 +959,7 @@ Expected: TAPro's main window's title contains the course code `CS2103` provided
 <box type="info" light>
 
 **Team size:** 5
+**Allowed Enhancements:** 10
 </box>
 
 
