@@ -866,6 +866,11 @@ Below are some non-exhaustive instances of our challenges, achievements and effo
 
 1. Utilized [`captain-githook`](https://github.com/swellaby/captain-githook) `pre-commit` and `pre-push` checks locally to automatically verify if code changes made will pass continuous integration checks. It allows us to focus our time on working on the quality of our code, rather that dealing with formatting related issues.
 
+1. Utilized Trie data structure for optimizing the performance of TAPro, especially in terms of autocompletion 
+   functionality, recognizing the need for rapid and efficient search capabilities. Tries are exceptionally well-suited for autocomplete systems, as they allow for the quick retrieval of full words based on partial inputs, dramatically improving our application's responsiveness during user searches.
+
+1. Utilized caching to further enhance the performance and user experience of TAPro's autocompletion feature.
+
 {{ newPage }}
 
 ## **Appendix: Planned Enhancements**
