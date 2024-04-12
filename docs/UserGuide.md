@@ -103,7 +103,8 @@ Diving into TAPro, you'll encounter some handy notations and terms. We've decode
 | **URL**      | Uniform Resource Locator                           |
 | **JSON**     | JavaScript Object Notation                         |
 
-### Recognised Prefixes for Attributes
+### Recognized Prefixes for Attributes
+
 | Prefix  | Attribute                   |
 |---------|-----------------------------|
 | **n/**  | Name of the student         |
@@ -188,7 +189,7 @@ A GUI similar to the below image should appear in a few seconds. Note how the ap
 
 <span class="semi-bold">Words in `UPPER_CASE` are the parameters to be supplied by the user.</span>
 
-<span class="semi-bold">#g#Example:##</span> In `add n/NAME`, `NAME` is a parameter which can be used as `add n/John Doe`.
+<span class="semi-bold">#g#Example:##</span> In `addstu n/NAME`, `NAME` is a parameter which can be used as `addstu n/John Doe`.
 </box>
 
 
@@ -219,6 +220,13 @@ A GUI similar to the below image should appear in a few seconds. Note how the ap
 <span class="semi-bold">Extraneous parameters for commands that do not take in parameters (such as `help`, `list`, `exit` and `clear`) will be ignored.</span>
 
 <span class="semi-bold">#g#Example:##</span> If the command specifies `help 123`, it will be interpreted as `help`.
+</box>
+
+<box type="success" light>
+
+<span class="semi-bold">Non-recognized prefixes be parsed as part of the previous parameter's value.</span>
+
+<span class="semi-bold">#g#Example:##</span> If the command specifies `addstu n/John Doe a/Non-recognized-prefix`, it would be parsed as `NAME` parameter being `John Doe a/Non-recognized-prefix`, instead of just `John Doe`, as `a/` is not a [recognized prefix](#recognized-prefixes-for-attributes).
 </box>
 
 </box>
@@ -561,12 +569,12 @@ The last parameter `TAG` is autocompleted.
 
 **Autocompletes the last parameter in the input:**
 
-Autocomplete works on the last parameter (if any) in the command box, which is the text directly after a recognized prefix. 
+Autocomplete works on the last parameter (if any) in the command box, which is the text directly after a [recognized prefix](#recognized-prefixes-for-attributes). 
 
 When reaching the end of the possible options list, pressing
 <span class="badge bg-light text-dark">TAB</span> will wrap 
 <box type="warning" light>
-A parameter can only be autocompleted if it is not the first word, and has a recognized prefix.
+A parameter can only be autocompleted if it is not the first word, and has a [recognized prefix](#recognized-prefixes-for-attributes).
 </box>
 
 <box type="success" light>
