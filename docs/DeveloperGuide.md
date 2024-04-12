@@ -827,7 +827,7 @@ As a team, we have conquered many problems and fought uphill battles. We did awa
 
 Below are some non-exhaustive instances of our challenges, achievements and efforts overcoming them.
 
-1. Use of Nunjucks macros and variables in documentation.
+1. Utilised Nunjucks macros and variables in documentation.
    Macros were used for creating `newPage` breaks as well as when replacing key button presses like {{ macros.keyFormat
    ('Tab') }}, {{ macros.keyFormat('⌘Cmd') }} and
    {{ macros.keyFormat('Alt') }}. While macros are powerful tools for reusing code with parameters, variables in 
@@ -851,9 +851,9 @@ Below are some non-exhaustive instances of our challenges, achievements and effo
 
     </box>
 
-1. Refactoring the parameter syntax to improve AB3's original OOP.
+1. Refactored the parameter syntax to improve AB3's original OOP.
 
-1. Implementing autocomplete and command history.
+1. Implemented autocomplete and command history.
    We thought hard about what are the potential shortcuts that would save our target user's time and we looked to 
    the CLI for inspiration. Given that our product uses NUSNet ID as its unique identifier, it can be a hassle to 
    type out a full command. Especially when it has already been previously used, or only require minor changes to 
@@ -862,14 +862,16 @@ Below are some non-exhaustive instances of our challenges, achievements and effo
    fa-square-caret-up"></i> UP</span> and <span class="badge bg-light text-dark"><i class="fa-regular 
    fa-square-caret-down"></i> DOWN</span> arrow keys to retrieve previous commands.
 
-1. Utilized [Node.js](https://nodejs.org/) and installed [MarkBind](https://markbind.org/) locally as a dev-dependency in `package.json`. It allows us to serve documentation on our local machines, and ensures that all developers are using the same version of MarkBind for consistency, so that no version related issues of MarkBind result in inconsistencies in our codebase.
+1. Utilised [Node.js](https://nodejs.org/) and installed [MarkBind](https://markbind.org/) locally as a 
+   dev-dependency in `package.json`. It allows us to serve documentation on our local machines, and ensures that all developers are using the same version of MarkBind for consistency, so that no version related issues of MarkBind result in inconsistencies in our codebase.
 
-1. Utilized [`captain-githook`](https://github.com/swellaby/captain-githook) `pre-commit` and `pre-push` checks locally to automatically verify if code changes made will pass continuous integration checks. It allows us to focus our time on working on the quality of our code, rather that dealing with formatting related issues.
+1. Utilised [`captain-githook`](https://github.com/swellaby/captain-githook) `pre-commit` and `pre-push` checks 
+   locally to automatically verify if code changes made will pass continuous integration checks. It allows us to focus our time on working on the quality of our code, rather that dealing with formatting related issues.
 
-1. Utilized Trie data structure for optimizing the performance of TAPro, especially in terms of autocompletion 
+1. Utilised Trie data structure for optimizing the performance of TAPro, especially in terms of autocompletion 
    functionality, recognizing the need for rapid and efficient search capabilities. Tries are exceptionally well-suited for autocomplete systems, as they allow for the quick retrieval of full words based on partial inputs, dramatically improving our application's responsiveness during user searches.
 
-1. Utilized caching to further enhance the performance and user experience of TAPro's autocompletion feature.
+1. Utilised caching to further enhance the performance and user experience of TAPro's autocompletion feature.
 
 {{ newPage }}
 
