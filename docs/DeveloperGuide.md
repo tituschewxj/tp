@@ -403,6 +403,20 @@ For all use cases below, the **System** is TAPro and the **Actor** is the user, 
 
 <box no-icon type="success" light>
 
+**Use case: Learn How to Use Available Commands in TAPro**
+
+<span class="semi-bold">MSS</span>
+
+1. User requests to view the list of available commands for TAPro.
+
+2. TAPro displays the list of available commands and a guide on how to use each command.
+
+   Use case ends.
+
+</box>
+
+<box no-icon type="success" light>
+
 **Use case: Add a Student**
 
 <span class="semi-bold">MSS</span>
@@ -608,18 +622,6 @@ For all use cases below, the **System** is TAPro and the **Actor** is the user, 
 1. User requests to purge all data from TAPro.
 
 2. TAPro successfully clears all data.
-
-   Use case ends.
-
-</box>
-
-<box no-icon type="success" light>
-
-**Use case: Know Available Commands in TAPro**
-
-<span class="semi-bold">MSS</span>
-
-1. User requests to view the list of available commands for TAPro.
 
    Use case ends.
 
