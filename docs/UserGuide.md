@@ -43,7 +43,7 @@ The latest version is compatible with older versions.
 
 A GUI similar to the below image should appear in a few seconds. Note how the app contains some sample data.
 
-<img alt="Main Window UI on first launch" src="images/main_window_ui.png" class="rounded-image" />
+<img alt="Main Window UI on first launch" src="images/ug-screenshots/launch.png" class="rounded-image" />
 
 </box>
 <div style="page-break-after: always;"></div>
@@ -63,6 +63,8 @@ A GUI similar to the below image should appear in a few seconds. Note how the ap
 * `clear` : Deletes all students, and their contact and attendance information.
 
 * `exit` : Exits the application.
+
+* `setcrs COURSE_CODE` : Names the course with the course code provided, which appears on the main window title.
 
 </box>
 
@@ -180,7 +182,7 @@ The quick reference is meant for **fast and reliable** lookup of commands and th
 
 ### <i class="fa-solid fa-chalkboard"></i> Name/Rename CS course : `setcrs`
 
-Names the course in question. 
+Names the course with the course code provided, Course code is showcased in the main window's title.
 
 Format: `setcrs COURSE_NAME`
 
