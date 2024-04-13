@@ -21,9 +21,6 @@ deactivate ModelCH
 Model -> ModelCH : getCommandHistory(direction)
 activate ModelCH
 
-ModelCH -> ModelCH :
-ModelCH -> ModelCH :
-ModelCH -> ModelCH :
 ModelCH --> Model : previousCommand
 deactivate ModelCH
 
