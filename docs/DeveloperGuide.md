@@ -658,7 +658,7 @@ For all use cases below, the **System** is TAPro and the **Actor** is the user, 
 
 1. User focuses on the command box.
 
-2. User presses the retrieve previous command hotkey (e.g. up arrow key).
+2. User presses the retrieve previous command hotkey.
 
 3. TAPro displays the successful command input in the command box.
    Use case ends.
@@ -681,7 +681,7 @@ For all use cases below, the **System** is TAPro and the **Actor** is the user, 
 
 1. User focuses on the command box.
 
-2. User presses the retrieve next command hotkey (e.g. down arrow key).
+2. User presses the retrieve next command hotkey.
 
 3. TAPro displays a more recent successful command input in the command box.
    Use case ends.
