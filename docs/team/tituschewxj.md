@@ -11,7 +11,8 @@ Given below are my contributions to the project.
 
 * **New Feature**:
 
-* **Code contributed**: [RepoSense link]()
+
+* **Code contributed**: [RepoSense link](https://nus-cs2103-ay2324s2.github.io/tp-dashboard/?search=tituschewxj&breakdown=true&sort=groupTitle%20dsc&sortWithin=title&since=2024-02-23&timeframe=commit&mergegroup=&groupSelect=groupByRepos&checkedFileTypes=docs~functional-code~test-code~other)
 
 * **Project management**:
 

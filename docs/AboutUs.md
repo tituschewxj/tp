@@ -17,7 +17,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 [[homepage](http://www.ethanwei.me)]
 [[github](https://github.com/belligerentbeagle)]
-[[portfolio](team/ethanwei.md)]
+[[portfolio](team/belligerentbeagle.md)]
 
 * Role: Software Engineer
 * Responsibilities: Software Development
@@ -27,7 +27,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 <img src="images/saiutkarsh33.png" width="200px">
 
 [[github](https://github.com/saiutkarsh33)]
-[[portfolio](team/sai.md)]
+[[portfolio](team/saiutkarsh33.md)]
 
 * Role: Software Engineer
 * Responsibilities: Software Development
@@ -37,7 +37,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 <img src="images/tituschewxj.png" width="200px">
 
 [[github](http://github.com/tituschewxj)] 
-[[portfolio](team/titus.md)]
+[[portfolio](team/tituschewxj.md)]
 
 * Role: Software Engineer
 * Responsibilities: Software Development
@@ -47,7 +47,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 <img src="images/foraeons.png" width="200px">
 
 [[github](http://github.com/ForAeons)]
-[[portfolio](team/xiaoyun.md)]
+[[portfolio](team/foraeons.md)]
 
 * Role: Software Engineer
 * Responsibilities: Software Development
@@ -58,7 +58,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 <img src="images/anant1902.png" width="200px">
 
 [[github](http://github.com/anant1902)]
-[[portfolio](team/anant.md)]
+[[portfolio](team/anant1902.md)]
 
 * Role: Software Engineer
 * Responsibilities: Software Development
