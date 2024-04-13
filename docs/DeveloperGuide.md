@@ -165,6 +165,7 @@ Here are the other classes in `Logic` (omitted from the class diagram above) tha
 * stores the contact book data i.e., all `Person` objects (which are contained in a `UniquePersonList` object).
 * stores the currently 'selected' `Person` objects (e.g., results of a search query) as a separate _filtered_ list which is exposed to outsiders as an unmodifiable `ObservableList<Person>` that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.
 * stores a `UserPref` object that represents the user’s preferences. This is exposed to the outside as a `ReadOnlyUserPref` objects.
+* stores a `CourseName` object that represent a Course code. This is exposed to the outside as a `ReadOnlyCourseName` object.
 * does not depend on any of the other three components (as the `Model` represents data entities of the domain, they should make sense on their own without depending on other components)
 
 <box type="info" light>
@@ -186,8 +187,8 @@ An alternative (arguably, a more OOP) model is given below. It has a `Tag` list 
 <puml src="diagrams/StorageClassDiagram.puml" width="550" /><br><br>
 
 **The `Storage` component,**
-* can save both contact book data and user preference data in JSON format, and read them back into corresponding objects.
-* inherits from both `AddressBookStorage` and `UserPrefStorage`, which means it can be treated as either one (if only the functionality of only one is needed).
+* can save both contact book data and user preference data and course name data in JSON format, and read them back into corresponding objects.
+* inherits from both `AddressBookStorage` and `UserPrefStorage` and `CourseStorageName`, which means it can be treated as either one (if only the functionality of only one is needed).
 * depends on some classes in the `Model` component (because the `Storage` component's job is to save/retrieve objects that belong to the `Model`)
 
 {{ newPage }}
