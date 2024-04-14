@@ -376,30 +376,30 @@ _{Explain here how the data archiving feature will be implemented}_
 
 **Priorities:** 
 * <span class="semi-bold">#g#High:##</span> (must have) - {{ threeStars }}
-* <span style="color:#FF7F00;" class="semi-bold">Medium</span> (nice to have) - {{ twoStars }}
-* <span class="semi-bold">#r#Low:##</span> (unlikely to have) - {{ oneStar }}
+* <span style="color:#FF7F00;" class="semi-bold">Medium</span> (should have) - {{ twoStars }}
+* <span class="semi-bold">#r#Low:##</span> (nice to have) - {{ oneStar }}
 </box>
 
 
 [//]: # (whitespace is added to force the header row into one line)
 {% set whitespace = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' %}
 
-| Priority         | As a …              | I want to …                                                                 | So that I can…                                 |
-|------------------|---------------------|-----------------------------------------------------------------------------|------------------------------------------------|
-| {{ threeStars }} | TA {{ whitespace }} | name/rename the CS course that I am tutoring this semester                  | keep track of the module I am teaching         |
-| {{ threeStars }} | TA                  | add a student to the CS course that I am tutoring that semester to my class | keep track of him or her                       |
-| {{ threeStars }} | TA                  | view all students from my class                                             | view details about all of them                 |
-| {{ threeStars }} | TA                  | mark attendance for a student in my class for a particular week             | keep track of who's present                    |
-| {{ threeStars }} | TA                  | unmark attendance for a student in my class for a particular week           | keep track of who is absent                    |
-| {{ threeStars }} | TA                  | delete a student                                                            | remove a student if he or she leaves the class |
-| {{ threeStars }} | TA                  | know all the commands of TAPro via the help window                          | use it effectively                             |
-| {{ threeStars }} | TA                  | see all students in the contact book                                        | have an overview of all students               |
-| {{ threeStars }} | TA                  | edit a student's details                                                    | have the latest data                           |
-| {{ threeStars }} | TA                  | find a student by name                                                      | get a student's data easily                    |
-| {{ threeStars }} | TA                  | delete all students from the contact book                                   | reset my student's data quickly                |
-| {{ twoStars }}   | TA                  | retrieve command history                                                    | avoid retyping a command                       |
-| {{ twoStars }}   | TA                  | use TAB to autocomplete my input                                            | to save time                                   |
-| {{ twoStars }}   | TA                  | exit the program smoothly                                                   | to save time                                   |
+| Priority         | As a …              | I want to …                                                        | So that I can…                                       |
+|------------------|---------------------|--------------------------------------------------------------------|------------------------------------------------------|
+| {{ threeStars }} | TA {{ whitespace }} | name/rename the CS course that I am tutoring this semester         | keep track of the module I am teaching               |
+| {{ threeStars }} | TA                  | add a student to the my class that I am tutoring this semester     | keep track of him or her                             |
+| {{ threeStars }} | TA                  | view all students from my class                                    | view details about all of them                       |
+| {{ threeStars }} | TA                  | mark attendance for a student in my class for a particular week    | keep track of who is present                         |
+| {{ threeStars }} | TA                  | unmark attendance for a student in my class for a particular week  | keep track of who is absent                          |
+| {{ threeStars }} | TA                  | delete a student                                                   | remove a student if he or she leaves the class       |
+| {{ threeStars }} | TA                  | know all the commands of TAPro via the help window                 | use it effectively                                   |
+| {{ threeStars }} | TA                  | see all students in the contact book                               | have an overview of all students                     |
+| {{ threeStars }} | TA                  | edit a student's details                                           | have the latest data                                 |
+| {{ threeStars }} | TA                  | find a student by name                                             | get a student's data easily                          |
+| {{ threeStars }} | TA                  | delete all students from a previous semester from the contact book | clear my contacts quickly at the start of a semester |
+| {{ twoStars }}   | TA                  | retrieve command history                                           | avoid retyping a command                             |
+| {{ twoStars }}   | TA                  | to autocomplete my input                                           | to save time                                         |
+| {{ twoStars }}   | TA                  | exit the program smoothly                                          | to save time                                         |
 
 **TODO: Add more user stories that are applicable**
 
