@@ -1,7 +1,7 @@
 ---
-  layout: default.md
-    title: "User Guide"
-    pageNav: 3
+layout: default.md
+title: "User Guide"
+pageNav: 3
 ---
 {% import "_markbind/_macros.nj" as macros %}
 
@@ -703,9 +703,8 @@ The last parameter `TAG` is autocompleted.
 Autocomplete works on the last parameter (if any) in the command box, which is the text directly after a [recognized prefix](#parameters-and-their-recognized-prefixes).
 
 
-When reaching the end of the possible options list, pressing
-{{ macros.keyFormat('Tab') }}  will wrap
 <box type="warning" light>
+
 A parameter can only be autocompleted if it is not the first word, and has a [recognized prefix](#parameters-and-their-recognized-prefixes).
 </box>
 
@@ -893,14 +892,14 @@ target computer.
 
    <box type="success" light>
 
-<span class="semi-bold">#g#Examples:##</span>
+    <span class="semi-bold">#g#Examples:##</span>
 
-* On Windows: `java -jar "C:\Users\YOUR_USERNAME\Downloads\TAPro.jar"`<br>
-
-* On Linux: `java -jar /home/YOUR_USERNAME/Downloads/TAPro.jar`<br>
-
-* On macOS: `java -jar "/Users/YOUR_USERNAME/Downloads/TAPro.jar"`<br>
-  </box>
+    * On Windows: `java -jar "C:\Users\YOUR_USERNAME\Downloads\TAPro.jar"`<br>
+    
+    * On Linux: `java -jar /home/YOUR_USERNAME/Downloads/TAPro.jar`<br>
+    
+    * On macOS: `java -jar "/Users/YOUR_USERNAME/Downloads/TAPro.jar"`<br>
+    </box>
 
 2. Save the file as `TAPro.bat` (Windows) or `TAPro.sh` (macOS/Linux).
 3. Change the admin settings of the script to allow it to run as a program:
