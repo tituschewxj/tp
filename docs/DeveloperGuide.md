@@ -793,8 +793,6 @@ Expected: TAPro launches and shows the GUI with a set of sample student contacts
 Expected: The most recent window size and location is retained.
 </box>
 
-3. _{ more test cases …​ }_
-
 <br>
 
 ### Adding a student
@@ -856,7 +854,8 @@ shown in the status message.
 </box>
 
 <box type="info" light>
-This command differs from most other commands that use the `NUSNET_ID` to identify a student. This command uses the index number shown in the displayed person list to identify the student to be edited.
+
+This command differs from most other commands that use the `NUSNET` to identify a student. This command uses the index number shown in the displayed person list to identify the student to be edited.
 </box>
 
 <br>
@@ -888,8 +887,6 @@ shown in the status message.
 * `delstu E0123456`: Missing prefix for the NUSNet ID parameter.
 </box>
 
-2. _{ more test cases …​ }_
-
 <br>
 
 ### Finding a student
@@ -904,7 +901,7 @@ shown in the status message.
 
 <box type="info" light>
 
-<span class="semi-bold">1. Prerequisites:</span> TAPro contains one student with NUSNet ID E0123456, and no student with NUSNet ID E6543210.
+<span class="semi-bold">1. Prerequisites:</span> TAPro contains one student with NUSNet ID `E0123456`, and no student with NUSNet ID `E6543210`.
 </box>
 
 <box type="success" light>
@@ -930,9 +927,9 @@ Details of the marked student is shown in the status message.
 
 <box type="info" light>
 
-<span class="semi-bold">1. Prerequisites:</span> TAPro contains one student with NUSNet ID E0123456 with his Week 1's attendance marked 
+<span class="semi-bold">1. Prerequisites:</span> TAPro contains one student with NUSNet ID `E0123456` with his Week 1's attendance marked 
 and no 
-student with NUSNet ID E6543210.
+student with NUSNet ID `E6543210`.
 </box>
 
 <box type="success" light>
@@ -995,17 +992,18 @@ Expected: TAPro's main window's title contains the course code `CS2103` provided
 
 
 <box type="success" light>
-<span class="semi-bold">2. Test case: Retrieving a previous command with <span class="badge bg-light text-dark"><i 
+
+<span class="semi-bold">2. Test case: Retrieving a previous command with <span class="badge bg-light text-dark"> <i 
 class="fa-regular fa-square-caret-up"></i> UP</span> key </span>
 
-1. Now the command input box is empty.
-1. Pressing <span class="badge bg-light text-dark"><i class="fa-regular fa-square-caret-up"></i> UP</span> will
-   fill the text in the command input box to
-   the previous command `mark nn/E0123456`!
-1. You can press <span class="badge bg-light text-dark"><i class="fa-regular fa-square-caret-up"></i>
-   UP</span> continuously to scroll through all the previous commands you have entered.
-1. Pressing <span class="badge bg-light text-dark"><i class="fa-regular fa-square-caret-down"></i> DOWN</span> will
-   scroll back to the more recent commands you have entered.
+* After the entering a previous command, the command input box is empty.
+* Pressing <span class="badge bg-light text-dark"><i class="fa-regular fa-square-caret-up"></i> UP</span> will
+  fill the text in the command input box to
+  the previous command `mark nn/E0123456`!
+* You can press <span class="badge bg-light text-dark"><i class="fa-regular fa-square-caret-up"></i>
+  UP</span> continuously to scroll through all the previous commands you have entered.
+* Pressing <span class="badge bg-light text-dark"><i class="fa-regular fa-square-caret-down"></i> DOWN</span> will
+  scroll back to the more recent commands you have entered.
 
 </box>
 </box>
