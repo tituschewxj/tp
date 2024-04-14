@@ -11,7 +11,7 @@
 </p>
 
 TAPro is your go-to **Contact Book application**, created with love for **Computer Science Teaching Assistants (TAs)** like you. _We get it_ — juggling your students and keeping track of attendance can be a handful. That’s why TAPro is 
-here to make your life easier. With features designed preciesly for you, it's all about simplifying those 
+here to make your life easier. With features designed precisely for you, it's all about simplifying those 
 time-consuming tasks, letting you focus on what you do best: teaching and inspiring your students. Welcome to a 
 smoother, more personalized way of managing your TA duties!
 
@@ -65,72 +65,99 @@ Diving into TAPro, you'll encounter some handy notations and terms. We've decode
 
 ### Symbols
 
-| Symbol                                                    | Meaning                                                         |
-|-----------------------------------------------------------|-----------------------------------------------------------------|
-| <i class="fa-solid fa-lightbulb text-success"></i>        | Tip                                                             |
-| <i class="fa-solid fa-exclamation text-warning"></i>      | Warning                                                         |
-| <i class="fa-solid fa-flag text-danger"></i>              | Important                                                       |
-| <i class="fa-solid fa-info text-info"></i>                | Additional useful information                                   |
-| <i class="fa-solid fa-check text-success"></i>            | Valid example                                                   |
-| <i class="fa-solid fa-x text-danger"></i>                 | Invalid example                                                 |
-| <i class="fa-solid fa-exclamation text-danger"></i>       | Danger                                                          |
-| <i class="fa-solid fa-book text-primary"></i>             | Definition                                                      |
-| <i class="fa-solid fa-question text-info"></i>            | Question                                                        |
-| <i class="fa-solid fa-spell-check text-primary"></i>      | Command Format                                                  |
-| {{ macros.keyFormat('Key') }}                             | Represents a keyboard input.                                    |
+Symbols are indicators that give additional information about a target piece of text.
+
+| Symbol                                               | Meaning of target text        |
+|------------------------------------------------------|-------------------------------|
+| <i class="fa-solid fa-lightbulb text-success"></i>   | Tip                           |
+| <i class="fa-solid fa-exclamation text-warning"></i> | Warning                       |
+| <i class="fa-solid fa-flag text-danger"></i>         | Important                     |
+| <i class="fa-solid fa-info text-info"></i>           | Additional useful information |
+| <i class="fa-solid fa-check text-success"></i>       | Valid example                 |
+| <i class="fa-solid fa-x text-danger"></i>            | Invalid example               |
+| <i class="fa-solid fa-bolt text-danger"></i>         | Danger                        |
+| <i class="fa-solid fa-book text-primary"></i>        | Definition                    |
+| <i class="fa-solid fa-question text-info"></i>       | Question                      |
+| <i class="fa-solid fa-spell-check text-primary"></i> | Command Format                |
+| {{ macros.keyFormat('Key') }}                        | Represents a keyboard input.  |
 
 {{ newPageBetween }}
 
 ### Keywords 
 
-| Keywords                     | Meaning                                                                                                                                                                                                                                                 |
-|------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Command Line Interface**   | A text-based interface used for entering commands directly.                                                                                                                                                                                             |
-| **Graphical User Interface** | The visual interface that enhances user interaction with graphical elements.                                                                                                                                                                            |
-| **Parameters**               | Specific pieces of information required by commands to execute a function.                                                                                                                                                                              |
-| **Attribute**                | A single detail of a student.                                                                                                                                                                                                                           |
-| **Autocomplete**             | A feature that predicts and completes commands as you type.                                                                                                                                                                                             |
-| **Command History**          | A record of successfully executed commands that can be retrieved for reuse.                                                                                                                                                                             |
-| **`INDEX`**                  | A case-insensitive, unique identification code assigned to each student.                                                                                                                                                                                |
-| **`NUSNET`**                 | A unique identification code assigned to each student.                                                                                                                                                                                                  |
-| **`TAG`**                    | A one-word, non-space separated, case-insensitive, alphanumeric label that can be associated with a student for categorization. For example `bestFriend4Ever`, `colleague`, `Club` are valid tags, but `best friend`, `best-friend` are not valid tags. |
+Keywords are word(s) that hold greater significance.
+
+| Keywords                     | Meaning                                                                      |
+|------------------------------|------------------------------------------------------------------------------|
+| **Attribute**                | A single detail of a student.                                                |
+| **Autocomplete**             | A feature that predicts and completes commands as you type.                  |
+| **Autocompletion**           | The autocomplete feature's suggested result(s).                              |
+| **Command**                  | An executable input text in the command input box.                           |
+| **Command History**          | A record of successfully executed commands that can be retrieved for reuse.  |
+| **Command Line Interface**   | A text-based interface used for entering commands directly.                  |
+| **Command Name**             | The word used to identify that it's associated command is used.              |
+| **Graphical User Interface** | The visual interface that enhances user interaction with graphical elements. |
+| **Parameter**                | A piece of information can be used in commands to be executed.               |
+| **Placeholder Value**        | A parameter value used to indicate that a value is not set for an attribute. |
 
 ### Abbreviations
+
+Abbreviations are a shortened form of a word or phrase.
 
 | Abbreviation | Meaning                                            |
 |--------------|----------------------------------------------------|
 | **ASCII**    | American Standard Code for Information Interchange |
-| **GUI**      | Graphical User Interface                           |
 | **CLI**      | Command Line Interface                             |
-| **UI**       | User Interface                                     |
-| **TA**       | Teaching Assistant                                 |
 | **CS**       | Computer Science                                   |
-| **NUS**      | National University of Singapore                   |
-| **URL**      | Uniform Resource Locator                           |
+| **GUI**      | Graphical User Interface                           |
 | **JSON**     | JavaScript Object Notation                         |
+| **NUS**      | National University of Singapore                   |
+| **TA**       | Teaching Assistant                                 |
+| **UI**       | User Interface                                     |
+| **URL**      | Uniform Resource Locator                           |
 
 {{ newPageBetween }}
 
 ### Command Format
 
-| Command format          | Meaning                                                         |
+Commands formats have specific notations to represent how a command can be used.
+
+| Notation                | Meaning                                                         |
 |-------------------------|-----------------------------------------------------------------|
 | **`prefix/`**           | Represents a prefix.                                            |
 | **`UPPER_CASE`**        | Represents parameters that need to be given by you!             |
 | **`[ELLIPSIS]...`**     | Indicates that a parameter can be repeated or omitted entirely. |
 | **`[SQUARE_BRACKETS]`** | Denotes optional parameters.                                    |
 
-### Recognized Prefixes for Attributes
+### Parameters and their Recognized Prefixes
 
-| Prefix    | Parameter | Attribute                   |
-|-----------|:----------|-----------------------------|
-| **`n/`**  | `NAME`    | Name of the student         |
-| **`nn/`** | `NUSNET`  | NUSNet ID of the student    |
-| **`p/`**  | `PHONE`   | Phone number of the student |
-| **`e/`**  | `EMAIL`   | Email of the student        |
-| **`m/`**  | `MAJOR`   | Major of the student        |
-| **`t/`**  | `TAG`     | Tag of the student          |
-| **`wk/`** | `WEEK`    | Week number for attendance  |
+{{ macros.definitionBox('Recognized Prefixes', 'Prefixes that have an associated parameter and attribute in TAPro.') }}
+
+| Parameter    | Recognized Prefix | Attribute                            | Constraints                                   |
+|:-------------|:------------------|--------------------------------------|-----------------------------------------------|
+| **`NAME`**   | `n/`              | Name of the student.                 | Proper-case and alphabetical characters only. |
+| **`NUSNET`** | `nn/`             | NUSNet ID of the student.            | Case-insensitive, unique identifier.          |
+| **`PHONE`**  | `p/`              | Phone number of the student.         | At least 3 digits, and digits only.           |
+| **`EMAIL`**  | `e/`              | Email address of the student.        | Case-insensitive, email address.              |
+| **`MAJOR`**  | `m/`              | Major of the student.                | Unconstrained.                                |
+| **`TAG`**    | `t/`              | Tag(s) of the student.               | Case-sensitive, alphanumeric without spaces.  |
+| **`WEEK`**   | `wk/`             | Week number of student's attendance. | Integer between 1 to 13 (inclusive).          |
+
+<box type="tip" light>
+
+Tags can be associated with a student for categorization.
+</box>
+
+### Other Parameters
+
+These parameters are not associated with an attribute and do not have recognized prefixes.
+
+| Parameter           | Meaning                                                                | 
+|---------------------|------------------------------------------------------------------------|
+| **`COURSE_CODE`**   | Course code which the user is tutoring for.                            |
+| **`INDEX`**         | The numbered position of a student in the student contact cards panel. |
+| **`KEYWORD`**       | The main search keyword for student names.                             |
+| **`MORE_KEYWORDS`** | Additional search keywords for student names.                          |
 
 
 {{ newPage }}
@@ -151,9 +178,10 @@ TODO: Add a screenshot of the GUI with annotations
 <i class="fa-solid fa-download"></i>
 **Installing Java:**
 
-If you do not have Java 11 or above installed, you can download the latest available version of Java from [here](https://www.oracle.com/sg/java/technologies/downloads/).
-The latest version is compatible with older versions.
+If you do not have Java 11 or above installed, you can download the latest available version of Java from [here](https://www.oracle.com/sg/java/technologies/downloads/). 
+For macOS users, you may wish to follow the instructions [here](https://nus-cs2103-ay2324s1.github.io/website/admin/programmingLanguages.html).
 
+Only Java 11 has been tested to work with TAPro, so [check that your Java version](#checking-java-version) is correct if you are facing issues with TAPro.
 </box>
 
 2. Download the latest version of `TAPro.jar` from [here](https://github.com/AY2324S2-CS2103T-F13-1/tp/releases).
@@ -171,7 +199,7 @@ A GUI similar to the below image should appear in a few seconds. Note how the ap
 </box>
 <div style="page-break-after: always;"></div>
 
-5. Type a command in the command box and press {{ macros.keyFormat('Enter') }} to execute it. 
+5. Type a command in the command input box and press {{ macros.keyFormat('Enter') }} to execute it. 
 
 <box type="success" light>
 
@@ -244,7 +272,7 @@ A GUI similar to the below image should appear in a few seconds. Note how the ap
 
 <span class="semi-bold">Non-recognized prefixes be parsed as part of the previous parameter's value.</span>
 
-<span class="semi-bold">#g#Example:##</span> If the command specifies `addstu n/John Doe a/Non-recognized-prefix`, it would be parsed as `NAME` parameter being `John Doe a/Non-recognized-prefix`, instead of just `John Doe`, as `a/` is not a [recognized prefix](#recognized-prefixes-for-attributes).
+<span class="semi-bold">#g#Example:##</span> If the command specifies `addstu n/John Doe a/Non-recognized-prefix`, it would be parsed as `NAME` parameter being `John Doe a/Non-recognized-prefix`, instead of just `John Doe`, as `a/` is not a [recognized prefix](#parameters-and-their-recognized-prefixes).
 </box>
 
 </box>
@@ -330,10 +358,23 @@ Adds a student to the contact book.
 **Format: `addstu n/NAME nn/NUSNET [p/PHONE] [e/EMAIL] [m/MAJOR] [t/TAG]…​`**
 </box>
 
-* Add a student with the given details.
-* The name and NUSNet ID must be provided. And NUSNet ID must be unique.
+* Adds a student with the given details.
 
-* Name cannot be empty or spaces only, contain only alphabets and cannot have double spaces. 
+* The name and NUSNet ID must be provided, as they are not optional parameters.
+
+* And NUSNet ID must be unique.
+
+<box type="info" light>
+
+**Case-insensitivity of NUSNet ID:**
+
+NUSNet ID is case-insensitive, and it will be converted to uppercase automatically upon running the command.
+
+For example, `e0123456` will be converted to `E0123456`, as `E0123456` and `e0123456` refer to the same NUSNet ID.
+</box>
+
+* Name must not be empty (or spaces only), and must have single spaces between words. It must be in proper-case and contain only alphabets.
+
 * All the remaining fields are optional. If values are not provided to optional fields, they will be set to a placeholder value under the hood (e.g., `Major not provided` for `MAJOR` field).
 
 <box type="info" light>
@@ -342,14 +383,12 @@ Adds a student to the contact book.
 
 A student can have any number of tags, including 0.
 </box>
+<box type="success" light>
 
-<box type="info" light>
+**Alphanumeric tags**
 
-**Case-insensitivity of NUSNet ID:**
-
-NUSNet ID is case-insensitive, and it will be converted to uppercase automatically upon running the command. For example, `e0123456` will be converted to `E0123456`.
+{{ macros.semiBold('#g#Example:##') }} `bestFriend4Ever`, `colleague`, `Club` are valid tags, but `best friend`, `best-friend` are not valid tags.
 </box>
-
 <box type="tip" light>
 
 **Adding multiple majors:**
@@ -593,7 +632,7 @@ Exits the program.
 
 The autocomplete feature autocompletes a parameter or command, based on the current command box input and the current data in TAPro. This means that if an attribute value is not present, it will not be present in the autocompletion of that corresponding parameter.
 
-{{ macros.definitionBox('Autocompletion', 'The autocomplete feature\'s suggested autocomplete result(s).') }}
+{{ macros.definitionBox('Autocompletion', 'The autocomplete feature\'s suggested result(s).') }}
 
 We can autocomplete both command names and parameters after their prefixes by pressing {{ macros.keyFormat('Tab') }}, when an autocompletion is available.
 
@@ -620,6 +659,7 @@ followed by `mark nn/E2345678`.
 </box>
 
 <box type="info" light>
+
 If we type `a` into the command input box and press {{ macros.keyFormat('Tab') }}, we see that the text in the command input box autocompletes to become `addstu`.
 
 The last parameter `TAG` is autocompleted.
@@ -630,12 +670,12 @@ The last parameter `TAG` is autocompleted.
 
 **Autocompletes the last parameter in the input:**
 
-Autocomplete works on the last parameter (if any) in the command box, which is the text directly after a [recognized prefix](#recognized-prefixes-for-attributes). 
+Autocomplete works on the last parameter (if any) in the command box, which is the text directly after a [recognized prefix](#parameters-and-their-recognized-prefixes). 
 
 When reaching the end of the possible options list, pressing
 {{ macros.keyFormat('Tab') }}  will wrap 
 <box type="warning" light>
-A parameter can only be autocompleted if it is not the first word, and has a [recognized prefix](#recognized-prefixes-for-attributes).
+A parameter can only be autocompleted if it is not the first word, and has a [recognized prefix](#parameters-and-their-recognized-prefixes).
 </box>
 
 <box type="success" light>
@@ -733,7 +773,7 @@ the previous command `mark nn/E0123456`!
 </box>
 
 
-<box type="warning" theme="danger" light>
+<box icon=":fa-solid-bolt:" theme="danger" light>
 
 **Current input is erased:**
 
@@ -849,7 +889,7 @@ target computer.
 
 **Q**: <span class="semi-bold">How can I check my Java version?</span>
 
-**A**: Open a command line and type `java -version`. If you do not have Java installed, you can install Java 11 using the Oracle guide [here](https://www.oracle.com/java/technologies/downloads/#java11). Alternatively, you can install the OpenJDK version. For macOS users, you may wish to follow the instructions [here](https://nus-cs2103-ay2324s1.github.io/website/admin/programmingLanguages.html).
+**A**: Open a command line and type `java -version`. If the command is not recognized, it means you do not have Java installed. You can install Java 11 using the Oracle guide [here](https://www.oracle.com/java/technologies/downloads/#java11). Alternatively, you can install the OpenJDK version. For macOS users, you may wish to follow the instructions [here](https://nus-cs2103-ay2324s1.github.io/website/admin/programmingLanguages.html).
 </box>
 
 ### Using TAPro
@@ -960,21 +1000,21 @@ the front of your input.
 
 ## <i class="fa-solid fa-triangle-exclamation"></i> Known issues
 
-<box type="warning" theme="danger" light>
+<box icon=":fa-solid-bolt:" theme="danger" light>
 
 **1. Using multiple screens**
 
 If you move the application to a secondary screen, and later switch to using only the primary screen, the GUI will open off-screen. The remedy is to delete the `preferences.json` file created by the application before running the application again.
 </box>
 
-<box type="warning" theme="danger" light>
+<box icon=":fa-solid-bolt:" theme="danger" light>
 
 **2. Having more than one instance of TAPro running**
 
 If you have more than one instance of TAPro running, the application may not function as expected. TAPro's data will desynchronise. The remedy is to close all instances of TAPro and run only one instance of TAPro.
 </box>
 
-<box type="warning" theme="danger" light>
+<box icon=":fa-solid-bolt:" theme="danger" light>
 
 **3. When the data file is in an invalid format**
 
