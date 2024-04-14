@@ -813,7 +813,7 @@ students.
 <span class="semi-bold">2. Test case: `addstu n/John Doe p/98765432 e/johndoe@example.com nn/E0123456 m/Computer Science, #02-25 t/friends t/owesMoney`</span>
 
 Expected: Student with NUSNet ID `E0123456` is added into TAPro. Details of the added student is
-shown in the status message.
+shown in the result message panel.
 </box>
       
 1. **Adding a student with NUSNet ID E0123457**
@@ -828,7 +828,7 @@ shown in the status message.
 <span class="semi-bold">2. Test case: `addstu n/Mary Jane p/91234911 e/janemary@example.com nn/E0123457 m/Biology t/friends t/owesTutorial2`</span>
 
 Expected: Student with NUSNet ID `E0123457` is added into TAPro. Details of the added student is
-shown in the status message.
+shown in the result message panel.
 </box>
 
 <br>
@@ -853,7 +853,7 @@ shown in the status message.
 <span class="semi-bold">2. Test case: `delstu nn/E0123456`</span>
 
 Expected: The student with NUSNet ID `E0123456` is deleted from TAPro. Details of the deleted student
-shown in the status message.
+shown in the result message panel.
 </box>
 
 <box type="wrong" light>
@@ -909,7 +909,7 @@ Expected: Student with name 'John Doe' is displayed on the Student Contact Cards
 <span class="semi-bold">2. Test case: `mark nn/E0123456 wk/1`</span>
 
 Expected: Student with NUSNet ID `E0123456` is marked as present for week 1 in TAPro, depicted on that student's card in the panel.
-Details of the marked student is shown in the status message.
+Details of the marked student is shown in the result message panel.
 </box>
 
 <box type="wrong" light>
