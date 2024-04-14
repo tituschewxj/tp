@@ -221,7 +221,13 @@ This section describes some noteworthy details on how certain features are imple
 
 ### Command History Retrieval
 
-**TODO**
+Let's consider the scenario where the user wants to retrieve the last command executed. The user can do this by 
+pressing the <span class="badge bg-light text-dark"><i class="fa-regular fa-square-caret-up"></i> UP</span> key on 
+the keyboard. 
+
+The <span class="badge bg-light text-dark"><i class="fa-regular fa-square-caret-up"></i> UP</span> key press event is captured by the `CommandBox` class, which then 
+retrieves the last command from the `CommandHistory` Singleton object.
+<puml src="diagrams/CommandHistorySequenceDiagram.puml" alt="Command History Sequence Diagram" />
 
 {{ newPage }}
 
@@ -403,11 +409,13 @@ For all use cases below, the **System** is TAPro and the **Actor** is the user, 
 
 <box no-icon type="success" light>
 
-**Use case: Add a Student**
+**Use case: Learn How to Use Available Commands in TAPro**
 
 <span class="semi-bold">MSS</span>
 
-1. User requests to add a student, providing the name and NUSNet ID as compulsory information, with the phone number being optional.
+1. User requests to view the list of available commands for TAPro.
+
+2. TAPro displays the list of available commands and a guide on how to use each command.
 
    Use case ends.
 
@@ -415,7 +423,57 @@ For all use cases below, the **System** is TAPro and the **Actor** is the user, 
 
 <box no-icon type="success" light>
 
-**TODO: Use case: Edit a Student**
+**Use case: Add a Student**
+
+<span class="semi-bold">MSS</span>
+
+1. User requests to add a student, providing the name and NUSNet ID as compulsory information, with the phone number, email, major and tags being optional.
+
+2. TAPro adds the student to the list of students.
+
+   Use case ends.
+
+<span class="semi-bold">Extensions</span>
+
+* 2a. Format of the provided data is incorrect.
+
+    * 2a1. TAPro rejects the student addition and shows an error message.
+
+    * Use case ends.
+  
+</box>
+
+<box no-icon type="success" light>
+
+**Use case: Editing a Student**
+
+<span class="semi-bold">MSS</span>
+
+1. User requests to edit an existing student, indicating the student the user wish to edit. The user provides the update details for the student and remaining details are unchanged.
+
+2. TAPro updates the student with the new details.
+
+   Use case ends.
+
+<span class="semi-bold">Extensions</span>
+
+* 2a. No such student exists.
+
+    * 2a1. TAPro shows an error message.
+
+    * Use case ends.
+
+* 2b. User provides no details to update.
+
+    * 2b1. TAPro shows an error message.
+
+    * Use case ends.
+
+* 2c. Format of the provided data is incorrect.
+
+    * 2c1. TAPro rejects the student update and shows an error message.
+
+    * Use case ends.
 
 </box>
 
@@ -427,13 +485,21 @@ For all use cases below, the **System** is TAPro and the **Actor** is the user, 
 
 1. User requests to delete a specific student based on NUSNet ID.
 
+2. TAPro deletes the student from the list of students.
+
    Use case ends.
 
 <span class="semi-bold">Extensions</span>
 
-* 1a. No such student exists.
+* 2a. No such student exists.
 
-    * 1a1. TAPro shows an error message.
+    * 2a1. TAPro shows an error message.
+
+    * Use case ends.
+
+* 2b. Format of the provided data is incorrect.
+
+    * 2b1. TAPro shows an error message.
 
     * Use case ends.
 
@@ -445,9 +511,19 @@ For all use cases below, the **System** is TAPro and the **Actor** is the user, 
 
 <span class="semi-bold">MSS</span>
 
-1. User requests to name or rename a CS course by specifying the course name and the new name if applicable.
+1. User requests to name or rename a CS course by specifying the course code.
+
+2. TAPro names or renames the CS course on the application window bar.
 
    Use case ends.
+
+<span class="semi-bold">Extensions</span>
+
+* 2b. Format of the provided course code is incorrect.
+
+    * 2b1. TAPro shows an error message.
+
+    * Use case ends.
 
 </box>
 
@@ -459,13 +535,31 @@ For all use cases below, the **System** is TAPro and the **Actor** is the user, 
 
 1. User requests to view a list of all students.
 
+2. TAPro displays a list of all students.
+
     Use case ends.
 
 </box>
 
 <box no-icon type="success" light>
 
-**TODO: Use case: Find a Student by Name**
+**Use case: Find a Student by Name**
+
+<span class="semi-bold">MSS</span>
+
+1. User requests to find all students by one or more keywords in the student's name.
+
+2. TAPro displays a list of students whose names contain the keyword(s).
+
+    Use case ends.
+
+<span class="semi-bold">Extensions</span>
+
+* 2a. No student exists with the given keyword(s).
+
+    * 2a1. TAPro shows no students.
+
+    * Use case ends.
 
 </box>
 
@@ -475,9 +569,25 @@ For all use cases below, the **System** is TAPro and the **Actor** is the user, 
 
 <span class="semi-bold">MSS</span>
 
-1. User requests to mark attendance for a student by providing the student's NUSNet ID.
+1. User requests to mark attendance for a student by providing the student's NUSNet ID and week number to mark the attendance for.
+
+2. TAPro marks the attendance for the student for the specified week.
 
    Use case ends.
+
+<span class="semi-bold">Extensions</span>
+
+* 2a. No such student exists.
+
+    * 2a1. TAPro shows an error message.
+
+    * Use case ends.
+  
+* 2b. Week number is invalid.
+
+    * 2b1. TAPro shows an error message.
+
+    * Use case ends.    
 
 </box>
 
@@ -487,25 +597,37 @@ For all use cases below, the **System** is TAPro and the **Actor** is the user, 
 
 <span class="semi-bold">MSS</span>
 
-1. User requests to unmark attendance for a student by providing the student's NUSNet ID.
+1. User requests to unmark attendance for a student by providing the student's NUSNet ID and week number to unmark the attendance for.
+
+2. TAPro unmarks the attendance for the student for the specified week.
 
    Use case ends.
 
+<span class="semi-bold">Extensions</span>
+
+* 2a. No such student exists.
+
+    * 2a1. TAPro shows an error message.
+
+    * Use case ends.
+
+* 2b. Week number is invalid.
+
+    * 2b1. TAPro shows an error message.
+
+    * Use case ends.
+
 </box>
 
 <box no-icon type="success" light>
 
-**TODO: Use case: Clear All Data**
-
-</box>
-
-<box no-icon type="success" light>
-
-**Use case: Know Available Commands in TAPro**
+**Use case: Clear All Data**
 
 <span class="semi-bold">MSS</span>
 
-1. User requests to view the list of available commands for TAPro.
+1. User requests to purge all data from TAPro.
+
+2. TAPro successfully clears all data.
 
    Use case ends.
 
@@ -536,7 +658,47 @@ For all use cases below, the **System** is TAPro and the **Actor** is the user, 
 
 <box no-icon type="success" light>
 
-**TODO: Use case: Retrieve a previous successful command input**
+**Use case: Retrieve a previous successful command input**
+
+<span class="semi-bold">MSS</span>
+
+1. User focuses on the command box.
+
+2. User presses the retrieve previous command hotkey.
+
+3. TAPro displays the successful command input in the command box.
+   Use case ends.
+
+<span class="semi-bold">Extensions</span>
+
+* 3a. No previous successful command input is available.
+
+    * 3a1. No action is taken.
+
+    * Use case ends.
+
+</box>
+
+<box no-icon type="success" light>
+
+**Use case: Retrieve a more recent successful command input**
+
+<span class="semi-bold">MSS</span>
+
+1. User focuses on the command box.
+
+2. User presses the retrieve next command hotkey.
+
+3. TAPro displays a more recent successful command input in the command box.
+   Use case ends.
+
+<span class="semi-bold">Extensions</span>
+
+* 3a. No successful command input that is more recent is available.
+
+    * 3a1. The command box will be cleared
+
+    * Use case ends.
 
 </box>
 
@@ -571,6 +733,7 @@ For all use cases below, the **System** is TAPro and the **Actor** is the user, 
 {{ macros.definitionBox('CLI', 'Command Line Interface') }}
 {{ macros.definitionBox('UI', 'User Interface') }}
 {{ macros.definitionBox('GUI', 'Graphical User Interface') }}
+{{ macros.definitionBox('ASCIIbetical Order', 'An ordering where numbers and most punctuations are before letters, and uppercase letters before lowercase letters.') }}
 
 {{ newPage }}
 
@@ -874,6 +1037,8 @@ class="fa-regular fa-square-caret-up"></i> UP</span> key </span>
 
 ## **Appendix: Design Decisions**
 
+<br>
+
 1. **Why does `edit` command use `INDEX` as identifier instead of `NUSNET`?**
     1. For our users, using `edit nn/E0123456 nn/E1234567` is unintuitive to edit the NUSNet ID of a student.
     1. `INDEX` is visually easier to reference and requires less effort to type.
@@ -886,12 +1051,136 @@ class="fa-regular fa-square-caret-up"></i> UP</span> key </span>
    **Note:** `delstu` command uses `NUSNET` as identifier because it requires more intentional effort and
    therefore ensures that the TA intends to perform this dangerous action.
    </box>
+   <br>
+
+1. **Why does autocomplete sort in [ASCIIbetical order](https://en.wikipedia.org/wiki/ASCII#Character_order) and not normal alphabetical order?**
+   1. The only difference ASCIIbetical order has from normal alphabetical order, is that uppercase letters are ordered before lowercase letters.
+   2. For most parameters this doesn't make a difference, due to case-insensitivity or validation checks that enforce a certain format.
+   3. But for the tag parameter, `TAG`, it is case-sensitive, so `LATE` and `late` are two different tags.
+   4. A user can use uppercase for emphasis and to give priority to that tag, in the autocompletion order, thus allowing the user to autocomplete a certain tag more easily, and without much hassle.
+
+    <br>
+    <box type="success" light>
+
+    **#g#Example:##** If a user uses the following tags: `LATE`, `early`, `onTime`, to tag their students based on their latest submission, then `LATE` would appear before `early` and `onTime` in the autocompletion of a blank tag parameter.
+     </box>
+
+   5. The alternative solution we considered was to use normal alphabetical ordering, but this meant that there would not be priority given to uppercase tags, without explicitly adding a number before that tag, which is less intuitive.
+   6. Another alternative solution we considered was to allow the user to set the priority of the values in the autocompletion, but this meant adding unnecessary verbosity to the command format, which may not be that intuitive for new users.
+   <br><br>
+     
+1. **Why does autocompletion only give values that are already present instead of predicting the next result?**
+   1. It is performance intensive to predict the next autocompletion based on all possible values.
+   2. It will also use up significant storage space to store the possible autocompletions, which would not meet the application size requirements required for this course.
+   3. Moreover, autocompletion of certain unused words may be redundant, as not all words would be even used.
+   4. Hence, we decided to just perform autocompletion based on the available values that are stored in TAPro, as it increases the usefulness of this feature in this context.
+
+   <br>
+
+1. **Why does autocomplete not work when the command input box is empty?**
+   1. The alternative solution we considered is when the command input box is empty, autocomplete scrolls through all possible commands. However, it has a few issues.
+   2. It is much faster typing out the first few letters of the command you want to autocomplete, and then autocompleting, since regular users would remember the commands to use.
+   3. If it was a new user, then the new user would refer to help and our user guide instead of using the autocomplete to see what options there are.
+   4. Moreover, for the new user, the autocomplete feature may be confusing at first, so by omitting autocomplete on an empty input, it prevents accidental misunderstandings on what {{ macros.keyFormat('Tab') }} should do.
+   5. Furthermore, we do not want new users to execute a command without understanding what it did first, as it may cause irreversible data loss (`clear` command). We wanted a new user to understand the command, by referring to help or our user guide on what a command did, in order to prevent a situation where data is accidentally lost.
+
+
+<div style="page-break-after: always;"></div>
+
+5. **Why are placeholder values valid input?**
+    1. There is no simple way to edit a student's optional attribute back to the default without the using placeholder value (`X not provided`, where X is the attribute), without having to perform two commands: delete the student and add back the student if a value was incorrectly filled when it is not available to the user.
+    2. With autocompletion, a user can easily fill in the placeholder value, so it is much easier to set an attribute back to the placeholder value.
+
+    <br>
+    <box type="success" light>
+
+   **#g#Example:##** If a user doesn't have all phone numbers, then the parameter value `Phone number not provided` may be a possible value that they will use later on, and so the autocomplete helps make the process easier for the user to reset the value if necessary.
+   </box>
+
+    3. Hence, we allowed the placeholder value as valid input to serve this purpose.
+    4. The alternative solution we considered was to leave the parameter value empty to set it back to the default, but there is an issue with it. Users may accidentally set the parameter value as empty, resulting in the accidental lost of an attribute's value.
+    5. As there is no way to undo this change easily, we decided to use the placeholder value for this purpose, so that in order to reset an attribute, the user has to intentionally want to do so, by typing out the full placeholder value (`X not provided`, where X is the attribute).
+
+   <br>
+   <box type="success" light>
+
+   **#g#Example:##** Assuming we used the alternative solution, if a user inputs `edit 1 p/` and accidentally presses enter, then the phone number of the student at index 1 in the user's contact list would be erased to `Phone number not provided`.
+
+   Although this was the user's accidental mistake, it resulted in the user needing to do more work to restore back the change. Hence, we decided to use the placeholder value, so that the user will be less likely to accidentally reset an attribute by mistake.
+   </box>
+
+    6. Furthermore, autocomplete has placeholder values present only when they are necessary, which helps against accidentally removing an optional attribute of a student.
+
+    <br>
+    <box type="success" light>
+
+   **#g#Example:##** Usually, if a user would store all phone numbers or no phone numbers at all, depending on their needs.
+
+   If a user has all phone numbers present, then the parameter value `Phone number not provided` would not be available as an autocompletion, to prevent accidental lost of a student's phone number by mistake.
+   </box>
+   <br>
+
+6. **Why does command history toggle only retrieve successful commands?**
+   1. The alternative we considered was to store the history of all command inputs.
+   2. However, unsuccessful command inputs are not that helpful to a user, and it only clutters up a user's command history, resulting in more time wasted searching for a successful command input.
+   3. Hence, storing only successful command inputs in the command history enabled users to be more efficient at using TAPro.
+   <br>
+
+
 
 {{ newPage }}
 
 ## **Appendix: Effort**
 
-**TODO**
+As a team, we have conquered many problems and fought uphill battles. We did away a number of potential headaches with improved workflows and use of automation.
+
+Below are some non-exhaustive instances of our challenges, achievements and efforts overcoming them.
+
+1. Utilised Nunjucks macros and variables in documentation.
+   Macros were used for creating `newPage` breaks as well as when replacing key button presses like {{ macros.keyFormat
+   ('Tab') }}, {{ macros.keyFormat('⌘Cmd') }} and
+   {{ macros.keyFormat('Alt') }}. While macros are powerful tools for reusing code with parameters, variables in 
+   Nunjucks 
+   serve as placeholders that can dynamically insert content, such as implementing page breaks efficiently. 
+
+    This method abstracts the formatting into a 
+   single, manageable location, ensuring uniformity across our documentation. It streamlines the documentation process, making it easier for contributors to apply custom styling and formatting without getting bogged down by repetitive tasks. 
+    
+    For further information and a deeper understanding of how we utilize Nunjucks in our documentation, you can visit the Nunjucks official documentation for [Macros](https://mozilla.github.io/nunjucks/templating.html#macro) and [Variables](https://mozilla.github.io/nunjucks/templating.html#variables).
+   
+    <box type="success" light>
+
+    **#g#Examples:##**
+
+    <img alt="Macros Example 1" src="images/macros1.png" class="rounded-image"/>
+    <br></br>
+    <img alt="Macros Example 2" src="images/macros2.png" class="rounded-image"/>
+    <br></br>
+    <img alt="Macros Example 3" src="images/macros3.png" class="rounded-image"/>
+
+    </box>
+
+1. Refactored the parameter syntax to improve AB3's original OOP.
+
+1. Implemented autocomplete and command history.
+   We thought hard about what are the potential shortcuts that would save our target user's time and we looked to 
+   the CLI for inspiration. Given that our product uses NUSNet ID as its unique identifier, it can be a hassle to 
+   type out a full command. Especially when it has already been previously used, or only require minor changes to 
+   the command. This resulted in the idea of clicking {{ macros.keyFormat
+   ('Tab') }} for autocomplete when allowed as well as {{ macros.keyFormat('Up', '<i class="fa-regular 
+   fa-square-caret-up"></i>') }} and {{ macros.keyFormat('Down', '<i class="fa-regular 
+   fa-square-caret-down"></i>') }} arrow keys to retrieve previous commands.
+
+1. Utilised [Node.js](https://nodejs.org/) and installed [MarkBind](https://markbind.org/) locally as a 
+   dev-dependency in `package.json`. It allows us to serve documentation on our local machines, and ensures that all developers are using the same version of MarkBind for consistency, so that no version related issues of MarkBind result in inconsistencies in our codebase.
+
+1. Utilised [`captain-githook`](https://github.com/swellaby/captain-githook) `pre-commit` and `pre-push` checks 
+   locally to automatically verify if code changes made will pass continuous integration checks. It allows us to focus our time on working on the quality of our code, rather that dealing with formatting related issues.
+
+1. Utilised Trie data structure for optimizing the performance of TAPro, especially in terms of autocompletion 
+   functionality, recognizing the need for rapid and efficient search capabilities. Tries are exceptionally well-suited for autocomplete systems, as they allow for the quick retrieval of full words based on partial inputs, dramatically improving our application's responsiveness during user searches.
+
+1. Utilised caching to further enhance the performance and user experience of TAPro's autocompletion feature.
 
 {{ newPage }}
 
@@ -900,7 +1189,84 @@ class="fa-regular fa-square-caret-up"></i> UP</span> key </span>
 <box type="info" light>
 
 **Team size:** 5
+
+**Allowed Enhancements:** 10
 </box>
 
+1. **Add duplicate prefix checks in the `mark` command.** 
 
-**TODO: Add feature flaws here**
+   1. Currently, there are no duplicate prefix checks in the `mark` command.
+   2. For example, currently a user is able to run `mark nn/E1234567 wk/1 wk/3`, which would only mark the attendance for a student with NUSNet ID E1234567 in week 3. By adding duplicate prefix checks, it would give the correct error message: `Multiple values specified for the following single-valued field(s): wk/`.
+   <br><br>
+
+2. **Add duplicate prefix checks for in the `unmark` command.** 
+
+   1. Currently, there are no duplicate prefix checks in the `unmark` command.
+   2. For example, currently a user is able to run `unmark nn/E1234567 wk/1 wk/3`, which would only unmark the attendance for a student with NUSNet ID E1234567 in week 3. By adding duplicate prefix checks, it would give the correct error message: `Multiple values specified for the following single-valued field(s): wk/`.
+   <br><br>
+
+3. **Add duplicate prefix checks in the `delstu` command.** 
+
+   1. Currently, there are no duplicate prefix checks in the `delstu` command.
+   2. For example, currently a user is able to run `delstu nn/E1234567 nn/E2345678`, which would only delete a student with NUSNet ID E2345678. By adding duplicate prefix checks, it would give the correct error message: `Multiple values specified for the following single-valued field(s): nn/`.
+   <br><br>
+
+4. **Improve name format validation.**
+
+   1. Currently, the name format validation checks are be too strict, which doesn't allow certain valid English names.
+   2. For example, the names `Zubir bin Said`, `Balaji s/o Sadasivan`, `O'Brien`, `McDonald`, `van Dyke`, `Saint-John` are not valid currently, which is a feature flaw.
+   3. We plan to loosen name format validation to allow names with certain punctuations like hyphens, apostrophes, and so on. This is so that the names like `Saint-John` and `O'Brien` are valid.
+   4. We also plan to be less strict about capitalization in names. This allows `McDonald`, `John Smith III` and `van Dyke` to be valid.
+   5. We also plan to allow abbreviations like `s/o`, `d/o`, `bin`, and so on. This is so that the names like `Balaji s/o Sadasivan` and `Zubir bin Said` are valid.
+   6. We also plan to allow prepositions from originating from Latin, Italian, Portuguese, Spanish, and so on. This includes `da`, `de`, `di`, `del`, `dos`, `los`, and so on. This allows names like `De los Santos`, and `Leonardo da Vinci`.<br><br>
+   
+   <box type="info" light>
+
+   The lists of prepositions, abbreviations, and punctuations here are non-exhaustive.
+   </box>
+
+   7. We can achieve this change by updating the regular expression used for name validation, to meet these criteria.
+   <br><br>
+
+5. **Improve email format validation.** 
+   
+   1. Currently, the email format validation checks are be too strict, which doesn't allow some [valid emails addresses](https://en.wikipedia.org/wiki/Email_address#Valid_email_addresses) like: `name/surname@example.com`, `" "@example.org`, `"john..doe"@example.org`, `mailhost!username@example.org`,  `"very.(),:;<>[]\".VERY.\"very@\\ \"very\".unusual"@strange.example.com`, `user%example.com@example.org`, `user-@example.org`, `postmaster@[123.123.123.123]`, `postmaster@[IPv6:2001:0db8:85a3:0000:0000:8a2e:0370:7334]`, `_test@[IPv6:2001:0db8:85a3:0000:0000:8a2e:0370:7334]`.
+   2. This is because whether an email format is valid, depends on the email service provider, which can vary. An email valid on one email service provider, may not be valid on another email service provider. Even if we store all the valid formats, new email service providers can be created, resulting in an incomplete validation for that email service provider. 
+   3. Hence, we plan to make the validation should be less strict and follow the validation format given [RFC 5321 Simple Mail Transfer Protocol](https://datatracker.ietf.org/doc/html/rfc5321) and [RFC 5322 Internet Message Format](https://datatracker.ietf.org/doc/html/rfc5322), which contains the Internet standards for email addresses.
+   4. This can be done by updating the regular expression used for validating email addresses.
+
+{{ newPageBetween}}
+
+6. **Improve handling of duplicate email addresses.**
+
+    1. Currently, two different students can have the same email address in TAPro. However, in the real world, two different students are unlikely to have the same email address. So we should handle the case when a duplicate email address is added.
+   2. Hence, we plan to handle a duplicate email address by giving a warning message when a duplicate email address is added. 
+   3. The reason why a warning message is given instead of an error message, is that it may be useful for a user to have duplicate email addresses temporarily when attempting to fix mistakes originating from adding or editing students' email addresses.<br><br>
+
+7. **Improve handling of duplicate phone numbers.**
+
+    1. Currently, two different students can have the same phone number in TAPro. However, in the real world, two different students are unlikely to have the same phone number. So we should handle the case when a duplicate phone number is added.
+    2. Hence, we plan to handle a duplicate phone number by giving a warning message when a duplicate phone number is added.
+    3. The reason why a warning message is given instead of an error message, is that it may be useful for a user to have duplicate phone number temporarily when attempting to fix mistakes originating from adding or editing students' phone numbers.<br><br>
+
+8. **Add multiple majors for a student more intuitively.**
+
+   1. Currently, `MAJOR` is an optional parameter, which means only one or zero values are accepted from this attribute. The workaround currently would be for a user to use comma-separated majors, so that users to indicate multiple majors for a student.
+   2. Hence, we plan to make `MAJOR` into a multiple parameter, which would appear as `[m/MAJOR]…` in the command formats. 
+   3. This means any number of values can be accepted for this attribute. By doing so, it makes the user's workflow of adding multiple majors more aligned with adding multiple tags, thus improving the user's efficiency.<br><br>
+
+9. **Searching for students by their attendance in a certain week(s).**
+
+    1. Currently, the `find` command only works on the name attribute of a student, meaning that we can only find a student by name.
+    2. However, it is useful for a user to find students by their attendance in a certain week(s) number, so that the user can easily identify which students attended in which week(s), for easier tallying of numbers and improving how the user tracks students attendance. 
+    3. Hence, we plan to modify the format of the `find` command in the following way to achieve this change. The `find` command format would be changed to `find [KEYWORD]… [wk/WEEK]…`, so that the find command works on the `WEEK` parameter.
+    4. The reason why `KEYWORD` and `MORE_KEYWORDS` are modified, is to handle the situation when a user wants to search for students just by attendance, so the constraint that a keyword has to be present has to be removed in order to implement this with the `find` command. We minimise the changes the original behaviour of the `KEYWORD` and `MORE_KEYWORDS` parameters.
+    5. We also specify a constraint that at least one parameter must be present for `find` to execute successfully, to preserve the current behaviour that one keyword must be present.
+    6. A user can now search students attendance by week number through the above changes. For example, entering `find wk/1` will find all students whose attendance is marked in week 1. 
+    7. Another example with multiple parameters is that `find wk/1 wk/2` will find all students whose attendance is marked in either week 1 or week 2, following the current behaviour of the `find` command with `KEYWORDS` and `MORE_KEYWORDS`.<br><br>
+
+10. **Alert the user when more than one instance of TAPro is open.**
+
+    1. Currently, a user is able to open more than one instance of TAPro, which can happen accidentally due to user error. This can potentially cause TAPro to de-synchronize, which may result in the loss of data for that session.
+    2. Hence, we plan to warn the user through a warning message on the result message panel of all the open instances of TAPro. The warning message would be `Multiple instances of TAPro open! TAPro may de-synchronize resulting in the loss of data in this session!`.
+    3. Through this warning message, the user would be aware that multiple instances are open, and will be aware of the risks involved, which minimizes the danger.
