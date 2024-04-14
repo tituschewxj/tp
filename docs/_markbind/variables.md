@@ -12,3 +12,7 @@ More generally, surround the segment's id with double curly braces.
 <div style="page-break-after: always;"></div>
 <br>
 </variable>
+
+<variable name="newPageBetween">
+<div style="page-break-after: always;"></div>
+</variable>
