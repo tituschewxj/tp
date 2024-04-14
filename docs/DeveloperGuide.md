@@ -821,14 +821,14 @@ students.
 <span class="semi-bold">2. Test case: `addstu n/John Doe p/98765432 e/johndoe@example.com nn/E0123456 m/Computer Science, #02-25 t/friends t/owesMoney`</span>
 
 Expected: Student with NUSNet ID `E0123456` is added into TAPro. Details of the added student is
-shown in the status message.
+shown in the result message panel.
 </box>
       
 1. **Adding a student with NUSNet ID E0123457**
 
 <box type="info" light>
 
-<span class="semi-bold">1. Prerequisites:</span> Prerequisites: No student with NUSNet ID E0123457 in TAPro.
+<span class="semi-bold">1. Prerequisites:</span> No student with NUSNet ID E0123457 in TAPro.
 </box>
 
 <box type="success" light>
@@ -836,7 +836,7 @@ shown in the status message.
 <span class="semi-bold">2. Test case: `addstu n/Mary Jane p/91234911 e/janemary@example.com nn/E0123457 m/Biology t/friends t/owesTutorial2`</span>
 
 Expected: Student with NUSNet ID `E0123457` is added into TAPro. Details of the added student is
-shown in the status message.
+shown in the result message panel.
 </box>
 
 <br>
@@ -861,7 +861,7 @@ shown in the status message.
 <span class="semi-bold">2. Test case: `delstu nn/E0123456`</span>
 
 Expected: The student with NUSNet ID `E0123456` is deleted from TAPro. Details of the deleted student
-shown in the status message.
+shown in the result message panel.
 </box>
 
 <box type="wrong" light>
@@ -878,7 +878,28 @@ shown in the status message.
 
 ### Finding a student
 
-**TODO**
+
+1. **Finding a student**
+
+<box type="info" light>
+
+<span class="semi-bold">1. Prerequisites:</span> TAPro contains one student with the name 'John Doe'.
+</box>
+
+<box type="success" light>
+
+<span class="semi-bold">2. Test case: `find john`</span>
+
+Expected: Student with name 'John Doe' is displayed on the Student Contact Cards Panel.
+</box>
+
+<box type="wrong" light>
+
+<span class="semi-bold">3. Other incorrect `find` commands to try:</span>
+* `find`: Missing keyword.
+  </box>
+
+2. _{ more test cases …​ }_
 
 <br>
 
@@ -896,7 +917,7 @@ shown in the status message.
 <span class="semi-bold">2. Test case: `mark nn/E0123456 wk/1`</span>
 
 Expected: Student with NUSNet ID `E0123456` is marked as present for week 1 in TAPro, depicted on that student's card in the panel.
-Details of the marked student is shown in the status message.
+Details of the marked student is shown in the result message panel.
 </box>
 
 <box type="wrong" light>
@@ -954,13 +975,37 @@ Expected: TAPro's main window's title contains the course code `CS2103` provided
 
 ### Accessing help
 
-**TODO**
+1. **Accessing help**
 
+<box type="info" light>
+
+<span class="semi-bold">1. Prerequisites:</span> No prerequisites.
+</box>
+
+<box type="success" light>
+
+<span class="semi-bold">2. Test case: `help`</span>
+
+Expected: The help window automatically pops up, giving further information about TAPro's commands.
+</box>
 <br>
 
 ### Clearing all data
 
-**TODO**
+
+1. **Clearing all students**
+
+<box type="info" light>
+
+<span class="semi-bold">1. Prerequisites:</span> No prerequisites.
+</box>
+
+<box type="success" light>
+
+<span class="semi-bold">2. Test case: `clear`</span>
+
+Expected: TAPro's Contact Book resets, clearing all existing students (if any).
+</box>
 
 <br>
 
