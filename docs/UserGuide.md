@@ -184,14 +184,20 @@ Sets the course code in question.
 
 Course is shown at the top of the window.
 
-Format: `setcrs COURSE_code`
+Format: `setcrs COURSE_CODE`
 
 <img src="images/ug/setcrs_2101.png" alt="Setcrs 2101" class="rounded-image" width="800px"/>
 
 <img src="images/ug/setcrs_successful.png" alt="Setcrs 2101" class="rounded-image" width="800px"/>
 
+<box type="info" light>
+
 Courses are case-insensitive.
 Course code should follow the format "XX1234Y", Y is optional.
+
+When an invalid course code is entered, the following error message appears:
+
+</box>
 
 <img src="images/ug/setcrs_error.png" alt="Setcrs Error" class="rounded-image" width="800px"/>
 
@@ -205,9 +211,14 @@ Adds a student to the contact book.
 Format: `addstu n/NAME nn/NUSNET [p/PHONE] [e/EMAIL] [m/MAJOR] [t/TAG]…​`
 
 * Add a student with the given details.
-* The name and nusnet id must be provided. And nusnet id must be unique.
+* The name and NUSNet id must be provided. NUSNet id must be unique.
 * All the remaining fields are optional. If not provided, a placeholder value will be used.
+
+<box type="warning" light>
+
 * Name cannot be empty or spaces only, contain only alphabets and cannot have double spaces 
+
+</box>
 
 <box type="tip" seamless>
 
