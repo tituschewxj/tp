@@ -870,7 +870,28 @@ shown in the status message.
 
 ### Finding a student
 
-**TODO**
+
+1. **Finding a student**
+
+<box type="info" light>
+
+<span class="semi-bold">1. Prerequisites:</span> TAPro contains one student with the name 'John Doe'.
+</box>
+
+<box type="success" light>
+
+<span class="semi-bold">2. Test case: `find john`</span>
+
+Expected: Student with name 'John Doe' is displayed on the Student Contact Cards Panel.
+</box>
+
+<box type="wrong" light>
+
+<span class="semi-bold">3. Other incorrect `find` commands to try:</span>
+* `find`: Missing keyword.
+  </box>
+
+2. _{ more test cases …​ }_
 
 <br>
 
