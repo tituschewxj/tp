@@ -1000,9 +1000,9 @@ class="fa-regular fa-square-caret-up"></i> UP</span> key </span>
 * Pressing {{ macros.keyFormat('Up', '<i class="fa-regular fa-square-caret-up"></i>') }} will
   fill the text in the command input box to
   the previous command `mark nn/E0123456`!
-* You can press <span class="badge bg-light text-dark"><i class="fa-regular fa-square-caret-up"></i>
-  UP</span> continuously to scroll through all the previous commands you have entered.
-* Pressing <span class="badge bg-light text-dark"><i class="fa-regular fa-square-caret-down"></i> DOWN</span> will
+* You can press {{ macros.keyFormat('Up', '<i class="fa-regular fa-square-caret-up"></i>') }} continuously to scroll 
+  through all the previous commands you have entered.
+* Pressing {{ macros.keyFormat('Down', '<i class="fa-regular fa-square-caret-down"></i>') }} will
   scroll back to the more recent commands you have entered.
 
 </box>
