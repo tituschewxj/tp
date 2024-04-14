@@ -14,11 +14,11 @@ activate ACPrefixResolver
 
 ACPrefixResolver -> ACPrefixResolver: findLastPrefixIndex(input)
 activate ACPrefixResolver
-deactivate ACPrefixResolver
+return indexOfLastPrefix
 
 ACPrefixResolver -> ACPrefixResolver: findLastPrefix(input, indexOfLastPrefix)
 activate ACPrefixResolver
-deactivate ACPrefixResolver
+return lastPrefix
 
 note right of ACPrefixResolver: Iterates through a collection of PrefixResolvers and their AttributeTries
 loop for all PrefixResolvers

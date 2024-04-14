@@ -5,7 +5,6 @@ skinparam ArrowFontStyle plain
 box Logic LOGIC_COLOR_T1
     participant ":LogicManager" as LogicManager LOGIC_COLOR
     participant ":AddressBookParser" as AddressBookParser LOGIC_COLOR
-    participant ":AutoCompleteResult" as AutoCompleteResult LOGIC_COLOR
     participant ":AutoCompleteCommand" as AutoCompleteCommand LOGIC_COLOR
     participant ":AutoCompletePrefixResolver" as ACPrefixResolver LOGIC_COLOR
 end box

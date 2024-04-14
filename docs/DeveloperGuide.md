@@ -116,7 +116,7 @@ The `UI` component uses the JavaFx UI framework. The layout of these UI parts ar
 
 Here's a (partial) class diagram of the `Logic` component:
 
-<puml src="diagrams/LogicClassDiagram.puml" width="800"/>
+<puml src="diagrams/LogicClassDiagram.puml" width="600"/>
 
 The sequence diagram below illustrates the interactions within the `Logic` component, taking `execute("delstu nn/E1234567")` API 
 call as an example.
@@ -135,15 +135,6 @@ call as an example.
 1. The command can communicate with the `Model` when it is executed (e.g. to delete a person).<br>
    Note that although this is shown as a single step in the diagram above (for simplicity), in the code it can take several interactions (between the command object and the `Model`) to achieve.
 1. The result of the command execution is encapsulated as a `CommandResult` object which is returned back from `Logic`.
-
-<br>
-
-**How autocomplete execution works in `Logic` component:**
-
-1. When `Logic` is called upon to autocomplete an input string, it is passed to an `AddressBookParser` object which in turn matches the input and return the corresponding autocomplete object (e.g. `AutoCompleteCommand`).
-1. This results in a `AutoComplete` object (more precisely, an object of one of its subclasses e.g., `AutoCompleteCommand`) which is executed by the `LogicManager`.
-1. The autocomplete object is solely responsible for generating the autocomplete suggestions based on the input string (e.g. the additional characters that can be appended to the input string).
-1. The result of the autocompletion is simply a string that autocompletes the input string. Autocomplete classes uses [Trie](#trie) under the hood to efficiently generate the autocomplete suggestions.
 
 Here are the other classes in `Logic` (omitted from the class diagram above) that are used for parsing a user command:
 
@@ -215,7 +206,148 @@ This section describes some noteworthy details on how certain features are imple
 
 ### Autocomplete Feature
 
-**TODO**
+Here is a (partial) class diagram of the autocomplete feature. 
+
+<puml src="diagrams/AutocompleteClassDiagram.puml" width="800"/><br><br>
+
+There are 3 subcomponents in the [Logic component](#logic-component) that are involved the autocomplete feature, which are:
+* Attribute Classes, that handle the resolution of dynamic attribute values. 
+* Parser Classes, that handle the parsing of the user input.
+* AutoComplete Classes, that handle the generation of the autocompletion.
+
+<box type="info" light>
+
+Omitted from the (partial) class diagram is the functional interface `AttributeValueGenerator`, which produces a `List<String>`, representing all possible values for an attribute of a student in TAPro's current data.
+
+`AttributeValueGeneratorManager` has static methods that match the method signature of `AttributeValueGenerator`, which is pass in as an argument when creating a `PrefixResolver`.
+
+`PrefixResolverSyntax` stores preset `PrefixResolvers` for all the `Prefix`s that can be autocompleted.
+</box>
+
+{{ newPageBetween }}
+
+There are two variants of autocomplete feature. One variant is the autocompletion of static data using `AutoCompleteCommand`. Another variant is the autocompletion of dynamic data using `AutoCompletePrefixResolver`.
+
+**How autocompletion of static data works using `AutoCompleteCommand` in the `Logic` component:**
+
+1. When `Logic` is called upon to autocomplete an input string, it is passed to an `AddressBookParser` object which in turn matches the input and return the corresponding `AutoComplete` object, `AutoCompleteCommand` in this case.
+1. `AutoCompleteCommand` then produces an `AutoCompleteResult` which is executed by the `LogicManager`.
+1. `AutoCompleteCommand` classes uses [`Trie`](#trie) under the hood to efficiently generate the autocomplete suggestions. The `Trie` is preloaded with static data of our command names (e.g. `addstu`), which is used to generate the suggestions.
+1. The `AutoCompleteResult` object is solely responsible for generating the autocomplete suggestions based on the input string (e.g. the additional characters that can be appended to the input string).
+1. The result of the autocompletion is simply a list of string suggestions that autocompletes the input string. 
+
+**How autocompletion of dynamic data works using `AutoCompletePrefixResolver` in the `Logic` component:**
+
+In the autocompletion of dynamic data there are 5 main processes:
+1. Notifying that the data is outdated
+2. Using the autocomplete hotkey to return the autocompletion
+3. Parsing the input to call the corresponding kind of autocompletion
+4. Updating the new attribute data into the `AttributeTrie`
+5. Generating the autocomplete result
+
+{{ newPageBetween }}
+
+**How the `AttributeTrie` is notified of new data:**
+
+1. When a command is executed, a check is performed in `LogicManager` to determine if the command could potentially modify the data.
+1. If the data could be modified, then we would get the latest `addressBook` using `getAddressBook()`.
+1. Then using the latest `addressBook`, we would update the `AttributeValueGeneratorManager` with `updateAddressBook(addressBook)`.
+1. We iterate through all prefix resolvers to notify that the `PrefixResolver` needs to be updated using `notifyOutdatedData`.
+1. Then `PrefixResolver` calls its corresponding `AttributeTrie` to `clearCache()`, which removes the `Trie` that is used internally. The absence of a `Trie` would cause `AttributeTrie` to lazily generate a new `Trie` using new data. Meaning that a new `Trie` is only generated when necessary.
+
+<puml src="diagrams/AutocompleteUpdateSequenceDiagram.puml" width="790"/><br><br>
+
+{{ newPageBetween }}
+
+**How the autocomplete hotkey works:**
+
+1. After the autocomplete hotkey {{ macros.keyFormat('Tab') }} is pressed, the method `handleTabKeyPressEvent(...)` is called.
+1. Whenever `lastModifiedText` has changed, it means that the text in the `CommandBox`'s command input box has changed (e.g. the user types into the command input box), so the `autoCompleteResultCache` is set to `null` to indicate that the `AutoCompleteResult` is outdated.
+1. If the `autoCompleteResultCache` is `null`, then we know that the `lastModifiedText` has changed, so we need to generate a new autocomplete result. We do this by calling `MainWindow#getAutoComplete(lastModifiedText)`, which calls the `LogicManager` to generate a new autocomplete result.
+1. Otherwise, it means the `autoCompleteResultCache` still contains the latest `AutoCompleteResult` that works for the current `lastModifiedText`.
+1. Once we have the latest `autoCompleteResultCache`, we call `autoCompleteResultCache.getNextResult()` to generate the next autocompletion.
+1. Lastly, the text in the `CommandBox`'s command input box is updated to the suggested autocompletion using `setText(...)`.
+
+<puml src="diagrams/AutocompleteKeySequenceDiagram.puml" width="820"/><br><br>
+
+<box type="info" light>
+
+The reference frame below, `create empty autocomplete`, is used in the next few sequence diagrams. It represents that an `AutoCompleteResult` with no autocomplete suggestion is returned, meaning that pressing the autocomplete hotkey would cause no change in `CommandBox`'s command input box when it is used.
+
+<puml src="diagrams/AutoCompleteEmptyConstructorSequenceDiagram.puml" width="250"/>
+</box>
+
+{{ newPageBetween }}
+
+**How `LogicManager` parses the input to generate a new `AutoCompleteResult`:**
+
+1. When `LogicManager#autoComplete(commandText)` is called with the text `commandText` to autocomplete, it calls the `AddressBookParser#parseAutoComplete(commandText)` method.
+1. Depending on the `commandText` passed into `parseAutoComplete`, there are 3 possible paths:
+1. The first path is that the `commandText` cannot be parsed as it doesn't meet format specifications.
+1. The second path is that the `commandText` can be parsed, but is missing prefixes inside the text, so it is treated as an autocompletion for a command name. `AutoCompleteCommand` is then constructed and used like how autocompletion of static data works.
+1. The final path is that the `commandText` can be parsed, and contains at least one prefix in the text, so it is treated as an autocompletion for a prefix. `AutoCompletePrefixResolver` is then constructed using `ALL_PREFIX_RESOLVERS` and used later on in `getAutoComplete`, given an `input`, to generate an autocompletion.
+1. In all cases, a `AutoComplete` is returned, which `AutoCompleteCommand` and `AutoCompletePrefixResolver` are subclasses of.
+1. The `AutoComplete` produces a `AutoCompleteResult`, which is passed back to the `MainWindow`.
+
+<puml src="diagrams/AutocompleteParseSequenceDiagram.puml" width="900"/><br><br>
+
+{{ newPageBetween }}
+
+**How `AutoCompletePrefixResolver` is generates an `AutoCompleteResult`:**
+
+1. When `AutoCompletePrefixResolver#getAutoComplete(input)` is called, if the `input` is blank, an empty `AutoCompleteResult` is returned.
+1. Otherwise, it calls `findTriePrefixContinuation(input)` which would find the text, that continues from a given input, in the `AttributeTrie`. This may update the `AttributeTrie` with new attribute data if necessary, due to the lazy evaluation.
+1. Then with the `trieMatchContinuations` returned from `findTriePrefixContinuation`, we use it to create the `AutoCompleteResult`.
+1. If `trieMatchContinations` is empty, it means there are no autocomplete results for the current `input`, so an empty `AutoCompleteResult` is returned.
+1. Otherwise, an `AutoCompleteResult` with the associated `trieMatchContinuations` is returned.
+
+<puml src="diagrams/AutoCompletePrefixResolverSequenceDiagram.puml" width="600"/><br><br>
+
+{{ newPageBetween }}
+
+**How `AttributeTrie` is updated with new attribute data and returns the matches:**
+
+1. When `AutoCompletePrefixResolver#findTriePrefixContinuation(input)` is called, `findLastPrefixIndex(input)` is called which returns `indexOfLastPrefix`.
+1. Then, with the `indexOfLastPrefix`, it calls `findLastPrefix` to find the last prefix in the `input`.
+1. We iterate through all the `PrefixResolver`s to find one where `lastPrefix` matches the `PrefixResolver`'s `Prefix`.
+1. If there is a match, we call `PrefixResolver#resolvePrefix(partialValue)` on the matching `PrefixResolver`, which calls `AttributeTrie#findAllValuesWithPrefix(partialValue)`.
+1. When the `trieCache` is absent, it means that the `AttributeTrie#clearCache()` has been called before without a new `Trie` being generated. So `generateTrie()` is called, which generates values in the `Trie` using a `AttributeValueGenerator` which generates a list of attribute values to populate the `Trie` with.
+1. The `AttributeTrie` then computes the list of values with the prefix and returns it back.
+1. Finally, `AutoCompletePrefixResolver` formats the list of values and returns it as `trieMatchContinuations`, which are text continuations from the given `input`. 
+
+<puml src="diagrams/AutocompleteFindTrieMatchesSequenceDiagram.puml" width="850"/><br><br>
+
+{{ newPageBetween }}
+
+#### Design considerations
+
+**Separation of concerns:**
+
+As the autocomplete feature involves many classes all over the codebase, it is important to handle the separation of concerns carefully, to lead to higher cohesion and lower coupling. 
+
+This was done through the following:
+* Separating the notifying and updating of data from the storage, by using the methods `PrefixResolver#notifyOutdatedData` and `AttributeValueGeneratorManager#updateAddressBook`. 
+  * How it worked was using the functional interface, `AttributeValueGenerator`, that is used by `AttributeValueGenerateManager` to generate an attribute values given the `addressBook`. The `AttributeValueGenerator` is then passed into the `AttributeTrie` to generate values to insert into the `Trie`.
+* Separating the dynamic autocompletion from the static autocompletion, as their internal implementations were different.
+* Having each of the subcomponents, Attribute Classes, Parser Classes and AutoComplete Classes, as packages, which encapsulates them, limiting functional overlaps.
+
+**Caching of intermediate results for improved performance:**
+
+There are two layers in the current implementation used for caching, which are: 
+* When the current `lastModifiedText` doesn't change, caching the `AutoCompleteResult` in `autoCompleteResultCache`.
+* When the current data in the `addressBook` doesn't change, caching the `Trie` stored in the `AttributeTrie`.
+
+By having caching of intermediate results, it reduces the need to recompute certain results, thus improving performance of TAPro on users' systems.
+
+**Lazy evaluation to reduce redundant computations:**
+
+Lazy evaluation is carried out in `AttributeTrie`, where the new `Trie` was lazily evaluated. It means that the `Trie` was only generated when the autocompletion of a parameter value doesn't have an `AttributeTrie` already present.
+
+#### Future improvements to the autocomplete feature
+
+**Improve detection on whether attributes are actually modified before updating their `AttributeTrie`s:**
+* Currently, our implementation causes all tries to be lazily reevaluated when a command potentially modifies the data. However, not all commands would actually modify the all data attribute values, but may only update a subset of those attribute values, or even none of the attribute values at all.
+* Hence, we plan to check if the data for an attribute is actually modified before updating their respective `AttributeTrie`s, which would improve the performance of our autocompletion feature.
 
 {{ newPage }}
 
@@ -316,6 +448,8 @@ The `redo` command does the opposite — it calls `Model#redoAddressBook()`,
 The following activity diagram summarizes what happens when a user executes a new command:
 
 <puml src="diagrams/CommitActivityDiagram.puml" width="250" /><br><br>
+
+{{ newPageBetween }}
 
 #### Design considerations:
 
