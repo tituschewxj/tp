@@ -657,7 +657,7 @@ shown in the status message.
 
 <box type="info" light>
 
-<span class="semi-bold">1. Prerequisites:</span> Prerequisites: No student with NUSNet ID E0123457 in TAPro.
+<span class="semi-bold">1. Prerequisites:</span> No student with NUSNet ID E0123457 in TAPro.
 </box>
 
 <box type="success" light>
@@ -672,7 +672,26 @@ shown in the status message.
 
 ### Editing a student
 
-**TODO**
+1. **Editing information of a student with NUSNet ID E0123457**
+
+<box type="info" light>
+
+<span class="semi-bold">1. Prerequisites:</span> An existing student in TAPro with NUSNet ID E0123457. 
+
+You may run 
+the above last `addstu` command to add a student with NUSNet ID E0123457 if it does not exist.
+</box>
+
+<box type="success" light>
+
+<span class="semi-bold">2. Test case: `edit 1 p/98765432 m/Computer Science`
+</span>
+
+Expected: Informatino of student with NUSNet ID `E0123457` is updated in TAPro. Details of the added student is
+shown in the status message.
+</box>
+
+<br>
 
 <br>
 
