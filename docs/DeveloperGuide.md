@@ -1099,9 +1099,9 @@ Below are some non-exhaustive instances of our challenges, achievements and effo
    the CLI for inspiration. Given that our product uses NUSNet ID as its unique identifier, it can be a hassle to 
    type out a full command. Especially when it has already been previously used, or only require minor changes to 
    the command. This resulted in the idea of clicking {{ macros.keyFormat
-   ('Tab') }} for autocomplete when allowed as well as <span class="badge bg-light text-dark"><i class="fa-regular 
-   fa-square-caret-up"></i> UP</span> and <span class="badge bg-light text-dark"><i class="fa-regular 
-   fa-square-caret-down"></i> DOWN</span> arrow keys to retrieve previous commands.
+   ('Tab') }} for autocomplete when allowed as well as {{ macros.keyFormat('Up', '<i class="fa-regular 
+   fa-square-caret-up"></i>') }} and {{ macros.keyFormat('Down', '<i class="fa-regular 
+   fa-square-caret-down"></i>') }} arrow keys to retrieve previous commands.
 
 1. Utilised [Node.js](https://nodejs.org/) and installed [MarkBind](https://markbind.org/) locally as a 
    dev-dependency in `package.json`. It allows us to serve documentation on our local machines, and ensures that all developers are using the same version of MarkBind for consistency, so that no version related issues of MarkBind result in inconsistencies in our codebase.
@@ -1121,8 +1121,84 @@ Below are some non-exhaustive instances of our challenges, achievements and effo
 <box type="info" light>
 
 **Team size:** 5
+
 **Allowed Enhancements:** 10
 </box>
 
+1. **Add duplicate prefix checks in the `mark` command.** 
 
-**TODO: Add feature flaws here**
+   1. Currently, there are no duplicate prefix checks in the `mark` command.
+   2. For example, currently a user is able to run `mark nn/E1234567 wk/1 wk/3`, which would only mark the attendance for a student with NUSNet ID E1234567 in week 3. By adding duplicate prefix checks, it would give the correct error message: `Multiple values specified for the following single-valued field(s): wk/`.
+   <br><br>
+
+2. **Add duplicate prefix checks for in the `unmark` command.** 
+
+   1. Currently, there are no duplicate prefix checks in the `unmark` command.
+   2. For example, currently a user is able to run `unmark nn/E1234567 wk/1 wk/3`, which would only unmark the attendance for a student with NUSNet ID E1234567 in week 3. By adding duplicate prefix checks, it would give the correct error message: `Multiple values specified for the following single-valued field(s): wk/`.
+   <br><br>
+
+3. **Add duplicate prefix checks in the `delstu` command.** 
+
+   1. Currently, there are no duplicate prefix checks in the `delstu` command.
+   2. For example, currently a user is able to run `delstu nn/E1234567 nn/E2345678`, which would only delete a student with NUSNet ID E2345678. By adding duplicate prefix checks, it would give the correct error message: `Multiple values specified for the following single-valued field(s): nn/`.
+   <br><br>
+
+4. **Improve name format validation.**
+
+   1. Currently, the name format validation checks are be too strict, which doesn't allow certain valid English names.
+   2. For example, the names `Zubir bin Said`, `Balaji s/o Sadasivan`, `O'Brien`, `McDonald`, `van Dyke`, `Saint-John` are not valid currently, which is a feature flaw.
+   3. We plan to loosen name format validation to allow names with certain punctuations like hyphens, apostrophes, and so on. This is so that the names like `Saint-John` and `O'Brien` are valid.
+   4. We also plan to be less strict about capitalization in names. This allows `McDonald`, `John Smith III` and `van Dyke` to be valid.
+   5. We also plan to allow abbreviations like `s/o`, `d/o`, `bin`, and so on. This is so that the names like `Balaji s/o Sadasivan` and `Zubir bin Said` are valid.
+   6. We also plan to allow prepositions from originating from Latin, Italian, Portuguese, Spanish, and so on. This includes `da`, `de`, `di`, `del`, `dos`, `los`, and so on. This allows names like `De los Santos`, and `Leonardo da Vinci`.<br><br>
+   
+   <box type="info" light>
+
+   The lists of prepositions, abbreviations, and punctuations here are non-exhaustive.
+   </box>
+
+   7. We can achieve this change by updating the regular expression used for name validation, to meet these criteria.
+   <br><br>
+
+5. **Improve email format validation.** 
+   
+   1. Currently, the email format validation checks are be too strict, which doesn't allow some [valid emails addresses](https://en.wikipedia.org/wiki/Email_address#Valid_email_addresses) like: `name/surname@example.com`, `" "@example.org`, `"john..doe"@example.org`, `mailhost!username@example.org`,  `"very.(),:;<>[]\".VERY.\"very@\\ \"very\".unusual"@strange.example.com`, `user%example.com@example.org`, `user-@example.org`, `postmaster@[123.123.123.123]`, `postmaster@[IPv6:2001:0db8:85a3:0000:0000:8a2e:0370:7334]`, `_test@[IPv6:2001:0db8:85a3:0000:0000:8a2e:0370:7334]`.
+   2. This is because whether an email format is valid, depends on the email service provider, which can vary. An email valid on one email service provider, may not be valid on another email service provider. Even if we store all the valid formats, new email service providers can be created, resulting in an incomplete validation for that email service provider. 
+   3. Hence, we plan to make the validation should be less strict and follow the validation format given [RFC 5321 Simple Mail Transfer Protocol](https://datatracker.ietf.org/doc/html/rfc5321) and [RFC 5322 Internet Message Format](https://datatracker.ietf.org/doc/html/rfc5322), which contains the Internet standards for email addresses.
+   4. This can be done by updating the regular expression used for validating email addresses.
+
+{{ newPageBetween}}
+
+6. **Improve handling of duplicate email addresses.**
+
+    1. Currently, two different students can have the same email address in TAPro. However, in the real world, two different students are unlikely to have the same email address. So we should handle the case when a duplicate email address is added.
+   2. Hence, we plan to handle a duplicate email address by giving a warning message when a duplicate email address is added. 
+   3. The reason why a warning message is given instead of an error message, is that it may be useful for a user to have duplicate email addresses temporarily when attempting to fix mistakes originating from adding or editing students' email addresses.<br><br>
+
+7. **Improve handling of duplicate phone numbers.**
+
+    1. Currently, two different students can have the same phone number in TAPro. However, in the real world, two different students are unlikely to have the same phone number. So we should handle the case when a duplicate phone number is added.
+    2. Hence, we plan to handle a duplicate phone number by giving a warning message when a duplicate phone number is added.
+    3. The reason why a warning message is given instead of an error message, is that it may be useful for a user to have duplicate phone number temporarily when attempting to fix mistakes originating from adding or editing students' phone numbers.<br><br>
+
+8. **Add multiple majors for a student more intuitively.**
+
+   1. Currently, `MAJOR` is an optional parameter, which means only one or zero values are accepted from this attribute. The workaround currently would be for a user to use comma-separated majors, so that users to indicate multiple majors for a student.
+   2. Hence, we plan to make `MAJOR` into a multiple parameter, which would appear as `[m/MAJOR]…` in the command formats. 
+   3. This means any number of values can be accepted for this attribute. By doing so, it makes the user's workflow of adding multiple majors more aligned with adding multiple tags, thus improving the user's efficiency.<br><br>
+
+9. **Searching for students by their attendance in a certain week(s).**
+
+    1. Currently, the `find` command only works on the name attribute of a student, meaning that we can only find a student by name.
+    2. However, it is useful for a user to find students by their attendance in a certain week(s) number, so that the user can easily identify which students attended in which week(s), for easier tallying of numbers and improving how the user tracks students attendance. 
+    3. Hence, we plan to modify the format of the `find` command in the following way to achieve this change. The `find` command format would be changed to `find [KEYWORD]… [wk/WEEK]…`, so that the find command works on the `WEEK` parameter.
+    4. The reason why `KEYWORD` and `MORE_KEYWORDS` are modified, is to handle the situation when a user wants to search for students just by attendance, so the constraint that a keyword has to be present has to be removed in order to implement this with the `find` command. We minimise the changes the original behaviour of the `KEYWORD` and `MORE_KEYWORDS` parameters.
+    5. We also specify a constraint that at least one parameter must be present for `find` to execute successfully, to preserve the current behaviour that one keyword must be present.
+    6. A user can now search students attendance by week number through the above changes. For example, entering `find wk/1` will find all students whose attendance is marked in week 1. 
+    7. Another example with multiple parameters is that `find wk/1 wk/2` will find all students whose attendance is marked in either week 1 or week 2, following the current behaviour of the `find` command with `KEYWORDS` and `MORE_KEYWORDS`.<br><br>
+
+10. **Alert the user when more than one instance of TAPro is open.**
+
+    1. Currently, a user is able to open more than one instance of TAPro, which can happen accidentally due to user error. This can potentially cause TAPro to de-synchronize, which may result in the loss of data for that session.
+    2. Hence, we plan to warn the user through a warning message on the result message panel of all the open instances of TAPro. The warning message would be `Multiple instances of TAPro open! TAPro may de-synchronize resulting in the loss of data in this session!`.
+    3. Through this warning message, the user would be aware that multiple instances are open, and will be aware of the risks involved, which minimizes the danger.

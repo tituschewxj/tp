@@ -10,9 +10,11 @@
     <img src="images/TAProLogo.jpg" alt="TAPro Logo" class="rounded-image" width="500px"/>
 </p>
 
-TAPro is your go-to **Contact Book application**, created with love for **Computer Science Teaching Assistants (TAs)** like you. _We get it_ — juggling your students and keeping track of attendance can be a handful. That’s why TAPro is
-here to make your life easier. With features designed precisely for you, it's all about simplifying those
-time-consuming tasks, letting you focus on what you do best: teaching and inspiring your students. Welcome to a
+
+
+TAPro is your go-to **Contact Book application**, created with love for **Computer Science Teaching Assistants (TAs)** like you. _We get it_ — juggling your students and keeping track of attendance can be a handful. That’s why TAPro is 
+here to make your life easier. With features designed precisely for you, it's all about simplifying those 
+time-consuming tasks, letting you focus on what you do best: teaching and inspiring your students. Welcome to a 
 smoother, more personalized way of managing your TA duties!
 
 TAPro is optimized for use via a **Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI).
@@ -178,7 +180,9 @@ TODO: Add a screenshot of the GUI with annotations
 <i class="fa-solid fa-download"></i>
 **Installing Java:**
 
-If you do not have Java 11 or above installed, you can download the latest available version of Java from [here](https://www.oracle.com/sg/java/technologies/downloads/).
+
+If you do not have Java 11 or above installed, you can download the latest available version of Java from [here](https://www.oracle.com/sg/java/technologies/downloads/). 
+
 For macOS users, you may wish to follow the instructions [here](https://nus-cs2103-ay2324s1.github.io/website/admin/programmingLanguages.html).
 
 Only Java 11 has been tested to work with TAPro, so [check that your Java version](#checking-java-version) is correct if you are facing issues with TAPro.
@@ -199,7 +203,9 @@ A GUI similar to the below image should appear in a few seconds. Note how the ap
 </box>
 <div style="page-break-after: always;"></div>
 
-5. Type a command in the command input box and press {{ macros.keyFormat('Enter') }} to execute it.
+
+5. Type a command in the command input box and press {{ macros.keyFormat('Enter') }} to execute it. 
+
 
 <box type="success" light>
 
@@ -693,7 +699,9 @@ The last parameter `TAG` is autocompleted.
 
 **Autocompletes the last parameter in the input:**
 
+
 Autocomplete works on the last parameter (if any) in the command box, which is the text directly after a [recognized prefix](#parameters-and-their-recognized-prefixes).
+
 
 When reaching the end of the possible options list, pressing
 {{ macros.keyFormat('Tab') }}  will wrap
