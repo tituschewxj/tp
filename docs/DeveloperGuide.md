@@ -801,8 +801,6 @@ Expected: TAPro launches and shows the GUI with a set of sample student contacts
 Expected: The most recent window size and location is retained.
 </box>
 
-3. _{ more test cases …​ }_
-
 <br>
 
 ### Adding a student
@@ -843,7 +841,32 @@ shown in the result message panel.
 
 ### Editing a student
 
-**TODO**
+1. **Editing information of a student with NUSNet ID E0123457**
+
+<box type="info" light>
+
+<span class="semi-bold">1. Prerequisites:</span> An existing student in TAPro with NUSNet ID E0123457 shown as index 
+2 in TAPro's displayed person list.
+
+You may run 
+the above last `addstu` command to add a student with NUSNet ID E0123457 if it does not exist.
+</box>
+
+<box type="success" light>
+
+<span class="semi-bold">2. Test case: `edit 2 p/98765432 m/Computer Science`
+</span>
+
+Expected: Information of student with NUSNet ID `E0123457` is updated in TAPro. Details of the added student is
+shown in the status message.
+</box>
+
+<box type="info" light>
+
+This command differs from most other commands that use the `NUSNET` to identify a student. This command uses the index number shown in the displayed person list to identify the student to be edited.
+</box>
+
+<br>
 
 <br>
 
@@ -871,8 +894,6 @@ shown in the result message panel.
 * `delstu nn/E6543210`: No student with this NUSNet ID.
 * `delstu E0123456`: Missing prefix for the NUSNet ID parameter.
 </box>
-
-2. _{ more test cases …​ }_
 
 <br>
 
@@ -909,7 +930,7 @@ Expected: Student with name 'John Doe' is displayed on the Student Contact Cards
 
 <box type="info" light>
 
-<span class="semi-bold">1. Prerequisites:</span> TAPro contains one student with NUSNet ID E0123456, and no student with NUSNet ID E6543210.
+<span class="semi-bold">1. Prerequisites:</span> TAPro contains one student with NUSNet ID `E0123456`, and no student with NUSNet ID `E6543210`.
 </box>
 
 <box type="success" light>
@@ -933,9 +954,33 @@ Details of the marked student is shown in the result message panel.
 
 ### Unmarking a student's attendance
 
-**TODO**
+<box type="info" light>
+
+<span class="semi-bold">1. Prerequisites:</span> TAPro contains one student with NUSNet ID `E0123456` with his Week 1's attendance marked 
+and no 
+student with NUSNet ID `E6543210`.
+</box>
+
+<box type="success" light>
+
+<span class="semi-bold">2. Test case: `unmark nn/E0123456 wk/1`</span>
+
+Expected: Student with NUSNet ID `E0123456` is not marked as for week 1 in TAPro, depicted on that student's 
+card in the panel.
+Details of the marked student is shown in the status message.
+</box>
+
+<box type="wrong" light>
+
+<span class="semi-bold">3. Examples of incorrect `unmark` commands to try:</span>
+* `unmark`: Missing NUSNet ID and week number parameters.
+* `unmark nn/E6543210 wk/1`: No student with this NUSNet ID.
+* `unmark wk/1`: Missing the NUSNet ID parameter.
+* `unmark E0123456 1`: Missing prefix for the NUSNet ID and week number parameters.
+  </box>
 
 <br>
+
 
 ### Setting the course name
 
@@ -969,7 +1014,28 @@ Expected: TAPro's main window's title contains the course code `CS2103` provided
 
 ### Retrieving previous successful commands
 
-**TODO**
+<box type="info" light>
+
+<span class="semi-bold">1. Prerequisites:</span> Previously ran a successful command like `mark nn/E0123456 wk/6`.
+</box>
+
+
+<box type="success" light>
+
+<span class="semi-bold">2. Test case: Retrieving a previous command with <span class="badge bg-light text-dark"> <i 
+class="fa-regular fa-square-caret-up"></i> UP</span> key </span>
+
+* After the entering a previous command, the command input box is empty.
+* Pressing {{ macros.keyFormat('Up', '<i class="fa-regular fa-square-caret-up"></i>') }} will
+  fill the text in the command input box to
+  the previous command `mark nn/E0123456`!
+* You can press {{ macros.keyFormat('Up', '<i class="fa-regular fa-square-caret-up"></i>') }} continuously to scroll 
+  through all the previous commands you have entered.
+* Pressing {{ macros.keyFormat('Down', '<i class="fa-regular fa-square-caret-down"></i>') }} will
+  scroll back to the more recent commands you have entered.
+
+</box>
+</box>
 
 <br>
 
