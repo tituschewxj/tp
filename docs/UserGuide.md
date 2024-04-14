@@ -458,31 +458,43 @@ If there are additional arguments behind `list` we will simply ignore them.
 
 ### <i class="fa-solid fa-user-pen"></i> Editing a student : `edit`
 
-Edits an existing person in the contact book.
+Edits an existing student in the contact book.
 
 <box type="definition" icon=":fa-solid-spell-check:" light>
 
 **Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [m/MAJOR] [nn/NUSNET] [t/TAG]…​`**
 </box>
 
-* Edits the person at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer**, such as 1, 2, 3, …​
+* Edits the student at the specified `INDEX`. The index refers to the index number shown in the displayed student list. The index **must be a positive integer**, such as 1, 2, 3, …​
 
 * At least one of the optional fields must be provided.
 
 * Existing values will be updated to the input values.
 
-* When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.
+* When editing tags, the existing tags of the student will be removed, i.e adding of tags is not cumulative.
 
-* You can remove all the person’s tags by typing `t/` without
+* You can remove all the student’s tags by typing `t/` without
   specifying any tags after it.
+
+<box type="warning" light>
+
+When `t/` is specified in the command, no other tags can be present, in order to remove all of a student's tag. 
+
+Otherwise, TAPro will parse the input as adding multiple tags, which may lead to an unsuccessful execution of the command.
+
+<box type="success" light>
+
+**#g#Example:##** Entering `edit 1 t/abc t/` will cause the error message `Tags names should be alphanumeric` to be shown. This error message is shown because TAPro expects the second `t/` to contain an alphanumeric value, which an empty value is not.
+</box>
+</box>
 
 <box type="success" light>
 
 **#g#Examples:##**
 
-*  `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email contact of the 1st person to be `91234567` and `johndoe@example.com` respectively.
+*  `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email contact of the first student to be `91234567` and `johndoe@example.com` respectively.
 
-*  `edit 2 n/Betsy Crower t/` Edits the name of the 2nd person to be `Betsy Crower` and clears all existing tags.
+*  `edit 2 n/Betsy Crower t/` Edits the name of the second student to be `Betsy Crower` and clears all existing tags.
    </box>
    <box type="info" light>
 
