@@ -1,0 +1,20 @@
+@startuml
+skin rose
+skinparam ActivityFontSize 15
+skinparam ArrowFontSize 12
+start
+:Input field is empty;
+if () then ([up or down arrow key pressed])
+    :Retrieves previous command
+    from command history
+    if available;
+    :Previous command fills Input field;
+else ([else])
+    :User enters command in Input field;
+endif
+:User executes command;
+:Command saved to command history;
+:Input field is cleared;
+
+stop
+@enduml
