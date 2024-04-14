@@ -820,7 +820,7 @@ shown in the status message.
 
 <box type="info" light>
 
-<span class="semi-bold">1. Prerequisites:</span> Prerequisites: No student with NUSNet ID E0123457 in TAPro.
+<span class="semi-bold">1. Prerequisites:</span> No student with NUSNet ID E0123457 in TAPro.
 </box>
 
 <box type="success" light>
