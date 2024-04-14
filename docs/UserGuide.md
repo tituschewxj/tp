@@ -372,10 +372,6 @@ When an invalid course code is entered, the following error message appears:
 <img src="images/ug/setcrs_error.png" alt="Setcrs Error" class="rounded-image" width="800px"/>
 </box>
 
-<markdown class="d-print-none">---</markdown>
-<div style="page-break-after: always;"></div>
-<br>
-
 {{ newPage }}
 
 
