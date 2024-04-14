@@ -676,7 +676,8 @@ shown in the status message.
 
 <box type="info" light>
 
-<span class="semi-bold">1. Prerequisites:</span> An existing student in TAPro with NUSNet ID E0123457. 
+<span class="semi-bold">1. Prerequisites:</span> An existing student in TAPro with NUSNet ID E0123457 shown as index 
+2 in TAPro's displayed person list.
 
 You may run 
 the above last `addstu` command to add a student with NUSNet ID E0123457 if it does not exist.
@@ -684,11 +685,15 @@ the above last `addstu` command to add a student with NUSNet ID E0123457 if it d
 
 <box type="success" light>
 
-<span class="semi-bold">2. Test case: `edit 1 p/98765432 m/Computer Science`
+<span class="semi-bold">2. Test case: `edit 2 p/98765432 m/Computer Science`
 </span>
 
-Expected: Informatino of student with NUSNet ID `E0123457` is updated in TAPro. Details of the added student is
+Expected: Information of student with NUSNet ID `E0123457` is updated in TAPro. Details of the added student is
 shown in the status message.
+</box>
+
+<box type="info" light>
+This command differs from most other commands that use the `NUSNET_ID` to identify a student. This command uses the index number shown in the displayed person list to identify the student to be edited.
 </box>
 
 <br>
@@ -760,9 +765,33 @@ Details of the marked student is shown in the status message.
 
 ### Unmarking a student's attendance
 
-**TODO**
+<box type="info" light>
+
+<span class="semi-bold">1. Prerequisites:</span> TAPro contains one student with NUSNet ID E0123456 with his Week 1's attendance marked 
+and no 
+student with NUSNet ID E6543210.
+</box>
+
+<box type="success" light>
+
+<span class="semi-bold">2. Test case: `unmark nn/E0123456 wk/1`</span>
+
+Expected: Student with NUSNet ID `E0123456` is not marked as for week 1 in TAPro, depicted on that student's 
+card in the panel.
+Details of the marked student is shown in the status message.
+</box>
+
+<box type="wrong" light>
+
+<span class="semi-bold">3. Examples of incorrect `unmark` commands to try:</span>
+* `unmark`: Missing NUSNet ID and week number parameters.
+* `unmark nn/E6543210 wk/1`: No student with this NUSNet ID.
+* `unmark wk/1`: Missing the NUSNet ID parameter.
+* `unmark E0123456 1`: Missing prefix for the NUSNet ID and week number parameters.
+  </box>
 
 <br>
+
 
 ### Setting the course name
 
@@ -796,7 +825,27 @@ Expected: TAPro's main window's title contains the course code `CS2103` provided
 
 ### Retrieving previous successful commands
 
-**TODO**
+<box type="info" light>
+
+<span class="semi-bold">1. Prerequisites:</span> Previously ran a successful command like `mark nn/E0123456 wk/6`.
+</box>
+
+
+<box type="success" light>
+<span class="semi-bold">2. Test case: Retrieving a previous command with <span class="badge bg-light text-dark"><i 
+class="fa-regular fa-square-caret-up"></i> UP</span> key </span>
+
+1. Now the command input box is empty.
+1. Pressing <span class="badge bg-light text-dark"><i class="fa-regular fa-square-caret-up"></i> UP</span> will
+   fill the text in the command input box to
+   the previous command `mark nn/E0123456`!
+1. You can press <span class="badge bg-light text-dark"><i class="fa-regular fa-square-caret-up"></i>
+   UP</span> continuously to scroll through all the previous commands you have entered.
+1. Pressing <span class="badge bg-light text-dark"><i class="fa-regular fa-square-caret-down"></i> DOWN</span> will
+   scroll back to the more recent commands you have entered.
+
+</box>
+</box>
 
 <br>
 
