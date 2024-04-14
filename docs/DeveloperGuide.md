@@ -3,56 +3,66 @@
   title: "Developer Guide"
   pageNav: 3
 ---
+{% import "_markbind/_macros.nj" as macros %}
 
 # TAPro Developer Guide
 
 <!-- * Table of Contents -->
-<page-nav-print />
+<page-nav-print>Table of Contents</page-nav-print>
 
---------------------------------------------------------------------------------------------------------------------
+{{ newPage }}
 
 ## **Acknowledgements**
 
 * Trie implementation is reused from [eugenp's tutorials](https://github.com/eugenp/tutorials) with minor modifications.
+
 _{ list here sources of all reused/adapted ideas, code, documentation, and third-party libraries -- include links to the original source as well }_
 
---------------------------------------------------------------------------------------------------------------------
+{{ newPage }}
 
 ## **Setting up, getting started**
 
 Refer to the guide [_Setting up and getting started_](SettingUp.md).
 
---------------------------------------------------------------------------------------------------------------------
+{{ newPage }}
 
 ## **Design**
+
+This section describes the design of various components of TAPro.
+
+<br>
 
 ### Architecture
 
 <puml src="diagrams/ArchitectureDiagram.puml" width="280" />
 
-The ***Architecture Diagram*** given above explains the high-level design of the App.
+The ***Architecture Diagram*** given above explains the high-level design of TAPro.
 
 Given below is a quick overview of main components and how they interact with each other.
 
-**Main components of the architecture**
+<br>
 
-**`Main`** (consisting of classes [`Main`](https://github.com/AY2324S2-CS2103T-F13-1/tp/tree/master/src/main/java/seedu/address/Main.java) and [`MainApp`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/MainApp.java)) is in charge of the app launch and shut down.
+#### Main components of the architecture
+
+**`Main`** (consisting of classes [`Main`](https://github.com/AY2324S2-CS2103T-F13-1/tp/tree/master/src/main/java/seedu/address/Main.java) and [`MainApp`](https://github.com/AY2324S2-CS2103T-F13-1/tp/tree/master/src/main/java/seedu/address/MainApp.java)) is in charge of the app launch and shut down.
 * At app launch, it initializes the other components in the correct sequence, and connects them up with each other.
 * At shut down, it shuts down the other components and invokes cleanup methods where necessary.
 
-The bulk of the app's work is done by the following four components:
+The bulk of TAPro's work is done by the following four components:
 
-* [**`UI`**](#ui-component): The UI of the App.
+* [**`UI`**](#ui-component): The UI of TAPro.
 * [**`Logic`**](#logic-component): The command and autocomplete executor.
-* [**`Model`**](#model-component): Holds the data of the App in memory.
+* [**`Model`**](#model-component): Holds the data of TAPro in memory.
 * [**`Storage`**](#storage-component): Reads data from, and writes data to, the hard disk.
 
 [**`Commons`**](#common-classes) represents a collection of classes used by multiple other components.
 
-**How the architecture components interact with each other**
+<br>
+
+#### How the architecture components interact with each other
 
 The *Sequence Diagram* below shows how the components interact with each other for the scenario where the user 
-issues the command `delstu e1234567`.
+issues the command `delstu nn/E1234567`.
 
 <puml src="diagrams/ArchitectureSequenceDiagram.puml" width="574" />
 
@@ -61,11 +71,25 @@ Each of the four main components (also shown in the diagram above),
 * defines its *API* in an `interface` with the same name as the Component.
 * implements its functionality using a concrete `{Component Name}Manager` class (which follows the corresponding API `interface` mentioned in the previous point.
 
-For example, the `Logic` component defines its API in the `Logic.java` interface and implements its functionality using the `LogicManager.java` class which follows the `Logic` interface. Other components interact with a given component through its interface rather than the concrete class (reason: to prevent outside component's being coupled to the implementation of a component), as illustrated in the (partial) class diagram below.
+<box type="success" light>
+
+**#g#Example:##**
+
+The `Logic` component defines its API in the `Logic.java` interface and implements its functionality using the `LogicManager.java` class which follows the `Logic` interface. 
+
+Other components interact with a given component through its interface rather than the concrete class, as illustrated in the (partial) class diagram below.
 
 <puml src="diagrams/ComponentManagers.puml" width="300" />
 
+<box type="tip" light>
+
+<span class="semi-bold">Reason:</span> To prevent outside component's being coupled to the implementation of a component.
+</box>
+</box>
+
 The sections below give more details of each component.
+
+{{ newPage }}
 
 ### UI component
 
@@ -75,14 +99,16 @@ The **API** of this component is specified in [`Ui.java`](https://github.com/AY2
 
 The UI consists of a `MainWindow` that is made up of parts e.g.`CommandBox`, `ResultDisplay`, `PersonListPanel`, `StatusBarFooter` etc. All these, including the `MainWindow`, inherit from the abstract `UiPart` class which captures the commonalities between classes that represent parts of the visible GUI.
 
-The `UI` component uses the JavaFx UI framework. The layout of these UI parts are defined in matching `.fxml` files that are in the `src/main/resources/view` folder. For example, the layout of the [`MainWindow`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/MainWindow.java) is specified in [`MainWindow.fxml`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/resources/view/MainWindow.fxml)
+The `UI` component uses the JavaFx UI framework. The layout of these UI parts are defined in matching `.fxml` files that are in the `src/main/resources/view` folder. For example, the layout of the [`MainWindow`](https://github.com/AY2324S2-CS2103T-F13-1/tp/tree/master/src/main/java/seedu/address/ui/MainWindow.java) is specified in [`MainWindow.fxml`](https://github.com/AY2324S2-CS2103T-F13-1/tp/tree/master/src/main/resources/view/MainWindow.fxml)
 
-The `UI` component,
+**The `UI` component,**
 
 * executes user commands using the `Logic` component.
 * listens for changes to `Model` data so that the UI can be updated with the modified data.
 * keeps a reference to the `Logic` component, because the `UI` relies on the `Logic` to execute commands.
 * depends on some classes in the `Model` component, as it displays `Person` object residing in the `Model`.
+
+{{ newPage }}
 
 ### Logic component
 
@@ -92,18 +118,17 @@ Here's a (partial) class diagram of the `Logic` component:
 
 <puml src="diagrams/LogicClassDiagram.puml" width="800"/>
 
-The sequence diagram below illustrates the interactions within the `Logic` component, taking `execute("delstu 
-e1234567")` API 
+The sequence diagram below illustrates the interactions within the `Logic` component, taking `execute("delstu nn/E1234567")` API 
 call as an example.
 
 <puml src="diagrams/DeleteSequenceDiagram.puml" alt="Interactions Inside the Logic Component for the `delstu e1234567` Command" />
 
-<box type="info" seamless>
+<box type="info" light>
 
 **Note:** The lifeline for `DeleteCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline continues till the end of diagram.
 </box>
 
-How command execution works in `Logic` component:
+**How command execution works in `Logic` component:**
 
 1. When `Logic` is called upon to execute a command, it is passed to an `AddressBookParser` object which in turn creates a parser that matches the command (e.g., `DeleteCommandParser`) and uses it to parse the command.
 1. This results in a `Command` object (more precisely, an object of one of its subclasses e.g., `DeleteCommand`) which is executed by the `LogicManager`.
@@ -111,7 +136,9 @@ How command execution works in `Logic` component:
    Note that although this is shown as a single step in the diagram above (for simplicity), in the code it can take several interactions (between the command object and the `Model`) to achieve.
 1. The result of the command execution is encapsulated as a `CommandResult` object which is returned back from `Logic`.
 
-How autocomplete execution works in `Logic` component:
+<br>
+
+**How autocomplete execution works in `Logic` component:**
 
 1. When `Logic` is called upon to autocomplete an input string, it is passed to an `AddressBookParser` object which in turn matches the input and return the corresponding autocomplete object (e.g. `AutoCompleteCommand`).
 1. This results in a `AutoComplete` object (more precisely, an object of one of its subclasses e.g., `AutoCompleteCommand`) which is executed by the `LogicManager`.
@@ -120,62 +147,91 @@ How autocomplete execution works in `Logic` component:
 
 Here are the other classes in `Logic` (omitted from the class diagram above) that are used for parsing a user command:
 
-<puml src="diagrams/ParserClasses.puml" width="600"/>
+<puml src="diagrams/ParserClasses.puml" width="600"/><br><br>
 
-How the parsing works:
+**How the parsing works:**
 * When called upon to parse a user command, the `AddressBookParser` class creates an `XYZCommandParser` (`XYZ` is a placeholder for the specific command name e.g., `AddCommandParser`) which uses the other classes shown above to parse the user command and create a `XYZCommand` object (e.g., `AddCommand`) which the `AddressBookParser` returns back as a `Command` object.
   * All `XYZCommandParser` classes (e.g., `AddCommandParser`, `DeleteCommandParser`, ...) inherit from the `Parser` interface so that they can be treated similarly where possible e.g, during testing.
-* When called upon to parse an autocomplete input, the `AddressBookParser` class checks whether the input contains arguments. If it does not contain arguments, it creates an `AutoCompleteCommand` object which autocompletes Commands. Otherwise, it checks for the last argument in the user input and creates the matching `AutoComplete` object if it exists (e.g. `arbitrary_command arg_a/arbitrary_arg` lead to the AutoCompleteArgA object, if it exists). Otherwise, a default `AutoComplete` object that always return an empty string is returned.
+* When called upon to parse an autocomplete input, the `AddressBookParser` class checks whether the input contains arguments. If it does not contain arguments, it creates an `AutoCompleteCommand` object which autocompletes Commands. Otherwise, it checks for the last argument in the user input and creates the matching `AutoComplete` object if it exists (e.g. `arbitrary_command arg_a/arbitrary_arg` lead to the `AutoCompleteArgA` object, if it exists). Otherwise, a default `AutoComplete` object that always return an empty string is returned.
+
+{{ newPage }}
 
 ### Model component
 **API** : [`Model.java`](https://github.com/AY2324S2-CS2103T-F13-1/tp/tree/master/src/main/java/seedu/address/model/Model.java)
 
-<puml src="diagrams/ModelClassDiagram.puml" width="450" />
+<puml src="diagrams/ModelClassDiagram.puml" width="450" /><br><br>
 
-
-The `Model` component,
-
+**The `Model` component,**
 * stores the contact book data i.e., all `Person` objects (which are contained in a `UniquePersonList` object).
 * stores the currently 'selected' `Person` objects (e.g., results of a search query) as a separate _filtered_ list which is exposed to outsiders as an unmodifiable `ObservableList<Person>` that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.
 * stores a `UserPref` object that represents the user’s preferences. This is exposed to the outside as a `ReadOnlyUserPref` objects.
 * does not depend on any of the other three components (as the `Model` represents data entities of the domain, they should make sense on their own without depending on other components)
 
-<box type="info" seamless>
+<box type="info" light>
 
-**Note:** An alternative (arguably, a more OOP) model is given below. It has a `Tag` list in the `AddressBook`, which `Person` references. This allows `AddressBook` to only require one `Tag` object per unique tag, instead of each `Person` needing their own `Tag` objects.<br>
+**An alternative model:**
+
+An alternative (arguably, a more OOP) model is given below. It has a `Tag` list in the `AddressBook`, which `Person` references. This allows `AddressBook` to only require one `Tag` object per unique tag, instead of each `Person` needing their own `Tag` objects.<br>
 
 <puml src="diagrams/BetterModelClassDiagram.puml" width="450" />
 
 </box>
 
+{{ newPage }}
 
 ### Storage component
 
 **API** : [`Storage.java`](https://github.com/AY2324S2-CS2103T-F13-1/tp/tree/master/src/main/java/seedu/address/storage/Storage.java)
 
-<puml src="diagrams/StorageClassDiagram.puml" width="550" />
+<puml src="diagrams/StorageClassDiagram.puml" width="550" /><br><br>
 
-The `Storage` component,
+**The `Storage` component,**
 * can save both contact book data and user preference data in JSON format, and read them back into corresponding objects.
 * inherits from both `AddressBookStorage` and `UserPrefStorage`, which means it can be treated as either one (if only the functionality of only one is needed).
 * depends on some classes in the `Model` component (because the `Storage` component's job is to save/retrieve objects that belong to the `Model`)
+
+{{ newPage }}
 
 ### Common classes
 
 Classes used by multiple components are in the `seedu.addressbook.commons` package.
 
+<br>
+
 #### Trie
 
-The `Trie` class is a data structure that allows for efficient prefix matching of strings. It is used in the `AutoComplete` feature to suggest completions for user input.</br>
+The `Trie` class is a data structure that allows for efficient prefix matching of strings. It is used in the `AutoComplete` feature to suggest completions for user input.
+
 We added the ability to search for the first word that matches a given prefix. This is useful for the autocomplete feature, where we want to suggest the first word that matches the prefix.
 
---------------------------------------------------------------------------------------------------------------------
+{{ newPage }}
 
 ## **Implementation**
 
 This section describes some noteworthy details on how certain features are implemented.
 
-### \[Proposed\] Undo/redo feature
+<markdown class="d-print-none">---</markdown>
+<br>
+
+### Autocomplete Feature
+
+**TODO**
+
+{{ newPage }}
+
+### Command History Retrieval
+
+Let's consider the scenario where the user wants to retrieve the last command executed. The user can do this by 
+pressing the <span class="badge bg-light text-dark"><i class="fa-regular fa-square-caret-up"></i> UP</span> key on 
+the keyboard. 
+
+The <span class="badge bg-light text-dark"><i class="fa-regular fa-square-caret-up"></i> UP</span> key press event is captured by the `CommandBox` class, which then 
+retrieves the last command from the `CommandHistory` Singleton object.
+<puml src="diagrams/CommandHistorySequenceDiagram.puml" alt="Command History Sequence Diagram" />
+
+{{ newPage }}
+
+### \[Proposed\] Undo/Redo Feature
 
 #### Proposed Implementation
 
@@ -189,41 +245,40 @@ These operations are exposed in the `Model` interface as `Model#commitAddressBoo
 
 Given below is an example usage scenario and how the undo/redo mechanism behaves at each step.
 
-Step 1. The user launches the application for the first time. The `VersionedAddressBook` will be initialized with the initial contact book state, and the `currentStatePointer` pointing to that single contact book state.
+**Step 1.** The user launches the application for the first time. The `VersionedAddressBook` will be initialized with the initial contact book state, and the `currentStatePointer` pointing to that single contact book state.
 
-<puml src="diagrams/UndoRedoState0.puml" alt="UndoRedoState0" />
+<puml src="diagrams/UndoRedoState0.puml" alt="UndoRedoState0" /><br><br>
 
-Step 2. The user executes `delstu e1234567` command to delete student with nusnet ID as e1234567 from the contact book. 
+**Step 2.** The user executes `delstu nn/E1234567` command to delete student with NUSNet ID as E1234567 from the contact book. 
 The `delstu` 
 command 
 calls 
-`Model#commitAddressBook()`, causing the modified state of the contact book after the `delstu e1234567` command 
+`Model#commitAddressBook()`, causing the modified state of the contact book after the `delstu nn/E1234567` command 
 executes to 
 be saved in the `addressBookStateList`, and the `currentStatePointer` is shifted to the newly inserted contact book state.
 
-<puml src="diagrams/UndoRedoState1.puml" alt="UndoRedoState1" />
+<puml src="diagrams/UndoRedoState1.puml" alt="UndoRedoState1" /><br><br>
 
-Step 3. The user executes `add n/David …​` to add a new person. The `add` command also calls `Model#commitAddressBook()`, causing another modified contact book state to be saved into the `addressBookStateList`.
+**Step 3.** The user executes `add n/David …​` to add a new person. The `add` command also calls `Model#commitAddressBook()`, causing another modified contact book state to be saved into the `addressBookStateList`.
 
 <puml src="diagrams/UndoRedoState2.puml" alt="UndoRedoState2" />
 
-<box type="info" seamless>
+<box type="info" light>
 
 **Note:** If a command fails its execution, it will not call `Model#commitAddressBook()`, so the contact book state will not be saved into the `addressBookStateList`.
 
-</box>
+</box><br><br>
 
-Step 4. The user now decides that adding the person was a mistake, and decides to undo that action by executing the `undo` command. The `undo` command will call `Model#undoAddressBook()`, which will shift the `currentStatePointer` once to the left, pointing it to the previous contact book state, and restores the contact book to that state.
+**Step 4.** The user now decides that adding the person was a mistake, and decides to undo that action by executing the `undo` command. The `undo` command will call `Model#undoAddressBook()`, which will shift the `currentStatePointer` once to the left, pointing it to the previous contact book state, and restores the contact book to that state.
 
-<puml src="diagrams/UndoRedoState3.puml" alt="UndoRedoState3" />
+<puml src="diagrams/UndoRedoState3.puml" alt="UndoRedoState3" /><br><br>
 
-Step 5. The user wants to set the course name. He enters the command `setcrs CS2103T`, causing the course name to appear on the main window's title.
+**Step 5.** The user wants to set the course name. He enters the command `setcrs CS2103T`, causing the course name to appear on the main window's title.
 
 
+<box type="info" light>
 
-<box type="info" seamless>
-
-**Note:** If the `currentStatePointer` is at index 0, pointing to the initial AddressBook state, then there are no previous AddressBook states to restore. The `undo` command uses `Model#canUndoAddressBook()` to check if this is the case. If so, it will return an error to the user rather
+**Note:** If the `currentStatePointer` is at index 0, pointing to the initial `AddressBook` state, then there are no previous `AddressBook` states to restore. The `undo` command uses `Model#canUndoAddressBook()` to check if this is the case. If so, it will return an error to the user rather
 than attempting to perform the undo.
 
 </box>
@@ -232,7 +287,7 @@ The following sequence diagram shows how an undo operation goes through the `Log
 
 <puml src="diagrams/UndoSequenceDiagram-Logic.puml" alt="UndoSequenceDiagram-Logic" />
 
-<box type="info" seamless>
+<box type="info" light>
 
 **Note:** The lifeline for `UndoCommand` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
 
@@ -244,23 +299,23 @@ Similarly, how an undo operation goes through the `Model` component is shown bel
 
 The `redo` command does the opposite — it calls `Model#redoAddressBook()`, which shifts the `currentStatePointer` once to the right, pointing to the previously undone state, and restores the contact book to that state.
 
-<box type="info" seamless>
+<box type="info" light>
 
-**Note:** If the `currentStatePointer` is at index `addressBookStateList.size() - 1`, pointing to the latest contact book state, then there are no undone AddressBook states to restore. The `redo` command uses `Model#canRedoAddressBook()` to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
+**Note:** If the `currentStatePointer` is at index `addressBookStateList.size() - 1`, pointing to the latest contact book state, then there are no undone `AddressBook` states to restore. The `redo` command uses `Model#canRedoAddressBook()` to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
 
-</box>
+</box><br><br>
 
-Step 5. The user then decides to execute the command `list`. Commands that do not modify the contact book, such as `list`, will usually not call `Model#commitAddressBook()`, `Model#undoAddressBook()` or `Model#redoAddressBook()`. Thus, the `addressBookStateList` remains unchanged.
+**Step 6.** The user then decides to execute the command `list`. Commands that do not modify the contact book, such as `list`, will usually not call `Model#commitAddressBook()`, `Model#undoAddressBook()` or `Model#redoAddressBook()`. Thus, the `addressBookStateList` remains unchanged.
 
-<puml src="diagrams/UndoRedoState4.puml" alt="UndoRedoState4" />
+<puml src="diagrams/UndoRedoState4.puml" alt="UndoRedoState4" /><br><br>
 
-Step 6. The user executes `clear`, which calls `Model#commitAddressBook()`. Since the `currentStatePointer` is not pointing at the end of the `addressBookStateList`, all contact book states after the `currentStatePointer` will be purged. Reason: It no longer makes sense to redo the `add n/David …​` command. This is the behavior that most modern desktop applications follow.
+**Step 7.** The user executes `clear`, which calls `Model#commitAddressBook()`. Since the `currentStatePointer` is not pointing at the end of the `addressBookStateList`, all contact book states after the `currentStatePointer` will be purged. Reason: It no longer makes sense to redo the `add n/David …​` command. This is the behavior that most modern desktop applications follow.
 
 <puml src="diagrams/UndoRedoState5.puml" alt="UndoRedoState5" />
 
 The following activity diagram summarizes what happens when a user executes a new command:
 
-<puml src="diagrams/CommitActivityDiagram.puml" width="250" />
+<puml src="diagrams/CommitActivityDiagram.puml" width="250" /><br><br>
 
 #### Design considerations:
 
@@ -277,12 +332,14 @@ The following activity diagram summarizes what happens when a user executes a ne
 
 _{more aspects and alternatives to be added}_
 
+{{ newPage }}
+
 ### \[Proposed\] Data archiving
 
 _{Explain here how the data archiving feature will be implemented}_
 
 
---------------------------------------------------------------------------------------------------------------------
+{{ newPage }}
 
 ## **Documentation, logging, testing, configuration, dev-ops**
 
@@ -292,124 +349,295 @@ _{Explain here how the data archiving feature will be implemented}_
 * [Configuration guide](Configuration.md)
 * [DevOps guide](DevOps.md)
 
---------------------------------------------------------------------------------------------------------------------
+{{ newPage }}
 
 ## **Appendix: Requirements**
+
+<br>
 
 ### Product scope
 
 **Target user profile**:
-* Teaching Assistant for a Computer Science module in NUS 
-* tech savvy 
-* prefer desktop apps over other types
-* can type fast
-* prefers typing to mouse interactions
-* is reasonably comfortable using CLI apps
+* Teaching Assistant for a Computer Science module in NUS
+* Tech savvy
+* Prefer desktop apps over other types
+* Can type fast
+* Prefers typing to mouse interactions
+* Is reasonably comfortable using CLI apps
 
-**Value proposition**: All in one Address book managing student’s progress in the course, by means of participation, grades, and other course specific attributes of an NUS CS class. Can quickly find information, filter and sort with keyboard shortcuts.
+**Value proposition**: All in one contact book managing student’s progress in the course, by means of participation, grades, and other course specific attributes of an NUS CS class. Can quickly find information, filter and sort with keyboard shortcuts.
 
+{{ newPage }}
 
 ### User stories
 
-Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
+<box type="definition" light>
 
-| Priority | As a …​ | I want to …​ | So that I can…​ |
-|----------|---------|--------------|-----------------|
-| `* * *`  | TA      | name/rename the CS course that I am tutoring this semester | keep track of the module I am teaching |
-| `* * *`  | TA      | add a student to the CS course that I am tutoring that semester to my class | keep track of him or her |
-| `* * *`  | TA      | view all students from my class | view details about all of them |
-| `* * *`  | TA      | mark attendance for a student in my class | keep track of who's present |
-| `* * *`  | TA      | unmark attendance for a student in my class | keep track of who is absent |
-| `* * *`  | TA      | delete a student | remove a student if he or she leaves the class |
-| `* * *`  | TA      | know all the commands of the contact book | use it effectively |
+**Priorities:** 
+* <span class="semi-bold">#g#High:##</span> (must have) - {{ threeStars }}
+* <span style="color:#FF7F00;" class="semi-bold">Medium</span> (nice to have) - {{ twoStars }}
+* <span class="semi-bold">#r#Low:##</span> (unlikely to have) - {{ oneStar }}
+</box>
 
+
+[//]: # (whitespace is added to force the header row into one line)
+{% set whitespace = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' %}
+
+| Priority         | As a …              | I want to …                                                                 | So that I can…                                 |
+|------------------|---------------------|-----------------------------------------------------------------------------|------------------------------------------------|
+| {{ threeStars }} | TA {{ whitespace }} | name/rename the CS course that I am tutoring this semester                  | keep track of the module I am teaching         |
+| {{ threeStars }} | TA                  | add a student to the CS course that I am tutoring that semester to my class | keep track of him or her                       |
+| {{ threeStars }} | TA                  | view all students from my class                                             | view details about all of them                 |
+| {{ threeStars }} | TA                  | mark attendance for a student in my class                                   | keep track of who's present                    |
+| {{ threeStars }} | TA                  | unmark attendance for a student in my class                                 | keep track of who is absent                    |
+| {{ threeStars }} | TA                  | delete a student                                                            | remove a student if he or she leaves the class |
+| {{ threeStars }} | TA                  | know all the commands of TAPro                                              | use it effectively                             |
+
+**TODO: Add more user stories that are applicable**
 
 *{More to be added}*
 
+{{ newPage }}
+
 ### Use cases
 
-(For all use cases below, the **System** is the `TA Pro` and the **Actor** is the `user`, unless specified otherwise)
+<box type="info" light>
 
-**Use case: Delete a student**
+For all use cases below, the **System** is TAPro and the **Actor** is the user, unless specified otherwise.
+</box>
+<br>
 
-**MSS**
+<box no-icon type="success" light>
+
+**Use case: Learn How to Use Available Commands in TAPro**
+
+<span class="semi-bold">MSS</span>
+
+1. User requests to view the list of available commands for TAPro.
+
+2. TAPro displays the list of available commands and a guide on how to use each command.
+
+   Use case ends.
+
+</box>
+
+<box no-icon type="success" light>
+
+**Use case: Add a Student**
+
+<span class="semi-bold">MSS</span>
+
+1. User requests to add a student, providing the name and NUSNet ID as compulsory information, with the phone number, email, major and tags being optional.
+
+2. TAPro adds the student to the list of students.
+
+   Use case ends.
+
+<span class="semi-bold">Extensions</span>
+
+* 2a. Format of the provided data is incorrect.
+
+    * 2a1. TAPro rejects the student addition and shows an error message.
+
+    * Use case ends.
+  
+</box>
+
+<box no-icon type="success" light>
+
+**Use case: Editing a Student**
+
+<span class="semi-bold">MSS</span>
+
+1. User requests to edit an existing student, indicating the student the user wish to edit. The user provides the update details for the student and remaining details are unchanged.
+
+2. TAPro updates the student with the new details.
+
+   Use case ends.
+
+<span class="semi-bold">Extensions</span>
+
+* 2a. No such student exists.
+
+    * 2a1. TAPro shows an error message.
+
+    * Use case ends.
+
+* 2b. User provides no details to update.
+
+    * 2b1. TAPro shows an error message.
+
+    * Use case ends.
+
+* 2c. Format of the provided data is incorrect.
+
+    * 2c1. TAPro rejects the student update and shows an error message.
+
+    * Use case ends.
+
+</box>
+
+<box no-icon type="success" light>
+
+**Use case: Delete a Student**
+
+<span class="semi-bold">MSS</span>
 
 1. User requests to delete a specific student based on NUSNet ID.
 
-   Use case ends.
-
-Extensions
-
-* 1a. No such student exists.
-
-  * 1a1. AddressBook shows an error message. 
-  
-  * Use case ends.
-
-**Use case: Add a student**
-
-**MSS**
-
-1. User requests to add a student, providing the name and NUSNet ID as compulsory information, with the phone number being optional.
+2. TAPro deletes the student from the list of students.
 
    Use case ends.
 
-**Use case: Name/Rename CS Course**
+<span class="semi-bold">Extensions</span>
 
-**MSS**
+* 2a. No such student exists.
 
-1. User requests to name or rename a CS course by specifying the course name and the new name if applicable.
+    * 2a1. TAPro shows an error message.
+
+    * Use case ends.
+
+* 2b. Format of the provided data is incorrect.
+
+    * 2b1. TAPro shows an error message.
+
+    * Use case ends.
+
+</box>
+
+<box no-icon type="success" light>
+
+**Use case: Name or Rename CS Course**
+
+<span class="semi-bold">MSS</span>
+
+1. User requests to name or rename a CS course by specifying the course code.
+
+2. TAPro names or renames the CS course on the application window bar.
 
    Use case ends.
+
+<span class="semi-bold">Extensions</span>
+
+* 2b. Format of the provided course code is incorrect.
+
+    * 2b1. TAPro shows an error message.
+
+    * Use case ends.
+
+</box>
+
+<box no-icon type="success" light>
 
 **Use case: View All Students**
 
-**MSS**
+<span class="semi-bold">MSS</span>
 
 1. User requests to view a list of all students.
 
-   Use case ends.
+2. TAPro displays a list of all students.
+
+    Use case ends.
+
+</box>
+
+<box no-icon type="success" light>
+
+**Use case: Find a Student by Name**
+
+<span class="semi-bold">MSS</span>
+
+1. User requests to find all students by one or more keywords in the student's name.
+
+2. TAPro displays a list of students whose names contain the keyword(s).
+
+    Use case ends.
+
+<span class="semi-bold">Extensions</span>
+
+* 2a. No student exists with the given keyword(s).
+
+    * 2a1. TAPro shows no students.
+
+    * Use case ends.
+
+</box>
+
+<box no-icon type="success" light>
 
 **Use case: Mark Attendance**
 
-**MSS**
+<span class="semi-bold">MSS</span>
 
-1. User requests to mark attendance for a student by providing the student's NUSNet ID.
+1. User requests to mark attendance for a student by providing the student's NUSNet ID and week number to mark the attendance for.
 
-   Use case ends.
-
-**Use case: Un-mark Attendance**
-
-**MSS**
-
-1. User requests to un-mark attendance for a student by providing the student's NUSNet ID.
+2. TAPro marks the attendance for the student for the specified week.
 
    Use case ends.
 
-**Use case: Know Commands for the Address Book**
+<span class="semi-bold">Extensions</span>
 
-**MSS**
+* 2a. No such student exists.
 
-1. User requests to view the list of available commands for the AddressBook.
+    * 2a1. TAPro shows an error message.
+
+    * Use case ends.
+  
+* 2b. Week number is invalid.
+
+    * 2b1. TAPro shows an error message.
+
+    * Use case ends.    
+
+</box>
+
+<box no-icon type="success" light>
+
+**Use case: Unmark Attendance**
+
+<span class="semi-bold">MSS</span>
+
+1. User requests to unmark attendance for a student by providing the student's NUSNet ID and week number to unmark the attendance for.
+
+2. TAPro unmarks the attendance for the student for the specified week.
 
    Use case ends.
 
+<span class="semi-bold">Extensions</span>
 
-**Extensions**
+* 2a. No such student exists.
 
-* 2a. The list is empty.
+    * 2a1. TAPro shows an error message.
 
-  Use case ends.
+    * Use case ends.
 
-* 3a. The given index is invalid.
+* 2b. Week number is invalid.
 
-    * 3a1. AddressBook shows an error message.
+    * 2b1. TAPro shows an error message.
 
-      Use case resumes at step 2.
+    * Use case ends.
 
-**Use case: Autocompletion of command inputs**
+</box>
 
-**MSS**
+<box no-icon type="success" light>
+
+**Use case: Clear All Data**
+
+<span class="semi-bold">MSS</span>
+
+1. User requests to purge all data from TAPro.
+
+2. TAPro successfully clears all data.
+
+   Use case ends.
+
+</box>
+
+<box no-icon type="success" light>
+
+**Use case: Autocompletion of Command Inputs**
+
+<span class="semi-bold">MSS</span>
 
 1. User focuses on the command box.
 
@@ -418,7 +646,7 @@ Extensions
 3. Autocompleted command is shown in the command box.
    Use case ends.
 
-**Extensions**
+<span class="semi-bold">Extensions</span>
 
 * 3a. No autocompletion is available for the current input.
 
@@ -426,11 +654,63 @@ Extensions
 
     * Use case ends.
 
+</box>
+
+<box no-icon type="success" light>
+
+**Use case: Retrieve a previous successful command input**
+
+<span class="semi-bold">MSS</span>
+
+1. User focuses on the command box.
+
+2. User presses the retrieve previous command hotkey.
+
+3. TAPro displays the successful command input in the command box.
+   Use case ends.
+
+<span class="semi-bold">Extensions</span>
+
+* 3a. No previous successful command input is available.
+
+    * 3a1. No action is taken.
+
+    * Use case ends.
+
+</box>
+
+<box no-icon type="success" light>
+
+**Use case: Retrieve a more recent successful command input**
+
+<span class="semi-bold">MSS</span>
+
+1. User focuses on the command box.
+
+2. User presses the retrieve next command hotkey.
+
+3. TAPro displays a more recent successful command input in the command box.
+   Use case ends.
+
+<span class="semi-bold">Extensions</span>
+
+* 3a. No successful command input that is more recent is available.
+
+    * 3a1. The command box will be cleared
+
+    * Use case ends.
+
+</box>
+
+**TODO: Add more use cases**
+
 *{More to be added}*
+
+{{ newPage }}
 
 ### Non-Functional Requirements
 
-1.  Should work on any _mainstream OS_ as long as it has Java `11` installed.
+1.  Should work on any _mainstream OS_ as long as it has Java 11 installed.
 2.  System to load the main interface in under 1 second on standard educational institution hardware.
 3.  Application to be accessible on devices commonly used by the educational institution, such as desktop computers, laptops, and tablet.
 4.  System to ensure data integrity, with a goal of zero data loss over the academic year.
@@ -439,124 +719,486 @@ Extensions
 
 *{More to be added}*
 
+{{ newPage }}
+
 ### Glossary
 
-* **Mainstream OS**: Windows, Linux, Unix, MacOS
-* **CS**: Computer Science
-* **NUS**: National University of Singapore
-* **TA**: Teaching Assistant
-* **NUSNet ID**: A unique identifier for each student in NUS
+{{ macros.definitionBox('TAPro', 'The name of our product') }}
+{{ macros.definitionBox('Mainstream OS', 'Windows, Linux, Unix, MacOS') }}
+{{ macros.definitionBox('CS', 'Computer Science') }}
+{{ macros.definitionBox('NUS', 'National University of Singapore') }}
+{{ macros.definitionBox('TA', 'Teaching Assistant') }}
+{{ macros.definitionBox('NUSNet ID', 'A unique identifier for each student in NUS') }}
+{{ macros.definitionBox('API', 'Application Programming Interface') }}
+{{ macros.definitionBox('CLI', 'Command Line Interface') }}
+{{ macros.definitionBox('UI', 'User Interface') }}
+{{ macros.definitionBox('GUI', 'Graphical User Interface') }}
+{{ macros.definitionBox('ASCIIbetical Order', 'An ordering where numbers and most punctuations are before letters, and uppercase letters before lowercase letters.') }}
 
---------------------------------------------------------------------------------------------------------------------
+{{ newPage }}
 
 ## **Appendix: Instructions for manual testing**
 
-Given below are instructions to test the app manually.
+Given below are instructions to test the app manually. 
 
-<box type="info" seamless>
+<box type="info" light>
+
+**Prerequisites:** For all features to test below, TAPro is already downloaded, only single instance of TAPro is already opened, and Java 11 or above is installed, unless specified otherwise.
+</box>
+
+<box type="info" light>
 
 **Note:** These instructions only provide a starting point for testers to work on;
 testers are expected to do more *exploratory* testing.
 
 </box>
 
+<br>
+
 ### Launch and shutdown
 
-1. Initial launch
+1. **Initial launch**
 
-   1. Download the jar file and copy into an empty folder
+<box type="info" light>
 
-   1. Double-click the jar file Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.
+<span class="semi-bold">1. Prerequisites:</span> TAPro is not downloaded, and an Internet connection is present.
+</box>
 
-1. Saving window preferences
+<box type="success" light>
 
-   1. Resize the window to an optimum size. Move the window to a different location. Close the window.
+2. Download the latest TAPro jar file from [here](https://github.com/AY2324S2-CS2103T-F13-1/tp/releases) and move it into an empty folder. 
 
-   1. Re-launch the app by double-clicking the jar file.<br>
-       Expected: The most recent window size and location is retained.
+3. Ensure that the jar file is still named as `TAPro.jar` after moving.
 
-1. _{ more test cases …​ }_
+4. Open a command terminal, and `cd` into that folder.
+
+5. Run `java -jar TAPro.jar`.
+
+Expected: TAPro launches and shows the GUI with a set of sample student contacts. The window size may not be optimal.
+</box>
+
+2. **Saving window preferences**
+
+<box type="info" light>
+
+<span class="semi-bold">1. Prerequisites:</span> No prerequisites.
+</box>
+
+<box type="success" light>
+
+2. Resize the window to an optimum size. Move the window to a different location. Close the window.
+
+3. Re-launch the app by double-clicking the jar file.<br>
+
+Expected: The most recent window size and location is retained.
+</box>
+
+3. _{ more test cases …​ }_
+
+<br>
 
 ### Adding a student
 If TAPro does not have any student contacts, the following commands can be used to add some 
 students.
 
-1. Adding a student with NUSNet ID e0123456
-   
-   1. Prerequisites: No student with NUSNet ID e0123456 in the contact book.
-   
-   1. Test case: `addstu n/John Doe p/98765432 e/johndoe@example.com nn/e0123456 a/311, Clementi Ave 2, #02-25 t/friends t/owesMoney`
+1. **Adding a student with NUSNet ID E0123456**
 
-      Expected: Student with NUSNet ID `e0123456` is added to the contact book. Details of the added contact 
-      shown in the status message.
+<box type="info" light>
+
+<span class="semi-bold">1. Prerequisites:</span> No student with NUSNet ID E0123456 in TAPro.
+</box>
+
+<box type="success" light>
+
+<span class="semi-bold">2. Test case: `addstu n/John Doe p/98765432 e/johndoe@example.com nn/E0123456 m/Computer Science, #02-25 t/friends t/owesMoney`</span>
+
+Expected: Student with NUSNet ID `E0123456` is added into TAPro. Details of the added student is
+shown in the status message.
+</box>
       
-1. Adding a student with NUSNet ID e0123457
+1. **Adding a student with NUSNet ID E0123457**
 
-   1. Prerequisites: No student with NUSNet ID e0123457 in the contact book.
-      
-   1. Test case: `addstu n/Mary Jane p/91234911 e/janemary@example.com nn/e0123457 a/312, Clementi St 1, #03-25 t/friends t/owesTutorial2`
+<box type="info" light>
 
-      Expected: Student with NUSNet ID `e0123457` is added to the contact book. Details of the added contact 
-      shown in the status message.
+<span class="semi-bold">1. Prerequisites:</span> Prerequisites: No student with NUSNet ID E0123457 in TAPro.
+</box>
+
+<box type="success" light>
+
+<span class="semi-bold">2. Test case: `addstu n/Mary Jane p/91234911 e/janemary@example.com nn/E0123457 m/Biology t/friends t/owesTutorial2`</span>
+
+Expected: Student with NUSNet ID `E0123457` is added into TAPro. Details of the added student is
+shown in the status message.
+</box>
+
+<br>
+
+### Editing a student
+
+**TODO**
+
+<br>
 
 ### Deleting a student
 
-1. Deleting a student
+1. **Deleting a student**
 
-   1. Prerequisites: Contact book contains at least one student with NUSNet ID e0123456.
+<box type="info" light>
 
-   1. Test case: `delete e0123456`<br>
-      Expected: Student with NUSNet ID `e0123456` is deleted from the contact book. Details of the deleted contact 
-      shown in the status message.
-      
-   1. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is not an NUSNet ID of a student 
-      in TA Pro)<br>
+<span class="semi-bold">1. Prerequisites:</span> TAPro contains at least one student with NUSNet ID E0123456, and no student with NUSNet ID E6543210.
+</box>
 
-1. _{ more test cases …​ }_
+<box type="success" light>
+
+<span class="semi-bold">2. Test case: `delstu nn/E0123456`</span>
+
+Expected: The student with NUSNet ID `E0123456` is deleted from TAPro. Details of the deleted student
+shown in the status message.
+</box>
+
+<box type="wrong" light>
+
+<span class="semi-bold">3. Other incorrect `delstu` commands to try:</span>
+* `delstu`: Missing parameter and prefix.
+* `delstu nn/E6543210`: No student with this NUSNet ID.
+* `delstu E0123456`: Missing prefix for the NUSNet ID parameter.
+</box>
+
+2. _{ more test cases …​ }_
+
+<br>
+
+### Finding a student
+
+**TODO**
+
+<br>
 
 ### Marking a student's attendance
 
-1. Marking attendance for a student
+1. **Marking attendance for a student**
 
-   1. Prerequisites: Contact book contains at least one student with NUSNet ID e0123456.
+<box type="info" light>
 
-   1. Test case: `mark nn/e0123456 wk/1`<br>
-      Expected: Student with NUSNet ID `e0123456` is marked as 'present' from the contact book, depicted on that student's card.
-      Details of the marked contact shown in the status message.
-      
-   1. Other incorrect mark commands to try: `mark`, `mark x`, `mark nn/e0123456`, `mark wk/1`, `mark e0123456 1`,  `...` (where x is not an NUSNet ID of a student 
-      in TA Pro)<br>
+<span class="semi-bold">1. Prerequisites:</span> TAPro contains one student with NUSNet ID E0123456, and no student with NUSNet ID E6543210.
+</box>
 
+<box type="success" light>
+
+<span class="semi-bold">2. Test case: `mark nn/E0123456 wk/1`</span>
+
+Expected: Student with NUSNet ID `E0123456` is marked as present for week 1 in TAPro, depicted on that student's card in the panel.
+Details of the marked student is shown in the status message.
+</box>
+
+<box type="wrong" light>
+
+<span class="semi-bold">3. Examples of incorrect `mark` commands to try:</span>
+* `mark`: Missing NUSNet ID and week number parameters.
+* `mark nn/E6543210 wk/1`: No student with this NUSNet ID.
+* `mark wk/1`: Missing the NUSNet ID parameter.
+* `mark E0123456 1`: Missing prefix for the NUSNet ID and week number parameters.
+</box>
+
+<br>
+
+### Unmarking a student's attendance
+
+**TODO**
+
+<br>
+
+### Setting the course name
+
+1. **Setting a course name**
+
+<box type="info" light>
+
+<span class="semi-bold">1. Prerequisites:</span> No prerequisites.
+</box>
+
+<box type="success" light>
+
+<span class="semi-bold">2. Test case: `setcrs CS2103`</span>
+
+<box type="info" light>
+
+Enter `setcrs` followed by a whitespace, followed by a course code in the format `XXYYYYZ`, where `X` and `Z` can be any letter
+in upper or lower case, `YYYY` can be any 4-digit number and `Z` is optional.
+</box>
+
+Expected: TAPro's main window's title contains the course code `CS2103` provided.
+</box>
+
+<br>
+
+### Autocompleting fields
+
+**TODO**
+
+<br>
+
+### Retrieving previous successful commands
+
+**TODO**
+
+<br>
+
+### Accessing help
+
+**TODO**
+
+<br>
+
+### Clearing all data
+
+**TODO**
+
+<br>
 
 ### Saving data
 
-1. Dealing with missing/corrupted data files
+1. **Dealing with missing/corrupted data files**
 
-   1. _{explain how to simulate a missing/corrupted file, and the expected behavior}_
+    1. _{explain how to simulate a missing/corrupted file, and the expected behavior}_
 
 1. _{ more test cases …​ }_
 
-### Setting the course
 
-1. Setting a course 
-    
-   1. Test case: `setcrs CS2103`<br>
-      Enter setcrs followed by a whitespace, followed by a course code in the format `XXYYYYZ`, where `X` and `Z` can be any letter
-      in upper or lower case, `YYYY` can be any 4 digit number and `Z` is optional.
-      Expected: The main window's title is set as the course code provided
-
---------------------------------------------------------------------------------------------------------------------
+{{ newPage }}
 
 ## **Appendix: Design Decisions**
 
-1. Why does `edit` command use `INDEX` as identifier instead fo `NUSNet ID`?
-    1. For our users, using `edit nn/e0123456 nn/e1234567` is unintuitive.
+<br>
+
+1. **Why does `edit` command use `INDEX` as identifier instead of `NUSNET`?**
+    1. For our users, using `edit nn/E0123456 nn/E1234567` is unintuitive to edit the NUSNet ID of a student.
     1. `INDEX` is visually easier to reference and requires less effort to type.
-    1. The alternative solution we considered was to disallow editing of `NUSNet ID`, but this would be a limitation on
+    1. The alternative solution we considered was to disallow editing of `NUSNET`, but this would be a limitation on
        the user's freedom, or would necessitate that the user deletes the student and re-enter all the details again.
     
-   <box type="info" seamless>
+   <br>
+   <box type="info" light>
 
-   **Note:** `delstu` command uses `NUSNet ID` as identifier because it requires more intentional effort and
+   **Note:** `delstu` command uses `NUSNET` as identifier because it requires more intentional effort and
    therefore ensures that the TA intends to perform this dangerous action.
    </box>
+   <br>
+
+1. **Why does autocomplete sort in [ASCIIbetical order](https://en.wikipedia.org/wiki/ASCII#Character_order) and not normal alphabetical order?**
+   1. The only difference ASCIIbetical order has from normal alphabetical order, is that uppercase letters are ordered before lowercase letters.
+   2. For most parameters this doesn't make a difference, due to case-insensitivity or validation checks that enforce a certain format.
+   3. But for the tag parameter, `TAG`, it is case-sensitive, so `LATE` and `late` are two different tags.
+   4. A user can use uppercase for emphasis and to give priority to that tag, in the autocompletion order, thus allowing the user to autocomplete a certain tag more easily, and without much hassle.
+
+    <br>
+    <box type="success" light>
+
+    **#g#Example:##** If a user uses the following tags: `LATE`, `early`, `onTime`, to tag their students based on their latest submission, then `LATE` would appear before `early` and `onTime` in the autocompletion of a blank tag parameter.
+     </box>
+
+   5. The alternative solution we considered was to use normal alphabetical ordering, but this meant that there would not be priority given to uppercase tags, without explicitly adding a number before that tag, which is less intuitive.
+   6. Another alternative solution we considered was to allow the user to set the priority of the values in the autocompletion, but this meant adding unnecessary verbosity to the command format, which may not be that intuitive for new users.
+   <br><br>
+     
+1. **Why does autocompletion only give values that are already present instead of predicting the next result?**
+   1. It is performance intensive to predict the next autocompletion based on all possible values.
+   2. It will also use up significant storage space to store the possible autocompletions, which would not meet the application size requirements required for this course.
+   3. Moreover, autocompletion of certain unused words may be redundant, as not all words would be even used.
+   4. Hence, we decided to just perform autocompletion based on the available values that are stored in TAPro, as it increases the usefulness of this feature in this context.
+
+   <br>
+
+1. **Why does autocomplete not work when the command input box is empty?**
+   1. The alternative solution we considered is when the command input box is empty, autocomplete scrolls through all possible commands. However, it has a few issues.
+   2. It is much faster typing out the first few letters of the command you want to autocomplete, and then autocompleting, since regular users would remember the commands to use.
+   3. If it was a new user, then the new user would refer to help and our user guide instead of using the autocomplete to see what options there are.
+   4. Moreover, for the new user, the autocomplete feature may be confusing at first, so by omitting autocomplete on an empty input, it prevents accidental misunderstandings on what {{ macros.keyFormat('Tab') }} should do.
+   5. Furthermore, we do not want new users to execute a command without understanding what it did first, as it may cause irreversible data loss (`clear` command). We wanted a new user to understand the command, by referring to help or our user guide on what a command did, in order to prevent a situation where data is accidentally lost.
+
+
+<div style="page-break-after: always;"></div>
+
+5. **Why are placeholder values valid input?**
+    1. There is no simple way to edit a student's optional attribute back to the default without the using placeholder value (`X not provided`, where X is the attribute), without having to perform two commands: delete the student and add back the student if a value was incorrectly filled when it is not available to the user.
+    2. With autocompletion, a user can easily fill in the placeholder value, so it is much easier to set an attribute back to the placeholder value.
+
+    <br>
+    <box type="success" light>
+
+   **#g#Example:##** If a user doesn't have all phone numbers, then the parameter value `Phone number not provided` may be a possible value that they will use later on, and so the autocomplete helps make the process easier for the user to reset the value if necessary.
+   </box>
+
+    3. Hence, we allowed the placeholder value as valid input to serve this purpose.
+    4. The alternative solution we considered was to leave the parameter value empty to set it back to the default, but there is an issue with it. Users may accidentally set the parameter value as empty, resulting in the accidental lost of an attribute's value.
+    5. As there is no way to undo this change easily, we decided to use the placeholder value for this purpose, so that in order to reset an attribute, the user has to intentionally want to do so, by typing out the full placeholder value (`X not provided`, where X is the attribute).
+
+   <br>
+   <box type="success" light>
+
+   **#g#Example:##** Assuming we used the alternative solution, if a user inputs `edit 1 p/` and accidentally presses enter, then the phone number of the student at index 1 in the user's contact list would be erased to `Phone number not provided`.
+
+   Although this was the user's accidental mistake, it resulted in the user needing to do more work to restore back the change. Hence, we decided to use the placeholder value, so that the user will be less likely to accidentally reset an attribute by mistake.
+   </box>
+
+    6. Furthermore, autocomplete has placeholder values present only when they are necessary, which helps against accidentally removing an optional attribute of a student.
+
+    <br>
+    <box type="success" light>
+
+   **#g#Example:##** Usually, if a user would store all phone numbers or no phone numbers at all, depending on their needs.
+
+   If a user has all phone numbers present, then the parameter value `Phone number not provided` would not be available as an autocompletion, to prevent accidental lost of a student's phone number by mistake.
+   </box>
+   <br>
+
+6. **Why does command history toggle only retrieve successful commands?**
+   1. The alternative we considered was to store the history of all command inputs.
+   2. However, unsuccessful command inputs are not that helpful to a user, and it only clutters up a user's command history, resulting in more time wasted searching for a successful command input.
+   3. Hence, storing only successful command inputs in the command history enabled users to be more efficient at using TAPro.
+   <br>
+
+
+
+{{ newPage }}
+
+## **Appendix: Effort**
+
+As a team, we have conquered many problems and fought uphill battles. We did away a number of potential headaches with improved workflows and use of automation.
+
+Below are some non-exhaustive instances of our challenges, achievements and efforts overcoming them.
+
+1. Utilised Nunjucks macros and variables in documentation.
+   Macros were used for creating `newPage` breaks as well as when replacing key button presses like {{ macros.keyFormat
+   ('Tab') }}, {{ macros.keyFormat('⌘Cmd') }} and
+   {{ macros.keyFormat('Alt') }}. While macros are powerful tools for reusing code with parameters, variables in 
+   Nunjucks 
+   serve as placeholders that can dynamically insert content, such as implementing page breaks efficiently. 
+
+    This method abstracts the formatting into a 
+   single, manageable location, ensuring uniformity across our documentation. It streamlines the documentation process, making it easier for contributors to apply custom styling and formatting without getting bogged down by repetitive tasks. 
+    
+    For further information and a deeper understanding of how we utilize Nunjucks in our documentation, you can visit the Nunjucks official documentation for [Macros](https://mozilla.github.io/nunjucks/templating.html#macro) and [Variables](https://mozilla.github.io/nunjucks/templating.html#variables).
+   
+    <box type="success" light>
+
+    **#g#Examples:##**
+
+    <img alt="Macros Example 1" src="images/macros1.png" class="rounded-image"/>
+    <br></br>
+    <img alt="Macros Example 2" src="images/macros2.png" class="rounded-image"/>
+    <br></br>
+    <img alt="Macros Example 3" src="images/macros3.png" class="rounded-image"/>
+
+    </box>
+
+1. Refactored the parameter syntax to improve AB3's original OOP.
+
+1. Implemented autocomplete and command history.
+   We thought hard about what are the potential shortcuts that would save our target user's time and we looked to 
+   the CLI for inspiration. Given that our product uses NUSNet ID as its unique identifier, it can be a hassle to 
+   type out a full command. Especially when it has already been previously used, or only require minor changes to 
+   the command. This resulted in the idea of clicking {{ macros.keyFormat
+   ('Tab') }} for autocomplete when allowed as well as {{ macros.keyFormat('Up', '<i class="fa-regular 
+   fa-square-caret-up"></i>') }} and {{ macros.keyFormat('Down', '<i class="fa-regular 
+   fa-square-caret-down"></i>') }} arrow keys to retrieve previous commands.
+
+1. Utilised [Node.js](https://nodejs.org/) and installed [MarkBind](https://markbind.org/) locally as a 
+   dev-dependency in `package.json`. It allows us to serve documentation on our local machines, and ensures that all developers are using the same version of MarkBind for consistency, so that no version related issues of MarkBind result in inconsistencies in our codebase.
+
+1. Utilised [`captain-githook`](https://github.com/swellaby/captain-githook) `pre-commit` and `pre-push` checks 
+   locally to automatically verify if code changes made will pass continuous integration checks. It allows us to focus our time on working on the quality of our code, rather that dealing with formatting related issues.
+
+1. Utilised Trie data structure for optimizing the performance of TAPro, especially in terms of autocompletion 
+   functionality, recognizing the need for rapid and efficient search capabilities. Tries are exceptionally well-suited for autocomplete systems, as they allow for the quick retrieval of full words based on partial inputs, dramatically improving our application's responsiveness during user searches.
+
+1. Utilised caching to further enhance the performance and user experience of TAPro's autocompletion feature.
+
+{{ newPage }}
+
+## **Appendix: Planned Enhancements**
+
+<box type="info" light>
+
+**Team size:** 5
+
+**Allowed Enhancements:** 10
+</box>
+
+1. **Add duplicate prefix checks in the `mark` command.** 
+
+   1. Currently, there are no duplicate prefix checks in the `mark` command.
+   2. For example, currently a user is able to run `mark nn/E1234567 wk/1 wk/3`, which would only mark the attendance for a student with NUSNet ID E1234567 in week 3. By adding duplicate prefix checks, it would give the correct error message: `Multiple values specified for the following single-valued field(s): wk/`.
+   <br><br>
+
+2. **Add duplicate prefix checks for in the `unmark` command.** 
+
+   1. Currently, there are no duplicate prefix checks in the `unmark` command.
+   2. For example, currently a user is able to run `unmark nn/E1234567 wk/1 wk/3`, which would only unmark the attendance for a student with NUSNet ID E1234567 in week 3. By adding duplicate prefix checks, it would give the correct error message: `Multiple values specified for the following single-valued field(s): wk/`.
+   <br><br>
+
+3. **Add duplicate prefix checks in the `delstu` command.** 
+
+   1. Currently, there are no duplicate prefix checks in the `delstu` command.
+   2. For example, currently a user is able to run `delstu nn/E1234567 nn/E2345678`, which would only delete a student with NUSNet ID E2345678. By adding duplicate prefix checks, it would give the correct error message: `Multiple values specified for the following single-valued field(s): nn/`.
+   <br><br>
+
+4. **Improve name format validation.**
+
+   1. Currently, the name format validation checks are be too strict, which doesn't allow certain valid English names.
+   2. For example, the names `Zubir bin Said`, `Balaji s/o Sadasivan`, `O'Brien`, `McDonald`, `van Dyke`, `Saint-John` are not valid currently, which is a feature flaw.
+   3. We plan to loosen name format validation to allow names with certain punctuations like hyphens, apostrophes, and so on. This is so that the names like `Saint-John` and `O'Brien` are valid.
+   4. We also plan to be less strict about capitalization in names. This allows `McDonald`, `John Smith III` and `van Dyke` to be valid.
+   5. We also plan to allow abbreviations like `s/o`, `d/o`, `bin`, and so on. This is so that the names like `Balaji s/o Sadasivan` and `Zubir bin Said` are valid.
+   6. We also plan to allow prepositions from originating from Latin, Italian, Portuguese, Spanish, and so on. This includes `da`, `de`, `di`, `del`, `dos`, `los`, and so on. This allows names like `De los Santos`, and `Leonardo da Vinci`.<br><br>
+   
+   <box type="info" light>
+
+   The lists of prepositions, abbreviations, and punctuations here are non-exhaustive.
+   </box>
+
+   7. We can achieve this change by updating the regular expression used for name validation, to meet these criteria.
+   <br><br>
+
+5. **Improve email format validation.** 
+   
+   1. Currently, the email format validation checks are be too strict, which doesn't allow some [valid emails addresses](https://en.wikipedia.org/wiki/Email_address#Valid_email_addresses) like: `name/surname@example.com`, `" "@example.org`, `"john..doe"@example.org`, `mailhost!username@example.org`,  `"very.(),:;<>[]\".VERY.\"very@\\ \"very\".unusual"@strange.example.com`, `user%example.com@example.org`, `user-@example.org`, `postmaster@[123.123.123.123]`, `postmaster@[IPv6:2001:0db8:85a3:0000:0000:8a2e:0370:7334]`, `_test@[IPv6:2001:0db8:85a3:0000:0000:8a2e:0370:7334]`.
+   2. This is because whether an email format is valid, depends on the email service provider, which can vary. An email valid on one email service provider, may not be valid on another email service provider. Even if we store all the valid formats, new email service providers can be created, resulting in an incomplete validation for that email service provider. 
+   3. Hence, we plan to make the validation should be less strict and follow the validation format given [RFC 5321 Simple Mail Transfer Protocol](https://datatracker.ietf.org/doc/html/rfc5321) and [RFC 5322 Internet Message Format](https://datatracker.ietf.org/doc/html/rfc5322), which contains the Internet standards for email addresses.
+   4. This can be done by updating the regular expression used for validating email addresses.
+
+{{ newPageBetween}}
+
+6. **Improve handling of duplicate email addresses.**
+
+    1. Currently, two different students can have the same email address in TAPro. However, in the real world, two different students are unlikely to have the same email address. So we should handle the case when a duplicate email address is added.
+   2. Hence, we plan to handle a duplicate email address by giving a warning message when a duplicate email address is added. 
+   3. The reason why a warning message is given instead of an error message, is that it may be useful for a user to have duplicate email addresses temporarily when attempting to fix mistakes originating from adding or editing students' email addresses.<br><br>
+
+7. **Improve handling of duplicate phone numbers.**
+
+    1. Currently, two different students can have the same phone number in TAPro. However, in the real world, two different students are unlikely to have the same phone number. So we should handle the case when a duplicate phone number is added.
+    2. Hence, we plan to handle a duplicate phone number by giving a warning message when a duplicate phone number is added.
+    3. The reason why a warning message is given instead of an error message, is that it may be useful for a user to have duplicate phone number temporarily when attempting to fix mistakes originating from adding or editing students' phone numbers.<br><br>
+
+8. **Add multiple majors for a student more intuitively.**
+
+   1. Currently, `MAJOR` is an optional parameter, which means only one or zero values are accepted from this attribute. The workaround currently would be for a user to use comma-separated majors, so that users to indicate multiple majors for a student.
+   2. Hence, we plan to make `MAJOR` into a multiple parameter, which would appear as `[m/MAJOR]…` in the command formats. 
+   3. This means any number of values can be accepted for this attribute. By doing so, it makes the user's workflow of adding multiple majors more aligned with adding multiple tags, thus improving the user's efficiency.<br><br>
+
+9. **Searching for students by their attendance in a certain week(s).**
+
+    1. Currently, the `find` command only works on the name attribute of a student, meaning that we can only find a student by name.
+    2. However, it is useful for a user to find students by their attendance in a certain week(s) number, so that the user can easily identify which students attended in which week(s), for easier tallying of numbers and improving how the user tracks students attendance. 
+    3. Hence, we plan to modify the format of the `find` command in the following way to achieve this change. The `find` command format would be changed to `find [KEYWORD]… [wk/WEEK]…`, so that the find command works on the `WEEK` parameter.
+    4. The reason why `KEYWORD` and `MORE_KEYWORDS` are modified, is to handle the situation when a user wants to search for students just by attendance, so the constraint that a keyword has to be present has to be removed in order to implement this with the `find` command. We minimise the changes the original behaviour of the `KEYWORD` and `MORE_KEYWORDS` parameters.
+    5. We also specify a constraint that at least one parameter must be present for `find` to execute successfully, to preserve the current behaviour that one keyword must be present.
+    6. A user can now search students attendance by week number through the above changes. For example, entering `find wk/1` will find all students whose attendance is marked in week 1. 
+    7. Another example with multiple parameters is that `find wk/1 wk/2` will find all students whose attendance is marked in either week 1 or week 2, following the current behaviour of the `find` command with `KEYWORDS` and `MORE_KEYWORDS`.<br><br>
+
+10. **Alert the user when more than one instance of TAPro is open.**
+
+    1. Currently, a user is able to open more than one instance of TAPro, which can happen accidentally due to user error. This can potentially cause TAPro to de-synchronize, which may result in the loss of data for that session.
+    2. Hence, we plan to warn the user through a warning message on the result message panel of all the open instances of TAPro. The warning message would be `Multiple instances of TAPro open! TAPro may de-synchronize resulting in the loss of data in this session!`.
+    3. Through this warning message, the user would be aware that multiple instances are open, and will be aware of the risks involved, which minimizes the danger.
