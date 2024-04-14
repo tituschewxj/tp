@@ -967,13 +967,37 @@ Expected: TAPro's main window's title contains the course code `CS2103` provided
 
 ### Accessing help
 
-**TODO**
+1. **Accessing help**
 
+<box type="info" light>
+
+<span class="semi-bold">1. Prerequisites:</span> No prerequisites.
+</box>
+
+<box type="success" light>
+
+<span class="semi-bold">2. Test case: `help`</span>
+
+Expected: The help window automatically pops up, giving further information about TAPro's commands.
+</box>
 <br>
 
 ### Clearing all data
 
-**TODO**
+
+1. **Clearing all students**
+
+<box type="info" light>
+
+<span class="semi-bold">1. Prerequisites:</span> No prerequisites.
+</box>
+
+<box type="success" light>
+
+<span class="semi-bold">2. Test case: `clear`</span>
+
+Expected: TAPro's Contact Book resets, clearing all existing students (if any).
+</box>
 
 <br>
 
