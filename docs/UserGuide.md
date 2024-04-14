@@ -404,6 +404,21 @@ For example, `e0123456` will be converted to `E0123456`, as `E0123456` and `e012
 
 * Name must not be empty (or spaces only), and must have single spaces between words. It must be in proper-case and contain only alphabets.
 
+<box type="warning" light>
+
+**Adding un-permitted names:**
+
+In the current version of TAPro, certain names are not permitted due to the strictness of name validation. 
+
+The current workaround is to follow the proper-case format and make slight changes to the name, so that the validation works.
+
+<box type="success" light>
+
+{{ macros.semiBold('#g#Example:##') }} For names like `Zubir bin Said` and `Balaji s/o Sadasivan`, we can make slight changes to the name to fit current permitted formats. 
+They become `Zubir Bin Said` and `Balaji So Sadasivan` after the change, which are still similar enough to the original to not cause confusion.
+</box>
+</box>
+
 * All the remaining fields are optional. If values are not provided to optional fields, they will be set to a placeholder value under the hood (e.g., `Major not provided` for `MAJOR` field).
 
 <box type="info" light>
