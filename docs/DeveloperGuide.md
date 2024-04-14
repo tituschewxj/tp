@@ -997,7 +997,7 @@ Expected: TAPro's main window's title contains the course code `CS2103` provided
 class="fa-regular fa-square-caret-up"></i> UP</span> key </span>
 
 * After the entering a previous command, the command input box is empty.
-* Pressing <span class="badge bg-light text-dark"><i class="fa-regular fa-square-caret-up"></i> UP</span> will
+* Pressing {{ macros.keyFormat('Up', '<i class="fa-regular fa-square-caret-up"></i>') }} will
   fill the text in the command input box to
   the previous command `mark nn/E0123456`!
 * You can press <span class="badge bg-light text-dark"><i class="fa-regular fa-square-caret-up"></i>
