@@ -80,7 +80,7 @@ Symbols are indicators that give additional information about a target piece of 
 | <i class="fa-solid fa-check text-success"></i>       | Valid example                 |
 | <i class="fa-solid fa-x text-danger"></i>            | Invalid example               |
 | <i class="fa-solid fa-bolt text-danger"></i>         | Danger                        |
-| <i class="fa-solid fa-book text-primary"></i>        | Definition                    |
+| <i class="fa-solid fa-book-atlas text-primary"></i>  | Definition                    |
 | <i class="fa-solid fa-question text-info"></i>       | Question                      |
 | <i class="fa-solid fa-spell-check text-primary"></i> | Command Format                |
 | {{ macros.keyFormat('Key') }}                        | Represents a keyboard input.  |
