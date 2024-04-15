@@ -347,9 +347,7 @@ The help window is resizable, so you can {{ macros.semiBold('easily reposition a
 
 Sets the course code in question.
 
-Course is shown at the top of the window.
-
-Course is shown at the top of the window.
+The course code is shown at the top of TAPro's main window.
 
 <box type="definition" icon=":fa-solid-spell-check:" light>
 
@@ -361,21 +359,25 @@ Course is shown at the top of the window.
 Course codes are case-insensitive.
 
 </box>
-
-Here is the output in the command results when the `setcrs` command is successful:
-
-
 <box type="warning" light>
 
-Course code should follow the format "XX1234Y", Y is optional.
+**Course code should follow the format `XX1234Y`, where `Y` is optional:**
 
-X and Y can be any letters, while 1234 can be any 4-digit number.
+<box type="info" light>
 
-Course code is meant for CS coded courses, hence only 2 prefix letters are allowed.
+`X` and `Y` can be any letters, while `1234` can be any four-digit number.
+</box>
+<box type="tip" light>
+
+Course code is meant for CS coded courses, hence only two prefix letters are allowed.
+</box>
+
+<box type="wrong" light>
 
 When an invalid course code is entered, the following error message appears:
 
 <img src="images/ug/setcrs_error.png" alt="Setcrs Error" class="rounded-image" width="800px"/>
+</box>
 </box>
 
 {{ newPage }}
