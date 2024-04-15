@@ -567,8 +567,8 @@ The following activity diagram summarizes what happens when a user executes a ne
 | {{ threeStars }} | attendance tracking TA     | unmark attendance for a student in my class for a particular week  | keep track of who is absent                          |
 | {{ twoStars }}   | TA over multiple semesters | delete all students from a previous semester from the contact book | clear my contacts quickly at the start of a semester |
 | {{ twoStars }}   | new user                   | know all the commands of TAPro via the help window                 | use it effectively                                   |
-| {{ twoStars }}   | CLI user                   | retrieve command history                                           | avoid retyping a command                             |
-| {{ twoStars }}   | CLI user                   | autocomplete my input                                              | save time                                            |
+| {{ twoStars }}   | TA comfortable with CLI    | retrieve command history                                           | avoid retyping a command                             |
+| {{ twoStars }}   | TA comfortable with CLI    | autocomplete my input                                              | save time                                            |
 | {{ twoStars }}   | fast typist                | use keyboard inputs to interact with TAPro                         | save time                                            |
 | {{ twoStars }}   | user                       | exit the program smoothly                                          | save time                                            |
 | {{ oneStar }}    | user                       | easily read the result message of a command                        | save time                                            |
