@@ -567,8 +567,8 @@ The following activity diagram summarizes what happens when a user executes a ne
 | {{ threeStars }} | attendance tracking TA     | unmark attendance for a student in my class for a particular week  | keep track of who is absent                          |
 | {{ twoStars }}   | TA over multiple semesters | delete all students from a previous semester from the contact book | clear my contacts quickly at the start of a semester |
 | {{ twoStars }}   | new user                   | know all the commands of TAPro via the help window                 | use it effectively                                   |
-| {{ twoStars }}   | CLI user                   | retrieve command history                                           | avoid retyping a command                             |
-| {{ twoStars }}   | CLI user                   | autocomplete my input                                              | save time                                            |
+| {{ twoStars }}   | TA comfortable with CLI    | retrieve command history                                           | avoid retyping a command                             |
+| {{ twoStars }}   | TA comfortable with CLI    | autocomplete my input                                              | save time                                            |
 | {{ twoStars }}   | fast typist                | use keyboard inputs to interact with TAPro                         | save time                                            |
 | {{ twoStars }}   | user                       | exit the program smoothly                                          | save time                                            |
 | {{ oneStar }}    | user                       | easily read the result message of a command                        | save time                                            |
@@ -841,7 +841,7 @@ For all use cases below, the **System** is TAPro and the **Actor** is the user, 
 
 <box no-icon type="success" light>
 
-**Use case: Retrieve a previous successful command input**
+**Use case: Retrieve a Previous Successful Command Input**
 
 <span class="semi-bold">MSS</span>
 
@@ -864,7 +864,7 @@ For all use cases below, the **System** is TAPro and the **Actor** is the user, 
 
 <box no-icon type="success" light>
 
-**Use case: Retrieve a more recent successful command input**
+**Use case: Retrieve a More Recent Successful Command Input**
 
 <span class="semi-bold">MSS</span>
 
@@ -988,7 +988,7 @@ students.
 
 <span class="semi-bold">2. Test case:</span>
 ```
-addstu n/John Doe p/98765432 e/johndoe@example.com nn/E0123456 m/Computer Science, #02-25 t/friends t/owesMoney
+addstu n/John Doe p/98765432 e/johndoe@example.com nn/E0123456 m/Computer Science t/friends t/owesMoney
 ```
 
 <span class="semi-bold">Expected:</span> Student with NUSNet ID `E0123456` is added into TAPro. Details of the added student is
@@ -1044,7 +1044,7 @@ shown in the status message.
 This command differs from most other commands that use the `NUSNET` to identify a student. This command uses the index number shown in the displayed person list to identify the student to be edited.
 </box>
 
-<br><br>
+<br>
 {{ newPageBetween }}
 
 ### Deleting a student
@@ -1527,20 +1527,32 @@ Below are some non-exhaustive instances of our challenges, achievements and effo
 1. **Add duplicate prefix checks in the `mark` command.** 
 
    1. Currently, there are no duplicate prefix checks in the `mark` command.
-   2. For example, currently a user is able to run `mark nn/E1234567 wk/1 wk/3`, which would only mark the attendance for a student with NUSNet ID E1234567 in week 3. By adding duplicate prefix checks, it would give the correct error message: `Multiple values specified for the following single-valued field(s): wk/`.
+    2. For example, currently a user is able to run `mark nn/E1234567 wk/1 wk/3`, which would only mark the attendance for a student with NUSNet ID E1234567 in week 3. By adding duplicate prefix checks, it would give the correct error message:
    <br><br>
+   ```
+    Multiple values specified for the following single-valued field(s): wk/
+   ```
+   <br>
 
 2. **Add duplicate prefix checks for in the `unmark` command.** 
 
    1. Currently, there are no duplicate prefix checks in the `unmark` command.
-   2. For example, currently a user is able to run `unmark nn/E1234567 wk/1 wk/3`, which would only unmark the attendance for a student with NUSNet ID E1234567 in week 3. By adding duplicate prefix checks, it would give the correct error message: `Multiple values specified for the following single-valued field(s): wk/`.
+   2. For example, currently a user is able to run `unmark nn/E1234567 wk/1 wk/3`, which would only unmark the attendance for a student with NUSNet ID E1234567 in week 3. By adding duplicate prefix checks, it would give the correct error message:
    <br><br>
+    ```
+    Multiple values specified for the following single-valued field(s): wk/
+    ```
+   <br>
 
 3. **Add duplicate prefix checks in the `delstu` command.** 
 
    1. Currently, there are no duplicate prefix checks in the `delstu` command.
-   2. For example, currently a user is able to run `delstu nn/E1234567 nn/E2345678`, which would only delete a student with NUSNet ID E2345678. By adding duplicate prefix checks, it would give the correct error message: `Multiple values specified for the following single-valued field(s): nn/`.
+   2. For example, currently a user is able to run `delstu nn/E1234567 nn/E2345678`, which would only delete a student with NUSNet ID E2345678. By adding duplicate prefix checks, it would give the correct error message:
    <br><br>
+    ```
+    Multiple values specified for the following single-valued field(s): nn/
+    ```
+    <br>
 
 4. **Improve name format validation.**
 
@@ -1558,15 +1570,25 @@ Below are some non-exhaustive instances of our challenges, achievements and effo
 
    7. We can achieve this change by updating the regular expression used for name validation, to meet these criteria.
    <br><br>
+{{ newPageBetween }}
 
 5. **Improve email format validation.** 
    
-   1. Currently, the email format validation checks are be too strict, which doesn't allow some [valid emails addresses](https://en.wikipedia.org/wiki/Email_address#Valid_email_addresses) like: `name/surname@example.com`, `" "@example.org`, `"john..doe"@example.org`, `mailhost!username@example.org`,  `"very.(),:;<>[]\".VERY.\"very@\\ \"very\".unusual"@strange.example.com`, `user%example.com@example.org`, `user-@example.org`, `postmaster@[123.123.123.123]`, `postmaster@[IPv6:2001:0db8:85a3:0000:0000:8a2e:0370:7334]`, `_test@[IPv6:2001:0db8:85a3:0000:0000:8a2e:0370:7334]`.
+   1. Currently, the email format validation checks are be too strict, which doesn't allow some [valid emails addresses](https://en.wikipedia.org/wiki/Email_address#Valid_email_addresses) like: 
+      * `name/surname@example.com`
+      * `" "@example.org`
+      * `"john..doe"@example.org`
+      * `mailhost!username@example.org`
+      * `"very.(),:;<>[]\".VERY.\"very@\\ \"very\".unusual"@strange.example.com`
+      * `user%example.com@example.org`
+      * `user-@example.org`
+      * `postmaster@[123.123.123.123]`
+      * `postmaster@[IPv6:2001:0db8:85a3:0000:0000:8a2e:0370:7334]`
+      * `_test@[IPv6:2001:0db8:85a3:0000:0000:8a2e:0370:7334]`
    2. This is because whether an email format is valid, depends on the email service provider, which can vary. An email valid on one email service provider, may not be valid on another email service provider. Even if we store all the valid formats, new email service providers can be created, resulting in an incomplete validation for that email service provider. 
    3. Hence, we plan to make the validation should be less strict and follow the validation format given [RFC 5321 Simple Mail Transfer Protocol](https://datatracker.ietf.org/doc/html/rfc5321) and [RFC 5322 Internet Message Format](https://datatracker.ietf.org/doc/html/rfc5322), which contains the Internet standards for email addresses.
    4. This can be done by updating the regular expression used for validating email addresses.
-
-{{ newPageBetween}}
+    <br><br>
 
 6. **Improve handling of duplicate email addresses.**
 
@@ -1595,9 +1617,14 @@ Below are some non-exhaustive instances of our challenges, achievements and effo
     5. We also specify a constraint that at least one parameter must be present for `find` to execute successfully, to preserve the current behaviour that one keyword must be present.
     6. A user can now search students attendance by week number through the above changes. For example, entering `find wk/1` will find all students whose attendance is marked in week 1. 
     7. Another example with multiple parameters is that `find wk/1 wk/2` will find all students whose attendance is marked in either week 1 or week 2, following the current behaviour of the `find` command with `KEYWORDS` and `MORE_KEYWORDS`.<br><br>
+{{ newPageBetween }}
 
 10. **Alert the user when more than one instance of TAPro is open.**
 
     1. Currently, a user is able to open more than one instance of TAPro, which can happen accidentally due to user error. This can potentially cause TAPro to de-synchronize, which may result in the loss of data for that session.
-    2. Hence, we plan to warn the user through a warning message on the result message panel of all the open instances of TAPro. The warning message would be `Multiple instances of TAPro open! TAPro may de-synchronize resulting in the loss of data in this session!`.
+    2. Hence, we plan to warn the user through a warning message on the result message panel of all the open instances of TAPro. The warning message would be:
+    <br><br>
+    ```
+    Multiple instances of TAPro open! TAPro may de-synchronize resulting in the loss of data in this session!
+    ```
     3. Through this warning message, the user would be aware that multiple instances are open, and will be aware of the risks involved, which minimizes the danger.

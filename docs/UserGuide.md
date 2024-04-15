@@ -12,7 +12,7 @@ pageNav: 3
 
 
 
-TAPro is your go-to **Contact Management application**, created with love for **Computer Science Teaching Assistants (TAs)** like you. _We get it_ — juggling your students and keeping track of attendance can be a handful. That’s why TAPro is 
+TAPro is your go-to **Contact Book**, created with love for **Computer Science Teaching Assistants (TAs)** like you. _We get it_ — juggling your students and keeping track of attendance can be a handful. That’s why TAPro is 
 here to make your life easier. With features designed precisely for you, it's all about simplifying those 
 time-consuming tasks, letting you focus on what you do best: teaching and inspiring your students. Welcome to a 
 smoother, more personalized way of managing your TA duties!
@@ -35,8 +35,9 @@ you're practically a wizard with student info, we've put together this guide to 
 
 
 **New around here?** No worries, we've got you. Start with these sections to become a TAPro buddy in no time:
-- [Navigating the GUI](#navigating-the-gui): Familiarize yourself with the command box and those handy contact cards.
-- [Features](#features): Dive into the exciting world of features we've brewed up just for you.
+- **[Useful Notations and Glossary](#useful-notations-and-glossary)**: Familiarize yourself with the terms and symbols used throughout this guide. 
+- **[Navigating the GUI](#navigating-the-gui)**: Visually learn to navigate around the command box and those handy contact cards.
+- **[Features](#features)**: Dive into the exciting world of features we've brewed up just for you.
 
 
 **Ready to Roll?** Skip over to **[Quick Start](#quick-start)** for the no-fuss, easy-peasy steps to download TAPro and get ready for
@@ -54,7 +55,7 @@ action.
 - **[Delete Student](#deleting-a-student-delstu)**: Time to say goodbye? Remove a student from your list with `delstu`.
 - **[Clear](#clearing-all-entries-clear)**: Need to wipe the slate clean? `clear` does just that.
 
-**Need a quick TAPro refresher?** Our [Command Summary](#command-summary) is like the TAPro bible—short, sweet, and to the point.
+**Need a quick TAPro refresher?** Our **[Command Summary](#command-summary)** is like the TAPro bible—short, sweet, and to the point.
 
 Stumbled upon a hurdle or just curious? Swing by our **[FAQ](#faq)** where we tackle all your burning questions and offer
 nuggets of wisdom for a smooth TAPro journey.
@@ -359,6 +360,8 @@ Sets the course code in question.
 
 The course code is shown at the top of TAPro's main window.
 
+Course code must be in the format "XX1234Y", where Y is optional.
+
 <box type="definition" icon=":fa-solid-spell-check:" light>
 
 **Format: `setcrs COURSE_CODE`**
@@ -367,6 +370,12 @@ The course code is shown at the top of TAPro's main window.
 <box type="info" light>
 
 Course codes are case-insensitive.
+
+</box>
+
+<box type="info" light>
+
+Course codes must start with a prefix of 2 letters.
 
 </box>
 
@@ -382,7 +391,7 @@ Course codes are case-insensitive.
 
 <box type="success" light>
 
-**Screenshots of using the `help` command:**
+**Screenshots of using the `setcrs` command:**
 
 <span class="semi-bold">#g#Before running `setcrs` command:##</span>
 
