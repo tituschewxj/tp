@@ -374,7 +374,7 @@ Course codes are case-insensitive.
 
 <box type="info" light>
 
-Course codes must start with a prefix of 2 letters
+Course codes must start with a prefix of 2 letters.
 
 </box>
 
