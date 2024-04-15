@@ -73,19 +73,21 @@ Diving into TAPro, you'll encounter some handy notations and terms. We've decode
 
 Symbols are indicators that give additional information about a target piece of text.
 
-| Symbol                                               | Meaning of target text        |
-|------------------------------------------------------|-------------------------------|
-| <i class="fa-solid fa-lightbulb text-success"></i>   | Tip                           |
-| <i class="fa-solid fa-exclamation text-warning"></i> | Warning                       |
-| <i class="fa-solid fa-flag text-danger"></i>         | Important                     |
-| <i class="fa-solid fa-info text-info"></i>           | Additional useful information |
-| <i class="fa-solid fa-check text-success"></i>       | Valid example                 |
-| <i class="fa-solid fa-x text-danger"></i>            | Invalid example               |
-| <i class="fa-solid fa-bolt text-danger"></i>         | Danger                        |
-| <i class="fa-solid fa-book-atlas text-primary"></i>  | Definition                    |
-| <i class="fa-solid fa-question text-info"></i>       | Question                      |
-| <i class="fa-solid fa-spell-check text-primary"></i> | Command Format                |
-| {{ macros.keyFormat('Key') }}                        | Represents a keyboard input.  |
+| Symbol                                               | Meaning of target text          |
+|------------------------------------------------------|---------------------------------|
+| <i class="fa-solid fa-lightbulb text-success"></i>   | Tip                             |
+| <i class="fa-solid fa-exclamation text-warning"></i> | Warning                         |
+| <i class="fa-solid fa-flag text-danger"></i>         | Important                       |
+| <i class="fa-solid fa-info text-info"></i>           | Additional useful information   |
+| <i class="fa-solid fa-check text-success"></i>       | Valid example                   |
+| <i class="fa-solid fa-x text-danger"></i>            | Invalid example                 |
+| <i class="fa-solid fa-bolt text-danger"></i>         | Danger                          |
+| <i class="fa-solid fa-book-atlas text-primary"></i>  | Definition                      |
+| <i class="fa-solid fa-question text-info"></i>       | Question                        |
+| <i class="fa-solid fa-spell-check text-primary"></i> | Command Format                  |
+| {{ macros.keyFormat('Key') }}                        | Keyboard key input              |
+| `syntax`                                             | Input and output related syntax |
+| [link](#symbols)                                     | Clickable link                  |
 
 {{ newPageBetween }}
 
@@ -105,6 +107,7 @@ Keywords are word(s) that hold greater significance.
 | **Graphical User Interface** | The visual interface that enhances user interaction with graphical elements. |
 | **Parameter**                | A piece of information can be used in commands to be executed.               |
 | **Placeholder Value**        | A parameter value used to indicate that a value is not set for an attribute. |
+| **Recognized Prefix**        | A prefix that has an associated parameter and attribute.                     |
 
 ### Abbreviations
 
@@ -135,6 +138,11 @@ Commands formats have specific notations to represent how a command can be used.
 | **`[ELLIPSIS]...`**     | Indicates that a parameter can be repeated or omitted entirely. |
 | **`[SQUARE_BRACKETS]`** | Denotes optional parameters.                                    |
 
+<box type="important" light>
+
+Prefixes must have a space in front of them.
+</box>
+
 ### Parameters and their Recognized Prefixes
 
 {{ macros.definitionBox('Recognized Prefixes', 'Prefixes that have an associated parameter and attribute in TAPro.') }}
@@ -144,7 +152,7 @@ Commands formats have specific notations to represent how a command can be used.
 | **`NAME`**   | `n/`              | Name of the student.                 | Proper-case and alphabetical characters only. |
 | **`NUSNET`** | `nn/`             | NUSNet ID of the student.            | Case-insensitive, unique identifier.          |
 | **`PHONE`**  | `p/`              | Phone number of the student.         | At least 3 digits, and digits only.           |
-| **`EMAIL`**  | `e/`              | Email address of the student.        | Case-insensitive, email address.              |
+| **`EMAIL`**  | `e/`              | Email address of the student.        | Case-insensitive, valid email address.        |
 | **`MAJOR`**  | `m/`              | Major of the student.                | Unconstrained.                                |
 | **`TAG`**    | `t/`              | Tag(s) of the student.               | Case-sensitive, alphanumeric without spaces.  |
 | **`WEEK`**   | `wk/`             | Week number of student's attendance. | Integer between 1 to 13 (inclusive).          |
@@ -308,6 +316,9 @@ as well as quick reference of each command with simple examples on how to use th
 
 **Format: `help`**
 </box>
+
+* Additional arguments after `help` will be simply ignored.
+
 <box type="info" light>
 
 <i class="fa-regular fa-window-restore"></i>
@@ -469,6 +480,10 @@ A student can have any number of tags, including 0.
 
 `bestFriend4Ever`, `colleague`, `Club` are valid tags, but `best friend`, `best-friend` are not valid tags.
 </box>
+<box type="warning" light>
+
+**Adding new tag(s) will replace the existing tag(s)**
+</box>
 <box type="tip" light>
 
 **Adding multiple majors:**
@@ -550,6 +565,12 @@ Edits an existing student in the contact book.
 
 * Edits the student at the specified `INDEX`. The index refers to the index number shown in the displayed student list. The index **must be a positive integer**, such as 1, 2, 3, …​
 
+<box type="info" light>
+
+This command differs from most other commands that uses `NUSNET` to identify a student. This command uses the index number shown in the displayed person list to identify the student to be edited.
+
+</box>
+
 * At least one of the optional fields must be provided.
 
 * Existing values will be updated to the input values.
@@ -558,12 +579,6 @@ Edits an existing student in the contact book.
 
 * You can remove all the student’s tags by typing `t/` without
   specifying any tags after it.
-
-<box type="info" light>
-
-This command differs from most other commands that uses `NUSNET` to identify a student. This command uses the index number shown in the displayed person list to identify the student to be edited.
-
-</box>
 
 <box type="warning" light>
 
@@ -825,6 +840,8 @@ Clears all entries from the contact book.
 **Format: `clear`**
 </box>
 
+* Additional arguments after `help` will be simply ignored.
+
 <box type="success" light>
 
 **Screenshots of using the `clear` command:**
@@ -850,6 +867,8 @@ Exits the program.
 
 **Format: `exit`**
 </box>
+
+* Additional arguments after `exit` will be simply ignored.
 
 <box type="success" light>
 
@@ -1159,8 +1178,8 @@ target computer.
 
 2. Save the file as `TAPro.bat` (Windows) or `TAPro.sh` (macOS/Linux).
 3. Change the admin settings of the script to allow it to run as a program:
-    - Windows: Right-click on the script and select Properties. Under General, check the box that says `Allow this file to run as a program`.
-    - macOS/Linux: Open the Terminal and navigate to the directory where the script is located. Type `chmod +x <script_file_name>` and press `Enter`.<br>
+    - Windows: Right-click on the script and select Properties. Under General, check the box that says "Allow this file to run as a program".
+    - macOS/Linux: Open the Terminal and navigate to the directory where the script is located. Type `chmod +x <script_file_name>` and press {{ macros.keyFormat('Enter') }}.<br>
 
    <box type="info" light>
 
@@ -1277,7 +1296,7 @@ designed to help you input commands faster and more efficiently.
 1. Hold the {{ macros.keyFormat('Left', '<i class="fa-regular fa-square-caret-left"></i>') }} key to
    move the cursor to the beginning of the command.
 1. Add a `un` in front of `mark` to change the command to `unmark nn/E0123456 wk/6`.
-1. Press `Enter`!
+1. Press {{ macros.keyFormat('Enter') }}!
 
 </box>
 <box type="info" light>
