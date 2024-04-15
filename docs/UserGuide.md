@@ -369,6 +369,7 @@ Here is the output in the command results when the `setcrs` command is successfu
 
 Course code should follow the format "XX1234Y", Y is optional.
 
+Course code is meant for CS coded courses, hence only 2 prefix letters are allowed.
 
 When an invalid course code is entered, the following error message appears:
 
