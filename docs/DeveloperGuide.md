@@ -58,6 +58,7 @@ The bulk of TAPro's work is done by the following four components:
 [**`Commons`**](#common-classes) represents a collection of classes used by multiple other components.
 
 <br>
+{{ newPageBetween }}
 
 #### How the architecture components interact with each other
 
@@ -125,13 +126,15 @@ call as an example.
 
 <box type="info" light>
 
-**Note:** The lifeline for `DeleteCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline continues till the end of diagram.
+**Note:** The lifeline for `DeletePersonCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline continues till the end of diagram.
 </box>
+
+{{ newPageBetween }}
 
 **How command execution works in `Logic` component:**
 
-1. When `Logic` is called upon to execute a command, it is passed to an `AddressBookParser` object which in turn creates a parser that matches the command (e.g., `DeleteCommandParser`) and uses it to parse the command.
-1. This results in a `Command` object (more precisely, an object of one of its subclasses e.g., `DeleteCommand`) which is executed by the `LogicManager`.
+1. When `Logic` is called upon to execute a command, it is passed to an `AddressBookParser` object which in turn creates a parser that matches the command (e.g., `DeletePersonCommandParser`) and uses it to parse the command.
+1. This results in a `Command` object (more precisely, an object of one of its subclasses e.g., `DeletePersonCommand`) which is executed by the `LogicManager`.
 1. The command can communicate with the `Model` when it is executed (e.g. to delete a person).<br>
    Note that although this is shown as a single step in the diagram above (for simplicity), in the code it can take several interactions (between the command object and the `Model`) to achieve.
 1. The result of the command execution is encapsulated as a `CommandResult` object which is returned back from `Logic`.
@@ -141,16 +144,21 @@ Here are the other classes in `Logic` (omitted from the class diagram above) tha
 <puml src="diagrams/ParserClasses.puml" width="600"/><br><br>
 
 **How the parsing works:**
-* When called upon to parse a user command, the `AddressBookParser` class creates an `XYZCommandParser` (`XYZ` is a placeholder for the specific command name e.g., `AddCommandParser`) which uses the other classes shown above to parse the user command and create a `XYZCommand` object (e.g., `AddCommand`) which the `AddressBookParser` returns back as a `Command` object.
-  * All `XYZCommandParser` classes (e.g., `AddCommandParser`, `DeleteCommandParser`, ...) inherit from the `Parser` interface so that they can be treated similarly where possible e.g, during testing.
-* When called upon to parse an autocomplete input, the `AddressBookParser` class checks whether the input contains arguments. If it does not contain arguments, it creates an `AutoCompleteCommand` object which autocompletes Commands. Otherwise, it checks for the last argument in the user input and creates the matching `AutoComplete` object if it exists (e.g. `arbitrary_command arg_a/arbitrary_arg` lead to the `AutoCompleteArgA` object, if it exists). Otherwise, a default `AutoComplete` object that always return an empty string is returned.
+* When called upon to parse a user command, the `AddressBookParser` class creates an `XYZCommandParser` (`XYZ` is a placeholder for the specific command name e.g., `AddPersonCommandParser`) which uses the other classes shown above to parse the user command and create a `XYZCommand` object (e.g., `AddPersonCommand`) which the `AddressBookParser` returns back as a `Command` object.
+  * All `XYZCommandParser` classes (e.g., `AddPersonCommandParser`, `DeletePersonCommandParser`, ...) inherit from the `Parser` interface so that they can be treated similarly where possible e.g, during testing.
+* When called upon to parse an autocomplete input, the `AddressBookParser` class checks whether the input contains arguments. If it does not contain arguments, it creates an `AutoCompleteCommand` object which autocompletes Commands. Otherwise, it checks for the last argument in the user input and creates the matching `AutoComplete` object if it exists. Otherwise, a default `AutoComplete` object that always return an empty string is returned.
+
+<box type="tip" light>
+
+While a command is named as `XYZPersonCommandParser` internally (where `XYZ` is a placeholder for a specific command), it acts on a student externally in TAPro.
+</box>
 
 {{ newPage }}
 
 ### Model component
 **API** : [`Model.java`](https://github.com/AY2324S2-CS2103T-F13-1/tp/tree/master/src/main/java/seedu/address/model/Model.java)
 
-<puml src="diagrams/ModelClassDiagram.puml" width="450" /><br><br>
+<puml src="diagrams/ModelClassDiagram.puml" width="630" />
 
 **The `Model` component,**
 * stores the contact book data i.e., all `Person` objects (which are contained in a `UniquePersonList` object).
@@ -165,22 +173,30 @@ Here are the other classes in `Logic` (omitted from the class diagram above) tha
 
 An alternative (arguably, a more OOP) model is given below. It has a `Tag` list in the `AddressBook`, which `Person` references. This allows `AddressBook` to only require one `Tag` object per unique tag, instead of each `Person` needing their own `Tag` objects.<br>
 
-<puml src="diagrams/BetterModelClassDiagram.puml" width="450" />
+<puml src="diagrams/BetterModelClassDiagram.puml" width="570" />
 
 </box>
 
-{{ newPage }}
+<box type="tip" light>
+
+While `Person` objects are used internally, it represents a student externally in TAPro.
+</box>
 
 ### Storage component
 
 **API** : [`Storage.java`](https://github.com/AY2324S2-CS2103T-F13-1/tp/tree/master/src/main/java/seedu/address/storage/Storage.java)
 
-<puml src="diagrams/StorageClassDiagram.puml" width="550" /><br><br>
+<puml src="diagrams/StorageClassDiagram.puml" width="750" /><br><br>
 
 **The `Storage` component,**
 * can save both contact book data and user preference data and course name data in JSON format, and read them back into corresponding objects.
 * inherits from both `AddressBookStorage` and `UserPrefStorage` and `CourseStorageName`, which means it can be treated as either one (if only the functionality of only one is needed).
 * depends on some classes in the `Model` component (because the `Storage` component's job is to save/retrieve objects that belong to the `Model`)
+
+<box type="tip" light>
+
+While `AddressBookXYZ` objects are used internally (where `XYZ` is a placeholder), it represents the student contact book externally in TAPro.
+</box>
 
 {{ newPage }}
 
@@ -239,16 +255,16 @@ There are two variants of autocomplete feature. One variant is the autocompletio
 
 **How autocompletion of dynamic data works using `AutoCompletePrefixResolver` in the `Logic` component:**
 
-In the autocompletion of dynamic data there are 5 main processes:
+In the autocompletion of dynamic data there are 5 key steps:
 1. Notifying that the data is outdated
 2. Using the autocomplete hotkey to return the autocompletion
 3. Parsing the input to call the corresponding kind of autocompletion
-4. Updating the new attribute data into the `AttributeTrie`
-5. Generating the autocomplete result
+4. Generating the autocomplete result
+5. Updating the new attribute data into the `AttributeTrie`
 
 {{ newPageBetween }}
 
-**How the `AttributeTrie` is notified of new data:**
+**Step 1. How the `AttributeTrie` is notified of new data:**
 
 1. When a command is executed, a check is performed in `LogicManager` to determine if the command could potentially modify the data.
 1. If the data could be modified, then we would get the latest `addressBook` using `getAddressBook()`.
@@ -260,7 +276,7 @@ In the autocompletion of dynamic data there are 5 main processes:
 
 {{ newPageBetween }}
 
-**How the autocomplete hotkey works:**
+**Step 2. How the autocomplete hotkey works:**
 
 1. After the autocomplete hotkey {{ macros.keyFormat('Tab') }} is pressed, the method `handleTabKeyPressEvent(...)` is called.
 1. Whenever `lastModifiedText` has changed, it means that the text in the `CommandBox`'s command input box has changed (e.g. the user types into the command input box), so the `autoCompleteResultCache` is set to `null` to indicate that the `AutoCompleteResult` is outdated.
@@ -280,7 +296,7 @@ The reference frame below, `create empty autocomplete`, is used in the next few 
 
 {{ newPageBetween }}
 
-**How `LogicManager` parses the input to generate a new `AutoCompleteResult`:**
+**Step 3. How `LogicManager` parses the input to generate a new `AutoCompleteResult`:**
 
 1. When `LogicManager#autoComplete(commandText)` is called with the text `commandText` to autocomplete, it calls the `AddressBookParser#parseAutoComplete(commandText)` method.
 1. Depending on the `commandText` passed into `parseAutoComplete`, there are 3 possible paths:
@@ -290,11 +306,11 @@ The reference frame below, `create empty autocomplete`, is used in the next few 
 1. In all cases, a `AutoComplete` is returned, which `AutoCompleteCommand` and `AutoCompletePrefixResolver` are subclasses of.
 1. The `AutoComplete` produces a `AutoCompleteResult`, which is passed back to the `MainWindow`.
 
-<puml src="diagrams/AutocompleteParseSequenceDiagram.puml" width="900"/><br><br>
+<puml src="diagrams/AutocompleteParseSequenceDiagram.puml" width="950"/><br><br>
 
 {{ newPageBetween }}
 
-**How `AutoCompletePrefixResolver` is generates an `AutoCompleteResult`:**
+**Step 4. How `AutoCompletePrefixResolver` is generates an `AutoCompleteResult`:**
 
 1. When `AutoCompletePrefixResolver#getAutoComplete(input)` is called, if the `input` is blank, an empty `AutoCompleteResult` is returned.
 1. Otherwise, it calls `findTriePrefixContinuation(input)` which would find the text, that continues from a given input, in the `AttributeTrie`. This may update the `AttributeTrie` with new attribute data if necessary, due to the lazy evaluation.
@@ -306,7 +322,7 @@ The reference frame below, `create empty autocomplete`, is used in the next few 
 
 {{ newPageBetween }}
 
-**How `AttributeTrie` is updated with new attribute data and returns the matches:**
+**Step 5. How `AttributeTrie` is updated with new attribute data and returns the matches:**
 
 1. When `AutoCompletePrefixResolver#findTriePrefixContinuation(input)` is called, `findLastPrefixIndex(input)` is called which returns `indexOfLastPrefix`.
 1. Then, with the `indexOfLastPrefix`, it calls `findLastPrefix` to find the last prefix in the `input`.
@@ -322,7 +338,7 @@ The reference frame below, `create empty autocomplete`, is used in the next few 
 
 #### Design considerations
 
-**Separation of concerns:**
+**1. Separation of concerns:**
 
 As the autocomplete feature involves many classes all over the codebase, it is important to handle the separation of concerns carefully, to lead to higher cohesion and lower coupling. 
 
@@ -332,7 +348,7 @@ This was done through the following:
 * Separating the dynamic autocompletion from the static autocompletion, as their internal implementations were different.
 * Having each of the subcomponents, Attribute Classes, Parser Classes and AutoComplete Classes, as packages, which encapsulates them, limiting functional overlaps.
 
-**Caching of intermediate results for improved performance:**
+**2. Caching of intermediate results for improved performance:**
 
 There are two layers in the current implementation used for caching, which are: 
 * When the current `lastModifiedText` doesn't change, caching the `AutoCompleteResult` in `autoCompleteResultCache`.
@@ -340,7 +356,7 @@ There are two layers in the current implementation used for caching, which are:
 
 By having caching of intermediate results, it reduces the need to recompute certain results, thus improving performance of TAPro on users' systems.
 
-**Lazy evaluation to reduce redundant computations:**
+**3. Lazy evaluation to reduce redundant computations:**
 
 Lazy evaluation is carried out in `AttributeTrie`, where the new `Trie` was lazily evaluated. It means that the `Trie` was only generated when the autocompletion of a parameter value doesn't have an `AttributeTrie` already present.
 
@@ -355,10 +371,10 @@ Lazy evaluation is carried out in `AttributeTrie`, where the new `Trie` was lazi
 ### Command History Retrieval
 
 Let's consider the scenario where the user wants to retrieve the last command executed. The user can do this by 
-pressing the <span class="badge bg-light text-dark"><i class="fa-regular fa-square-caret-up"></i> UP</span> key on 
+pressing the {{ macros.keyFormat('Up', '<i class="fa-regular fa-square-caret-up"></i>') }} key on 
 the keyboard. 
 
-The <span class="badge bg-light text-dark"><i class="fa-regular fa-square-caret-up"></i> UP</span> key press event is captured by the `CommandBox` class, which then 
+The {{ macros.keyFormat('Up', '<i class="fa-regular fa-square-caret-up"></i>') }} key press event is captured by the `CommandBox` class, which then 
 retrieves the last command from the `CommandHistory` Singleton object.
 <puml src="diagrams/CommandHistorySequenceDiagram.puml" alt="Command History Sequence Diagram" />
 
@@ -371,7 +387,7 @@ retrieves the last command from the `CommandHistory` Singleton object.
 Below is the activity diagram that shows how the process of a user interacting with the input field to retrieve the 
 last command executed.
 
-<puml src="diagrams/CommandHistoryActivityDiagram.puml" width="400" />
+<puml src="diagrams/CommandHistoryActivityDiagram.puml" width="750" />
 
 
 {{ newPage }}
@@ -404,7 +420,7 @@ be saved in the `addressBookStateList`, and the `currentStatePointer` is shifted
 
 <puml src="diagrams/UndoRedoState1.puml" alt="UndoRedoState1" /><br><br>
 
-**Step 3.** The user executes `add n/David …​` to add a new person. The `add` command also calls `Model#commitAddressBook()`, causing another modified contact book state to be saved into the `addressBookStateList`.
+**Step 3.** The user executes `addstu n/David …​` to add a new person. The `addstu` command also calls `Model#commitAddressBook()`, causing another modified contact book state to be saved into the `addressBookStateList`.
 
 <puml src="diagrams/UndoRedoState2.puml" alt="UndoRedoState2" />
 
@@ -448,19 +464,19 @@ The `redo` command does the opposite — it calls `Model#redoAddressBook()`,
 
 **Note:** If the `currentStatePointer` is at index `addressBookStateList.size() - 1`, pointing to the latest contact book state, then there are no undone `AddressBook` states to restore. The `redo` command uses `Model#canRedoAddressBook()` to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
 
-</box><br><br>
+</box><br>
 
 **Step 6.** The user then decides to execute the command `list`. Commands that do not modify the contact book, such as `list`, will usually not call `Model#commitAddressBook()`, `Model#undoAddressBook()` or `Model#redoAddressBook()`. Thus, the `addressBookStateList` remains unchanged.
 
 <puml src="diagrams/UndoRedoState4.puml" alt="UndoRedoState4" /><br><br>
 
-**Step 7.** The user executes `clear`, which calls `Model#commitAddressBook()`. Since the `currentStatePointer` is not pointing at the end of the `addressBookStateList`, all contact book states after the `currentStatePointer` will be purged. Reason: It no longer makes sense to redo the `add n/David …​` command. This is the behavior that most modern desktop applications follow.
+**Step 7.** The user executes `clear`, which calls `Model#commitAddressBook()`. Since the `currentStatePointer` is not pointing at the end of the `addressBookStateList`, all contact book states after the `currentStatePointer` will be purged. Reason: It no longer makes sense to redo the `addstu n/David …​` command. This is the behavior that most modern desktop applications follow.
 
 <puml src="diagrams/UndoRedoState5.puml" alt="UndoRedoState5" />
 
 The following activity diagram summarizes what happens when a user executes a new command:
 
-<puml src="diagrams/CommitActivityDiagram.puml" width="250" /><br><br>
+<puml src="diagrams/CommitActivityDiagram.puml" width="270" /><br><br>
 
 {{ newPageBetween }}
 
@@ -476,14 +492,6 @@ The following activity diagram summarizes what happens when a user executes a ne
   itself.
   * Pros: Will use less memory (e.g. for `delstu`, just save the person being deleted).
   * Cons: We must ensure that the implementation of each individual command are correct.
-
-_{more aspects and alternatives to be added}_
-
-{{ newPage }}
-
-### \[Proposed\] Data archiving
-
-_{Explain here how the data archiving feature will be implemented}_
 
 
 {{ newPage }}
@@ -505,14 +513,14 @@ _{Explain here how the data archiving feature will be implemented}_
 ### Product scope
 
 **Target user profile**:
-* Teaching Assistant for a Computer Science module in NUS
+* Teaching Assistant for one Computer Science module in NUS
 * Tech savvy
 * Prefer desktop apps over other types
 * Can type fast
 * Prefers typing to mouse interactions
 * Is reasonably comfortable using CLI apps
 
-**Value proposition**: All in one contact book managing student’s progress in the course, by means of participation, grades, and other course specific attributes of an NUS CS class. Can quickly find information, filter and sort with keyboard shortcuts.
+**Value proposition**: All in one contact book managing student’s progress in the course, by means of attendance of the NUS CS class. Can quickly find information and perform operations with keyboard shortcuts.
 
 {{ newPage }}
 
@@ -530,26 +538,25 @@ _{Explain here how the data archiving feature will be implemented}_
 [//]: # (whitespace is added to force the header row into one line)
 {% set whitespace = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' %}
 
-| Priority         | As a …              | I want to …                                                        | So that I can…                                       |
-|------------------|---------------------|--------------------------------------------------------------------|------------------------------------------------------|
-| {{ threeStars }} | TA {{ whitespace }} | name/rename the CS course that I am tutoring this semester         | keep track of the module I am teaching               |
-| {{ threeStars }} | TA                  | add a student to the my class that I am tutoring this semester     | keep track of him or her                             |
-| {{ threeStars }} | TA                  | view all students from my class                                    | view details about all of them                       |
-| {{ threeStars }} | TA                  | mark attendance for a student in my class for a particular week    | keep track of who is present                         |
-| {{ threeStars }} | TA                  | unmark attendance for a student in my class for a particular week  | keep track of who is absent                          |
-| {{ threeStars }} | TA                  | delete a student                                                   | remove a student if he or she leaves the class       |
-| {{ threeStars }} | TA                  | know all the commands of TAPro via the help window                 | use it effectively                                   |
-| {{ threeStars }} | TA                  | see all students in the contact book                               | have an overview of all students                     |
-| {{ threeStars }} | TA                  | edit a student's details                                           | have the latest data                                 |
-| {{ threeStars }} | TA                  | find a student by name                                             | get a student's data easily                          |
-| {{ threeStars }} | TA                  | delete all students from a previous semester from the contact book | clear my contacts quickly at the start of a semester |
-| {{ twoStars }}   | TA                  | retrieve command history                                           | avoid retyping a command                             |
-| {{ twoStars }}   | TA                  | to autocomplete my input                                           | to save time                                         |
-| {{ twoStars }}   | TA                  | exit the program smoothly                                          | to save time                                         |
+| Priority         | As a …                     | I want to …                                                        | So that I can…                                       |
+|------------------|----------------------------|--------------------------------------------------------------------|------------------------------------------------------|
+| {{ threeStars }} | TA                         | name/rename the CS course that I am tutoring this semester         | keep track of the module I am teaching               |
+| {{ threeStars }} | TA                         | add a student to the my class that I am tutoring this semester     | keep track of him or her                             |
+| {{ threeStars }} | TA                         | view all students from my class                                    | view details about all of them                       |
+| {{ threeStars }} | TA                         | delete a student                                                   | remove a student if he or she leaves the class       |
+| {{ threeStars }} | TA                         | see all students in the contact book                               | have an overview of all students                     |
+| {{ threeStars }} | TA                         | edit a student's details                                           | have the latest data                                 |
+| {{ threeStars }} | TA                         | find a student by name                                             | get a student's data easily                          |
+| {{ threeStars }} | attendance tracking TA     | mark attendance for a student in my class for a particular week    | keep track of who is present                         |
+| {{ threeStars }} | attendance tracking TA     | unmark attendance for a student in my class for a particular week  | keep track of who is absent                          |
+| {{ twoStars }}   | TA over multiple semesters | delete all students from a previous semester from the contact book | clear my contacts quickly at the start of a semester |
+| {{ twoStars }}   | new user                   | know all the commands of TAPro via the help window                 | use it effectively                                   |
+| {{ twoStars }}   | CLI user                   | retrieve command history                                           | avoid retyping a command                             |
+| {{ twoStars }}   | CLI user                   | autocomplete my input                                              | save time                                            |
+| {{ twoStars }}   | fast typist                | use keyboard inputs to interact with TAPro                         | save time                                            |
+| {{ twoStars }}   | user                       | exit the program smoothly                                          | save time                                            |
+| {{ oneStar }}    | user                       | easily read the result message of a command                        | save time                                            |
 
-**TODO: Add more user stories that are applicable**
-
-*{More to be added}*
 
 {{ newPage }}
 
@@ -596,6 +603,8 @@ For all use cases below, the **System** is TAPro and the **Actor** is the user, 
     * Use case ends.
   
 </box>
+
+{{ newPageBetween }}
 
 <box no-icon type="success" light>
 
@@ -659,6 +668,8 @@ For all use cases below, the **System** is TAPro and the **Actor** is the user, 
 
 </box>
 
+{{ newPageBetween }}
+
 <box no-icon type="success" light>
 
 **Use case: Name or Rename CS Course**
@@ -716,6 +727,8 @@ For all use cases below, the **System** is TAPro and the **Actor** is the user, 
     * Use case ends.
 
 </box>
+
+{{ newPageBetween }}
 
 <box no-icon type="success" light>
 
@@ -856,10 +869,6 @@ For all use cases below, the **System** is TAPro and the **Actor** is the user, 
 
 </box>
 
-**TODO: Add more use cases**
-
-*{More to be added}*
-
 {{ newPage }}
 
 ### Non-Functional Requirements
@@ -870,8 +879,6 @@ For all use cases below, the **System** is TAPro and the **Actor** is the user, 
 4.  System to ensure data integrity, with a goal of zero data loss over the academic year.
 5.  Input validation to prevent errors due to incorrect data entry.
 6.  Application to handle common errors gracefully, such as incorrect data entry, without crashing or losing data.
-
-*{More to be added}*
 
 {{ newPage }}
 
@@ -948,6 +955,7 @@ Expected: The most recent window size and location is retained.
 </box>
 
 <br>
+{{ newPageBetween }}
 
 ### Adding a student
 If TAPro does not have any student contacts, the following commands can be used to add some 
@@ -1012,9 +1020,8 @@ shown in the status message.
 This command differs from most other commands that use the `NUSNET` to identify a student. This command uses the index number shown in the displayed person list to identify the student to be edited.
 </box>
 
-<br>
-
-<br>
+<br><br>
+{{ newPageBetween }}
 
 ### Deleting a student
 
@@ -1066,8 +1073,6 @@ Expected: Student with name 'John Doe' is displayed on the Student Contact Cards
 * `find`: Missing keyword.
   </box>
 
-2. _{ more test cases …​ }_
-
 <br>
 
 ### Marking a student's attendance
@@ -1097,6 +1102,7 @@ Details of the marked student is shown in the result message panel.
 </box>
 
 <br>
+{{ newPageBetween }}
 
 ### Unmarking a student's attendance
 
@@ -1154,7 +1160,34 @@ Expected: TAPro's main window's title contains the course code `CS2103` provided
 
 ### Autocompleting fields
 
-**TODO**
+1. **Autocompleting the `addstu` command name**
+
+<box type="info" light>
+
+<span class="semi-bold">1. Prerequisites:</span> No prerequisites.
+</box>
+
+<box type="success" light>
+
+<span class="semi-bold">2. Test case: Enter `a` and press {{ macros.keyFormat('Tab') }}</span>
+
+Expected: The command box input text changes to `addstu`.
+</box>
+
+
+2. **Autocompleting the parameter `MAJOR`**
+
+<box type="info" light>
+
+<span class="semi-bold">1. Prerequisites:</span> There is at least one student, and all students have the major `Computer Science`.
+</box>
+
+<box type="success" light>
+
+<span class="semi-bold">2. Test case: Enter `edit 1 m/` and press {{ macros.keyFormat('Tab') }}</span>
+
+Expected: The command box input text changes to `edit 1 m/Computer Science`
+</box>
 
 <br>
 
@@ -1168,8 +1201,8 @@ Expected: TAPro's main window's title contains the course code `CS2103` provided
 
 <box type="success" light>
 
-<span class="semi-bold">2. Test case: Retrieving a previous command with <span class="badge bg-light text-dark"> <i 
-class="fa-regular fa-square-caret-up"></i> UP</span> key </span>
+<span class="semi-bold">2. Test case: Retrieving a previous command with 
+{{ macros.keyFormat('Up', '<i class="fa-regular fa-square-caret-up"></i>') }} key </span>
 
 * After the entering a previous command, the command input box is empty.
 * Pressing {{ macros.keyFormat('Up', '<i class="fa-regular fa-square-caret-up"></i>') }} will
@@ -1218,17 +1251,6 @@ Expected: The help window automatically pops up, giving further information abou
 
 Expected: TAPro's Contact Book resets, clearing all existing students (if any).
 </box>
-
-<br>
-
-### Saving data
-
-1. **Dealing with missing/corrupted data files**
-
-    1. _{explain how to simulate a missing/corrupted file, and the expected behavior}_
-
-1. _{ more test cases …​ }_
-
 
 {{ newPage }}
 
