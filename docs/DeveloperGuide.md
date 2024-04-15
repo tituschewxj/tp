@@ -362,6 +362,18 @@ The <span class="badge bg-light text-dark"><i class="fa-regular fa-square-caret-
 retrieves the last command from the `CommandHistory` Singleton object.
 <puml src="diagrams/CommandHistorySequenceDiagram.puml" alt="Command History Sequence Diagram" />
 
+<box type="info" light>
+
+**Note:** The `CommandHistory` Singleton object is used to store the command history. It is a Singleton object to ensure that there is only one instance of the `CommandHistory` object throughout the application.
+
+</box>
+
+Below is the activity diagram that shows how the process of a user interacting with the input field to retrieve the 
+last command executed.
+
+<puml src="diagrams/CommandHistoryActivityDiagram.puml" width="400" />
+
+
 {{ newPage }}
 
 ### \[Proposed\] Undo/Redo Feature
