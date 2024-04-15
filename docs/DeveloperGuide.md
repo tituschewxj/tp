@@ -584,8 +584,8 @@ The following activity diagram summarizes what happens when a user executes a ne
 | {{ threeStars }} | attendance tracking TA     | unmark attendance for a student in my class for a particular week  | keep track of who is absent                          |
 | {{ twoStars }}   | TA over multiple semesters | delete all students from a previous semester from the contact book | clear my contacts quickly at the start of a semester |
 | {{ twoStars }}   | new user                   | know all the commands of TAPro via the help window                 | use it effectively                                   |
-| {{ twoStars }}   | TA comfortable with CLI    | retrieve command history                                           | avoid retyping a command                             |
-| {{ twoStars }}   | TA comfortable with CLI    | autocomplete my input                                              | save time                                            |
+| {{ twoStars }}   | user comfortable with CLI  | retrieve command history                                           | avoid retyping a command                             |
+| {{ twoStars }}   | user comfortable with CLI  | autocomplete my input                                              | save time                                            |
 | {{ twoStars }}   | fast typist                | use keyboard inputs to interact with TAPro                         | save time                                            |
 | {{ twoStars }}   | user                       | exit the program smoothly                                          | save time                                            |
 | {{ oneStar }}    | user                       | easily read the result message of a command                        | save time                                            |
@@ -844,6 +844,7 @@ For all use cases below, the **System** is TAPro and the **Actor** is the user, 
 2. User presses the autocompletion hotkey.
 
 3. Autocompleted command is shown in the command box.
+
    Use case ends.
 
 <span class="semi-bold">Extensions</span>
@@ -867,6 +868,7 @@ For all use cases below, the **System** is TAPro and the **Actor** is the user, 
 2. User presses the retrieve previous command hotkey.
 
 3. TAPro displays the successful command input in the command box.
+
    Use case ends.
 
 <span class="semi-bold">Extensions</span>
@@ -890,6 +892,7 @@ For all use cases below, the **System** is TAPro and the **Actor** is the user, 
 2. User presses the retrieve next command hotkey.
 
 3. TAPro displays a more recent successful command input in the command box.
+
    Use case ends.
 
 <span class="semi-bold">Extensions</span>
@@ -1463,7 +1466,7 @@ clear
    </box>
    <br>
 
-6. **Why does command history toggle only retrieve successful commands?**
+6. **Why does command history retrieval only retrieve successful commands?**
    1. The alternative we considered was to store the history of all command inputs.
    2. However, unsuccessful command inputs are not that helpful to a user, and it only clutters up a user's command history, resulting in more time wasted searching for a successful command input.
    3. Hence, storing only successful command inputs in the command history enabled users to be more efficient at using TAPro.
@@ -1505,8 +1508,8 @@ Below are some non-exhaustive instances of our challenges, achievements and effo
 
 1. Refactored the parameter syntax to improve AB3's original OOP.
 
-1. Implemented autocomplete and command history.
-   We thought hard about what are the potential shortcuts that would save our target user's time and we looked to 
+1. Implemented autocomplete and command history retrieval.
+   We thought hard about what are the potential shortcuts that would save our target user's time, and we looked to 
    the CLI for inspiration. Given that our product uses NUSNet ID as its unique identifier, it can be a hassle to 
    type out a full command. Especially when it has already been previously used, or only require minor changes to 
    the command. This resulted in the idea of clicking {{ macros.keyFormat
