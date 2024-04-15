@@ -881,6 +881,50 @@ Furthermore, certain edits can cause the TAPro to behave in unexpected ways (e.g
 
 {{ newPage }}
 
+## <i class="fa-solid fa-table-list"></i> Command summary
+
+| Action             | Format                                                           | Examples                                                                                                 |
+|--------------------|------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
+| **Add Student**    | `addstu n/NAME nn/NUSNET [p/PHONE] [e/EMAIL] [m/MAJOR] [t/TAG]…` | `addstu n/James Ho p/22224444 e/jamesho@example.com nn/E1234567 m/Computer Science t/friend t/colleague` |
+| **Clear**          | `clear`                                                          | `clear`                                                                                                  |
+| **Delete Student** | `delstu nn/NUSNET`                                               | `delstu nn/E0957499`                                                                                     |             
+| **Edit**           | `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [m/MAJOR] [t/TAG]…​`    | `edit 2 n/James Lee e/jameslee@example.com`                                                              |
+| **Find**           | `find KEYWORD [MORE_KEYWORDS]…​`                                 | `find James Jake`                                                                                        |
+| **List**           | `list`                                                           | `list`                                                                                                   |
+| **Mark**           | `mark nn/NUSNET wk/WEEK`                                         | `mark nn/E1234567 wk/3`                                                                                  |
+| **Unmark**         | `unmark nn/NUSNET wk/WEEK`                                       | `unmark nn/E1234567 wk/3`                                                                                |
+| **Set Course**     | `setcrs COURSE_CODE`                                             | `setcrs CS2103`                                                                                          |
+| **Exit**           | `exit`                                                           | `exit`                                                                                                   |
+| **Help**           | `help`                                                           | `help`                                                                                                   |
+
+{{ newPage }}
+
+## <i class="fa-solid fa-triangle-exclamation"></i> Known issues
+
+<box icon=":fa-solid-bolt:" theme="danger" light>
+
+**1. Using multiple screens**
+
+If you move the application to a secondary screen, and later switch to using only the primary screen, the GUI will open off-screen. The remedy is to delete the `preferences.json` file created by the application before running the application again.
+</box>
+
+<box icon=":fa-solid-bolt:" theme="danger" light>
+
+**2. Having more than one instance of TAPro running**
+
+If you have more than one instance of TAPro running, the application may not function as expected. TAPro's data will desynchronise. The remedy is to close all instances of TAPro and run only one instance of TAPro.
+</box>
+
+<box icon=":fa-solid-bolt:" theme="danger" light>
+
+**3. When the data file is in an invalid format**
+
+If you [edit the data file](#editing-the-data-file) into an invalid format, upon the next launch of TAPro, no error message would be shown, and all data will be discarded. The remedy is to store a backup of your data file before modifying it, to prevent the loss of data.
+</box>
+
+
+{{ newPage }}
+
 ## <i class="fa-solid fa-comments"></i> FAQ
 
 ### Transfering Data to Another Computer
@@ -1056,46 +1100,3 @@ Future enhancements include pressing the {{ macros.keyFormat('Right', '<i class=
 the front of your input.
 </box>
 </box>
-
-{{ newPage }}
-
-## <i class="fa-solid fa-triangle-exclamation"></i> Known issues
-
-<box icon=":fa-solid-bolt:" theme="danger" light>
-
-**1. Using multiple screens**
-
-If you move the application to a secondary screen, and later switch to using only the primary screen, the GUI will open off-screen. The remedy is to delete the `preferences.json` file created by the application before running the application again.
-</box>
-
-<box icon=":fa-solid-bolt:" theme="danger" light>
-
-**2. Having more than one instance of TAPro running**
-
-If you have more than one instance of TAPro running, the application may not function as expected. TAPro's data will desynchronise. The remedy is to close all instances of TAPro and run only one instance of TAPro.
-</box>
-
-<box icon=":fa-solid-bolt:" theme="danger" light>
-
-**3. When the data file is in an invalid format**
-
-If you [edit the data file](#editing-the-data-file) into an invalid format, upon the next launch of TAPro, no error message would be shown, and all data will be discarded. The remedy is to store a backup of your data file before modifying it, to prevent the loss of data.
-</box>
-
-{{ newPage }}
-
-## <i class="fa-solid fa-table-list"></i> Command summary
-
-| Action             | Format                                                           | Examples                                                                                                 |
-|--------------------|------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
-| **Add Student**    | `addstu n/NAME nn/NUSNET [p/PHONE] [e/EMAIL] [m/MAJOR] [t/TAG]…` | `addstu n/James Ho p/22224444 e/jamesho@example.com nn/E1234567 m/Computer Science t/friend t/colleague` |
-| **Clear**          | `clear`                                                          | `clear`                                                                                                  |
-| **Delete Student** | `delstu nn/NUSNET`                                               | `delstu nn/E0957499`                                                                                     |             
-| **Edit**           | `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [m/MAJOR] [t/TAG]…​`    | `edit 2 n/James Lee e/jameslee@example.com`                                                              |
-| **Find**           | `find KEYWORD [MORE_KEYWORDS]…​`                                 | `find James Jake`                                                                                        |
-| **List**           | `list`                                                           | `list`                                                                                                   |
-| **Mark**           | `mark nn/NUSNET wk/WEEK`                                         | `mark nn/E1234567 wk/3`                                                                                  |
-| **Unmark**         | `unmark nn/NUSNET wk/WEEK`                                       | `unmark nn/E1234567 wk/3`                                                                                |
-| **Set Course**     | `setcrs COURSE_CODE`                                             | `setcrs CS2103`                                                                                          |
-| **Exit**           | `exit`                                                           | `exit`                                                                                                   |
-| **Help**           | `help`                                                           | `help`                                                                                                   |
