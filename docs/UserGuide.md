@@ -349,6 +349,8 @@ Sets the course code in question.
 
 Course is shown at the top of the window.
 
+Course is shown at the top of the window.
+
 <box type="definition" icon=":fa-solid-spell-check:" light>
 
 **Format: `setcrs COURSE_CODE`**
@@ -367,6 +369,9 @@ Here is the output in the command results when the `setcrs` command is successfu
 
 Course code should follow the format "XX1234Y", Y is optional.
 
+X and Y can be any letters, while 1234 can be any 4-digit number.
+
+Course code is meant for CS coded courses, hence only 2 prefix letters are allowed.
 
 When an invalid course code is entered, the following error message appears:
 
