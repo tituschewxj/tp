@@ -841,7 +841,7 @@ For all use cases below, the **System** is TAPro and the **Actor** is the user, 
 
 <box no-icon type="success" light>
 
-**Use case: Retrieve a previous successful command input**
+**Use case: Retrieve a Previous Successful Command Input**
 
 <span class="semi-bold">MSS</span>
 
@@ -864,7 +864,7 @@ For all use cases below, the **System** is TAPro and the **Actor** is the user, 
 
 <box no-icon type="success" light>
 
-**Use case: Retrieve a more recent successful command input**
+**Use case: Retrieve a More Recent Successful Command Input**
 
 <span class="semi-bold">MSS</span>
 
