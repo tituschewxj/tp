@@ -25,7 +25,7 @@ Given below are my contributions to the project.
 * **Code contributed**: [RepoSense link](https://nus-cs2103-ay2324s2.github.io/tp-dashboard/?search=tituschewxj&breakdown=true&sort=groupTitle%20dsc&sortWithin=title&since=2024-02-23&timeframe=commit&mergegroup=&groupSelect=groupByRepos&checkedFileTypes=docs~functional-code~test-code~other)
 
 * **Project management**:
-  * Managed releases `v1.2`, `v1.2b`, `v1.3`, `v1.3b` on GitHub <br><br>
+  * Managed releases `v1.2`, `v1.2b`, `v1.3`, `v1.3b`. `v1.4` on GitHub <br><br>
 
 * **Enhancements to existing features**:
   * Improved the text wrapping in the result message panel, which improves the efficiency in which the user interacts with our interface, as no more scrolling is required to view the full result message. ([\#98](https://github.com/AY2324S2-CS2103T-F13-1/tp/pull/98))
@@ -40,11 +40,13 @@ Given below are my contributions to the project.
       * Various other documentation improvements ([\#279](https://github.com/AY2324S2-CS2103T-F13-1/tp/pull/279), [\#280](https://github.com/AY2324S2-CS2103T-F13-1/tp/pull/280), [\#281](https://github.com/AY2324S2-CS2103T-F13-1/tp/pull/281))<br><br>
     * {{ macros.semiBold('Developer Guide:') }}
       * Improved the formatting of the developer guide ([\#239](https://github.com/AY2324S2-CS2103T-F13-1/tp/pull/239))
+      * Added the implementation and diagrams for autocomplete ([\#300](https://github.com/AY2324S2-CS2103T-F13-1/tp/pull/300))
       * Added the design decisions ([\#285](https://github.com/AY2324S2-CS2103T-F13-1/tp/pull/285)) 
       * Added the planned enhancements ([\#295](https://github.com/AY2324S2-CS2103T-F13-1/tp/pull/295))<br><br>
     * {{ macros.semiBold('Miscellaneous:') }}
       * Added semi-bold font
       * Added custom question and command format callouts
+      * Added custom content pages ([\#325](https://github.com/AY2324S2-CS2103T-F13-1/tp/pull/325))
       * Integrated Nunjucks variables and macros to the project ([\#239](https://github.com/AY2324S2-CS2103T-F13-1/tp/pull/239), [\#291](https://github.com/AY2324S2-CS2103T-F13-1/tp/pull/291))<br><br>
 
 {{ newPageBetween }}
