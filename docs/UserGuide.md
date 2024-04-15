@@ -1281,7 +1281,7 @@ Adding new tag(s) will replace the existing tag(s).
 
 **Q**: <span class="semi-bold">How can I save more time when using TAPro?</span>
 
-**A**: You can use the advanced features like **[autocomplete](#autocomplete)** and **[command history toggle](#retrieving-command-history)** in TAPro!
+**A**: You can use the advanced features like **[autocomplete](#autocomplete)** and **[command history retrieval](#retrieving-command-history)** in TAPro!
 These
 features are
 designed to help you input commands faster and more efficiently.
