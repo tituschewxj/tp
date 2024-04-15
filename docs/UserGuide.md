@@ -12,7 +12,7 @@ pageNav: 3
 
 
 
-TAPro is your go-to **Contact Book application**, created with love for **Computer Science Teaching Assistants (TAs)** like you. _We get it_ — juggling your students and keeping track of attendance can be a handful. That’s why TAPro is 
+TAPro is your go-to **Contact Management application**, created with love for **Computer Science Teaching Assistants (TAs)** like you. _We get it_ — juggling your students and keeping track of attendance can be a handful. That’s why TAPro is 
 here to make your life easier. With features designed precisely for you, it's all about simplifying those 
 time-consuming tasks, letting you focus on what you do best: teaching and inspiring your students. Welcome to a 
 smoother, more personalized way of managing your TA duties!
@@ -33,15 +33,16 @@ If you can type fast, TAPro can get your contact management and attendance takin
 Welcome to the cozy corner of the TAPro User Guide! 🌟 Whether you're embarking on your very first day as a TA or
 you're practically a wizard with student info, we've put together this guide to make sure you get the most out of TAPro.
 
-🚀 **Ready to Roll?** Skip over to **[Quick Start](#quick-start)** for the no-fuss, easy-peasy steps to download TAPro and get ready for
-action.
 
 **New around here?** No worries, we've got you. Start with these sections to become a TAPro buddy in no time:
-
 - [Navigating the GUI](#navigating-the-gui): Familiarize yourself with the command box and those handy contact cards.
 - [Features](#features): Dive into the exciting world of features we've brewed up just for you.
 
-**Already a TAPro champ?** Let's add some spice to your TA skills:
+
+**Ready to Roll?** Skip over to **[Quick Start](#quick-start)** for the no-fuss, easy-peasy steps to download TAPro and get ready for
+action.
+
+🚀 **Already a TAPro champ?** Let's add some spice to your TA skills:
 
 - **[Set Course](#name-rename-cs-course-setcrs)**: Tailor TAPro to your current course with `setcrs`.
 - **[Add Student](#adding-a-student-addstu)**: Got a new face in class? Quickly add their details with `addstu`.
@@ -49,11 +50,11 @@ action.
 - **[Unmark](#unmarking-a-student-s-attendance-for-a-given-week-by-their-nusnet-unmark)**: Oops, made a mistake? `unmark` reverses that mark.
 - **[List](#listing-all-students-list)**: Bring up a complete list of your students with `list`.
 - **[Edit](#editing-a-student-edit)**: Update details as they evolve with `edit`.
-- **[Find](#locating-students-by-name-find)**: Looking for someone? find helps you search by keyword.
+- **[Find](#locating-students-by-name-find)**: Looking for someone? `find` helps you search by keyword.
 - **[Delete Student](#deleting-a-student-delstu)**: Time to say goodbye? Remove a student from your list with `delstu`.
 - **[Clear](#clearing-all-entries-clear)**: Need to wipe the slate clean? `clear` does just that.
 
-**Need a quick TAPro refresher?** Our Command Summary is like the TAPro bible—short, sweet, and to the point.
+**Need a quick TAPro refresher?** Our [Command Summary](#command-summary) is like the TAPro bible—short, sweet, and to the point.
 
 Stumbled upon a hurdle or just curious? Swing by our **[FAQ](#faq)** where we tackle all your burning questions and offer
 nuggets of wisdom for a smooth TAPro journey.
@@ -63,7 +64,7 @@ nuggets of wisdom for a smooth TAPro journey.
 
 This segment aims to make your TAPro experience as smooth as silk. With these notions and terms at your fingertips, you're well on your way to becoming a TAPro power user!
 
-Diving into TAPro, you'll encounter some handy notations and terms. We've decoded them here to make your journey smoother and more enjoyable:
+Diving into TAPro, you'll encounter some handy notations and terms. We've decoded them here to make your journey smoother and more enjoyable.
 
 ### Symbols
 
@@ -219,7 +220,7 @@ A GUI similar to the below image should appear in a few seconds. Note how the ap
 
 * `addstu nn/E0952224 n/John Doe p/98765432 e/johnd@example.com m/Computer Science` : Adds a student named `John Doe` to the contact book.
 
-* `delstu nn/NUSNET` : Deletes the student with the specified `NUSNET` from the contact book.
+* `delstu nn/E0952224` : Deletes the student with NUSNet ID E0952224 from the contact book (assuming they were already in the contact book).
 
 * `clear` : Deletes all students, and their contact and attendance information.
 
@@ -602,7 +603,7 @@ Both `KEYWORD` and `[MORE_KEYWORDS]…​` accept alphanumeric and special symbo
 
 {{ newPage }}
 
-### <i class="fa-solid fa-square-check"></i> Marking a student's attendance for a given week by their NUSNet: `mark`
+### <i class="fa-solid fa-square-check"></i> Marking a student's attendance for a given week by their NUSNet ID: `mark`
 
 Marks a student's attendance for a particular week.
 
@@ -617,7 +618,7 @@ Marks a student's attendance for a particular week.
 
 {{ newPage }}
 
-### <i class="fa-solid fa-square-xmark"></i> Unmarking a student's attendance for a given week by their NUSNet: `unmark`
+### <i class="fa-solid fa-square-xmark"></i> Unmarking a student's attendance for a given week by their NUSNet ID: `unmark`
 
 Unmarks a student's attendance for a particular week.
 
