@@ -24,8 +24,9 @@ If you can type fast, TAPro can get your contact management and attendance takin
 {{ newPageBetween }}
 
 <!-- * Table of Contents -->
-<page-nav-print />
-
+<div class="d-none d-print-block">
+<include src="UGContentPage.md" />
+</div>
 {{ newPage }}
 
 ## <i class="fa-solid fa-forward"></i>  Navigating this User Guide

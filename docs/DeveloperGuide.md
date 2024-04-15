@@ -8,7 +8,10 @@
 # TAPro Developer Guide
 
 <!-- * Table of Contents -->
-<page-nav-print>Table of Contents</page-nav-print>
+<div class="d-none d-print-block">
+<br>
+<include src="DGContentPage.md" />
+</div>
 
 {{ newPage }}
 
@@ -81,7 +84,7 @@ The bulk of TAPro's work is done by the following four components:
 The *Sequence Diagram* below shows how the components interact with each other for the scenario where the user 
 issues the command `delstu nn/E1234567`.
 
-<puml src="diagrams/ArchitectureSequenceDiagram.puml" width="574" />
+<puml src="diagrams/ArchitectureSequenceDiagram.puml" width="680" />
 
 Each of the four main components (also shown in the diagram above),
 
@@ -96,7 +99,7 @@ The `Logic` component defines its API in the `Logic.java` interface and implemen
 
 Other components interact with a given component through its interface rather than the concrete class, as illustrated in the (partial) class diagram below.
 
-<puml src="diagrams/ComponentManagers.puml" width="300" />
+<puml src="diagrams/ComponentManagers.puml" width="290" />
 
 <box type="tip" light>
 
@@ -496,7 +499,7 @@ The following activity diagram summarizes what happens when a user executes a ne
 
 {{ newPageBetween }}
 
-#### Design considerations:
+#### Design considerations
 
 **Aspect: How undo & redo executes:**
 
