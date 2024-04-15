@@ -1123,7 +1123,7 @@ delstu E0123456
 find john
 ```
 
-<span class="semi-bold">Expected:</span> Student with name 'John Doe' is displayed on the Student Contact Cards Panel.
+<span class="semi-bold">Expected:</span> Student with name 'John Doe' is displayed on the student contact cards panel.
 </box>
 
 <box type="wrong" light>
