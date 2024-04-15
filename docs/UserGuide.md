@@ -62,44 +62,7 @@ nuggets of wisdom for a smooth TAPro journey.
 
 ## <i class="fa-solid fa-forward"></i> Useful Notations and Glossary
 
-This segment aims to make your TAPro experience as smooth as silk. With these notions and terms at your fingertips, pub fn new_cyclic<F>(data_fn: F) -> Rc<T>
-where
-    F: FnOnce(&Weak<T>) -> T,
-
-Constructs a new Rc<T> while giving you a Weak<T> to the allocation, to allow you to construct a T which holds a weak pointer to itself.
-
-Generally, a structure circularly referencing itself, either directly or indirectly, should not hold a strong reference to itself to prevent a memory leak. Using this function, you get access to the weak pointer during the initialization of T, before the Rc<T> is created, such that you can clone and store it inside the T.
-
-new_cyclic first allocates the managed allocation for the Rc<T>, then calls your closure, giving it a Weak<T> to this allocation, and only afterwards completes the construction of the Rc<T> by placing the T returned from your closure into the allocation.
-
-Since the new Rc<T> is not fully-constructed until Rc<T>::new_cyclic returns, calling upgrade on the weak reference inside your closure will fail and result in a None value.
-Panics
-
-If data_fn panics, the panic is propagated to the caller, and the temporary Weak<T> is dropped normally.
-Examples
-
-use std::rc::{Rc, Weak};
-
-struct Gadget {
-    me: Weak<Gadget>,
-}
-
-impl Gadget {
-    /// Construct a reference counted Gadget.
-    fn new() -> Rc<Self> {
-        // `me` is a `Weak<Gadget>` pointing at the new allocation of the
-        // `Rc` we're constructing.
-        Rc::new_cyclic(|me| {
-            // Create the actual struct here.
-            Gadget { me: me.clone() }
-        })
-    }
-
-    /// Return a reference counted pointer to Self.
-    fn me(&self) -> Rc<Self> {
-        self.me.upgrade().unwrap()
-    }
-}you're well on your way to becoming a TAPro power user!
+This segment aims to make your TAPro experience as smooth as silk. With these notions and terms at your fingertips, you're well on your way to becoming a TAPro power user!
 
 Diving into TAPro, you'll encounter some handy notations and terms. We've decoded them here to make your journey smoother and more enjoyable.
 
