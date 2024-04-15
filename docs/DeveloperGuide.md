@@ -951,7 +951,7 @@ testers are expected to do more *exploratory* testing.
 
 5. Run `java -jar TAPro.jar`.
 
-Expected: TAPro launches and shows the GUI with a set of sample student contacts. The window size may not be optimal.
+<span class="semi-bold">Expected:</span> TAPro launches and shows the GUI with a set of sample student contacts. The window size may not be optimal.
 </box>
 
 2. **Saving window preferences**
@@ -967,7 +967,7 @@ Expected: TAPro launches and shows the GUI with a set of sample student contacts
 
 3. Re-launch the app by double-clicking the jar file.<br>
 
-Expected: The most recent window size and location is retained.
+<span class="semi-bold">Expected:</span> The most recent window size and location is retained.
 </box>
 
 <br>
@@ -986,13 +986,16 @@ students.
 
 <box type="success" light>
 
-<span class="semi-bold">2. Test case: `addstu n/John Doe p/98765432 e/johndoe@example.com nn/E0123456 m/Computer Science, #02-25 t/friends t/owesMoney`</span>
+<span class="semi-bold">2. Test case:</span>
+```
+addstu n/John Doe p/98765432 e/johndoe@example.com nn/E0123456 m/Computer Science, #02-25 t/friends t/owesMoney
+```
 
-Expected: Student with NUSNet ID `E0123456` is added into TAPro. Details of the added student is
+<span class="semi-bold">Expected:</span> Student with NUSNet ID `E0123456` is added into TAPro. Details of the added student is
 shown in the result message panel.
 </box>
       
-1. **Adding a student with NUSNet ID E0123457**
+2. **Adding a student with NUSNet ID E0123457**
 
 <box type="info" light>
 
@@ -1001,9 +1004,12 @@ shown in the result message panel.
 
 <box type="success" light>
 
-<span class="semi-bold">2. Test case: `addstu n/Mary Jane p/91234911 e/janemary@example.com nn/E0123457 m/Biology t/friends t/owesTutorial2`</span>
+<span class="semi-bold">2. Test case:</span>
+```
+addstu n/Mary Jane p/91234911 e/janemary@example.com nn/E0123457 m/Biology t/friends t/owesTutorial2
+```
 
-Expected: Student with NUSNet ID `E0123457` is added into TAPro. Details of the added student is
+<span class="semi-bold">Expected:</span> Student with NUSNet ID `E0123457` is added into TAPro. Details of the added student is
 shown in the result message panel.
 </box>
 
@@ -1024,10 +1030,12 @@ the above last `addstu` command to add a student with NUSNet ID E0123457 if it d
 
 <box type="success" light>
 
-<span class="semi-bold">2. Test case: `edit 2 p/98765432 m/Computer Science`
-</span>
+<span class="semi-bold">2. Test case:</span>
+```
+edit 2 p/98765432 m/Computer Science
+```
 
-Expected: Information of student with NUSNet ID `E0123457` is updated in TAPro. Details of the added student is
+<span class="semi-bold">Expected:</span> Information of student with NUSNet ID `E0123457` is updated in TAPro. Details of the added student is
 shown in the status message.
 </box>
 
@@ -1050,18 +1058,32 @@ This command differs from most other commands that use the `NUSNET` to identify 
 
 <box type="success" light>
 
-<span class="semi-bold">2. Test case: `delstu nn/E0123456`</span>
+<span class="semi-bold">2. Test case:</span>
+```
+delstu nn/E0123456
+```
 
-Expected: The student with NUSNet ID `E0123456` is deleted from TAPro. Details of the deleted student
+<span class="semi-bold">Expected:</span> The student with NUSNet ID `E0123456` is deleted from TAPro. Details of the deleted student
 shown in the result message panel.
 </box>
 
 <box type="wrong" light>
 
 <span class="semi-bold">3. Other incorrect `delstu` commands to try:</span>
-* `delstu`: Missing parameter and prefix.
-* `delstu nn/E6543210`: No student with this NUSNet ID.
-* `delstu E0123456`: Missing prefix for the NUSNet ID parameter.
+* Missing parameter and prefix:
+```
+delstu
+```
+
+* No student with this NUSNet ID:
+```
+delstu nn/E6543210
+```
+
+* Missing prefix for the NUSNet ID parameter:
+```
+delstu E0123456
+```
 </box>
 
 <br>
@@ -1078,18 +1100,25 @@ shown in the result message panel.
 
 <box type="success" light>
 
-<span class="semi-bold">2. Test case: `find john`</span>
+<span class="semi-bold">2. Test case:</span>
+```
+find john
+```
 
-Expected: Student with name 'John Doe' is displayed on the Student Contact Cards Panel.
+<span class="semi-bold">Expected:</span> Student with name 'John Doe' is displayed on the Student Contact Cards Panel.
 </box>
 
 <box type="wrong" light>
 
 <span class="semi-bold">3. Other incorrect `find` commands to try:</span>
-* `find`: Missing keyword.
-  </box>
+* Missing keyword:
+```
+find
+```
+</box>
 
 <br>
+{{ newPageBetween }}
 
 ### Marking a student's attendance
 
@@ -1102,19 +1131,37 @@ Expected: Student with name 'John Doe' is displayed on the Student Contact Cards
 
 <box type="success" light>
 
-<span class="semi-bold">2. Test case: `mark nn/E0123456 wk/1`</span>
+<span class="semi-bold">2. Test case:</span>
+```
+mark nn/E0123456 wk/1
+```
 
-Expected: Student with NUSNet ID `E0123456` is marked as present for week 1 in TAPro, depicted on that student's card in the panel.
+<span class="semi-bold">Expected:</span> Student with NUSNet ID `E0123456` is marked as present for week 1 in TAPro, depicted on that student's card in the panel.
 Details of the marked student is shown in the result message panel.
 </box>
 
 <box type="wrong" light>
 
 <span class="semi-bold">3. Examples of incorrect `mark` commands to try:</span>
-* `mark`: Missing NUSNet ID and week number parameters.
-* `mark nn/E6543210 wk/1`: No student with this NUSNet ID.
-* `mark wk/1`: Missing the NUSNet ID parameter.
-* `mark E0123456 1`: Missing prefix for the NUSNet ID and week number parameters.
+* Missing NUSNet ID and week number parameters:
+```
+mark
+```
+
+* No student with this NUSNet ID:
+```
+mark nn/E6543210 wk/1
+```
+
+* Missing the NUSNet ID parameter:
+```
+mark wk/1
+```
+
+* Missing prefix for the NUSNet ID and week number parameters:
+```
+mark E0123456 1
+```
 </box>
 
 <br>
@@ -1131,9 +1178,12 @@ student with NUSNet ID `E6543210`.
 
 <box type="success" light>
 
-<span class="semi-bold">2. Test case: `unmark nn/E0123456 wk/1`</span>
+<span class="semi-bold">2. Test case:</span>
+```
+unmark nn/E0123456 wk/1
+```
 
-Expected: Student with NUSNet ID `E0123456` is not marked as for week 1 in TAPro, depicted on that student's 
+<span class="semi-bold">Expected:</span> Student with NUSNet ID `E0123456` is not marked as for week 1 in TAPro, depicted on that student's 
 card in the panel.
 Details of the marked student is shown in the status message.
 </box>
@@ -1141,10 +1191,25 @@ Details of the marked student is shown in the status message.
 <box type="wrong" light>
 
 <span class="semi-bold">3. Examples of incorrect `unmark` commands to try:</span>
-* `unmark`: Missing NUSNet ID and week number parameters.
-* `unmark nn/E6543210 wk/1`: No student with this NUSNet ID.
-* `unmark wk/1`: Missing the NUSNet ID parameter.
-* `unmark E0123456 1`: Missing prefix for the NUSNet ID and week number parameters.
+* Missing NUSNet ID and week number parameters:
+```
+unmark
+```
+
+* No student with this NUSNet ID:
+```
+unmark nn/E6543210 wk/1
+```
+
+* Missing the NUSNet ID parameter:
+```
+unmark wk/1
+```
+
+* Missing prefix for the NUSNet ID and week number parameters:
+```
+unmark E0123456 1
+```
   </box>
 
 <br>
@@ -1161,7 +1226,10 @@ Details of the marked student is shown in the status message.
 
 <box type="success" light>
 
-<span class="semi-bold">2. Test case: `setcrs CS2103`</span>
+<span class="semi-bold">2. Test case:</span>
+```
+setcrs CS2103
+```
 
 <box type="info" light>
 
@@ -1169,10 +1237,11 @@ Enter `setcrs` followed by a whitespace, followed by a course code in the format
 in upper or lower case, `YYYY` can be any 4-digit number and `Z` is optional.
 </box>
 
-Expected: TAPro's main window's title contains the course code `CS2103` provided.
+<span class="semi-bold">Expected:</span> TAPro's main window's title contains the course code `CS2103` provided.
 </box>
 
 <br>
+{{ newPageBetween }}
 
 ### Autocompleting fields
 
@@ -1185,9 +1254,16 @@ Expected: TAPro's main window's title contains the course code `CS2103` provided
 
 <box type="success" light>
 
-<span class="semi-bold">2. Test case: Enter `a` and press {{ macros.keyFormat('Tab') }}</span>
+<span class="semi-bold">2. Test case:</span>
+```
+a
+```
+Then press {{ macros.keyFormat('Tab') }}.
 
-Expected: The command box input text changes to `addstu`.
+<span class="semi-bold">Expected:</span> The command box input text changes to:
+```
+addstu
+```
 </box>
 
 
@@ -1200,9 +1276,16 @@ Expected: The command box input text changes to `addstu`.
 
 <box type="success" light>
 
-<span class="semi-bold">2. Test case: Enter `edit 1 m/` and press {{ macros.keyFormat('Tab') }}</span>
+<span class="semi-bold">2. Test case:</span>
+```
+edit 1 m/
+```
+Then press {{ macros.keyFormat('Tab') }}.
 
-Expected: The command box input text changes to `edit 1 m/Computer Science`
+<span class="semi-bold">Expected:</span> The command box input text changes to:
+```
+edit 1 m/Computer Science
+```
 </box>
 
 <br>
@@ -1211,7 +1294,10 @@ Expected: The command box input text changes to `edit 1 m/Computer Science`
 
 <box type="info" light>
 
-<span class="semi-bold">1. Prerequisites:</span> Previously ran a successful command like `mark nn/E0123456 wk/6`.
+<span class="semi-bold">1. Prerequisites:</span> Ran the following command as the previous command:
+```
+mark nn/E0123456 wk/6
+```
 </box>
 
 
@@ -1220,12 +1306,15 @@ Expected: The command box input text changes to `edit 1 m/Computer Science`
 <span class="semi-bold">2. Test case: Retrieving a previous command with 
 {{ macros.keyFormat('Up', '<i class="fa-regular fa-square-caret-up"></i>') }} key </span>
 
-* After the entering a previous command, the command input box is empty.
+* After the entering that previous command, the command input box is empty.
 * Pressing {{ macros.keyFormat('Up', '<i class="fa-regular fa-square-caret-up"></i>') }} will
   fill the text in the command input box to
-  the previous command `mark nn/E0123456`!
+  the previous command:
+```
+mark nn/E0123456 wk/6
+```
 * You can press {{ macros.keyFormat('Up', '<i class="fa-regular fa-square-caret-up"></i>') }} continuously to scroll 
-  through all the previous commands you have entered.
+  through all the previous (successful) commands you have entered.
 * Pressing {{ macros.keyFormat('Down', '<i class="fa-regular fa-square-caret-down"></i>') }} will
   scroll back to the more recent commands you have entered.
 
@@ -1233,6 +1322,7 @@ Expected: The command box input text changes to `edit 1 m/Computer Science`
 </box>
 
 <br>
+{{ newPageBetween }}
 
 ### Accessing help
 
@@ -1245,9 +1335,12 @@ Expected: The command box input text changes to `edit 1 m/Computer Science`
 
 <box type="success" light>
 
-<span class="semi-bold">2. Test case: `help`</span>
+<span class="semi-bold">2. Test case:</span>
+```
+help
+```
 
-Expected: The help window automatically pops up, giving further information about TAPro's commands.
+<span class="semi-bold">Expected:</span> The help window automatically pops up, giving further information about TAPro's commands.
 </box>
 <br>
 
@@ -1263,9 +1356,12 @@ Expected: The help window automatically pops up, giving further information abou
 
 <box type="success" light>
 
-<span class="semi-bold">2. Test case: `clear`</span>
+<span class="semi-bold">2. Test case:</span>
+```
+clear
+```
 
-Expected: TAPro's Contact Book resets, clearing all existing students (if any).
+<span class="semi-bold">Expected:</span> TAPro's Contact Book resets, clearing all existing students (if any).
 </box>
 
 {{ newPage }}
