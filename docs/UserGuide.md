@@ -370,17 +370,18 @@ Course codes are case-insensitive.
 
 </box>
 
-Here is the output in the command results when the `setcrs` command is successful:
+<box type="success" light>
 
+**Screenshots of using the `help` command:**
 
-<box type="warning" light>
+<span class="semi-bold">#g#Before running `setcrs` command:##</span>
 
-Course code should follow the format "XX1234Y", Y is optional.
+<img src="images/ug-screenshots/setcrs_before.png" alt="before running set course command" class="fit-container"/>
 
+<span class="semi-bold">#g#After running `setcrs` command:##</span>
 
-When an invalid course code is entered, the following error message appears:
+<img src="images/ug-screenshots/setcrs_after.png" alt="after running set course command" class="fit-container"/>
 
-<img src="images/ug/setcrs_error.png" alt="Setcrs Error" class="rounded-image" width="800px"/>
 </box>
 
 {{ newPage }}
@@ -461,7 +462,22 @@ If a student is undertaking a double degree programme, you can use a comma to se
 * `addstu n/Betsy Crowe nn/E0123456 t/friend e/betsycrowe@example.com m/Mathematics, Physics p/1234567 t/club`
 
 * `addstu n/Betsy Crowe nn/E0123456`
-  </box>
+
+</box>
+
+<box type="success" light>
+
+**Screenshots of using the `addstu` command:**
+
+<span class="semi-bold">#g#Before running `addstu` command:##</span>
+
+<img src="images/ug-screenshots/addstu_before.png" alt="before running add student command" class="fit-container"/>
+
+<span class="semi-bold">#g#After running `addstu` command:##</span>
+
+<img src="images/ug-screenshots/addstu_after.png" alt="after running add student command" class="fit-container"/>
+
+</box>
 
 {{ newPage }}
 
@@ -475,6 +491,20 @@ Shows a list of all persons in the contact book.
 </box>
 
 If there are additional arguments behind `list` we will simply ignore them.
+
+<box type="success" light>
+
+**Screenshots of using the `list` command:**
+
+<span class="semi-bold">#g#Before running `list` command:##</span>
+
+<img src="images/ug-screenshots/list_before.png" alt="before running list student command" class="fit-container"/>
+
+<span class="semi-bold">#g#After running `list` command:##</span>
+
+<img src="images/ug-screenshots/list_after.png" alt="after running list student command" class="fit-container"/>
+
+</box>
 
 {{ newPage }}
 
@@ -521,6 +551,20 @@ Otherwise, TAPro will parse the input as adding multiple tags, which may lead to
    <box type="info" light>
 
 This command differs from most other commands that uses `NUSNET` to identify a student. This command uses the index number shown in the displayed person list to identify the student to be edited.
+</box>
+
+<box type="success" light>
+
+**Screenshots of using the `edit` command:**
+
+<span class="semi-bold">#g#Before running `edit` command:##</span>
+
+<img src="images/ug-screenshots/edit_before.png" alt="before running edit student command" class="fit-container"/>
+
+<span class="semi-bold">#g#After running `edit` command:##</span>
+
+<img src="images/ug-screenshots/edit_after.png" alt="after running edit student command" class="fit-container"/>
+
 </box>
 
 {{ newPage }}
@@ -611,6 +655,19 @@ Both `KEYWORD` and `[MORE_KEYWORDS]…​` accept alphanumeric and special symbo
 </box>
 </box>
 
+<box type="success" light>
+
+**Screenshots of using the `find` command:**
+
+<span class="semi-bold">#g#Before running `find` command:##</span>
+
+<img src="images/ug-screenshots/find_before.png" alt="before running find student command" class="fit-container"/>
+
+<span class="semi-bold">#g#After running `find` command:##</span>
+
+<img src="images/ug-screenshots/find_after.png" alt="after running find student command" class="fit-container"/>
+
+</box>
 
 {{ newPage }}
 
@@ -627,6 +684,20 @@ Marks a student's attendance for a particular week.
 **#g#Example:##** `mark nn/E1234567 wk/3`
 </box>
 
+<box type="success" light>
+
+**Screenshots of using the `mark` command:**
+
+<span class="semi-bold">#g#Before running `mark` command:##</span>
+
+<img src="images/ug-screenshots/mark_before.png" alt="before running mark student attendance command" class="fit-container"/>
+
+<span class="semi-bold">#g#After running `mark` command:##</span>
+
+<img src="images/ug-screenshots/mark_after.png" alt="after running mark student attendance command" class="fit-container"/>
+
+</box>
+
 {{ newPage }}
 
 ### <i class="fa-solid fa-square-xmark"></i> Unmarking a student's attendance for a given week by their NUSNet ID: `unmark`
@@ -641,6 +712,20 @@ Unmarks a student's attendance for a particular week.
 <box type="success" light>
 
 **#g#Example:##** `unmark nn/E1234567 wk/3`
+</box>
+
+<box type="success" light>
+
+**Screenshots of using the `unmark` command:**
+
+<span class="semi-bold">#g#Before running `unmark` command:##</span>
+
+<img src="images/ug-screenshots/unmark_before.png" alt="before running unmark student attendance command" class="fit-container"/>
+
+<span class="semi-bold">#g#After running `unmark` command:##</span>
+
+<img src="images/ug-screenshots/unmark_after.png" alt="after running unmark student attendance command" class="fit-container"/>
+
 </box>
 
 {{ newPage }}
@@ -668,6 +753,20 @@ Deletes the specified student from the contact book.
 If you cannot remember your student's NUSNet ID, you could use `find Betsy` or `list` followed by `delstu nn/<Betsy's NUSNET>` to find and delete the student.
 </box>
 
+<box type="success" light>
+
+**Screenshots of using the `delstu` command:**
+
+<span class="semi-bold">#g#Before running `delstu` command:##</span>
+
+<img src="images/ug-screenshots/delstu_before.png" alt="before running delete student command" class="fit-container"/>
+
+<span class="semi-bold">#g#After running `delstu` command:##</span>
+
+<img src="images/ug-screenshots/delstu_after.png" alt="after running delete student command" class="fit-container"/>
+
+</box>
+
 {{ newPage }}
 
 ### <i class="fa-solid fa-broom"></i> Clearing all entries : `clear`
@@ -679,6 +778,20 @@ Clears all entries from the contact book.
 **Format: `clear`**
 </box>
 
+<box type="success" light>
+
+**Screenshots of using the `clear` command:**
+
+<span class="semi-bold">#g#Before running `clear` command:##</span>
+
+<img src="images/ug-screenshots/clear_before.png" alt="before running clear TAPro command" class="fit-container"/>
+
+<span class="semi-bold">#g#After running `clear` command:##</span>
+
+<img src="images/ug-screenshots/clear_after.png" alt="after running clea TAPro command" class="fit-container"/>
+
+</box>
+
 {{ newPage }}
 
 ### <i class="fa-solid fa-right-from-bracket"></i> Exiting the program : `exit`
@@ -688,6 +801,16 @@ Exits the program.
 <box type="definition" icon=":fa-solid-spell-check:" light>
 
 **Format: `exit`**
+</box>
+
+<box type="success" light>
+
+**Screenshots of using the `exit` command:**
+
+<span class="semi-bold">#g#Before running `exit` command:##</span>
+
+<img src="images/ug-screenshots/exit_before.png" alt="before running exit TAPro command" class="fit-container"/>
+
 </box>
 
 {{ newPage }}
