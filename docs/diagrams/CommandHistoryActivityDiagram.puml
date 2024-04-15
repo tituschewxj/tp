@@ -5,15 +5,15 @@ skinparam ArrowFontSize 12
 start
 :Input field is empty;
 if () then ([up or down arrow key pressed])
-    :Retrieves previous command
-    from command history
+    :Retrieves previousCommand
+    from CommandHistory
     if available;
-    :Previous command fills Input field;
+    :previousCommand fills Input field;
 else ([else])
     :User enters command in Input field;
 endif
 :User executes command;
-:Command saved to command history;
+:Command saved in CommandHistory;
 :Input field is cleared;
 
 stop
