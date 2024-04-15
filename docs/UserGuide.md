@@ -341,6 +341,16 @@ The help window is resizable, so you can {{ macros.semiBold('easily reposition a
 * On macOS, you can use the keyboard shortcut: {{ macros.keyFormat('⌘Cmd') }} + {{ macros.keyFormat('`') }}, to switch between windows quickly.
   </box>
 
+<box type="success" light>
+
+**Screenshots of using the `help` command:**
+
+<span class="semi-bold">#g#Help window:##</span>
+
+<img src="images/ug-screenshots/help.png" alt="help window" class="fit-container"/>
+
+</box>
+
 {{ newPage }}
 
 ### <i class="fa-solid fa-chalkboard"></i> Name/Rename CS course : `setcrs`
@@ -600,6 +610,7 @@ Both `KEYWORD` and `[MORE_KEYWORDS]…​` accept alphanumeric and special symbo
 <img src="images/findAlexDavidResult.png" alt="result for 'find alex david" width="406px" class="rounded-image"/>
 </box>
 </box>
+
 
 {{ newPage }}
 
