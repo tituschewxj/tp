@@ -200,7 +200,7 @@ Only Java 11 has been tested to work with TAPro, so [check that your Java versio
 
 A GUI similar to the below image should appear in a few seconds. Note how the app contains some sample data.
 
-<img alt="Main Window UI on first launch" src="images/main_window_ui.png" class="rounded-image" width="738px"/>
+<img alt="Main Window UI on first launch" src="images/main_window_ui.png" class="rounded-image fit-container"/>
 
 </box>
 <div style="page-break-after: always;"></div>
@@ -311,7 +311,7 @@ as well as quick reference of each command with simple examples on how to use th
 
 A new window is opened, so that it does not clutter up your main window. A GUI similar to the below image should appear.
 
-<img src="images/help_window_ui.png" alt="Help Window UI" class="rounded-image" width="730px"/>
+<img src="images/help_window_ui.png" alt="Help Window UI" class="rounded-image fit-container"/>
 
 </box>
 
@@ -376,6 +376,16 @@ Course codes are case-insensitive.
 <box type="info" light>
 
 Course codes must start with a prefix of 2 letters.
+
+</box>
+
+<box type="success" light>
+
+**#g#Examples:##**
+
+* `setcrs cs2103t`
+
+* `setcrs ST2334`
 
 </box>
 
@@ -448,9 +458,8 @@ A student can have any number of tags, including 0.
 
 **Alphanumeric tags**
 
-{{ macros.semiBold('#g#Example:##') }} `bestFriend4Ever`, `colleague`, `Club` are valid tags, but `best friend`, `best-friend` are not valid tags.
+`bestFriend4Ever`, `colleague`, `Club` are valid tags, but `best friend`, `best-friend` are not valid tags.
 </box>
-<box type="tip" light>
 
 **Adding multiple majors:**
 
@@ -459,7 +468,6 @@ If a student is undertaking a double degree programme, you can use a comma to se
 <box type="success" light>
 
 <span class="semi-bold">#g#Example:##</span> We can use `m/Computer Science, Mathematics` to indicate that a student has these two majors, Computer Science and Mathematics.
-</box>
 </box>
 
 <box type="success" light>
@@ -537,16 +545,20 @@ Edits an existing student in the contact book.
 * You can remove all the student’s tags by typing `t/` without
   specifying any tags after it.
 
+<box type="info" light>
+
+This command differs from most other commands that uses `NUSNET` to identify a student. This command uses the index number shown in the displayed person list to identify the student to be edited.
+
+</box>
+
 <box type="warning" light>
 
 When `t/` is specified in the command, no other tags can be present, in order to remove all of a student's tag. 
 
 Otherwise, TAPro will parse the input as adding multiple tags, which may lead to an unsuccessful execution of the command.
 
-<box type="success" light>
-
 **#g#Example:##** Entering `edit 1 t/abc t/` will cause the error message `Tags names should be alphanumeric` to be shown. This error message is shown because TAPro expects the second `t/` to contain an alphanumeric value, which an empty value is not.
-</box>
+
 </box>
 
 <box type="success" light>
@@ -557,10 +569,6 @@ Otherwise, TAPro will parse the input as adding multiple tags, which may lead to
 
 *  `edit 2 n/Betsy Crower t/` Edits the name of the second student to be `Betsy Crower` and clears all existing tags.
    </box>
-   <box type="info" light>
-
-This command differs from most other commands that uses `NUSNET` to identify a student. This command uses the index number shown in the displayed person list to identify the student to be edited.
-</box>
 
 <box type="success" light>
 
@@ -586,6 +594,7 @@ Finds students whose names contain any of the given keywords.
 
 **Format: `find KEYWORD [MORE_KEYWORDS]…​`**
 </box>
+
 <box type="info" light>
 
 **Parameters of `find` command:**
@@ -687,10 +696,13 @@ Marks a student's attendance for a particular week.
 <box type="definition" icon=":fa-solid-spell-check:" light>
 
 **Format: `mark nn/NUSNET wk/WEEK`**
+
 </box>
+
 <box type="success" light>
 
 **#g#Example:##** `mark nn/E1234567 wk/3`
+
 </box>
 
 <box type="success" light>
@@ -716,8 +728,9 @@ Unmarks a student's attendance for a particular week.
 <box type="definition" icon=":fa-solid-spell-check:" light>
 
 **Format: `unmark nn/NUSNET wk/WEEK`**
+
 </box>
-</box>
+
 <box type="success" light>
 
 **#g#Example:##** `unmark nn/E1234567 wk/3`
@@ -1119,7 +1132,7 @@ target computer.
 
    <box type="info" light>
 
-   `chmod +x` changes the permissions of the script to allow it to be executed.
+   `chmod +x` changes the permissions of the script on unix systems to allow it to be executed.
    </box>
 
 4. Double-click on the script to launch TAPro.
