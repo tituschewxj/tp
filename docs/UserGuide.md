@@ -507,7 +507,7 @@ Shows a list of all persons in the contact book.
 **Format: `list`**
 </box>
 
-If there are additional arguments behind `list` we will simply ignore them.
+Additional arguments after `list` will be simply ignored.
 
 <box type="success" light>
 
