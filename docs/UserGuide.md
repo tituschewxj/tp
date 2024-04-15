@@ -180,7 +180,7 @@ These parameters are not associated with an attribute and do not have recognized
 
 Welcome to the TAPro GUI! 🎉 Here's a quick tour to help you get comfortable with the interface:
 
-TODO: Add a screenshot of the GUI with annotations
+<img src="images/ug-screenshots/launch.png" alt="Help Window UI" class="rounded-image fit-container"/>
 
 {{ newPage }}
 
