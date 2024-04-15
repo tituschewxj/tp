@@ -14,9 +14,25 @@
 
 ## **Acknowledgements**
 
+**Code:**
+
 * Trie implementation is reused from [eugenp's tutorials](https://github.com/eugenp/tutorials) with minor modifications.
 
-_{ list here sources of all reused/adapted ideas, code, documentation, and third-party libraries -- include links to the original source as well }_
+**Documentation:**
+
+* Icons in our User Guide and Developer Guide are taken from [Font Awesome](https://fontawesome.com/).
+* Our documentation is generated using [MarkBind](https://markbind.org/index.html), with [Nunjucks](https://mozilla.github.io/nunjucks/) variables and macros.
+* Our UML diagrams are generated using [PlantUML](https://plantuml.com/).
+
+**Dev-dependencies:**
+
+* The dependency [MarkBind](https://markbind.org/index.html), was used for having a live preview locally, through installing the [`markbind-cli`](https://www.npmjs.com/package/markbind-cli) package with [NPM](https://www.npmjs.com/), that runs over the [Node.js](https://nodejs.org/) runtime.
+* The dependency [`captain-githook`](https://github.com/swellaby/captain-githook), was used for configuring git hooks, for pre-push and pre-commit checks.
+
+**Ideas:**
+
+* The idea of autocomplete and command history retrieval was adapted from common command terminals, like the [Windows Terminal](https://github.com/microsoft/terminal) and [Bash](https://en.wikipedia.org/wiki/Bash_(Unix_shell)), which had these features.
+* The idea of syntax highlighting was adapted from common file editors, like [Visual Studio Code](https://code.visualstudio.com/) and Integrated Development Environments like [IntelliJ IDEA](https://www.jetbrains.com/idea/), which had syntax highlighting.
 
 {{ newPage }}
 
