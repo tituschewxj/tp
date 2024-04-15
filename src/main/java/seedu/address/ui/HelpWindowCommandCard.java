@@ -31,4 +31,12 @@ public class HelpWindowCommandCard extends UiPart<Region> {
                 helpCardSyntax.generateLines(messageUsage)
         );
     }
+
+    /**
+     * Returns the root of a {@code HelpWindowCommandCard} with the given {@code commandWord}
+     * and the {@code messageUsage} of the {@code Command}.
+     */
+    public static Region ofRoot(String commandWord, String messageUsage) {
+        return new HelpWindowCommandCard(commandWord, messageUsage).getRoot();
+    }
 }

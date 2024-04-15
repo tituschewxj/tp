@@ -116,7 +116,7 @@ The `UI` component uses the JavaFx UI framework. The layout of these UI parts ar
 
 Here's a (partial) class diagram of the `Logic` component:
 
-<puml src="diagrams/LogicClassDiagram.puml" width="800"/>
+<puml src="diagrams/LogicClassDiagram.puml" width="600"/>
 
 The sequence diagram below illustrates the interactions within the `Logic` component, taking `execute("delstu nn/E1234567")` API 
 call as an example.
@@ -135,15 +135,6 @@ call as an example.
 1. The command can communicate with the `Model` when it is executed (e.g. to delete a person).<br>
    Note that although this is shown as a single step in the diagram above (for simplicity), in the code it can take several interactions (between the command object and the `Model`) to achieve.
 1. The result of the command execution is encapsulated as a `CommandResult` object which is returned back from `Logic`.
-
-<br>
-
-**How autocomplete execution works in `Logic` component:**
-
-1. When `Logic` is called upon to autocomplete an input string, it is passed to an `AddressBookParser` object which in turn matches the input and return the corresponding autocomplete object (e.g. `AutoCompleteCommand`).
-1. This results in a `AutoComplete` object (more precisely, an object of one of its subclasses e.g., `AutoCompleteCommand`) which is executed by the `LogicManager`.
-1. The autocomplete object is solely responsible for generating the autocomplete suggestions based on the input string (e.g. the additional characters that can be appended to the input string).
-1. The result of the autocompletion is simply a string that autocompletes the input string. Autocomplete classes uses [Trie](#trie) under the hood to efficiently generate the autocomplete suggestions.
 
 Here are the other classes in `Logic` (omitted from the class diagram above) that are used for parsing a user command:
 
@@ -165,6 +156,7 @@ Here are the other classes in `Logic` (omitted from the class diagram above) tha
 * stores the contact book data i.e., all `Person` objects (which are contained in a `UniquePersonList` object).
 * stores the currently 'selected' `Person` objects (e.g., results of a search query) as a separate _filtered_ list which is exposed to outsiders as an unmodifiable `ObservableList<Person>` that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.
 * stores a `UserPref` object that represents the user’s preferences. This is exposed to the outside as a `ReadOnlyUserPref` objects.
+* stores a `CourseName` object that represent a Course code. This is exposed to the outside as a `ReadOnlyCourseName` object.
 * does not depend on any of the other three components (as the `Model` represents data entities of the domain, they should make sense on their own without depending on other components)
 
 <box type="info" light>
@@ -186,8 +178,8 @@ An alternative (arguably, a more OOP) model is given below. It has a `Tag` list 
 <puml src="diagrams/StorageClassDiagram.puml" width="550" /><br><br>
 
 **The `Storage` component,**
-* can save both contact book data and user preference data in JSON format, and read them back into corresponding objects.
-* inherits from both `AddressBookStorage` and `UserPrefStorage`, which means it can be treated as either one (if only the functionality of only one is needed).
+* can save both contact book data and user preference data and course name data in JSON format, and read them back into corresponding objects.
+* inherits from both `AddressBookStorage` and `UserPrefStorage` and `CourseStorageName`, which means it can be treated as either one (if only the functionality of only one is needed).
 * depends on some classes in the `Model` component (because the `Storage` component's job is to save/retrieve objects that belong to the `Model`)
 
 {{ newPage }}
@@ -215,7 +207,148 @@ This section describes some noteworthy details on how certain features are imple
 
 ### Autocomplete Feature
 
-**TODO**
+Here is a (partial) class diagram of the autocomplete feature. 
+
+<puml src="diagrams/AutocompleteClassDiagram.puml" width="800"/><br><br>
+
+There are 3 subcomponents in the [Logic component](#logic-component) that are involved the autocomplete feature, which are:
+* Attribute Classes, that handle the resolution of dynamic attribute values. 
+* Parser Classes, that handle the parsing of the user input.
+* AutoComplete Classes, that handle the generation of the autocompletion.
+
+<box type="info" light>
+
+Omitted from the (partial) class diagram is the functional interface `AttributeValueGenerator`, which produces a `List<String>`, representing all possible values for an attribute of a student in TAPro's current data.
+
+`AttributeValueGeneratorManager` has static methods that match the method signature of `AttributeValueGenerator`, which is pass in as an argument when creating a `PrefixResolver`.
+
+`PrefixResolverSyntax` stores preset `PrefixResolvers` for all the `Prefix`s that can be autocompleted.
+</box>
+
+{{ newPageBetween }}
+
+There are two variants of autocomplete feature. One variant is the autocompletion of static data using `AutoCompleteCommand`. Another variant is the autocompletion of dynamic data using `AutoCompletePrefixResolver`.
+
+**How autocompletion of static data works using `AutoCompleteCommand` in the `Logic` component:**
+
+1. When `Logic` is called upon to autocomplete an input string, it is passed to an `AddressBookParser` object which in turn matches the input and return the corresponding `AutoComplete` object, `AutoCompleteCommand` in this case.
+1. `AutoCompleteCommand` then produces an `AutoCompleteResult` which is executed by the `LogicManager`.
+1. `AutoCompleteCommand` classes uses [`Trie`](#trie) under the hood to efficiently generate the autocomplete suggestions. The `Trie` is preloaded with static data of our command names (e.g. `addstu`), which is used to generate the suggestions.
+1. The `AutoCompleteResult` object is solely responsible for generating the autocomplete suggestions based on the input string (e.g. the additional characters that can be appended to the input string).
+1. The result of the autocompletion is simply a list of string suggestions that autocompletes the input string. 
+
+**How autocompletion of dynamic data works using `AutoCompletePrefixResolver` in the `Logic` component:**
+
+In the autocompletion of dynamic data there are 5 main processes:
+1. Notifying that the data is outdated
+2. Using the autocomplete hotkey to return the autocompletion
+3. Parsing the input to call the corresponding kind of autocompletion
+4. Updating the new attribute data into the `AttributeTrie`
+5. Generating the autocomplete result
+
+{{ newPageBetween }}
+
+**How the `AttributeTrie` is notified of new data:**
+
+1. When a command is executed, a check is performed in `LogicManager` to determine if the command could potentially modify the data.
+1. If the data could be modified, then we would get the latest `addressBook` using `getAddressBook()`.
+1. Then using the latest `addressBook`, we would update the `AttributeValueGeneratorManager` with `updateAddressBook(addressBook)`.
+1. We iterate through all prefix resolvers to notify that the `PrefixResolver` needs to be updated using `notifyOutdatedData`.
+1. Then `PrefixResolver` calls its corresponding `AttributeTrie` to `clearCache()`, which removes the `Trie` that is used internally. The absence of a `Trie` would cause `AttributeTrie` to lazily generate a new `Trie` using new data. Meaning that a new `Trie` is only generated when necessary.
+
+<puml src="diagrams/AutocompleteUpdateSequenceDiagram.puml" width="790"/><br><br>
+
+{{ newPageBetween }}
+
+**How the autocomplete hotkey works:**
+
+1. After the autocomplete hotkey {{ macros.keyFormat('Tab') }} is pressed, the method `handleTabKeyPressEvent(...)` is called.
+1. Whenever `lastModifiedText` has changed, it means that the text in the `CommandBox`'s command input box has changed (e.g. the user types into the command input box), so the `autoCompleteResultCache` is set to `null` to indicate that the `AutoCompleteResult` is outdated.
+1. If the `autoCompleteResultCache` is `null`, then we know that the `lastModifiedText` has changed, so we need to generate a new autocomplete result. We do this by calling `MainWindow#getAutoComplete(lastModifiedText)`, which calls the `LogicManager` to generate a new autocomplete result.
+1. Otherwise, it means the `autoCompleteResultCache` still contains the latest `AutoCompleteResult` that works for the current `lastModifiedText`.
+1. Once we have the latest `autoCompleteResultCache`, we call `autoCompleteResultCache.getNextResult()` to generate the next autocompletion.
+1. Lastly, the text in the `CommandBox`'s command input box is updated to the suggested autocompletion using `setText(...)`.
+
+<puml src="diagrams/AutocompleteKeySequenceDiagram.puml" width="820"/><br><br>
+
+<box type="info" light>
+
+The reference frame below, `create empty autocomplete`, is used in the next few sequence diagrams. It represents that an `AutoCompleteResult` with no autocomplete suggestion is returned, meaning that pressing the autocomplete hotkey would cause no change in `CommandBox`'s command input box when it is used.
+
+<puml src="diagrams/AutoCompleteEmptyConstructorSequenceDiagram.puml" width="250"/>
+</box>
+
+{{ newPageBetween }}
+
+**How `LogicManager` parses the input to generate a new `AutoCompleteResult`:**
+
+1. When `LogicManager#autoComplete(commandText)` is called with the text `commandText` to autocomplete, it calls the `AddressBookParser#parseAutoComplete(commandText)` method.
+1. Depending on the `commandText` passed into `parseAutoComplete`, there are 3 possible paths:
+1. The first path is that the `commandText` cannot be parsed as it doesn't meet format specifications.
+1. The second path is that the `commandText` can be parsed, but is missing prefixes inside the text, so it is treated as an autocompletion for a command name. `AutoCompleteCommand` is then constructed and used like how autocompletion of static data works.
+1. The final path is that the `commandText` can be parsed, and contains at least one prefix in the text, so it is treated as an autocompletion for a prefix. `AutoCompletePrefixResolver` is then constructed using `ALL_PREFIX_RESOLVERS` and used later on in `getAutoComplete`, given an `input`, to generate an autocompletion.
+1. In all cases, a `AutoComplete` is returned, which `AutoCompleteCommand` and `AutoCompletePrefixResolver` are subclasses of.
+1. The `AutoComplete` produces a `AutoCompleteResult`, which is passed back to the `MainWindow`.
+
+<puml src="diagrams/AutocompleteParseSequenceDiagram.puml" width="900"/><br><br>
+
+{{ newPageBetween }}
+
+**How `AutoCompletePrefixResolver` is generates an `AutoCompleteResult`:**
+
+1. When `AutoCompletePrefixResolver#getAutoComplete(input)` is called, if the `input` is blank, an empty `AutoCompleteResult` is returned.
+1. Otherwise, it calls `findTriePrefixContinuation(input)` which would find the text, that continues from a given input, in the `AttributeTrie`. This may update the `AttributeTrie` with new attribute data if necessary, due to the lazy evaluation.
+1. Then with the `trieMatchContinuations` returned from `findTriePrefixContinuation`, we use it to create the `AutoCompleteResult`.
+1. If `trieMatchContinations` is empty, it means there are no autocomplete results for the current `input`, so an empty `AutoCompleteResult` is returned.
+1. Otherwise, an `AutoCompleteResult` with the associated `trieMatchContinuations` is returned.
+
+<puml src="diagrams/AutoCompletePrefixResolverSequenceDiagram.puml" width="600"/><br><br>
+
+{{ newPageBetween }}
+
+**How `AttributeTrie` is updated with new attribute data and returns the matches:**
+
+1. When `AutoCompletePrefixResolver#findTriePrefixContinuation(input)` is called, `findLastPrefixIndex(input)` is called which returns `indexOfLastPrefix`.
+1. Then, with the `indexOfLastPrefix`, it calls `findLastPrefix` to find the last prefix in the `input`.
+1. We iterate through all the `PrefixResolver`s to find one where `lastPrefix` matches the `PrefixResolver`'s `Prefix`.
+1. If there is a match, we call `PrefixResolver#resolvePrefix(partialValue)` on the matching `PrefixResolver`, which calls `AttributeTrie#findAllValuesWithPrefix(partialValue)`.
+1. When the `trieCache` is absent, it means that the `AttributeTrie#clearCache()` has been called before without a new `Trie` being generated. So `generateTrie()` is called, which generates values in the `Trie` using a `AttributeValueGenerator` which generates a list of attribute values to populate the `Trie` with.
+1. The `AttributeTrie` then computes the list of values with the prefix and returns it back.
+1. Finally, `AutoCompletePrefixResolver` formats the list of values and returns it as `trieMatchContinuations`, which are text continuations from the given `input`. 
+
+<puml src="diagrams/AutocompleteFindTrieMatchesSequenceDiagram.puml" width="850"/><br><br>
+
+{{ newPageBetween }}
+
+#### Design considerations
+
+**Separation of concerns:**
+
+As the autocomplete feature involves many classes all over the codebase, it is important to handle the separation of concerns carefully, to lead to higher cohesion and lower coupling. 
+
+This was done through the following:
+* Separating the notifying and updating of data from the storage, by using the methods `PrefixResolver#notifyOutdatedData` and `AttributeValueGeneratorManager#updateAddressBook`. 
+  * How it worked was using the functional interface, `AttributeValueGenerator`, that is used by `AttributeValueGenerateManager` to generate an attribute values given the `addressBook`. The `AttributeValueGenerator` is then passed into the `AttributeTrie` to generate values to insert into the `Trie`.
+* Separating the dynamic autocompletion from the static autocompletion, as their internal implementations were different.
+* Having each of the subcomponents, Attribute Classes, Parser Classes and AutoComplete Classes, as packages, which encapsulates them, limiting functional overlaps.
+
+**Caching of intermediate results for improved performance:**
+
+There are two layers in the current implementation used for caching, which are: 
+* When the current `lastModifiedText` doesn't change, caching the `AutoCompleteResult` in `autoCompleteResultCache`.
+* When the current data in the `addressBook` doesn't change, caching the `Trie` stored in the `AttributeTrie`.
+
+By having caching of intermediate results, it reduces the need to recompute certain results, thus improving performance of TAPro on users' systems.
+
+**Lazy evaluation to reduce redundant computations:**
+
+Lazy evaluation is carried out in `AttributeTrie`, where the new `Trie` was lazily evaluated. It means that the `Trie` was only generated when the autocompletion of a parameter value doesn't have an `AttributeTrie` already present.
+
+#### Future improvements to the autocomplete feature
+
+**Improve detection on whether attributes are actually modified before updating their `AttributeTrie`s:**
+* Currently, our implementation causes all tries to be lazily reevaluated when a command potentially modifies the data. However, not all commands would actually modify the all data attribute values, but may only update a subset of those attribute values, or even none of the attribute values at all.
+* Hence, we plan to check if the data for an attribute is actually modified before updating their respective `AttributeTrie`s, which would improve the performance of our autocompletion feature.
 
 {{ newPage }}
 
@@ -228,6 +361,18 @@ the keyboard.
 The <span class="badge bg-light text-dark"><i class="fa-regular fa-square-caret-up"></i> UP</span> key press event is captured by the `CommandBox` class, which then 
 retrieves the last command from the `CommandHistory` Singleton object.
 <puml src="diagrams/CommandHistorySequenceDiagram.puml" alt="Command History Sequence Diagram" />
+
+<box type="info" light>
+
+**Note:** The `CommandHistory` Singleton object is used to store the command history. It is a Singleton object to ensure that there is only one instance of the `CommandHistory` object throughout the application.
+
+</box>
+
+Below is the activity diagram that shows how the process of a user interacting with the input field to retrieve the 
+last command executed.
+
+<puml src="diagrams/CommandHistoryActivityDiagram.puml" width="400" />
+
 
 {{ newPage }}
 
@@ -317,6 +462,8 @@ The following activity diagram summarizes what happens when a user executes a ne
 
 <puml src="diagrams/CommitActivityDiagram.puml" width="250" /><br><br>
 
+{{ newPageBetween }}
+
 #### Design considerations:
 
 **Aspect: How undo & redo executes:**
@@ -375,23 +522,30 @@ _{Explain here how the data archiving feature will be implemented}_
 
 **Priorities:** 
 * <span class="semi-bold">#g#High:##</span> (must have) - {{ threeStars }}
-* <span style="color:#FF7F00;" class="semi-bold">Medium</span> (nice to have) - {{ twoStars }}
-* <span class="semi-bold">#r#Low:##</span> (unlikely to have) - {{ oneStar }}
+* <span style="color:#FF7F00;" class="semi-bold">Medium</span> (should have) - {{ twoStars }}
+* <span class="semi-bold">#r#Low:##</span> (nice to have) - {{ oneStar }}
 </box>
 
 
 [//]: # (whitespace is added to force the header row into one line)
 {% set whitespace = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' %}
 
-| Priority         | As a …              | I want to …                                                                 | So that I can…                                 |
-|------------------|---------------------|-----------------------------------------------------------------------------|------------------------------------------------|
-| {{ threeStars }} | TA {{ whitespace }} | name/rename the CS course that I am tutoring this semester                  | keep track of the module I am teaching         |
-| {{ threeStars }} | TA                  | add a student to the CS course that I am tutoring that semester to my class | keep track of him or her                       |
-| {{ threeStars }} | TA                  | view all students from my class                                             | view details about all of them                 |
-| {{ threeStars }} | TA                  | mark attendance for a student in my class                                   | keep track of who's present                    |
-| {{ threeStars }} | TA                  | unmark attendance for a student in my class                                 | keep track of who is absent                    |
-| {{ threeStars }} | TA                  | delete a student                                                            | remove a student if he or she leaves the class |
-| {{ threeStars }} | TA                  | know all the commands of TAPro                                              | use it effectively                             |
+| Priority         | As a …              | I want to …                                                        | So that I can…                                       |
+|------------------|---------------------|--------------------------------------------------------------------|------------------------------------------------------|
+| {{ threeStars }} | TA {{ whitespace }} | name/rename the CS course that I am tutoring this semester         | keep track of the module I am teaching               |
+| {{ threeStars }} | TA                  | add a student to the my class that I am tutoring this semester     | keep track of him or her                             |
+| {{ threeStars }} | TA                  | view all students from my class                                    | view details about all of them                       |
+| {{ threeStars }} | TA                  | mark attendance for a student in my class for a particular week    | keep track of who is present                         |
+| {{ threeStars }} | TA                  | unmark attendance for a student in my class for a particular week  | keep track of who is absent                          |
+| {{ threeStars }} | TA                  | delete a student                                                   | remove a student if he or she leaves the class       |
+| {{ threeStars }} | TA                  | know all the commands of TAPro via the help window                 | use it effectively                                   |
+| {{ threeStars }} | TA                  | see all students in the contact book                               | have an overview of all students                     |
+| {{ threeStars }} | TA                  | edit a student's details                                           | have the latest data                                 |
+| {{ threeStars }} | TA                  | find a student by name                                             | get a student's data easily                          |
+| {{ threeStars }} | TA                  | delete all students from a previous semester from the contact book | clear my contacts quickly at the start of a semester |
+| {{ twoStars }}   | TA                  | retrieve command history                                           | avoid retyping a command                             |
+| {{ twoStars }}   | TA                  | to autocomplete my input                                           | to save time                                         |
+| {{ twoStars }}   | TA                  | exit the program smoothly                                          | to save time                                         |
 
 **TODO: Add more user stories that are applicable**
 
@@ -793,8 +947,6 @@ Expected: TAPro launches and shows the GUI with a set of sample student contacts
 Expected: The most recent window size and location is retained.
 </box>
 
-3. _{ more test cases …​ }_
-
 <br>
 
 ### Adding a student
@@ -813,14 +965,14 @@ students.
 <span class="semi-bold">2. Test case: `addstu n/John Doe p/98765432 e/johndoe@example.com nn/E0123456 m/Computer Science, #02-25 t/friends t/owesMoney`</span>
 
 Expected: Student with NUSNet ID `E0123456` is added into TAPro. Details of the added student is
-shown in the status message.
+shown in the result message panel.
 </box>
       
 1. **Adding a student with NUSNet ID E0123457**
 
 <box type="info" light>
 
-<span class="semi-bold">1. Prerequisites:</span> Prerequisites: No student with NUSNet ID E0123457 in TAPro.
+<span class="semi-bold">1. Prerequisites:</span> No student with NUSNet ID E0123457 in TAPro.
 </box>
 
 <box type="success" light>
@@ -828,14 +980,39 @@ shown in the status message.
 <span class="semi-bold">2. Test case: `addstu n/Mary Jane p/91234911 e/janemary@example.com nn/E0123457 m/Biology t/friends t/owesTutorial2`</span>
 
 Expected: Student with NUSNet ID `E0123457` is added into TAPro. Details of the added student is
-shown in the status message.
+shown in the result message panel.
 </box>
 
 <br>
 
 ### Editing a student
 
-**TODO**
+1. **Editing information of a student with NUSNet ID E0123457**
+
+<box type="info" light>
+
+<span class="semi-bold">1. Prerequisites:</span> An existing student in TAPro with NUSNet ID E0123457 shown as index 
+2 in TAPro's displayed person list.
+
+You may run 
+the above last `addstu` command to add a student with NUSNet ID E0123457 if it does not exist.
+</box>
+
+<box type="success" light>
+
+<span class="semi-bold">2. Test case: `edit 2 p/98765432 m/Computer Science`
+</span>
+
+Expected: Information of student with NUSNet ID `E0123457` is updated in TAPro. Details of the added student is
+shown in the status message.
+</box>
+
+<box type="info" light>
+
+This command differs from most other commands that use the `NUSNET` to identify a student. This command uses the index number shown in the displayed person list to identify the student to be edited.
+</box>
+
+<br>
 
 <br>
 
@@ -853,7 +1030,7 @@ shown in the status message.
 <span class="semi-bold">2. Test case: `delstu nn/E0123456`</span>
 
 Expected: The student with NUSNet ID `E0123456` is deleted from TAPro. Details of the deleted student
-shown in the status message.
+shown in the result message panel.
 </box>
 
 <box type="wrong" light>
@@ -864,13 +1041,32 @@ shown in the status message.
 * `delstu E0123456`: Missing prefix for the NUSNet ID parameter.
 </box>
 
-2. _{ more test cases …​ }_
-
 <br>
 
 ### Finding a student
 
-**TODO**
+
+1. **Finding a student**
+
+<box type="info" light>
+
+<span class="semi-bold">1. Prerequisites:</span> TAPro contains one student with the name 'John Doe'.
+</box>
+
+<box type="success" light>
+
+<span class="semi-bold">2. Test case: `find john`</span>
+
+Expected: Student with name 'John Doe' is displayed on the Student Contact Cards Panel.
+</box>
+
+<box type="wrong" light>
+
+<span class="semi-bold">3. Other incorrect `find` commands to try:</span>
+* `find`: Missing keyword.
+  </box>
+
+2. _{ more test cases …​ }_
 
 <br>
 
@@ -880,7 +1076,7 @@ shown in the status message.
 
 <box type="info" light>
 
-<span class="semi-bold">1. Prerequisites:</span> TAPro contains one student with NUSNet ID E0123456, and no student with NUSNet ID E6543210.
+<span class="semi-bold">1. Prerequisites:</span> TAPro contains one student with NUSNet ID `E0123456`, and no student with NUSNet ID `E6543210`.
 </box>
 
 <box type="success" light>
@@ -888,7 +1084,7 @@ shown in the status message.
 <span class="semi-bold">2. Test case: `mark nn/E0123456 wk/1`</span>
 
 Expected: Student with NUSNet ID `E0123456` is marked as present for week 1 in TAPro, depicted on that student's card in the panel.
-Details of the marked student is shown in the status message.
+Details of the marked student is shown in the result message panel.
 </box>
 
 <box type="wrong" light>
@@ -904,9 +1100,33 @@ Details of the marked student is shown in the status message.
 
 ### Unmarking a student's attendance
 
-**TODO**
+<box type="info" light>
+
+<span class="semi-bold">1. Prerequisites:</span> TAPro contains one student with NUSNet ID `E0123456` with his Week 1's attendance marked 
+and no 
+student with NUSNet ID `E6543210`.
+</box>
+
+<box type="success" light>
+
+<span class="semi-bold">2. Test case: `unmark nn/E0123456 wk/1`</span>
+
+Expected: Student with NUSNet ID `E0123456` is not marked as for week 1 in TAPro, depicted on that student's 
+card in the panel.
+Details of the marked student is shown in the status message.
+</box>
+
+<box type="wrong" light>
+
+<span class="semi-bold">3. Examples of incorrect `unmark` commands to try:</span>
+* `unmark`: Missing NUSNet ID and week number parameters.
+* `unmark nn/E6543210 wk/1`: No student with this NUSNet ID.
+* `unmark wk/1`: Missing the NUSNet ID parameter.
+* `unmark E0123456 1`: Missing prefix for the NUSNet ID and week number parameters.
+  </box>
 
 <br>
+
 
 ### Setting the course name
 
@@ -940,19 +1160,64 @@ Expected: TAPro's main window's title contains the course code `CS2103` provided
 
 ### Retrieving previous successful commands
 
-**TODO**
+<box type="info" light>
+
+<span class="semi-bold">1. Prerequisites:</span> Previously ran a successful command like `mark nn/E0123456 wk/6`.
+</box>
+
+
+<box type="success" light>
+
+<span class="semi-bold">2. Test case: Retrieving a previous command with <span class="badge bg-light text-dark"> <i 
+class="fa-regular fa-square-caret-up"></i> UP</span> key </span>
+
+* After the entering a previous command, the command input box is empty.
+* Pressing {{ macros.keyFormat('Up', '<i class="fa-regular fa-square-caret-up"></i>') }} will
+  fill the text in the command input box to
+  the previous command `mark nn/E0123456`!
+* You can press {{ macros.keyFormat('Up', '<i class="fa-regular fa-square-caret-up"></i>') }} continuously to scroll 
+  through all the previous commands you have entered.
+* Pressing {{ macros.keyFormat('Down', '<i class="fa-regular fa-square-caret-down"></i>') }} will
+  scroll back to the more recent commands you have entered.
+
+</box>
+</box>
 
 <br>
 
 ### Accessing help
 
-**TODO**
+1. **Accessing help**
 
+<box type="info" light>
+
+<span class="semi-bold">1. Prerequisites:</span> No prerequisites.
+</box>
+
+<box type="success" light>
+
+<span class="semi-bold">2. Test case: `help`</span>
+
+Expected: The help window automatically pops up, giving further information about TAPro's commands.
+</box>
 <br>
 
 ### Clearing all data
 
-**TODO**
+
+1. **Clearing all students**
+
+<box type="info" light>
+
+<span class="semi-bold">1. Prerequisites:</span> No prerequisites.
+</box>
+
+<box type="success" light>
+
+<span class="semi-bold">2. Test case: `clear`</span>
+
+Expected: TAPro's Contact Book resets, clearing all existing students (if any).
+</box>
 
 <br>
 

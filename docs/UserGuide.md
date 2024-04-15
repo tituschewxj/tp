@@ -1,7 +1,7 @@
 ---
-  layout: default.md
-  title: "User Guide"
-  pageNav: 3
+layout: default.md
+title: "User Guide"
+pageNav: 3
 ---
 {% import "_markbind/_macros.nj" as macros %}
 
@@ -10,14 +10,16 @@
     <img src="images/TAProLogo.jpg" alt="TAPro Logo" class="rounded-image" width="500px"/>
 </p>
 
-TAPro is your go-to **Contact Book application**, created with love for **Computer Science Teaching Assistants (TAs)** like you. _We get it_ — juggling your students and keeping track of attendance can be a handful. That’s why TAPro is 
+
+
+TAPro is your go-to **Contact Management application**, created with love for **Computer Science Teaching Assistants (TAs)** like you. _We get it_ — juggling your students and keeping track of attendance can be a handful. That’s why TAPro is 
 here to make your life easier. With features designed precisely for you, it's all about simplifying those 
 time-consuming tasks, letting you focus on what you do best: teaching and inspiring your students. Welcome to a 
 smoother, more personalized way of managing your TA duties!
 
-TAPro is optimized for use via a **Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). 
+TAPro is optimized for use via a **Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI).
 
-If you can type fast, TAPro can get your contact management and attendance taking tasks done **faster** 🚀 than traditional GUI apps. 
+If you can type fast, TAPro can get your contact management and attendance taking tasks done **faster** 🚀 than traditional GUI apps.
 
 {{ newPageBetween }}
 
@@ -28,18 +30,19 @@ If you can type fast, TAPro can get your contact management and attendance takin
 
 ## <i class="fa-solid fa-forward"></i>  Navigating this User Guide
 
-Welcome to the cozy corner of the TAPro User Guide! 🌟 Whether you're embarking on your very first day as a TA or 
+Welcome to the cozy corner of the TAPro User Guide! 🌟 Whether you're embarking on your very first day as a TA or
 you're practically a wizard with student info, we've put together this guide to make sure you get the most out of TAPro.
 
-🚀 **Ready to Roll?** Skip over to **[Quick Start](#quick-start)** for the no-fuss, easy-peasy steps to download TAPro and get ready for 
-action.
 
 **New around here?** No worries, we've got you. Start with these sections to become a TAPro buddy in no time:
-
-- [Navigating the GUI](#navigating-the-gui): Familiarize yourself with the command box and those handy contact cards. 
+- [Navigating the GUI](#navigating-the-gui): Familiarize yourself with the command box and those handy contact cards.
 - [Features](#features): Dive into the exciting world of features we've brewed up just for you.
 
-**Already a TAPro champ?** Let's add some spice to your TA skills:
+
+**Ready to Roll?** Skip over to **[Quick Start](#quick-start)** for the no-fuss, easy-peasy steps to download TAPro and get ready for
+action.
+
+🚀 **Already a TAPro champ?** Let's add some spice to your TA skills:
 
 - **[Set Course](#name-rename-cs-course-setcrs)**: Tailor TAPro to your current course with `setcrs`.
 - **[Add Student](#adding-a-student-addstu)**: Got a new face in class? Quickly add their details with `addstu`.
@@ -47,13 +50,13 @@ action.
 - **[Unmark](#unmarking-a-student-s-attendance-for-a-given-week-by-their-nusnet-unmark)**: Oops, made a mistake? `unmark` reverses that mark.
 - **[List](#listing-all-students-list)**: Bring up a complete list of your students with `list`.
 - **[Edit](#editing-a-student-edit)**: Update details as they evolve with `edit`.
-- **[Find](#locating-students-by-name-find)**: Looking for someone? find helps you search by keyword.
+- **[Find](#locating-students-by-name-find)**: Looking for someone? `find` helps you search by keyword.
 - **[Delete Student](#deleting-a-student-delstu)**: Time to say goodbye? Remove a student from your list with `delstu`.
 - **[Clear](#clearing-all-entries-clear)**: Need to wipe the slate clean? `clear` does just that.
 
-**Need a quick TAPro refresher?** Our Command Summary is like the TAPro bible—short, sweet, and to the point.
+**Need a quick TAPro refresher?** Our [Command Summary](#command-summary) is like the TAPro bible—short, sweet, and to the point.
 
-Stumbled upon a hurdle or just curious? Swing by our **[FAQ](#faq)** where we tackle all your burning questions and offer 
+Stumbled upon a hurdle or just curious? Swing by our **[FAQ](#faq)** where we tackle all your burning questions and offer
 nuggets of wisdom for a smooth TAPro journey.
 {{ newPage }}
 
@@ -61,7 +64,7 @@ nuggets of wisdom for a smooth TAPro journey.
 
 This segment aims to make your TAPro experience as smooth as silk. With these notions and terms at your fingertips, you're well on your way to becoming a TAPro power user!
 
-Diving into TAPro, you'll encounter some handy notations and terms. We've decoded them here to make your journey smoother and more enjoyable:
+Diving into TAPro, you'll encounter some handy notations and terms. We've decoded them here to make your journey smoother and more enjoyable.
 
 ### Symbols
 
@@ -83,7 +86,7 @@ Symbols are indicators that give additional information about a target piece of 
 
 {{ newPageBetween }}
 
-### Keywords 
+### Keywords
 
 Keywords are word(s) that hold greater significance.
 
@@ -178,7 +181,9 @@ TODO: Add a screenshot of the GUI with annotations
 <i class="fa-solid fa-download"></i>
 **Installing Java:**
 
+
 If you do not have Java 11 or above installed, you can download the latest available version of Java from [here](https://www.oracle.com/sg/java/technologies/downloads/). 
+
 For macOS users, you may wish to follow the instructions [here](https://nus-cs2103-ay2324s1.github.io/website/admin/programmingLanguages.html).
 
 Only Java 11 has been tested to work with TAPro, so [check that your Java version](#checking-java-version) is correct if you are facing issues with TAPro.
@@ -199,7 +204,9 @@ A GUI similar to the below image should appear in a few seconds. Note how the ap
 </box>
 <div style="page-break-after: always;"></div>
 
+
 5. Type a command in the command input box and press {{ macros.keyFormat('Enter') }} to execute it. 
+
 
 <box type="success" light>
 
@@ -213,7 +220,7 @@ A GUI similar to the below image should appear in a few seconds. Note how the ap
 
 * `addstu nn/E0952224 n/John Doe p/98765432 e/johnd@example.com m/Computer Science` : Adds a student named `John Doe` to the contact book.
 
-* `delstu nn/NUSNET` : Deletes the student with the specified `NUSNET` from the contact book.
+* `delstu nn/E0952224` : Deletes the student with NUSNet ID E0952224 from the contact book (assuming they were already in the contact book).
 
 * `clear` : Deletes all students, and their contact and attendance information.
 
@@ -289,7 +296,7 @@ Be careful when copying and pasting commands that span multiple lines as space c
 
 ### <i class="fa-solid fa-circle-question"></i> Viewing help : `help`
 
-Entering the `help` command opens a help window that shows a message explaining how to access the help page, 
+Entering the `help` command opens a help window that shows a message explaining how to access the help page,
 as well as quick reference of each command with simple examples on how to use them.
 
 <box type="definition" icon=":fa-solid-spell-check:" light>
@@ -314,7 +321,7 @@ A new window is opened, so that it does not clutter up your main window. A GUI s
 The quick reference is meant for {{ macros.semiBold('fast and reliable') }} lookup of commands and their usages, without needing an internet connection and opening a browser to get an overview of the commands.
 
 * It is not meant to contain detailed information about each command. To access detailed information about each command, you can refer to our user guide.
-</box>
+  </box>
 
 <box type="tip" light>
 
@@ -329,16 +336,18 @@ The help window is resizable, so you can {{ macros.semiBold('easily reposition a
 <i class="fa-solid fa-window-restore"></i>
 **Switching quickly between the help and main window:**
 
-* On Windows and most Linux distributions, you can use the keyboard shortcut: {{ macros.keyFormat('Alt') }} + {{ macros.keyFormat('Tab') }}, to switch between windows quickly. 
+* On Windows and most Linux distributions, you can use the keyboard shortcut: {{ macros.keyFormat('Alt') }} + {{ macros.keyFormat('Tab') }}, to switch between windows quickly.
 
 * On macOS, you can use the keyboard shortcut: {{ macros.keyFormat('⌘Cmd') }} + {{ macros.keyFormat('`') }}, to switch between windows quickly.
-</box>
+  </box>
 
 {{ newPage }}
 
 ### <i class="fa-solid fa-chalkboard"></i> Name/Rename CS course : `setcrs`
 
-Sets the course code in question. 
+Sets the course code in question.
+
+Course is shown at the top of the window.
 
 Course is shown at the top of the window.
 
@@ -365,10 +374,6 @@ When an invalid course code is entered, the following error message appears:
 
 <img src="images/ug/setcrs_error.png" alt="Setcrs Error" class="rounded-image" width="800px"/>
 </box>
-
-<markdown class="d-print-none">---</markdown>
-<div style="page-break-after: always;"></div>
-<br>
 
 {{ newPage }}
 
@@ -397,6 +402,21 @@ For example, `e0123456` will be converted to `E0123456`, as `E0123456` and `e012
 </box>
 
 * Name must not be empty (or spaces only), and must have single spaces between words. It must be in proper-case and contain only alphabets.
+
+<box type="warning" light>
+
+**Adding un-permitted names:**
+
+In the current version of TAPro, certain names are not permitted due to the strictness of name validation. 
+
+The current workaround is to follow the proper-case format and make slight changes to the name, so that the validation works.
+
+<box type="success" light>
+
+{{ macros.semiBold('#g#Example:##') }} For names like `Zubir bin Said` and `Balaji s/o Sadasivan`, we can make slight changes to the name to fit current permitted formats. 
+They become `Zubir Bin Said` and `Balaji So Sadasivan` after the change, which are still similar enough to the original to not cause confusion.
+</box>
+</box>
 
 * All the remaining fields are optional. If values are not provided to optional fields, they will be set to a placeholder value under the hood (e.g., `Major not provided` for `MAJOR` field).
 
@@ -433,7 +453,7 @@ If a student is undertaking a double degree programme, you can use a comma to se
 * `addstu n/Betsy Crowe nn/E0123456 t/friend e/betsycrowe@example.com m/Mathematics, Physics p/1234567 t/club`
 
 * `addstu n/Betsy Crowe nn/E0123456`
-</box>
+  </box>
 
 {{ newPage }}
 
@@ -452,33 +472,45 @@ If there are additional arguments behind `list` we will simply ignore them.
 
 ### <i class="fa-solid fa-user-pen"></i> Editing a student : `edit`
 
-Edits an existing person in the contact book.
+Edits an existing student in the contact book.
 
 <box type="definition" icon=":fa-solid-spell-check:" light>
 
 **Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [m/MAJOR] [nn/NUSNET] [t/TAG]…​`**
 </box>
 
-* Edits the person at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer**, such as 1, 2, 3, …​
+* Edits the student at the specified `INDEX`. The index refers to the index number shown in the displayed student list. The index **must be a positive integer**, such as 1, 2, 3, …​
 
 * At least one of the optional fields must be provided.
 
 * Existing values will be updated to the input values.
 
-* When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.
+* When editing tags, the existing tags of the student will be removed, i.e adding of tags is not cumulative.
 
-* You can remove all the person’s tags by typing `t/` without
-    specifying any tags after it.
+* You can remove all the student’s tags by typing `t/` without
+  specifying any tags after it.
+
+<box type="warning" light>
+
+When `t/` is specified in the command, no other tags can be present, in order to remove all of a student's tag. 
+
+Otherwise, TAPro will parse the input as adding multiple tags, which may lead to an unsuccessful execution of the command.
+
+<box type="success" light>
+
+**#g#Example:##** Entering `edit 1 t/abc t/` will cause the error message `Tags names should be alphanumeric` to be shown. This error message is shown because TAPro expects the second `t/` to contain an alphanumeric value, which an empty value is not.
+</box>
+</box>
 
 <box type="success" light>
 
 **#g#Examples:##**
 
-*  `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email contact of the 1st person to be `91234567` and `johndoe@example.com` respectively.
+*  `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email contact of the first student to be `91234567` and `johndoe@example.com` respectively.
 
-*  `edit 2 n/Betsy Crower t/` Edits the name of the 2nd person to be `Betsy Crower` and clears all existing tags.
-</box>
-<box type="info" light>
+*  `edit 2 n/Betsy Crower t/` Edits the name of the second student to be `Betsy Crower` and clears all existing tags.
+   </box>
+   <box type="info" light>
 
 This command differs from most other commands that uses `NUSNET` to identify a student. This command uses the index number shown in the displayed person list to identify the student to be edited.
 </box>
@@ -573,7 +605,7 @@ Both `KEYWORD` and `[MORE_KEYWORDS]…​` accept alphanumeric and special symbo
 
 {{ newPage }}
 
-### <i class="fa-solid fa-square-check"></i> Marking a student's attendance for a given week by their NUSNet: `mark`
+### <i class="fa-solid fa-square-check"></i> Marking a student's attendance for a given week by their NUSNet ID: `mark`
 
 Marks a student's attendance for a particular week.
 
@@ -588,7 +620,7 @@ Marks a student's attendance for a particular week.
 
 {{ newPage }}
 
-### <i class="fa-solid fa-square-xmark"></i> Unmarking a student's attendance for a given week by their NUSNet: `unmark`
+### <i class="fa-solid fa-square-xmark"></i> Unmarking a student's attendance for a given week by their NUSNet ID: `unmark`
 
 Unmarks a student's attendance for a particular week.
 
@@ -613,7 +645,7 @@ Deletes the specified student from the contact book.
 **Format: `delstu nn/NUSNET`**
 </box>
 
-* Deletes the student with the specified NUSNet ID from the contact book. 
+* Deletes the student with the specified NUSNet ID from the contact book.
 
 <box type="success" light>
 
@@ -673,7 +705,7 @@ The first word, will be autocompleted as a command name, instead of a parameter,
 
 <span class="semi-bold">#g#Example:##</span>
 
-We have three students with NUSNet IDs `E0123456`, `E1234567` and `E2345678`. 
+We have three students with NUSNet IDs `E0123456`, `E1234567` and `E2345678`.
 If we type `mark nn/` into the command input box and press {{ macros.keyFormat('Tab') }} ,
 we can see that the text in the command input box autocompletes to become `mark nn/E01234567`.
 
@@ -693,11 +725,12 @@ The last parameter `TAG` is autocompleted.
 
 **Autocompletes the last parameter in the input:**
 
-Autocomplete works on the last parameter (if any) in the command box, which is the text directly after a [recognized prefix](#parameters-and-their-recognized-prefixes). 
 
-When reaching the end of the possible options list, pressing
-{{ macros.keyFormat('Tab') }}  will wrap 
+Autocomplete works on the last parameter (if any) in the command box, which is the text directly after a [recognized prefix](#parameters-and-their-recognized-prefixes).
+
+
 <box type="warning" light>
+
 A parameter can only be autocompleted if it is not the first word, and has a [recognized prefix](#parameters-and-their-recognized-prefixes).
 </box>
 
@@ -720,7 +753,7 @@ The last parameter `TAG` is autocompleted.
 
 Autocomplete will scroll through all possible suggestions, based on the existing data in your contact list.
 
-When reaching the end of the all possible suggestions, pressing {{ macros.keyFormat('Tab') }} will wrap 
+When reaching the end of the all possible suggestions, pressing {{ macros.keyFormat('Tab') }} will wrap
 the possible options back to the start of that list again.
 
 <box type="success" light>
@@ -731,16 +764,16 @@ We have three students with NUSNet IDs `E0123456`, `E1234567` and `E2345678`.
 If we type `mark nn/` into the command input box and press {{ macros.keyFormat('Tab') }},
 we can see that the text in the command input box autocompletes to become `mark nn/E0123456`.
 
-Every press of {{ macros.keyFormat('Tab') }}, causes the command input box text to update to the next autocompletion: 
+Every press of {{ macros.keyFormat('Tab') }}, causes the command input box text to update to the next autocompletion:
 * from `mark nn/E0123456` to `mark nn/E1234567`,
-* then to `mark nn/E2345678`, 
+* then to `mark nn/E2345678`,
 * and then back to `mark nn/E0123456`.
-</box>
-</box>
+  </box>
+  </box>
 
 <box type="warning" light>
 
-**Autocomplete is omitted on week number.** 
+**Autocomplete is omitted on week number.**
 
 Autocomplete does not work for week number, because `WEEK` is at most two digits, so it is much faster just typing out the number.
 </box>
@@ -786,14 +819,14 @@ TAPro saves successful commands input, so you can retrieve them later, using the
 <span class="semi-bold">#g#Example:##</span>
 
 1. `mark nn/E0123456` was the previous successful command.
-1. Now the command input box is empty. 
-1. Pressing {{ macros.keyFormat('Up', '<i class="fa-regular fa-square-caret-up"></i>') }} will 
+1. Now the command input box is empty.
+1. Pressing {{ macros.keyFormat('Up', '<i class="fa-regular fa-square-caret-up"></i>') }} will
    fill the text in the command input box to
-the previous command `mark nn/E0123456`!
-1. You can press {{ macros.keyFormat('Up', '<i class="fa-regular fa-square-caret-up"></i>') }} continuously to scroll through all the previous commands you have entered. 
-1. Pressing {{ macros.keyFormat('Down', '<i class="fa-regular fa-square-caret-down"></i>') }} will 
+   the previous command `mark nn/E0123456`!
+1. You can press {{ macros.keyFormat('Up', '<i class="fa-regular fa-square-caret-up"></i>') }} continuously to scroll through all the previous commands you have entered.
+1. Pressing {{ macros.keyFormat('Down', '<i class="fa-regular fa-square-caret-down"></i>') }} will
    scroll back to the more recent commands you have entered.
-</box>
+   </box>
 
 
 <box icon=":fa-solid-bolt:" theme="danger" light>
@@ -805,10 +838,10 @@ When retrieving commands, be aware that it will erase the current text in the co
 
 <box type="warning" light>
 
-**Your current input is the latest:** 
+**Your current input is the latest:**
 
-Pressing {{ macros.keyFormat('Down', '<i class="fa-regular fa-square-caret-down"></i>') }} without 
-having ever pressed {{ macros.keyFormat('Up', '<i class="fa-regular fa-square-caret-up"></i>') }} 
+Pressing {{ macros.keyFormat('Down', '<i class="fa-regular fa-square-caret-down"></i>') }} without
+having ever pressed {{ macros.keyFormat('Up', '<i class="fa-regular fa-square-caret-up"></i>') }}
 will attempt to retrieve a later command, which is empty text, because you are at your most recent command.
 </box>
 
@@ -816,11 +849,11 @@ will attempt to retrieve a later command, which is empty text, because you are a
 
 **Retrieves only successful input:**
 
-Only commands that has succeeded previously will be retrieved. If you enter an invalid command, it will not appear 
+Only commands that has succeeded previously will be retrieved. If you enter an invalid command, it will not appear
 when attempting to retrieve it.
 </box>
 
-{{ newPage }} 
+{{ newPage }}
 
 ### <i class="fa-solid fa-floppy-disk"></i> Saving the data
 
@@ -850,7 +883,7 @@ Furthermore, certain edits can cause the TAPro to behave in unexpected ways (e.g
 
 **Q**: <span class="semi-bold">How do I transfer my data to another computer?</span>
 
-**A**: Install the application in the target computer and replace the `data` folder with the `data` folder in 
+**A**: Install the application in the target computer and replace the `data` folder with the `data` folder in
 your current computer! Click `Yes` if are prompted to replace the existing `data` folder in your target computer.
 </box>
 
@@ -859,9 +892,9 @@ your current computer! Click `Yes` if are prompted to replace the existing `data
 
 **Q**: <span class="semi-bold">How can I transfer my TAPro contacts to another computer?</span>
 
-**A**: Install TAPro in your target computer and paste the empty `data` folder it creates 
-with the `data` folder from your otehr computer. Paste it in the same directory as your TAPro JAR file in your 
-target computer. 
+**A**: Install TAPro in your target computer and paste the empty `data` folder it creates
+with the `data` folder from your otehr computer. Paste it in the same directory as your TAPro JAR file in your
+target computer.
 </box>
 
 ### Launching TAPro
@@ -877,35 +910,35 @@ target computer.
 3. Enter `java -jar TAPro.jar` and the TAPro Application should launch.
 
 **Method 2**: <span class="semi-bold">Using `.bat/.sh` Scripts</span>
-   1. Create a new text file and paste the following code into the file and edit it according to the comments:
-      ```sh
-         java -jar <abosute_path_to_TAPro.jar> 
-      ```
-      Replace `<absolute_path_to_TAPro.jar>` with the path to TAPro on your system, in quotes.<br>
+1. Create a new text file and paste the following code into the file and edit it according to the comments:
+   ```sh
+      java -jar <abosute_path_to_TAPro.jar> 
+   ```
+   Replace `<absolute_path_to_TAPro.jar>` with the path to TAPro on your system, in quotes.<br>
 
    <box type="success" light>
 
-   <span class="semi-bold">#g#Examples:##</span>
+    <span class="semi-bold">#g#Examples:##</span>
 
-   * On Windows: `java -jar "C:\Users\YOUR_USERNAME\Downloads\TAPro.jar"`<br>
-   
-   * On Linux: `java -jar /home/YOUR_USERNAME/Downloads/TAPro.jar`<br>
-   
-   * On macOS: `java -jar "/Users/YOUR_USERNAME/Downloads/TAPro.jar"`<br>
-   </box>
+    * On Windows: `java -jar "C:\Users\YOUR_USERNAME\Downloads\TAPro.jar"`<br>
+    
+    * On Linux: `java -jar /home/YOUR_USERNAME/Downloads/TAPro.jar`<br>
+    
+    * On macOS: `java -jar "/Users/YOUR_USERNAME/Downloads/TAPro.jar"`<br>
+    </box>
 
 2. Save the file as `TAPro.bat` (Windows) or `TAPro.sh` (macOS/Linux).
 3. Change the admin settings of the script to allow it to run as a program:
     - Windows: Right-click on the script and select Properties. Under General, check the box that says `Allow this file to run as a program`.
     - macOS/Linux: Open the Terminal and navigate to the directory where the script is located. Type `chmod +x <script_file_name>` and press `Enter`.<br>
-   
+
    <box type="info" light>
-   
+
    `chmod +x` changes the permissions of the script to allow it to be executed.
    </box>
 
 4. Double-click on the script to launch TAPro.
-</box>
+   </box>
 
 ### Checking Java Version
 <box type="info" icon=":fa-solid-question:" light>
@@ -939,7 +972,7 @@ target computer.
 
 **Q**: <span class="semi-bold">How can I remove a student's attendance for a particular week?</span>
 
-**A**: In TAPro, you can remove a student's attendance for a particular week using the `unmark` command! The syntax 
+**A**: In TAPro, you can remove a student's attendance for a particular week using the `unmark` command! The syntax
 for the `unmark` command is as follows:
 <br><br>The syntax for the `unmark` command is as follows:
 ```
@@ -957,7 +990,7 @@ unmark nn/NUSNET wk/WEEK
 
 **Q**: <span class="semi-bold">Can I add tags to a TAPro contact if I want to remember something additional, like a birthday?</span>
 
-**A**: Yes you can! In fact, you may use the `TAG` parameter of a contact to store any information you want. Simply 
+**A**: Yes you can! In fact, you may use the `TAG` parameter of a contact to store any information you want. Simply
 use `edit` with the `INDEX` of the student and the information you wish to add to the contact, and you should be on your way!
 
 <box type="info" light>
@@ -975,7 +1008,7 @@ edit 3 t/1Mar
 </box>
 <box type="success" light>
 
-<span class="semi-bold">#g#Example:##</span> Using tag as a industry interest 
+<span class="semi-bold">#g#Example:##</span> Using tag as a industry interest
 ```
 edit 1 t/EduTech
 edit 2 t/Finance
@@ -994,9 +1027,9 @@ Adding new tag(s) will replace the existing tag(s).
 
 **Q**: <span class="semi-bold">How can I save more time when using TAPro?</span>
 
-**A**: You can use the advanced features like **[autocomplete](#autocomplete)** and **[command history toggle](#retrieving-command-history)** in TAPro! 
-These 
-features are 
+**A**: You can use the advanced features like **[autocomplete](#autocomplete)** and **[command history toggle](#retrieving-command-history)** in TAPro!
+These
+features are
 designed to help you input commands faster and more efficiently.
 
 <box type="success" light>
@@ -1004,17 +1037,17 @@ designed to help you input commands faster and more efficiently.
 <span class="semi-bold">#g#Example:##</span> Unmarking a wrongly marked  student's attendance
 
 1. `mark nn/E0123456 wk/6`
-1. Press the {{ macros.keyFormat('Up', '<i class="fa-regular fa-square-caret-up"></i>') }} key to 
+1. Press the {{ macros.keyFormat('Up', '<i class="fa-regular fa-square-caret-up"></i>') }} key to
    retrieve the previous command.
-1. Hold the {{ macros.keyFormat('Left', '<i class="fa-regular fa-square-caret-left"></i>') }} key to 
-move the cursor to the beginning of the command.
+1. Hold the {{ macros.keyFormat('Left', '<i class="fa-regular fa-square-caret-left"></i>') }} key to
+   move the cursor to the beginning of the command.
 1. Add a `un` in front of `mark` to change the command to `unmark nn/E0123456 wk/6`.
 1. Press `Enter`!
 
 </box>
 <box type="info" light>
 
-Future enhancements include pressing the {{ macros.keyFormat('Right', '<i class="fa-regular fa-square-caret-right"></i>') }} key to move the cursor to 
+Future enhancements include pressing the {{ macros.keyFormat('Right', '<i class="fa-regular fa-square-caret-right"></i>') }} key to move the cursor to
 the front of your input.
 </box>
 </box>

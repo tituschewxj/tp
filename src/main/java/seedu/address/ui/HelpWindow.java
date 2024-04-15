@@ -34,6 +34,21 @@ public class HelpWindow extends UiPart<Stage> {
     private static final Logger logger = LogsCenter.getLogger(HelpWindow.class);
     private static final String FXML = "HelpWindow.fxml";
 
+    /** All the {@code HelpWindowCommandCard} roots as {@code Region}s. */
+    private static final Region[] CARD_REGIONS = {
+            HelpWindowCommandCard.ofRoot(AddPersonCommand.COMMAND_WORD, AddPersonCommand.MESSAGE_USAGE),
+            HelpWindowCommandCard.ofRoot(ClearCommand.COMMAND_WORD, ClearCommand.MESSAGE_USAGE),
+            HelpWindowCommandCard.ofRoot(DeletePersonCommand.COMMAND_WORD, DeletePersonCommand.MESSAGE_USAGE),
+            HelpWindowCommandCard.ofRoot(EditPersonCommand.COMMAND_WORD, EditPersonCommand.MESSAGE_USAGE),
+            HelpWindowCommandCard.ofRoot(FindPersonCommand.COMMAND_WORD, FindPersonCommand.MESSAGE_USAGE),
+            HelpWindowCommandCard.ofRoot(ListPersonCommand.COMMAND_WORD, ListPersonCommand.MESSAGE_USAGE),
+            HelpWindowCommandCard.ofRoot(MarkAttendanceCommand.COMMAND_WORD, MarkAttendanceCommand.MESSAGE_USAGE),
+            HelpWindowCommandCard.ofRoot(UnmarkAttendanceCommand.COMMAND_WORD, UnmarkAttendanceCommand.MESSAGE_USAGE),
+            HelpWindowCommandCard.ofRoot(SetCourseCommand.COMMAND_WORD, SetCourseCommand.MESSAGE_USAGE),
+            HelpWindowCommandCard.ofRoot(ExitCommand.COMMAND_WORD, ExitCommand.MESSAGE_USAGE),
+            HelpWindowCommandCard.ofRoot(HelpCommand.COMMAND_WORD, HelpCommand.MESSAGE_USAGE),
+    };
+
     @FXML
     private Button copyButton;
     @FXML
@@ -53,53 +68,7 @@ public class HelpWindow extends UiPart<Stage> {
         helpMessageLink.setText(HELP_MESSAGE_LINK);
         helpWindowScrollPane.setContent(helpMessageContainer);
         helpWindowScrollPane.setPrefSize(Region.USE_COMPUTED_SIZE, Region.USE_PREF_SIZE);
-
-        helpMessageContainer.getChildren().addAll(
-                new HelpWindowCommandCard(
-                        AddPersonCommand.COMMAND_WORD,
-                        AddPersonCommand.MESSAGE_USAGE
-                ).getRoot(),
-                new HelpWindowCommandCard(
-                        ClearCommand.COMMAND_WORD,
-                        ClearCommand.MESSAGE_USAGE
-                ).getRoot(),
-                new HelpWindowCommandCard(
-                        DeletePersonCommand.COMMAND_WORD,
-                        DeletePersonCommand.MESSAGE_USAGE
-                ).getRoot(),
-                new HelpWindowCommandCard(
-                        EditPersonCommand.COMMAND_WORD,
-                        EditPersonCommand.MESSAGE_USAGE
-                ).getRoot(),
-                new HelpWindowCommandCard(
-                        FindPersonCommand.COMMAND_WORD,
-                        FindPersonCommand.MESSAGE_USAGE
-                ).getRoot(),
-                new HelpWindowCommandCard(
-                        ListPersonCommand.COMMAND_WORD,
-                        ListPersonCommand.MESSAGE_USAGE
-                ).getRoot(),
-                new HelpWindowCommandCard(
-                        MarkAttendanceCommand.COMMAND_WORD,
-                        MarkAttendanceCommand.MESSAGE_USAGE
-                ).getRoot(),
-                new HelpWindowCommandCard(
-                        UnmarkAttendanceCommand.COMMAND_WORD,
-                        UnmarkAttendanceCommand.MESSAGE_USAGE
-                ).getRoot(),
-                new HelpWindowCommandCard(
-                        SetCourseCommand.COMMAND_WORD,
-                        SetCourseCommand.MESSAGE_USAGE
-                ).getRoot(),
-                new HelpWindowCommandCard(
-                        ExitCommand.COMMAND_WORD,
-                        ExitCommand.MESSAGE_USAGE
-                ).getRoot(),
-                new HelpWindowCommandCard(
-                        HelpCommand.COMMAND_WORD,
-                        HelpCommand.MESSAGE_USAGE
-                ).getRoot()
-        );
+        helpMessageContainer.getChildren().addAll(CARD_REGIONS);
     }
 
     /**
