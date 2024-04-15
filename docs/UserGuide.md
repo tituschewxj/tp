@@ -365,7 +365,7 @@ The help window is resizable, so you can {{ macros.semiBold('easily reposition a
 
 <span class="semi-bold">#g#Help window:##</span>
 
-<img src="images/ug-screenshots/help.png" alt="help window" class="fit-container"/>
+<img src="images/ug-screenshots/help.png" alt="help window" class="fit-container rounded-image"/>
 
 </box>
 
@@ -414,12 +414,12 @@ Course code is meant for CS coded courses, hence only a prefix of two letters is
 
 <span class="semi-bold">#g#Before running `setcrs` command:##</span>
 
-<img src="images/ug-screenshots/setcrs_before.png" alt="before running set course command" class="fit-container"/>
+<img src="images/ug-screenshots/setcrs_before.png" alt="before running set course command" class="fit-container rounded-image"/>
 <br><br>
 
 <span class="semi-bold">#g#After running `setcrs` command:##</span>
 
-<img src="images/ug-screenshots/setcrs_after.png" alt="after running set course command" class="fit-container"/>
+<img src="images/ug-screenshots/setcrs_after.png" alt="after running set course command" class="fit-container rounded-image"/>
 
 </box>
 
@@ -515,12 +515,12 @@ If a student is undertaking a double degree programme, you can use a comma to se
 
 <span class="semi-bold">#g#Before running `addstu` command:##</span>
 
-<img src="images/ug-screenshots/addstu_before.png" alt="before running add student command" class="fit-container"/>
+<img src="images/ug-screenshots/addstu_before.png" alt="before running add student command" class="fit-container rounded-image"/>
 <br><br>
 
 <span class="semi-bold">#g#After running `addstu` command:##</span>
 
-<img src="images/ug-screenshots/addstu_after.png" alt="after running add student command" class="fit-container"/>
+<img src="images/ug-screenshots/addstu_after.png" alt="after running add student command" class="fit-container rounded-image"/>
 
 </box>
 
@@ -543,12 +543,12 @@ Shows a list of all persons in the contact book.
 
 <span class="semi-bold">#g#Before running `list` command:##</span>
 
-<img src="images/ug-screenshots/list_before.png" alt="before running list student command" class="fit-container"/>
+<img src="images/ug-screenshots/list_before.png" alt="before running list student command" class="fit-container rounded-image"/>
 <br><br>
 
 <span class="semi-bold">#g#After running `list` command:##</span>
 
-<img src="images/ug-screenshots/list_after.png" alt="after running list student command" class="fit-container"/>
+<img src="images/ug-screenshots/list_after.png" alt="after running list student command" class="fit-container rounded-image"/>
 
 </box>
 
@@ -607,12 +607,12 @@ Otherwise, TAPro will parse the input as adding multiple tags, which may lead to
 
 <span class="semi-bold">#g#Before running `edit` command:##</span>
 
-<img src="images/ug-screenshots/edit_before.png" alt="before running edit student command" class="fit-container"/>
+<img src="images/ug-screenshots/edit_before.png" alt="before running edit student command" class="fit-container rounded-image"/>
 <br><br>
 
 <span class="semi-bold">#g#After running `edit` command:##</span>
 
-<img src="images/ug-screenshots/edit_after.png" alt="after running edit student command" class="fit-container"/>
+<img src="images/ug-screenshots/edit_after.png" alt="after running edit student command" class="fit-container rounded-image"/>
 
 </box>
 
@@ -696,12 +696,11 @@ Both `KEYWORD` and `[MORE_KEYWORDS]…​` accept alphanumeric and special symbo
 <span class="semi-bold">#g#Example:##</span> `find John` returns `john` and `John Doe`
 </box>
 
-
 <box type="success" light>
 
 <span class="semi-bold">#g#Example:##</span> `find alex david` returns `Alex Yeoh`, `David Li`, as seen in the image below.
 
-<img src="images/findAlexDavidResult.png" alt="result for 'find alex david" width="406px" class="rounded-image"/>
+<img src="images/findAlexDavidResult.png" alt="result for 'find alex david" width="300px" class="rounded-image"/>
 </box>
 </box>
 
@@ -713,12 +712,12 @@ Both `KEYWORD` and `[MORE_KEYWORDS]…​` accept alphanumeric and special symbo
 
 <span class="semi-bold">#g#Before running `find` command:##</span>
 
-<img src="images/ug-screenshots/find_before.png" alt="before running find student command" class="fit-container"/>
+<img src="images/ug-screenshots/find_before.png" alt="before running find student command" class="rounded-image" width="700"/>
 <br><br>
 
 <span class="semi-bold">#g#After running `find` command:##</span>
 
-<img src="images/ug-screenshots/find_after.png" alt="after running find student command" class="fit-container"/>
+<img src="images/ug-screenshots/find_after.png" alt="after running find student command" class="fit-container rounded-image"/>
 
 </box>
 
@@ -746,12 +745,12 @@ Marks a student's attendance for a particular week.
 
 <span class="semi-bold">#g#Before running `mark` command:##</span>
 
-<img src="images/ug-screenshots/mark_before.png" alt="before running mark student attendance command" class="fit-container"/>
+<img src="images/ug-screenshots/mark_before.png" alt="before running mark student attendance command" class="fit-container rounded-image"/>
 <br><br>
 
 <span class="semi-bold">#g#After running `mark` command:##</span>
 
-<img src="images/ug-screenshots/mark_after.png" alt="after running mark student attendance command" class="fit-container"/>
+<img src="images/ug-screenshots/mark_after.png" alt="after running mark student attendance command" class="fit-container rounded-image"/>
 
 </box>
 
@@ -778,12 +777,12 @@ Unmarks a student's attendance for a particular week.
 
 <span class="semi-bold">#g#Before running `unmark` command:##</span>
 
-<img src="images/ug-screenshots/unmark_before.png" alt="before running unmark student attendance command" class="fit-container"/>
+<img src="images/ug-screenshots/unmark_before.png" alt="before running unmark student attendance command" class="fit-container rounded-image"/>
 <br><br>
 
 <span class="semi-bold">#g#After running `unmark` command:##</span>
 
-<img src="images/ug-screenshots/unmark_after.png" alt="after running unmark student attendance command" class="fit-container"/>
+<img src="images/ug-screenshots/unmark_after.png" alt="after running unmark student attendance command" class="fit-container rounded-image"/>
 
 </box>
 
@@ -820,12 +819,12 @@ If you cannot remember your student's NUSNet ID, you could use `find Betsy` or `
 
 <span class="semi-bold">#g#Before running `delstu` command:##</span>
 
-<img src="images/ug-screenshots/delstu_before.png" alt="before running delete student command" class="fit-container"/>
+<img src="images/ug-screenshots/delstu_before.png" alt="before running delete student command" class="fit-container rounded-image"/>
 <br><br>
 
 <span class="semi-bold">#g#After running `delstu` command:##</span>
 
-<img src="images/ug-screenshots/delstu_after.png" alt="after running delete student command" class="fit-container"/>
+<img src="images/ug-screenshots/delstu_after.png" alt="after running delete student command" class="fit-container rounded-image"/>
 
 </box>
 
@@ -840,7 +839,7 @@ Clears all entries from the contact book.
 **Format: `clear`**
 </box>
 
-* Additional arguments after `help` will be simply ignored.
+* Additional arguments after `clear` will be simply ignored.
 
 <box type="success" light>
 
@@ -848,12 +847,12 @@ Clears all entries from the contact book.
 
 <span class="semi-bold">#g#Before running `clear` command:##</span>
 
-<img src="images/ug-screenshots/clear_before.png" alt="before running clear TAPro command" class="fit-container"/>
+<img src="images/ug-screenshots/clear_before.png" alt="before running clear TAPro command" class="rounded-image" width="750"/>
 <br><br>
 
 <span class="semi-bold">#g#After running `clear` command:##</span>
 
-<img src="images/ug-screenshots/clear_after.png" alt="after running clea TAPro command" class="fit-container"/>
+<img src="images/ug-screenshots/clear_after.png" alt="after running clea TAPro command" class="rounded-image" width="750"/>
 
 </box>
 
@@ -876,7 +875,7 @@ Exits the program.
 
 <span class="semi-bold">#g#Before running `exit` command:##</span>
 
-<img src="images/ug-screenshots/exit_before.png" alt="before running exit TAPro command" class="fit-container"/>
+<img src="images/ug-screenshots/exit_before.png" alt="before running exit TAPro command" class="fit-container rounded-image"/>
 
 </box>
 
@@ -1052,13 +1051,15 @@ Only commands that has succeeded previously will be retrieved. If you enter an i
 when attempting to retrieve it.
 </box>
 
-{{ newPage }}
+<markdown class="d-print-none">---</markdown>
+<br>
 
 ### <i class="fa-solid fa-floppy-disk"></i> Saving the data
 
 TAPro's data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
 
-{{ newPage }}
+<markdown class="d-print-none">---</markdown>
+<br>
 
 ### <i class="fa-solid fa-pen-to-square"></i> Editing the data file
 
@@ -1091,7 +1092,8 @@ Furthermore, certain edits can cause the TAPro to behave in unexpected ways (e.g
 | **Exit**           | `exit`                                                           | `exit`                                                                                                   |
 | **Help**           | `help`                                                           | `help`                                                                                                   |
 
-{{ newPage }}
+<markdown class="d-print-none">---</markdown>
+<br>
 
 ## <i class="fa-solid fa-triangle-exclamation"></i> Known issues
 
@@ -1132,8 +1134,6 @@ If you [edit the data file](#editing-the-data-file) into an invalid format, upon
 your current computer! Click `Yes` if are prompted to replace the existing `data` folder in your target computer.
 </box>
 
-{{ newPageBetween }}
-
 ### Loading Data from Another Computer
 <box type="info" icon=":fa-solid-question:" light>
 
@@ -1143,8 +1143,6 @@ your current computer! Click `Yes` if are prompted to replace the existing `data
 with the `data` folder from your otehr computer. Paste it in the same directory as your TAPro JAR file in your
 target computer.
 </box>
-
-{{ newPageBetween }}
 
 ### Launching TAPro
 <box type="info" icon=":fa-solid-question:" light>
@@ -1170,9 +1168,7 @@ target computer.
     <span class="semi-bold">#g#Examples:##</span>
 
     * On Windows: `java -jar "C:\Users\YOUR_USERNAME\Downloads\TAPro.jar"`<br>
-    
     * On Linux: `java -jar /home/YOUR_USERNAME/Downloads/TAPro.jar`<br>
-    
     * On macOS: `java -jar "/Users/YOUR_USERNAME/Downloads/TAPro.jar"`<br>
     </box>
 
@@ -1198,8 +1194,6 @@ target computer.
 
 **A**: Open a command line and type `java -version`. If the command is not recognized, it means you do not have Java installed. You can install Java 11 using the Oracle guide [here](https://www.oracle.com/java/technologies/downloads/#java11). Alternatively, you can install the OpenJDK version. For macOS users, you may wish to follow the instructions [here](https://nus-cs2103-ay2324s1.github.io/website/admin/programmingLanguages.html).
 </box>
-
-{{ newPageBetween }}
 
 ### Using TAPro
 
@@ -1273,8 +1267,6 @@ edit 3 t/HealthTech
 Adding new tag(s) will replace the existing tag(s).
 </box>
 </box>
-
-{{ newPageBetween }}
 
 ### Saving More Time
 <box type="info" icon=":fa-solid-question:" light>
