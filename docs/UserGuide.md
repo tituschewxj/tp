@@ -380,7 +380,7 @@ Course codes must start with a prefix of 2 letters.
 
 <box type="success" light>
 
-**Screenshots of using the `help` command:**
+**Screenshots of using the `setcrs` command:**
 
 <span class="semi-bold">#g#Before running `setcrs` command:##</span>
 
