@@ -186,6 +186,13 @@ While a command is named as `XYZPersonCommandParser` internally (where `XYZ` is 
 * stores a `CourseName` object that represent a Course code. This is exposed to the outside as a `ReadOnlyCourseName` object.
 * does not depend on any of the other three components (as the `Model` represents data entities of the domain, they should make sense on their own without depending on other components)
 
+<box type="tip" light>
+
+While `Person` objects are used internally, it represents a student externally in TAPro.
+</box>
+
+{{ newPageBetween }}
+
 <box type="info" light>
 
 **An alternative model:**
@@ -196,10 +203,7 @@ An alternative (arguably, a more OOP) model is given below. It has a `Tag` list 
 
 </box>
 
-<box type="tip" light>
-
-While `Person` objects are used internally, it represents a student externally in TAPro.
-</box>
+{{ newPageBetween }}
 
 ### Storage component
 
@@ -379,6 +383,8 @@ By having caching of intermediate results, it reduces the need to recompute cert
 
 Lazy evaluation is carried out in `AttributeTrie`, where the new `Trie` was lazily evaluated. It means that the `Trie` was only generated when the autocompletion of a parameter value doesn't have an `AttributeTrie` already present.
 
+<br>
+
 #### Future improvements to the autocomplete feature
 
 **Improve detection on whether attributes are actually modified before updating their `AttributeTrie`s:**
@@ -439,6 +445,8 @@ be saved in the `addressBookStateList`, and the `currentStatePointer` is shifted
 
 <puml src="diagrams/UndoRedoState1.puml" alt="UndoRedoState1" /><br><br>
 
+{{ newPageBetween }}
+
 **Step 3.** The user executes `addstu n/David …​` to add a new person. The `addstu` command also calls `Model#commitAddressBook()`, causing another modified contact book state to be saved into the `addressBookStateList`.
 
 <puml src="diagrams/UndoRedoState2.puml" alt="UndoRedoState2" />
@@ -447,11 +455,13 @@ be saved in the `addressBookStateList`, and the `currentStatePointer` is shifted
 
 **Note:** If a command fails its execution, it will not call `Model#commitAddressBook()`, so the contact book state will not be saved into the `addressBookStateList`.
 
-</box><br><br>
+</box><br>
 
 **Step 4.** The user now decides that adding the person was a mistake, and decides to undo that action by executing the `undo` command. The `undo` command will call `Model#undoAddressBook()`, which will shift the `currentStatePointer` once to the left, pointing it to the previous contact book state, and restores the contact book to that state.
 
 <puml src="diagrams/UndoRedoState3.puml" alt="UndoRedoState3" /><br><br>
+
+{{ newPageBetween }}
 
 **Step 5.** The user wants to set the course name. He enters the command `setcrs CS2103T`, causing the course name to appear on the main window's title.
 
@@ -485,6 +495,8 @@ The `redo` command does the opposite — it calls `Model#redoAddressBook()`,
 
 </box><br>
 
+{{ newPageBetween }}
+
 **Step 6.** The user then decides to execute the command `list`. Commands that do not modify the contact book, such as `list`, will usually not call `Model#commitAddressBook()`, `Model#undoAddressBook()` or `Model#redoAddressBook()`. Thus, the `addressBookStateList` remains unchanged.
 
 <puml src="diagrams/UndoRedoState4.puml" alt="UndoRedoState4" /><br><br>
@@ -506,6 +518,8 @@ The following activity diagram summarizes what happens when a user executes a ne
 * **Alternative 1 (current choice):** Saves the entire contact book.
   * Pros: Easy to implement.
   * Cons: May have performance issues in terms of memory usage.
+
+<br>
 
 * **Alternative 2:** Individual command knows how to undo/redo by
   itself.
@@ -903,17 +917,17 @@ For all use cases below, the **System** is TAPro and the **Actor** is the user, 
 
 ### Glossary
 
-{{ macros.definitionBox('TAPro', 'The name of our product') }}
-{{ macros.definitionBox('Mainstream OS', 'Windows, Linux, Unix, MacOS') }}
-{{ macros.definitionBox('CS', 'Computer Science') }}
-{{ macros.definitionBox('NUS', 'National University of Singapore') }}
-{{ macros.definitionBox('TA', 'Teaching Assistant') }}
-{{ macros.definitionBox('NUSNet ID', 'A unique identifier for each student in NUS') }}
+{{ macros.definitionBox('ASCIIbetical Order', 'An ordering where numbers and most punctuations are before letters, and uppercase letters before lowercase letters.') }}
 {{ macros.definitionBox('API', 'Application Programming Interface') }}
 {{ macros.definitionBox('CLI', 'Command Line Interface') }}
-{{ macros.definitionBox('UI', 'User Interface') }}
+{{ macros.definitionBox('CS', 'Computer Science') }}
 {{ macros.definitionBox('GUI', 'Graphical User Interface') }}
-{{ macros.definitionBox('ASCIIbetical Order', 'An ordering where numbers and most punctuations are before letters, and uppercase letters before lowercase letters.') }}
+{{ macros.definitionBox('Mainstream OS', 'Windows, Linux, Unix, MacOS') }}
+{{ macros.definitionBox('NUS', 'National University of Singapore') }}
+{{ macros.definitionBox('NUSNet ID', 'A unique identifier for each student in NUS') }}
+{{ macros.definitionBox('TA', 'Teaching Assistant') }}
+{{ macros.definitionBox('TAPro', 'The name of our product') }}
+{{ macros.definitionBox('UI', 'User Interface') }}
 
 {{ newPage }}
 
@@ -973,7 +987,6 @@ testers are expected to do more *exploratory* testing.
 <span class="semi-bold">Expected:</span> The most recent window size and location is retained.
 </box>
 
-<br>
 {{ newPageBetween }}
 
 ### Adding a student
@@ -1016,7 +1029,7 @@ addstu n/Mary Jane p/91234911 e/janemary@example.com nn/E0123457 m/Biology t/fri
 shown in the result message panel.
 </box>
 
-<br>
+{{ newPageBetween }}
 
 ### Editing a student
 
@@ -1047,7 +1060,6 @@ shown in the status message.
 This command differs from most other commands that use the `NUSNET` to identify a student. This command uses the index number shown in the displayed person list to identify the student to be edited.
 </box>
 
-<br>
 {{ newPageBetween }}
 
 ### Deleting a student
@@ -1089,7 +1101,7 @@ delstu E0123456
 ```
 </box>
 
-<br>
+{{ newPageBetween }}
 
 ### Finding a student
 
@@ -1120,7 +1132,6 @@ find
 ```
 </box>
 
-<br>
 {{ newPageBetween }}
 
 ### Marking a student's attendance
@@ -1167,7 +1178,6 @@ mark E0123456 1
 ```
 </box>
 
-<br>
 {{ newPageBetween }}
 
 ### Unmarking a student's attendance
@@ -1215,7 +1225,7 @@ unmark E0123456 1
 ```
   </box>
 
-<br>
+{{ newPageBetween }}
 
 
 ### Setting the course name
@@ -1243,7 +1253,6 @@ in upper or lower case, `YYYY` can be any 4-digit number and `Z` is optional.
 <span class="semi-bold">Expected:</span> TAPro's main window's title contains the course code `CS2103` provided.
 </box>
 
-<br>
 {{ newPageBetween }}
 
 ### Autocompleting fields
@@ -1291,7 +1300,7 @@ edit 1 m/Computer Science
 ```
 </box>
 
-<br>
+{{ newPageBetween }}
 
 ### Retrieving previous successful commands
 
@@ -1324,7 +1333,6 @@ mark nn/E0123456 wk/6
 </box>
 </box>
 
-<br>
 {{ newPageBetween }}
 
 ### Accessing help
@@ -1345,7 +1353,8 @@ help
 
 <span class="semi-bold">Expected:</span> The help window automatically pops up, giving further information about TAPro's commands.
 </box>
-<br>
+
+{{ newPageBetween }}
 
 ### Clearing all data
 

@@ -27,6 +27,7 @@ If you can type fast, TAPro can get your contact management and attendance takin
 <div class="d-none d-print-block">
 <include src="UGContentPage.md" />
 </div>
+
 {{ newPage }}
 
 ## <i class="fa-solid fa-forward"></i>  Navigating this User Guide
@@ -173,6 +174,7 @@ Welcome to the TAPro GUI! 🎉 Here's a quick tour to help you get comfortable w
 
 TODO: Add a screenshot of the GUI with annotations
 
+{{ newPage }}
 
 ## <i class="fa-solid fa-forward"></i> Quick start
 
@@ -204,7 +206,8 @@ A GUI similar to the below image should appear in a few seconds. Note how the ap
 <img alt="Main Window UI on first launch" src="images/main_window_ui.png" class="rounded-image fit-container"/>
 
 </box>
-<div style="page-break-after: always;"></div>
+
+{{ newPageBetween }}
 
 
 5. Type a command in the command input box and press {{ macros.keyFormat('Enter') }} to execute it. 
@@ -333,6 +336,8 @@ The quick reference is meant for {{ macros.semiBold('fast and reliable') }} look
 The help window is resizable, so you can {{ macros.semiBold('easily reposition and resize') }} it to fit anywhere on your screen, exactly where you want it to be.
 </box>
 
+{{ newPageBetween }}
+
 <box type="tip" light>
 
 <i class="fa-solid fa-window-restore"></i>
@@ -359,14 +364,14 @@ The help window is resizable, so you can {{ macros.semiBold('easily reposition a
 
 Sets the course code in question.
 
-The course code is shown at the top of TAPro's main window.
-
-Course code must be in the format "XX1234Y", where Y is optional.
-
 <box type="definition" icon=":fa-solid-spell-check:" light>
 
 **Format: `setcrs COURSE_CODE`**
 </box>
+
+* The course code is shown at the top of TAPro's main window.
+
+* Course code must be in the format `XX1234Y`, where `Y` is optional.
 
 <box type="info" light>
 
@@ -376,7 +381,7 @@ Course codes are case-insensitive.
 
 <box type="info" light>
 
-Course codes must start with a prefix of 2 letters.
+Course code is meant for CS coded courses, hence only a prefix of two letters is allowed.
 
 </box>
 
@@ -386,9 +391,11 @@ Course codes must start with a prefix of 2 letters.
 
 * `setcrs cs2103t`
 
-* `setcrs ST2334`
+* `setcrs CS2030`
 
 </box>
+
+{{ newPageBetween }}
 
 <box type="success" light>
 
@@ -397,6 +404,7 @@ Course codes must start with a prefix of 2 letters.
 <span class="semi-bold">#g#Before running `setcrs` command:##</span>
 
 <img src="images/ug-screenshots/setcrs_before.png" alt="before running set course command" class="fit-container"/>
+<br><br>
 
 <span class="semi-bold">#g#After running `setcrs` command:##</span>
 
@@ -461,15 +469,18 @@ A student can have any number of tags, including 0.
 
 `bestFriend4Ever`, `colleague`, `Club` are valid tags, but `best friend`, `best-friend` are not valid tags.
 </box>
+<box type="tip" light>
 
 **Adding multiple majors:**
 
 If a student is undertaking a double degree programme, you can use a comma to separate the disciplines in the `MAJOR` field.
-
 <box type="success" light>
 
 <span class="semi-bold">#g#Example:##</span> We can use `m/Computer Science, Mathematics` to indicate that a student has these two majors, Computer Science and Mathematics.
 </box>
+</box>
+
+{{ newPageBetween }}
 
 <box type="success" light>
 
@@ -490,6 +501,7 @@ If a student is undertaking a double degree programme, you can use a comma to se
 <span class="semi-bold">#g#Before running `addstu` command:##</span>
 
 <img src="images/ug-screenshots/addstu_before.png" alt="before running add student command" class="fit-container"/>
+<br><br>
 
 <span class="semi-bold">#g#After running `addstu` command:##</span>
 
@@ -508,7 +520,7 @@ Shows a list of all persons in the contact book.
 **Format: `list`**
 </box>
 
-Additional arguments after `list` will be simply ignored.
+* Additional arguments after `list` will be simply ignored.
 
 <box type="success" light>
 
@@ -517,6 +529,7 @@ Additional arguments after `list` will be simply ignored.
 <span class="semi-bold">#g#Before running `list` command:##</span>
 
 <img src="images/ug-screenshots/list_before.png" alt="before running list student command" class="fit-container"/>
+<br><br>
 
 <span class="semi-bold">#g#After running `list` command:##</span>
 
@@ -571,6 +584,8 @@ Otherwise, TAPro will parse the input as adding multiple tags, which may lead to
 *  `edit 2 n/Betsy Crower t/` Edits the name of the second student to be `Betsy Crower` and clears all existing tags.
    </box>
 
+{{ newPageBetween }}
+
 <box type="success" light>
 
 **Screenshots of using the `edit` command:**
@@ -578,6 +593,7 @@ Otherwise, TAPro will parse the input as adding multiple tags, which may lead to
 <span class="semi-bold">#g#Before running `edit` command:##</span>
 
 <img src="images/ug-screenshots/edit_before.png" alt="before running edit student command" class="fit-container"/>
+<br><br>
 
 <span class="semi-bold">#g#After running `edit` command:##</span>
 
@@ -674,6 +690,8 @@ Both `KEYWORD` and `[MORE_KEYWORDS]…​` accept alphanumeric and special symbo
 </box>
 </box>
 
+{{ newPageBetween }}
+
 <box type="success" light>
 
 **Screenshots of using the `find` command:**
@@ -681,6 +699,7 @@ Both `KEYWORD` and `[MORE_KEYWORDS]…​` accept alphanumeric and special symbo
 <span class="semi-bold">#g#Before running `find` command:##</span>
 
 <img src="images/ug-screenshots/find_before.png" alt="before running find student command" class="fit-container"/>
+<br><br>
 
 <span class="semi-bold">#g#After running `find` command:##</span>
 
@@ -713,6 +732,7 @@ Marks a student's attendance for a particular week.
 <span class="semi-bold">#g#Before running `mark` command:##</span>
 
 <img src="images/ug-screenshots/mark_before.png" alt="before running mark student attendance command" class="fit-container"/>
+<br><br>
 
 <span class="semi-bold">#g#After running `mark` command:##</span>
 
@@ -744,6 +764,7 @@ Unmarks a student's attendance for a particular week.
 <span class="semi-bold">#g#Before running `unmark` command:##</span>
 
 <img src="images/ug-screenshots/unmark_before.png" alt="before running unmark student attendance command" class="fit-container"/>
+<br><br>
 
 <span class="semi-bold">#g#After running `unmark` command:##</span>
 
@@ -776,6 +797,8 @@ Deletes the specified student from the contact book.
 If you cannot remember your student's NUSNet ID, you could use `find Betsy` or `list` followed by `delstu nn/<Betsy's NUSNET>` to find and delete the student.
 </box>
 
+{{ newPageBetween }}
+
 <box type="success" light>
 
 **Screenshots of using the `delstu` command:**
@@ -783,6 +806,7 @@ If you cannot remember your student's NUSNet ID, you could use `find Betsy` or `
 <span class="semi-bold">#g#Before running `delstu` command:##</span>
 
 <img src="images/ug-screenshots/delstu_before.png" alt="before running delete student command" class="fit-container"/>
+<br><br>
 
 <span class="semi-bold">#g#After running `delstu` command:##</span>
 
@@ -808,6 +832,7 @@ Clears all entries from the contact book.
 <span class="semi-bold">#g#Before running `clear` command:##</span>
 
 <img src="images/ug-screenshots/clear_before.png" alt="before running clear TAPro command" class="fit-container"/>
+<br><br>
 
 <span class="semi-bold">#g#After running `clear` command:##</span>
 
@@ -844,7 +869,7 @@ The autocomplete feature autocompletes a parameter or command, based on the curr
 
 {{ macros.definitionBox('Autocompletion', 'The autocomplete feature\'s suggested result(s).') }}
 
-We can autocomplete both command names and parameters after their prefixes by pressing {{ macros.keyFormat('Tab') }}, when an autocompletion is available.
+* We can autocomplete both command names and parameters after their prefixes by pressing {{ macros.keyFormat('Tab') }}, when an autocompletion is available.
 
 <box type="important" light>
 
@@ -1077,6 +1102,8 @@ If you [edit the data file](#editing-the-data-file) into an invalid format, upon
 
 ## <i class="fa-solid fa-comments"></i> FAQ
 
+<br>
+
 ### Transfering Data to Another Computer
 <box type="info" icon=":fa-solid-question:" light>
 
@@ -1085,6 +1112,8 @@ If you [edit the data file](#editing-the-data-file) into an invalid format, upon
 **A**: Install the application in the target computer and replace the `data` folder with the `data` folder in
 your current computer! Click `Yes` if are prompted to replace the existing `data` folder in your target computer.
 </box>
+
+{{ newPageBetween }}
 
 ### Loading Data from Another Computer
 <box type="info" icon=":fa-solid-question:" light>
@@ -1095,6 +1124,8 @@ your current computer! Click `Yes` if are prompted to replace the existing `data
 with the `data` folder from your otehr computer. Paste it in the same directory as your TAPro JAR file in your
 target computer.
 </box>
+
+{{ newPageBetween }}
 
 ### Launching TAPro
 <box type="info" icon=":fa-solid-question:" light>
@@ -1139,6 +1170,8 @@ target computer.
 4. Double-click on the script to launch TAPro.
    </box>
 
+{{ newPageBetween }}
+
 ### Checking Java Version
 <box type="info" icon=":fa-solid-question:" light>
 
@@ -1146,6 +1179,8 @@ target computer.
 
 **A**: Open a command line and type `java -version`. If the command is not recognized, it means you do not have Java installed. You can install Java 11 using the Oracle guide [here](https://www.oracle.com/java/technologies/downloads/#java11). Alternatively, you can install the OpenJDK version. For macOS users, you may wish to follow the instructions [here](https://nus-cs2103-ay2324s1.github.io/website/admin/programmingLanguages.html).
 </box>
+
+{{ newPageBetween }}
 
 ### Using TAPro
 
@@ -1220,6 +1255,7 @@ Adding new tag(s) will replace the existing tag(s).
 </box>
 </box>
 
+{{ newPageBetween }}
 
 ### Saving More Time
 <box type="info" icon=":fa-solid-question:" light>
