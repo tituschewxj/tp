@@ -359,6 +359,8 @@ Sets the course code in question.
 
 The course code is shown at the top of TAPro's main window.
 
+Course code must be in the format "XX1234Y", where Y is optional.
+
 <box type="definition" icon=":fa-solid-spell-check:" light>
 
 **Format: `setcrs COURSE_CODE`**
@@ -367,6 +369,12 @@ The course code is shown at the top of TAPro's main window.
 <box type="info" light>
 
 Course codes are case-insensitive.
+
+</box>
+
+<box type="info" light>
+
+Course codes must start with a prefix of 2 letters
 
 </box>
 
